@@ -1,0 +1,78 @@
+﻿<controls:MetroWindow x:Class="SensorsViewer.Home.HomeView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:local="clr-namespace:SensorsViewer.Home"
+       
+        mc:Ignorable="d" Height="650" Width="1100"
+        Style="{StaticResource WindowStyle}"
+        WindowStartupLocation="CenterScreen"
+        ShowIconOnTitleBar="True"
+        MinWidth="900"
+        Name="Window" 
+        Background="WhiteSmoke"              
+        Title="HomeView">
+
+    <controls:MetroWindow.IconTemplate>
+        <DataTemplate>
+            <Image Source="../Resources/gmLogo.png"  Stretch="None"></Image>
+        </DataTemplate>
+    </controls:MetroWindow.IconTemplate>
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="254" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0" Effect="{StaticResource CardShadow}" Background="White" Height="621" Margin="0,0,0,-0.333" VerticalAlignment="Bottom">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBlock Style="{StaticResource H5}" Opacity="{StaticResource SecondaryTextOpacity}" Padding="10 20 10 5" Margin="38,0,113,0" Width="103">Project</TextBlock>
+
+                <Grid>
+                    <ItemsControl  Margin="0,53,0,-53">Items control 1
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel>
+                                    <TextBlock Text="Items 1" Style="{StaticResource H3}" Foreground="#0398E2" HorizontalAlignment="Left" Padding="10"></TextBlock>
+                                    <ItemsControl> subitems controls
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Style="{StaticResource MenuItem}" Width="280">
+                                                    <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource H5}" HorizontalAlignment="Left" Text="subitem"/>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                    <ItemsControl > subitem control 2
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Border Style="{StaticResource MenuItem}" Width="280">
+                                                    <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource H5}" HorizontalAlignment="Left" Text="subitem2"/>
+                                                </Border>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                </Grid>
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</controls:MetroWindow>
