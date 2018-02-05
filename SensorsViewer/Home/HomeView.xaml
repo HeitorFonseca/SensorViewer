@@ -21,58 +21,99 @@
         </DataTemplate>
     </controls:MetroWindow.IconTemplate>
 
+    <controls:MetroWindow.DataContext>
+        <local:HomeViewModel></local:HomeViewModel>
+    </controls:MetroWindow.DataContext>
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="254" />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-
-        <Border Grid.Column="0" Effect="{StaticResource CardShadow}" Background="White" Height="621" Margin="0,0,0,-0.333" VerticalAlignment="Bottom">
-
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                </Grid.RowDefinitions>
-
-                <TextBlock Style="{StaticResource H5}" Opacity="{StaticResource SecondaryTextOpacity}" Padding="10 20 10 5" Margin="38,0,113,0" Width="103">Project</TextBlock>
-
+        <TabControl>
+            <TabItem Header="A project" Margin="-2,-2,-250,0">
                 <Grid>
-                    <ItemsControl  Margin="0,53,0,-53">Items control 1
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel>
-                                    <TextBlock Text="Items 1" Style="{StaticResource H3}" Foreground="#0398E2" HorizontalAlignment="Left" Padding="10"></TextBlock>
-                                    <ItemsControl> subitems controls
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <Border Style="{StaticResource MenuItem}" Width="280">
-                                                    <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource H5}" HorizontalAlignment="Left" Text="subitem"/>
-                                                </Border>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                    <ItemsControl > subitem control 2
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <Border Style="{StaticResource MenuItem}" Width="280">
-                                                    <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource H5}" HorizontalAlignment="Left" Text="subitem2"/>
-                                                </Border>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="254" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
+                    <Border Grid.Column="0" Effect="{StaticResource CardShadow}" Background="White" Height="Auto" Margin="0,0,0.4,0.2" >
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Style="{StaticResource H5}" Opacity="{StaticResource SecondaryTextOpacity}" Padding="10 20 10 5" Margin="38,0,113,0" Width="103">Project</TextBlock>
+
+                            <Grid>
+                                <ItemsControl Margin="0,56,0.4,-56.2" ItemsSource="{Binding ProjectAMenu}" >
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Name}" Style="{StaticResource H3}" Foreground="#0398E2" HorizontalAlignment="Left" Padding="10"></TextBlock>
+                                                <ItemsControl ItemsSource="{Binding Items}">
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Border MouseDown="UIElement_OnMouseDown" Style="{StaticResource MenuItem}" Width="280">
+                                                                <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource H5}" HorizontalAlignment="Left" Text="{Binding Title}"/>
+                                                            </Border>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Grid>
+                        </Grid>
+                    </Border>
                 </Grid>
-            </Grid>
+            </TabItem>
 
-        </Border>
+            <TabItem Header="B project" Margin="250,-2,-540.6,0.2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="254" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
 
+                    <Border Grid.Column="0" Effect="{StaticResource CardShadow}" Background="White" Height="589" Margin="0,0,0.4,0.2" >
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Style="{StaticResource H5}" Opacity="{StaticResource SecondaryTextOpacity}" Padding="10 20 10 5" Margin="38,0,113.4,153.6">Project</TextBlock>
+
+                            <Grid>
+                                <ItemsControl Margin="0,56,0.4,-56.2" ItemsSource="{Binding ProjectBMenu}" >
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <TextBlock Text="{Binding Name}" Style="{StaticResource H3}" Foreground="#0398E2" HorizontalAlignment="Left" Padding="10"></TextBlock>
+                                                <ItemsControl ItemsSource="{Binding Items}">
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Border MouseDown="UIElement_OnMouseDown" Style="{StaticResource MenuItem}" Width="280">
+                                                                <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource H5}" HorizontalAlignment="Left" Text="{Binding Title}"/>
+                                                            </Border>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
     </Grid>
 
 </controls:MetroWindow>

@@ -21,3 +21,27 @@ c:\users\heitor.araujo\source\repos\SensorsViewer\SensorsViewer\obj\Debug\Sensor
 c:\users\heitor.araujo\source\repos\SensorsViewer\SensorsViewer\obj\Debug\SensorsViewer.csproj.CoreCompileInputs.cache
 c:\users\heitor.araujo\source\repos\SensorsViewer\SensorsViewer\obj\Debug\SensorsViewer.exe
 c:\users\heitor.araujo\source\repos\SensorsViewer\SensorsViewer\obj\Debug\SensorsViewer.pdb
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\bin\Debug\SensorsViewer.exe.config
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\bin\Debug\SensorsViewer.exe
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\bin\Debug\SensorsViewer.pdb
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\bin\Debug\MahApps.Metro.dll
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\bin\Debug\System.Windows.Interactivity.dll
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\bin\Debug\MahApps.Metro.pdb
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\bin\Debug\MahApps.Metro.xml
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\SensorsViewer.csprojResolveAssemblyReference.cache
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\Home\HomeView.g.cs
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\MainWindow.g.cs
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\App.g.cs
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\SensorsViewer_MarkupCompile.cache
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\SensorsViewer_MarkupCompile.lref
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\App.baml
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\Home\HomeView.baml
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\MainWindow.baml
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\Resources\AppDictionary.baml
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\SensorsViewer.g.resources
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\SensorsViewer.Properties.Resources.resources
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\SensorsViewer.csproj.GenerateResource.Cache
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\SensorsViewer.csproj.CoreCompileInputs.cache
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\SensorsViewer.exe
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\SensorsViewer.pdb
+C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\GeneratedInternalTypeHelper.g.cs
