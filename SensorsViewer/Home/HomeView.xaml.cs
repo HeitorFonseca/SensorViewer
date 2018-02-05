@@ -18,19 +18,11 @@ namespace SensorsViewer.Home
     public partial class HomeView : MetroWindow
     {
         /// <summary>
-        /// Private mqtt connection
-        /// </summary>
-        private MqttConnection proc;
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="HomeView"/> class
         /// </summary>
         public HomeView()
         {
             this.InitializeComponent();
-
-            this.proc = new MqttConnection("localhost", 5672, "userTest", "userTest", "hello");
-            this.proc.Connect();
         }
 
         /// <summary>
@@ -55,16 +47,6 @@ namespace SensorsViewer.Home
             var hvm = (HomeViewModel)DataContext;
             hvm.ProjectBContent = (UserControl)Activator.CreateInstance(sample.Content);
             ////hvm.IsMenuOpen = false;
-        }
-
-        /// <summary>
-        /// Event when close window
-        /// </summary>
-        /// <param name="sender">object sender</param>
-        /// <param name="e">event e</param>
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        {
-            this.proc.Disconnect();
-        }
+        }        
     }
 }

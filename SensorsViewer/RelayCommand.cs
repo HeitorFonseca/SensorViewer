@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace SensorsViewer
 {
-    class RelayCommand : ICommand
+    public class RelayCommand : ICommand
     {
         private Action _action;
 

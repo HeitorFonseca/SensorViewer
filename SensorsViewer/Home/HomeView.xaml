@@ -13,7 +13,7 @@
         MinWidth="900"
         Name="Window" 
         Background="WhiteSmoke"              
-        Title="HomeView" Closing="Window_Closing">
+        Title="HomeView" >
 
     <controls:MetroWindow.IconTemplate>
         <DataTemplate>

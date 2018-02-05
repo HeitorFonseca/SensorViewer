@@ -4,6 +4,7 @@
 
 namespace SensorsViewer.Home
 {
+    using SensorsViewer.Connection;
     using SensorsViewer.ProjectB;
     using System;
     using System.Collections.Generic;
@@ -41,20 +42,34 @@ namespace SensorsViewer.Home
         private IEnumerable<ProjectGroupVm> projectBMenu;
 
         /// <summary>
+        /// Private mqtt connection
+        /// </summary>
+        private MqttConnection proc;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="HomeViewModel"/> class
         /// </summary>
         public HomeViewModel()
         {
+
+            this.proc = new MqttConnection("localhost", 5672, "userTest", "userTest", "hello");
+            this.proc.Connect();
+
             InitializeLeftBarMenu();
 
             //Set the B project content for OpticalSensorView
             this.projectBContent = (UserControl)(new OpticalSensorView());
+
+            CloseWindowCommand = new RelayCommand(Window_Closing);
         }
+
 
         /// <summary>
         /// Event for when change property
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public RelayCommand CloseWindowCommand { get; set; }
 
         /// <summary>
         /// Gets or sets project A menu left bar
@@ -119,6 +134,9 @@ namespace SensorsViewer.Home
             }
         }
 
+        /// <summary>
+        /// Initialize left bar menu
+        /// </summary>
         private void InitializeLeftBarMenu()
         {
             this.projectAMenu = new[]
@@ -144,6 +162,16 @@ namespace SensorsViewer.Home
                     }
                 }
             };           
+        }
+
+        /// <summary>
+        /// Event when close window
+        /// </summary>
+        /// <param name="sender">object sender</param>
+        /// <param name="e">event e</param>
+        private void Window_Closing()
+        {
+            this.proc.Disconnect();
         }
     }
 }
