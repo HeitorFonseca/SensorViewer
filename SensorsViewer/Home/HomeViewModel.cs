@@ -1,96 +1,149 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+﻿// <copyright file="HomeViewModel.cs" company="GM">
+//     gm.com. All rights reserved.
+// </copyright>
 
 namespace SensorsViewer.Home
 {
-    class HomeViewModel
+    using SensorsViewer.ProjectB;
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Windows.Controls;
+
+    /// <summary>
+    /// Home view model class
+    /// </summary>
+    public class HomeViewModel
     {
-        private UserControl _content;
-        private ObservableCollection<TabItem> _tabs;
-        private IEnumerable<ProjectGroupVm> _ProjectAMenu;
-        private IEnumerable<ProjectGroupVm> _ProjectBMenu;
+        /// <summary>
+        /// Private enumerable datasource
+        /// </summary>
+        private readonly IEnumerable<ProjectGroupVm> dataSource;
 
-        private readonly IEnumerable<ProjectGroupVm> _dataSource;
+        /// <summary>
+        /// Project A User control content
+        /// </summary>
+        private UserControl projectAContent;
 
+        /// <summary>
+        /// Project B User control content
+        /// </summary>
+        private UserControl projectBContent;
+
+        /// <summary>
+        /// Private project A menu left bar
+        /// </summary>
+        private IEnumerable<ProjectGroupVm> projectAMenu;
+
+        /// <summary>
+        /// Private project b menu left bar
+        /// </summary>
+        private IEnumerable<ProjectGroupVm> projectBMenu;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HomeViewModel"/> class
+        /// </summary>
         public HomeViewModel()
         {
-            _dataSource = new[]
+            InitializeLeftBarMenu();
+
+            //Set the B project content for OpticalSensorView
+            this.projectBContent = (UserControl)(new OpticalSensorView());
+        }
+
+        /// <summary>
+        /// Event for when change property
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Gets or sets project A menu left bar
+        /// </summary>
+        public IEnumerable<ProjectGroupVm> ProjectAMenu
+        {
+            get
+            {
+                return this.projectAMenu;
+            }
+
+            set
+            {
+                this.projectAMenu = value;
+                this.OnPropertyChanged("ProjectAMenu");
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets project B menu left bar
+        /// </summary>
+        public IEnumerable<ProjectGroupVm> ProjectBMenu
+        {
+            get
+            {
+                return this.projectBMenu;
+            }
+
+            set
+            {
+                this.projectAMenu = value;
+                this.OnPropertyChanged("ProjectBMenu");
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets user control content
+        /// </summary>
+        public UserControl ProjectBContent
+        {
+            get
+            {
+                return this.projectBContent;
+            }
+
+            set
+            {
+                this.projectBContent = value;
+                this.OnPropertyChanged("Content");
+            }
+        }
+
+        /// <summary>
+        /// When changes property
+        /// </summary>
+        /// <param name="propertyName">Property name</param>
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        private void InitializeLeftBarMenu()
+        {
+            this.projectAMenu = new[]
             {
                 new ProjectGroupVm
                 {
                     Name = "A Project",
                     Items = new[]
                     {
-                        new OptionVm("Load stl model"),
-                        new OptionVm("Load sensors data"),
-                        new OptionVm("Material Design"),
-                        new OptionVm("Solid Color")
+                        new OptionVm("Load STL Model"), new OptionVm("Load Sensors"), new OptionVm("Export csv"), new OptionVm("Export txt")
                     }
                 }
             };
 
-            _ProjectAMenu = _dataSource;
-
-            _dataSource = new[]
+            this.projectBMenu = new[]
             {
                 new ProjectGroupVm
                 {
                     Name = "B Project",
                     Items = new[]
                     {
-                        new OptionVm("Save data"),
-                        new OptionVm("Play"),
-                        new OptionVm("Stop"),
-                        new OptionVm("Exit")
+                        new OptionVm("Export csv"), new OptionVm("Export txt")
                     }
                 }
-            };
-
-            _ProjectBMenu = _dataSource;
-        }
-
-        public IEnumerable<ProjectGroupVm> ProjectAMenu
-        {
-            get { return _ProjectAMenu; }
-            set
-            {
-                _ProjectAMenu = value;
-                OnPropertyChanged("ProjectAMenu");
-            }
-        }
-
-        public IEnumerable<ProjectGroupVm> ProjectBMenu
-        {
-            get { return _ProjectBMenu; }
-            set
-            {
-                _ProjectAMenu = value;
-                OnPropertyChanged("ProjectBMenu");
-            }
-        }
-
-        public UserControl Content
-        {
-            get { return _content; }
-            set
-            {
-                _content = value;
-                OnPropertyChanged("Content");
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            };           
         }
     }
 }

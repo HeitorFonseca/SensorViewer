@@ -13,7 +13,7 @@
         MinWidth="900"
         Name="Window" 
         Background="WhiteSmoke"              
-        Title="HomeView">
+        Title="HomeView" Closing="Window_Closing">
 
     <controls:MetroWindow.IconTemplate>
         <DataTemplate>
@@ -26,8 +26,22 @@
     </controls:MetroWindow.DataContext>
 
     <Grid>
-        <TabControl>
-            <TabItem Header="A project" Margin="-2,-2,-250,0">
+
+        <DockPanel HorizontalAlignment="Stretch" Height="18" LastChildFill="False" VerticalAlignment="Top" Margin="0,0,0.333,0">
+            <Menu Name="MainMenu" Height="20" VerticalAlignment="Top" DockPanel.Dock="Top" >
+                <MenuItem Header="File" Name="MenuFile">
+                    <MenuItem Header="Load stl model"/>
+                    <MenuItem Header="Exit"/>
+                </MenuItem>
+                <MenuItem Header="Edit" Name="MenuEdit"/>
+                <MenuItem Header="Connection" Name="MenuView">
+                    <MenuItem Header="Configuration" />
+                </MenuItem>
+            </Menu>
+        </DockPanel>
+
+        <TabControl Margin="0,18,0.333,-0.333">
+            <TabItem Header="A project" >
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="254" />
@@ -35,7 +49,6 @@
                     </Grid.ColumnDefinitions>
 
                     <Border Grid.Column="0" Effect="{StaticResource CardShadow}" Background="White" Height="Auto" Margin="0,0,0.4,0.2" >
-
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"></RowDefinition>
@@ -67,17 +80,30 @@
                             </Grid>
                         </Grid>
                     </Border>
+                    <Border Grid.Column="1" BorderThickness="0 1 0 0" BorderBrush="#E6E6E6">
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Border Grid.Row="2" Margin="25" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
+                                <ContentPresenter  Content="{Binding ProjectAContent}"/>
+                            </Border>
+                        </Grid>
+                    </Border>
                 </Grid>
             </TabItem>
 
-            <TabItem Header="B project" Margin="250,-2,-540.6,0.2">
+            <TabItem Header="B project" >
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="254" />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
 
-                    <Border Grid.Column="0" Effect="{StaticResource CardShadow}" Background="White" Height="589" Margin="0,0,0.4,0.2" >
+                    <Border Grid.Column="0" Effect="{StaticResource CardShadow}" Background="White" Margin="0,0,0,-0.333" >
 
                         <Grid>
                             <Grid.RowDefinitions>
@@ -110,9 +136,22 @@
                             </Grid>
                         </Grid>
                     </Border>
+
+                    <Border Grid.Column="1" BorderThickness="0 1 0 0" BorderBrush="#E6E6E6">
+                        <Grid >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Border Grid.Row="2" Margin="25" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
+                                <ContentPresenter  Content="{Binding ProjectBContent}"/>
+                            </Border>
+                        </Grid>
+                    </Border>
                 </Grid>
             </TabItem>
-
         </TabControl>
     </Grid>
 

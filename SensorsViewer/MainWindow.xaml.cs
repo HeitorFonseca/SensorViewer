@@ -1,31 +1,32 @@
-﻿using SensorsViewer.Home;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿// <copyright file="MainWindow.xaml.cs" company="GM">
+//     gm.com. All rights reserved.
+// </copyright>
 
 namespace SensorsViewer
 {
+    using System;
+    using System.Windows;
+    using SensorsViewer.Connection;
+    using SensorsViewer.Home;
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MainWindow"/> class
+        /// </summary>
         public MainWindow()
         {
-            InitializeComponent();
+            this.InitializeComponent();            
         }
 
+        /// <summary>
+        /// On button click event
+        /// </summary>
+        /// <param name="sender">object sender</param>
+        /// <param name="e">button event</param>
         private void OnClick(object sender, RoutedEventArgs e)
         {
             HomeView h = new HomeView();

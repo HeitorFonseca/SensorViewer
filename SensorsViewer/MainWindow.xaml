@@ -8,7 +8,7 @@
         Title="MainWindow" Height="350" Width="525">
 
 
-    <Grid x:Name="MainWindow1">
+    <Grid x:Name="MainWindow1" >
         <Button Content="Button" HorizontalAlignment="Left" Margin="237,159,0,0" VerticalAlignment="Top" Width="75" Click="OnClick"/>
 
     </Grid>

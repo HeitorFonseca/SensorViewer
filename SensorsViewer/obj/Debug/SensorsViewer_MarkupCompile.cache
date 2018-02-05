@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\
 SensorsViewer
 none
 false
 DEBUG;TRACE
-C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\App.xaml
-3379403778
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\App.xaml
+41762095688
 
-91476813664
-15-1954650779
-Home\HomeView.xaml;MainWindow.xaml;Resources\AppDictionary.xaml;
+14505051516
+18-1591221482
+Home\HomeView.xaml;MainWindow.xaml;ProjectB\OpticalSensorView.xaml;Resources\AppDictionary.xaml;
 
 False
 
