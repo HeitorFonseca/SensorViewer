@@ -23,7 +23,7 @@
             <cmd:EventToCommand Command="{Binding Path=CloseWindowCommand}" PassEventArgsToCommand="True" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    
+
     <controls:MetroWindow.IconTemplate>
         <DataTemplate>
             <Image Source="../Resources/gmLogo.png"  Stretch="None"></Image>
@@ -35,133 +35,100 @@
     </controls:MetroWindow.DataContext>
 
     <Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="254" />
+                <ColumnDefinition Width="254" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-        <DockPanel HorizontalAlignment="Stretch" Height="18" LastChildFill="False" VerticalAlignment="Top" Margin="0,0,0.333,0">
-            <Menu Name="MainMenu" Height="20" VerticalAlignment="Top" DockPanel.Dock="Top" >
-                <MenuItem Header="File" Name="MenuFile">
-                    <MenuItem Header="Load stl model"/>
-                    <MenuItem Header="Exit"/>
-                </MenuItem>
-                <MenuItem Header="Edit" Name="MenuEdit"/>
-                <MenuItem Header="Connection" Name="MenuView">
-                    <MenuItem Header="Configuration" />
-                </MenuItem>
-            </Menu>
-        </DockPanel>
-
-        <TabControl Margin="0,18,0.333,-0.333">
-            <TabItem Header="A project" >
+            <Border Grid.Column="0" Effect="{StaticResource CardShadow}" Background="White" Height="Auto" Margin="0,0,0.4,0.2" >
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="254" />
-                        <ColumnDefinition Width="*" />
-                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
 
-                    <Border Grid.Column="0" Effect="{StaticResource CardShadow}" Background="White" Height="Auto" Margin="0,0,0.4,0.2" >
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="*"></RowDefinition>
-                            </Grid.RowDefinitions>
+                    <Border Grid.Row="0" Style="{StaticResource MenuItem}" Margin="0,0,0.333,0">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseDown">
+                                <cmd:EventToCommand Command="{Binding Path=CreateNewProjectCommand}" PassEventArgsToCommand="True" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
 
-                            <TextBlock Style="{StaticResource H5}" Opacity="{StaticResource SecondaryTextOpacity}" Padding="10 20 10 5" Margin="38,0,112.333,157" Width="103">Project</TextBlock>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="../Resources/newProjectImg.png"  Stretch="None" Margin="0,0,0,0.333" Width="48"></Image>
+                            <TextBlock  Style="{StaticResource H5}" Opacity="{StaticResource SecondaryTextOpacity}" FontSize="20" Width="Auto" Margin="0,10,0,0.333" ><Run Text="New Project"/></TextBlock>
+                        </StackPanel>
+                    </Border>
+
+                    <Grid Grid.Row="1">
+                        <TextBlock Text="Projects"  Style="{StaticResource H3}" Foreground="#0398E2" HorizontalAlignment="Left" Padding="10"></TextBlock>
+                        <ItemsControl ItemsSource="{Binding AnalysisItems}" Margin="0,52,0.333,-52">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border MouseDown="UIElement_OnMouseDown" Style="{StaticResource MenuItem}" Width="280">
+                                        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource H5}" HorizontalAlignment="Left" Text="{Binding Title}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <Border Grid.Column="1" Effect="{StaticResource CardShadow}" Background="White" Height="Auto" BorderThickness="2 1 0 0">
+                <Grid>
+
+                    <TabControl ItemsSource="{Binding TabCategory}">
+
+                        <!--<TabControl.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text={Binding CurrenyName}>
+                            </DataTemplate>
+                        </TabControl.ItemTemplate>-->
+                            
+                        <!-- 
+                        <TabItem Foreground="#0398E2" Background ="#F5F5F5"  FontSize="16" MinWidth="124" MinHeight="60" Header="Draw In" Width="Auto">
 
                             <Grid>
-                                <ItemsControl Margin="0,56,0.4,-56.2" ItemsSource="{Binding ProjectAMenu}" >
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackPanel>
-                                                <TextBlock Text="{Binding Name}" Style="{StaticResource H3}" Foreground="#0398E2" HorizontalAlignment="Left" Padding="10"></TextBlock>
-                                                <ItemsControl ItemsSource="{Binding Items}">
-                                                    <ItemsControl.ItemTemplate>
-                                                        <DataTemplate>
-                                                            <Border MouseDown="UIElement_OnMouseDown" Style="{StaticResource MenuItem}" Width="280">
-                                                                <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource H5}" HorizontalAlignment="Left" Text="{Binding Title}"/>
-                                                            </Border>
-                                                        </DataTemplate>
-                                                    </ItemsControl.ItemTemplate>
-                                                </ItemsControl>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ItemsControl.ItemTemplate>
-                                </ItemsControl>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="127"></ColumnDefinition>
+                                    <ColumnDefinition Width="127"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="57.333"></RowDefinition>
+                                    <RowDefinition Height="84"></RowDefinition>
+                                </Grid.RowDefinitions>
                             </Grid>
-                        </Grid>
-                    </Border>
-                    <Border Grid.Column="1" BorderThickness="0 1 0 0" BorderBrush="#E6E6E6">
-                        <Grid >
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="*"></RowDefinition>
-                            </Grid.RowDefinitions>
 
-                            <Border Grid.Row="2" Margin="25" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
-                                <ContentPresenter  Content="{Binding ProjectAContent}"/>
-                            </Border>
-                        </Grid>
+                        </TabItem>
+                        <TabItem Foreground="#0398E2" Background ="#F5F5F5" FontSize="16" MinWidth="124" Header="Adjustments" Width="Auto">
+
+                        </TabItem>
+                        -->
+                    </TabControl>
+
+                  
+                </Grid>
+            </Border>
+
+            <Border Grid.Column="2" BorderThickness="0 1 0 0" BorderBrush="#E6E6E6">
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="2" Margin="25" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
+                        <ContentPresenter  Content="{Binding ProjectAContent}"/>
                     </Border>
                 </Grid>
-            </TabItem>
-
-            <TabItem Header="B project" >
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="254" />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-
-                    <Border Grid.Column="0" Effect="{StaticResource CardShadow}" Background="White" Margin="0,0,0,-0.333" >
-
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="*"></RowDefinition>
-                            </Grid.RowDefinitions>
-
-                            <TextBlock Style="{StaticResource H5}" Opacity="{StaticResource SecondaryTextOpacity}" Padding="10 20 10 5" Margin="38,0,113.4,153.6">Project</TextBlock>
-
-                            <Grid>
-                                <ItemsControl Margin="0,56,0.4,-56.2" ItemsSource="{Binding ProjectBMenu}" >
-                                    <ItemsControl.ItemTemplate>
-                                        <DataTemplate>
-                                            <StackPanel>
-                                                <TextBlock Text="{Binding Name}" Style="{StaticResource H3}" Foreground="#0398E2" HorizontalAlignment="Left" Padding="10"></TextBlock>
-                                                <ItemsControl ItemsSource="{Binding Items}">
-                                                    <ItemsControl.ItemTemplate>
-                                                        <DataTemplate>
-                                                            <Border MouseDown="UIElement_OnMouseDown" Style="{StaticResource MenuItem}" Width="280">
-                                                                <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource H5}" HorizontalAlignment="Left" Text="{Binding Title}"/>
-                                                            </Border>
-                                                        </DataTemplate>
-                                                    </ItemsControl.ItemTemplate>
-                                                </ItemsControl>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ItemsControl.ItemTemplate>
-                                </ItemsControl>
-                            </Grid>
-                        </Grid>
-                    </Border>
-
-                    <Border Grid.Column="1" BorderThickness="0 1 0 0" BorderBrush="#E6E6E6">
-                        <Grid >
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="Auto"></RowDefinition>
-                                <RowDefinition Height="*"></RowDefinition>
-                            </Grid.RowDefinitions>
-
-                            <Border Grid.Row="2" Margin="25" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
-                                <ContentPresenter  Content="{Binding ProjectBContent}"/>
-                            </Border>
-                        </Grid>
-                    </Border>
-                </Grid>
-            </TabItem>
-        </TabControl>
+            </Border>
+        </Grid>
     </Grid>
 
 </controls:MetroWindow>

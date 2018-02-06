@@ -8,18 +8,19 @@ namespace SensorsViewer.Home
     using SensorsViewer.ProjectB;
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Windows.Controls;
 
     /// <summary>
     /// Home view model class
     /// </summary>
-    public class HomeViewModel
+    public class HomeViewModel : INotifyPropertyChanged
     {
         /// <summary>
         /// Private enumerable datasource
         /// </summary>
-        private readonly IEnumerable<ProjectGroupVm> dataSource;
+        private readonly IList<ProjectGroupVm> dataSource;
 
         /// <summary>
         /// Project A User control content
@@ -34,12 +35,12 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Private project A menu left bar
         /// </summary>
-        private IEnumerable<ProjectGroupVm> projectAMenu;
+        private ObservableCollection<OptionVm> analysisItems;
 
         /// <summary>
-        /// Private project b menu left bar
+        /// Private project A menu left bar
         /// </summary>
-        private IEnumerable<ProjectGroupVm> projectBMenu;
+        private ObservableCollection<string> tabCategory;
 
         /// <summary>
         /// Private mqtt connection
@@ -60,9 +61,16 @@ namespace SensorsViewer.Home
             //Set the B project content for OpticalSensorView
             this.projectBContent = (UserControl)(new OpticalSensorView());
 
-            CloseWindowCommand = new RelayCommand(Window_Closing);
-        }
+            CloseWindowCommand = new RelayCommand(WindowClosingAction);
+            CreateNewProjectCommand = new RelayCommand(CreateNewProjectAction);
 
+            tabCategory = new ObservableCollection<string>();
+
+
+            TabCategory.Add("header1");
+            TabCategory.Add("header2");
+
+        }
 
         /// <summary>
         /// Event for when change property
@@ -70,38 +78,34 @@ namespace SensorsViewer.Home
         public event PropertyChangedEventHandler PropertyChanged;
 
         public RelayCommand CloseWindowCommand { get; set; }
+        public RelayCommand CreateNewProjectCommand { get; set; }
 
-        /// <summary>
-        /// Gets or sets project A menu left bar
-        /// </summary>
-        public IEnumerable<ProjectGroupVm> ProjectAMenu
+        public ObservableCollection<string> TabCategory
         {
             get
             {
-                return this.projectAMenu;
+                return tabCategory;
             }
-
             set
             {
-                this.projectAMenu = value;
-                this.OnPropertyChanged("ProjectAMenu");
+                this.tabCategory = value;
+                this.OnPropertyChanged("TabCategory");
             }
         }
 
         /// <summary>
-        /// Gets or sets project B menu left bar
+        /// Gets or sets Analysis Items
         /// </summary>
-        public IEnumerable<ProjectGroupVm> ProjectBMenu
+        public ObservableCollection<OptionVm> AnalysisItems
         {
             get
             {
-                return this.projectBMenu;
+                return analysisItems;
             }
-
             set
             {
-                this.projectAMenu = value;
-                this.OnPropertyChanged("ProjectBMenu");
+                this.analysisItems = value;
+                this.OnPropertyChanged("AnalysisItems");
             }
         }
 
@@ -139,29 +143,7 @@ namespace SensorsViewer.Home
         /// </summary>
         private void InitializeLeftBarMenu()
         {
-            this.projectAMenu = new[]
-            {
-                new ProjectGroupVm
-                {
-                    Name = "A Project",
-                    Items = new[]
-                    {
-                        new OptionVm("Load STL Model"), new OptionVm("Load Sensors"), new OptionVm("Export csv"), new OptionVm("Export txt")
-                    }
-                }
-            };
-
-            this.projectBMenu = new[]
-            {
-                new ProjectGroupVm
-                {
-                    Name = "B Project",
-                    Items = new[]
-                    {
-                        new OptionVm("Export csv"), new OptionVm("Export txt")
-                    }
-                }
-            };           
+            AnalysisItems = new ObservableCollection<OptionVm> { new OptionVm { Title = "test" }, new OptionVm { Title = "test2" }};
         }
 
         /// <summary>
@@ -169,9 +151,14 @@ namespace SensorsViewer.Home
         /// </summary>
         /// <param name="sender">object sender</param>
         /// <param name="e">event e</param>
-        private void Window_Closing()
+        private void WindowClosingAction()
         {           
             this.proc.Disconnect();           
+        }
+
+        private void CreateNewProjectAction()
+        {
+            AnalysisItems.Add(new OptionVm("whatr"));
         }
     }
 }

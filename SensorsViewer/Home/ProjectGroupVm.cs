@@ -20,6 +20,6 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Gets or sets items
         /// </summary>
-        public IEnumerable<OptionVm> Items { get; set; }
+        public IList<OptionVm> Items { get; set; }
     }
 }    
