@@ -118,7 +118,7 @@ namespace SensorsViewer.Home
             set
             {
                 this.projectBContent = value;
-                this.OnPropertyChanged("Content");
+                this.OnPropertyChanged("ProjectBContent");
             }
         }
 
@@ -170,8 +170,8 @@ namespace SensorsViewer.Home
         /// <param name="sender">object sender</param>
         /// <param name="e">event e</param>
         private void Window_Closing()
-        {
-            this.proc.Disconnect();
+        {           
+            this.proc.Disconnect();           
         }
     }
 }

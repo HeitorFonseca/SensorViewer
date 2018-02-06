@@ -79,3 +79,15 @@ C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\LiveCha
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\LiveCharts.Wpf.xml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\ProjectB\OpticalSensorView.g.cs
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\ProjectB\OpticalSensorView.baml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Microsoft.Practices.ServiceLocation.xml

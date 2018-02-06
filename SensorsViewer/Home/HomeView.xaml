@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:SensorsViewer.Home"
-       
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+        xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
+                      
         mc:Ignorable="d" Height="650" Width="1100"
         Style="{StaticResource WindowStyle}"
         WindowStartupLocation="CenterScreen"
@@ -13,8 +15,15 @@
         MinWidth="900"
         Name="Window" 
         Background="WhiteSmoke"              
-        Title="HomeView" >
+        Title="HomeView">
 
+    <!-- Close window event -->
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Closing">
+            <cmd:EventToCommand Command="{Binding Path=CloseWindowCommand}" PassEventArgsToCommand="True" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
     <controls:MetroWindow.IconTemplate>
         <DataTemplate>
             <Image Source="../Resources/gmLogo.png"  Stretch="None"></Image>
@@ -56,7 +65,7 @@
                                 <RowDefinition Height="*"></RowDefinition>
                             </Grid.RowDefinitions>
 
-                            <TextBlock Style="{StaticResource H5}" Opacity="{StaticResource SecondaryTextOpacity}" Padding="10 20 10 5" Margin="38,0,113,0" Width="103">Project</TextBlock>
+                            <TextBlock Style="{StaticResource H5}" Opacity="{StaticResource SecondaryTextOpacity}" Padding="10 20 10 5" Margin="38,0,112.333,157" Width="103">Project</TextBlock>
 
                             <Grid>
                                 <ItemsControl Margin="0,56,0.4,-56.2" ItemsSource="{Binding ProjectAMenu}" >
