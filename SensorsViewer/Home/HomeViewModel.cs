@@ -40,7 +40,7 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Private project A menu left bar
         /// </summary>
-        private ObservableCollection<string> tabCategory;
+        private ObservableCollection<OptionVm> tabCategory;
 
         /// <summary>
         /// Private mqtt connection
@@ -64,11 +64,11 @@ namespace SensorsViewer.Home
             CloseWindowCommand = new RelayCommand(WindowClosingAction);
             CreateNewProjectCommand = new RelayCommand(CreateNewProjectAction);
 
-            tabCategory = new ObservableCollection<string>();
+            tabCategory = new ObservableCollection<OptionVm>();
 
 
-            TabCategory.Add("header1");
-            TabCategory.Add("header2");
+            TabCategory.Add(new OptionVm("header1"));
+            TabCategory.Add(new OptionVm("header2"));
 
         }
 
@@ -80,7 +80,7 @@ namespace SensorsViewer.Home
         public RelayCommand CloseWindowCommand { get; set; }
         public RelayCommand CreateNewProjectCommand { get; set; }
 
-        public ObservableCollection<string> TabCategory
+        public ObservableCollection<OptionVm> TabCategory
         {
             get
             {
