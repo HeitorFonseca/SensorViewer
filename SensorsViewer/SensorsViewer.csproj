@@ -82,7 +82,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Home\Analysis.cs" />
-    <Compile Include="Home\Sensors.cs" />
+    <Compile Include="SensorOption\SensorOptionView.xaml.cs">
+      <DependentUpon>SensorOptionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SensorOption\SensorOptionViewModel.cs" />
+    <Compile Include="SensorOption\Sensors.cs" />
     <Compile Include="Home\ProjectOptions.cs" />
     <Compile Include="RelayCommand.cs" />
     <Page Include="Home\HomeView.xaml">
@@ -113,6 +117,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\AppDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SensorOption\SensorOptionView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

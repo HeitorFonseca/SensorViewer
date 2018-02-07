@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="SensorsViewer.SensorOption.SensorOptionView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SensorsViewer.SensorOption"
+             mc:Ignorable="d" Height="100" Width="250" Name="SensorOptionWindow">
+
+    <UserControl.DataContext>
+        <local:SensorOptionViewModel></local:SensorOptionViewModel>
+    </UserControl.DataContext>
+
+    <UserControl.Background>
+        <SolidColorBrush Color="WhiteSmoke"></SolidColorBrush>
+    </UserControl.Background>
+    
+    <Grid>
+        <TextBlock Name="textoT" Text="asdsadasd" Margin="10" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center"> </TextBlock>
+    </Grid>
+</UserControl>

@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace SensorsViewer.Home
 {
@@ -17,17 +18,11 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Gets or sets Sensors
         /// </summary>
-        public ObservableCollection<Sensors> Sensors { get; set; }
-
-        /// <summary>
-        /// Gets or sets Analysis
-        /// </summary>
-        public ObservableCollection<Analysis> Analysis { get; set; }
+        public ObservableCollection<UserControl> Content { get; set; }
 
         public ProjectOptions()
         {
-            Sensors = new ObservableCollection<Home.Sensors>();
-            Analysis = new ObservableCollection<Home.Analysis>();
+            Content = new ObservableCollection<UserControl>();
         }
     }
 }

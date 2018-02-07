@@ -2,7 +2,7 @@
 //     gm.com. All rights reserved.
 // </copyright>
 
-namespace SensorsViewer.Home
+namespace SensorsViewer.SensorOption
 {
     using System;
     using System.Collections.Generic;

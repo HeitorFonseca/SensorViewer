@@ -9,8 +9,10 @@ namespace SensorsViewer.Home
     using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Windows.Controls;
+    using System.Windows.Media;
     using SensorsViewer.Connection;
     using SensorsViewer.ProjectB;
+    using SensorsViewer.SensorOption;
 
     /// <summary>
     /// Home view model class
@@ -48,6 +50,11 @@ namespace SensorsViewer.Home
         private MqttConnection proc;
 
         /// <summary>
+        /// Private Sensors Content
+        /// </summary>
+        private ObservableCollection<UserControl> sensorsContent;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="HomeViewModel"/> class
         /// </summary>
         public HomeViewModel()
@@ -64,32 +71,45 @@ namespace SensorsViewer.Home
             this.CreateNewProjectCommand = new RelayCommand(CreateNewProjectAction);
 
             this.tabCategory = new ObservableCollection<ProjectGroupVm>();
-  
 
-            Sensors s = new Sensors() {  X = "10", Y = "15", Z = "0" };
-            Sensors s1 = new Sensors() { X = "10", Y = "15", Z = "0" };
-            Sensors s2 = new Sensors() { X = "10", Y = "15", Z = "0" };
+
+            //Sensors s = new Sensors() {  X = "10", Y = "15", Z = "0" };
+            //Sensors s1 = new Sensors() { X = "10", Y = "15", Z = "0" };
+            //Sensors s2 = new Sensors() { X = "10", Y = "15", Z = "0" };
 
             ProjectGroupVm p = new ProjectGroupVm { Name = "Draw-In", ProjectOptions = new ObservableCollection<ProjectOptions>() };
-
-            ProjectOptions poSensor = new ProjectOptions() { OptionName = "Sensors" } ;
-            ProjectOptions poAnalysis = new ProjectOptions() { OptionName = "Analysis" };
-
-            poSensor.Sensors.Add(s);
-            poSensor.Sensors.Add(s1);
-
-            p.ProjectOptions.Add(poSensor);
-            p.ProjectOptions.Add(poAnalysis);
-
             ProjectGroupVm p2 = new ProjectGroupVm { Name = "Adjustment", ProjectOptions = new ObservableCollection<ProjectOptions>() };
 
-            ProjectOptions po2 = new ProjectOptions() { OptionName = "Analysis" };
+            UserControl asd = ((UserControl) new SensorOptionView("aaaaaaaaaaa", Colors.WhiteSmoke));
+            UserControl asd2 = ((UserControl)new SensorOptionView("eeeeeeeeeee", Colors.LightGray));
+            UserControl asd3 = ((UserControl)new SensorOptionView("iiiiiiiiiii", Colors.WhiteSmoke));
 
-            p2.ProjectOptions.Add(poSensor);
-            p2.ProjectOptions.Add(poAnalysis);
+            ProjectOptions po = new ProjectOptions() { OptionName = "Sensors" };
+            po.Content.Add(asd);
+            po.Content.Add(asd2);
+            po.Content.Add(asd3);
+
+            p.ProjectOptions.Add(po);
+
+            //ProjectOptions poSensor = new ProjectOptions() { OptionName = "Sensors" } ;
+            //ProjectOptions poAnalysis = new ProjectOptions() { OptionName = "Analysis" };
+
+            //poSensor.Sensors.Add(s);
+            //poSensor.Sensors.Add(s1);
+
+            //p.ProjectOptions.Add(poSensor);
+            //p.ProjectOptions.Add(poAnalysis);
+
+
+            //ProjectOptions po2 = new ProjectOptions() { OptionName = "Analysis" };
+
+            //p2.ProjectOptions.Add(poSensor);
+            //p2.ProjectOptions.Add(poAnalysis);
 
             this.TabCategory.Add(p);
             this.TabCategory.Add(p2);
+
+
         }
 
         /// <summary>
@@ -106,6 +126,22 @@ namespace SensorsViewer.Home
         ///  Gets or sets Create new project command
         /// </summary>
         public RelayCommand CreateNewProjectCommand { get; set; }
+
+        public ObservableCollection<UserControl> SensorsContent
+        {
+            get
+            {
+                return this.sensorsContent;
+            }
+
+            set
+            {
+                this.sensorsContent = value;
+                this.OnPropertyChanged("SensorsContent");
+            }
+
+        }
+
 
         /// <summary>
         ///  Gets or sets Tab category

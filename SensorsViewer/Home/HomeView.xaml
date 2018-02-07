@@ -92,56 +92,33 @@
                                 <TabControl ItemsSource="{Binding ProjectOptions}">
                                     <TabControl.ItemTemplate>
                                         <DataTemplate>
-                                            <TextBlock MinWidth="108" Style="{StaticResource H6}" Foreground="#0398E2" Text="{Binding OptionName}"></TextBlock>
+                                            <TextBlock MinWidth="108" Style="{StaticResource H6}" Foreground="#43474f" Text="{Binding OptionName}"></TextBlock>
                                         </DataTemplate>
                                     </TabControl.ItemTemplate>
 
                                     <TabControl.ContentTemplate>
                                         <DataTemplate>
-                                            
+
+                                            <ItemsControl ItemsSource="{Binding Content}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Border BorderThickness="10 10 10 10">
+                                                            <ContentPresenter Content="{Binding}"> </ContentPresenter>
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                                <ItemsControl.ItemContainerStyle>
+                                                    <Style>
+                                                        <Setter Property="Control.BorderThickness" Value="1" />
+                                                    </Style>
+                                                </ItemsControl.ItemContainerStyle>
+                                            </ItemsControl>
                                         </DataTemplate>
                                     </TabControl.ContentTemplate>
-
-
-                                    <!--<TabItem Foreground="#273e63" FontSize="13" MinWidth="120" Header="Sensors">
-                                        <TabItem.ContentTemplate>
-                                            <DataTemplate>
-                                                --><!--<TextBlock Text="asdasdasda"> </TextBlock>--><!--
-                                                <Border MouseDown="UIElement_OnMouseDown" Style="{StaticResource MenuItem}" Width="Auto" BorderThickness="0 0 1 1">
-                                                    <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource H6}" HorizontalAlignment="Left" Text="{Binding Sensors}"/>
-                                                </Border>
-                                            </DataTemplate>
-                                        </TabItem.ContentTemplate>
-                                    </TabItem>
-                                    <TabItem Foreground="#273e63"  FontSize="13" MinWidth="120" Header="Analysis"></TabItem>-->
                                 </TabControl>
-                                
-                                <!--<Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="122"></ColumnDefinition>
-                                        <ColumnDefinition Width="*"></ColumnDefinition>
-                                    </Grid.ColumnDefinitions>
-
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="40"></RowDefinition>
-                                        <RowDefinition Height="*"></RowDefinition>
-                                    </Grid.RowDefinitions>
-
-                                    <Border MouseDown="UIElement_OnMouseDown" Style="{StaticResource MenuItem}" Width="Auto" BorderThickness="0 0 1 1">
-                                        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource H6}" HorizontalAlignment="Left" Text="{Binding Title}"/>
-                                    </Border>
-                                    <Border Grid.Column="1" MouseDown="UIElement_OnMouseDown" Style="{StaticResource MenuItem}" Width="Auto" BorderThickness="0 0 1 1">
-                                        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource H6}" HorizontalAlignment="Left" Text="{Binding Title}"/>
-                                    </Border>
-                                        
-                                    
-                                </Grid>-->
-
                             </DataTemplate>
                         </TabControl.ContentTemplate>
                     </TabControl>
-
-
                 </Grid>
             </Border>
 

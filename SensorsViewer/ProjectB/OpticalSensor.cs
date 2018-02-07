@@ -11,7 +11,7 @@ namespace SensorsViewer.ProjectB
     /// <summary>
     /// Optical Sensor Class
     /// </summary>
-    public class OpticalSensor : Home.Sensors
+    public class OpticalSensor : SensorOption.Sensors
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OpticalSensor"/> class

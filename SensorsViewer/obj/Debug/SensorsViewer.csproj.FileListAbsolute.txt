@@ -91,3 +91,5 @@ C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSof
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.Platform.xml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorOption\SensorOptionView.g.cs
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorOption\SensorOptionView.baml
