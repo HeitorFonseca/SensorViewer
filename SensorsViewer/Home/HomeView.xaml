@@ -89,8 +89,11 @@
                         </TabControl.ItemTemplate>
                         <TabControl.ContentTemplate>
                             <DataTemplate>
-                                
-                                
+
+                                <TabControl>
+                                    <TabItem Foreground="#273e63" FontSize="13" MinWidth="120" Header="Sensors"></TabItem>
+                                    <TabItem Foreground="#273e63"  FontSize="13" MinWidth="120" Header="Analysis"></TabItem>
+                                </TabControl>
                                 
                                 <!--<Grid>
                                     <Grid.ColumnDefinitions>

@@ -65,10 +65,16 @@ namespace SensorsViewer.Home
 
             this.tabCategory = new ObservableCollection<ProjectGroupVm>();
 
-            Sensors s = new Sensors() { Sensorid = "sensor1", Status = "Running", Values = { 1, 2, 3 }, X = "10", Y = "15", Z = "0" };
+            Sensors s = new Sensors() {  X = "10", Y = "15", Z = "0" };
+            Sensors s1 = new Sensors() { X = "10", Y = "15", Z = "0" };
+            Sensors s2 = new Sensors() { X = "10", Y = "15", Z = "0" };
 
             ProjectGroupVm p = new ProjectGroupVm { Name = "Draw-In", Sensors = new List<Sensors>() };
+            p.Sensors.Add(s);
+            p.Sensors.Add(s1);
+
             ProjectGroupVm p2 = new ProjectGroupVm { Name = "Adjustment", Sensors = new List<Sensors>() };
+            p2.Sensors.Add(s2);
 
             this.TabCategory.Add(p);
             this.TabCategory.Add(p2);
