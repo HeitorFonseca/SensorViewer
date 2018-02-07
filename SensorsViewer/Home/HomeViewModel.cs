@@ -4,13 +4,13 @@
 
 namespace SensorsViewer.Home
 {
-    using SensorsViewer.Connection;
-    using SensorsViewer.ProjectB;
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Windows.Controls;
+    using SensorsViewer.Connection;
+    using SensorsViewer.ProjectB;
 
     /// <summary>
     /// Home view model class
@@ -52,24 +52,21 @@ namespace SensorsViewer.Home
         /// </summary>
         public HomeViewModel()
         {
-
             this.proc = new MqttConnection("localhost", 5672, "userTest", "userTest", "hello");
             this.proc.Connect();
 
-            InitializeLeftBarMenu();
+            this.InitializeLeftBarMenu();
 
             //Set the B project content for OpticalSensorView
             this.projectBContent = (UserControl)(new OpticalSensorView());
 
-            CloseWindowCommand = new RelayCommand(WindowClosingAction);
-            CreateNewProjectCommand = new RelayCommand(CreateNewProjectAction);
+            this.CloseWindowCommand = new RelayCommand(WindowClosingAction);
+            this.CreateNewProjectCommand = new RelayCommand(CreateNewProjectAction);
 
-            tabCategory = new ObservableCollection<OptionVm>();
+            this.tabCategory = new ObservableCollection<OptionVm>();
 
-
-            TabCategory.Add(new OptionVm("header1"));
-            TabCategory.Add(new OptionVm("header2"));
-
+            this.TabCategory.Add(new OptionVm("Draw-In"));
+            this.TabCategory.Add(new OptionVm("Adjustment"));
         }
 
         /// <summary>
@@ -77,15 +74,26 @@ namespace SensorsViewer.Home
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        ///  Gets or sets Close window command
+        /// </summary>
         public RelayCommand CloseWindowCommand { get; set; }
+
+        /// <summary>
+        ///  Gets or sets Create new project command
+        /// </summary>
         public RelayCommand CreateNewProjectCommand { get; set; }
 
+        /// <summary>
+        ///  Gets or sets Tab category
+        /// </summary>
         public ObservableCollection<OptionVm> TabCategory
         {
             get
             {
-                return tabCategory;
+                return this.tabCategory;
             }
+
             set
             {
                 this.tabCategory = value;
@@ -100,8 +108,9 @@ namespace SensorsViewer.Home
         {
             get
             {
-                return analysisItems;
+                return this.analysisItems;
             }
+
             set
             {
                 this.analysisItems = value;
@@ -143,7 +152,7 @@ namespace SensorsViewer.Home
         /// </summary>
         private void InitializeLeftBarMenu()
         {
-            AnalysisItems = new ObservableCollection<OptionVm> { new OptionVm { Title = "test" }, new OptionVm { Title = "test2" }};
+            this.AnalysisItems = new ObservableCollection<OptionVm> { new OptionVm { Title = "test" }, new OptionVm { Title = "test2" } };
         }
 
         /// <summary>
@@ -152,8 +161,8 @@ namespace SensorsViewer.Home
         /// <param name="sender">object sender</param>
         /// <param name="e">event e</param>
         private void WindowClosingAction()
-        {           
-            this.proc.Disconnect();           
+        {
+            this.proc.Disconnect();
         }
 
         private void CreateNewProjectAction()

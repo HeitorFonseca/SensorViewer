@@ -22,4 +22,4 @@ namespace SensorsViewer.Home
         /// </summary>
         public IList<OptionVm> Items { get; set; }
     }
-}    
+}

@@ -11,7 +11,7 @@ namespace SensorsViewer.ProjectB
     /// <summary>
     /// Optical Sensor Class
     /// </summary>
-    public class OpticalSensor
+    public class OpticalSensor : Home.Sensors
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OpticalSensor"/> class
@@ -22,26 +22,6 @@ namespace SensorsViewer.ProjectB
             this.TimeStamp = new List<double>();
             LnSerie = new LineSeries { };
         }
-
-        /// <summary>
-        /// Gets or sets status
-        /// </summary>
-        public string Status { get; set; }
-
-        /// <summary>
-        /// Gets or sets Sensorid
-        /// </summary>
-        public string Sensorid { get; set; }
-
-        /// <summary>
-        /// Gets or sets Values
-        /// </summary>
-        public List<double> Values { get; set; }
-
-        /// <summary>
-        /// Gets or sets TimeStamp
-        /// </summary>
-        public List<double> TimeStamp { get; set; }
 
         /// <summary>
         /// Gets or sets Line serie

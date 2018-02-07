@@ -21,5 +21,5 @@ namespace SensorsViewer.ProjectB
         /// Gets or sets list of values list
         /// </summary>
         public List<List<string>> values { get; set; }
-    }   
+    }
 }

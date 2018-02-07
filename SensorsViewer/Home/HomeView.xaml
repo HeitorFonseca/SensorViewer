@@ -81,60 +81,39 @@
 
             <Border Grid.Column="1" Effect="{StaticResource CardShadow}" Background="White" Height="Auto" BorderThickness="2 1 0 0">
                 <Grid>
-
                     <TabControl ItemsSource="{Binding TabCategory}">
-
-                        <TabControl.Resources>
-                            <DataTemplate DataType="{x:Type local:OptionVm}">
-                                <TextBlock>SomeVm Template</TextBlock>
-                            </DataTemplate>
-                        </TabControl.Resources>
                         <TabControl.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Title}"></TextBlock>
+                                <TextBlock MinWidth="110" Style="{StaticResource H5}" Foreground="#0398E2" Text="{Binding Title}"></TextBlock>
                             </DataTemplate>
                         </TabControl.ItemTemplate>
                         <TabControl.ContentTemplate>
                             <DataTemplate>
-                                <ContentControl Content="{Binding Title}"></ContentControl>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="122"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="40"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <Border MouseDown="UIElement_OnMouseDown" Style="{StaticResource MenuItem}" Width="Auto" BorderThickness="0 0 1 1">
+                                        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource H6}" HorizontalAlignment="Left" Text="{Binding Title}"/>
+                                    </Border>
+                                    <Border Grid.Column="1" MouseDown="UIElement_OnMouseDown" Style="{StaticResource MenuItem}" Width="Auto" BorderThickness="0 0 1 1">
+                                        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource H6}" HorizontalAlignment="Left" Text="{Binding Title}"/>
+                                    </Border>
+
+                                </Grid>
+
                             </DataTemplate>
                         </TabControl.ContentTemplate>
-
-                        <!--<TabControl.ItemContainerStyle>
-                            <Style TargetType="{x:Type TabItem}">
-                                <Setter Property="Header" Value="{Binding Title}" />
-                            </Style>
-                        </TabControl.ItemContainerStyle>-->
-                        
-
-                        <!--<TabControl.ItemTemplate>
-                            <DataTemplate>
-                                <TextBlock Text={Binding CurrenyName}>
-                            </DataTemplate>
-                        </TabControl.ItemTemplate>-->
-                            
-                        <!-- 
-                        <TabItem Foreground="#0398E2" Background ="#F5F5F5"  FontSize="16" MinWidth="124" MinHeight="60" Header="Draw In" Width="Auto">
-
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="127"></ColumnDefinition>
-                                    <ColumnDefinition Width="127"></ColumnDefinition>
-                                </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="57.333"></RowDefinition>
-                                    <RowDefinition Height="84"></RowDefinition>
-                                </Grid.RowDefinitions>
-                            </Grid>
-
-                        </TabItem>
-                        <TabItem Foreground="#0398E2" Background ="#F5F5F5" FontSize="16" MinWidth="124" Header="Adjustments" Width="Auto">
-
-                        </TabItem>
-                        -->
                     </TabControl>
 
-                  
+
                 </Grid>
             </Border>
 
