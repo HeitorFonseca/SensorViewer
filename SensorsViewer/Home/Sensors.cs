@@ -16,6 +16,21 @@ namespace SensorsViewer.Home
     public class Sensors
     {
         /// <summary>
+        /// Gets or sets X position
+        /// </summary>
+        public string X { get; set; }
+
+        /// <summary>
+        /// Gets or sets Y position
+        /// </summary>
+        public string Y { get; set; }
+
+        /// <summary>
+        /// Gets or sets Z position
+        /// </summary>
+        public string Z { get; set; }
+
+        /// <summary>
         /// Gets or sets status
         /// </summary>
         public string Status { get; set; }
@@ -33,6 +48,6 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Gets or sets TimeStamp
         /// </summary>
-        public List<double> TimeStamp { get; set; }
+        public List<double> TimeStamp { get; set; }        
     }
 }

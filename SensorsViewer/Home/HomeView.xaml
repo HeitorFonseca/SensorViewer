@@ -84,12 +84,15 @@
                     <TabControl ItemsSource="{Binding TabCategory}">
                         <TabControl.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock MinWidth="110" Style="{StaticResource H5}" Foreground="#0398E2" Text="{Binding Title}"></TextBlock>
+                                <TextBlock MinWidth="110" Style="{StaticResource H5}" Foreground="#0398E2" Text="{Binding Name}"></TextBlock>
                             </DataTemplate>
                         </TabControl.ItemTemplate>
                         <TabControl.ContentTemplate>
                             <DataTemplate>
-                                <Grid>
+                                
+                                
+                                
+                                <!--<Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="122"></ColumnDefinition>
                                         <ColumnDefinition Width="*"></ColumnDefinition>
@@ -106,8 +109,9 @@
                                     <Border Grid.Column="1" MouseDown="UIElement_OnMouseDown" Style="{StaticResource MenuItem}" Width="Auto" BorderThickness="0 0 1 1">
                                         <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource H6}" HorizontalAlignment="Left" Text="{Binding Title}"/>
                                     </Border>
-
-                                </Grid>
+                                        
+                                    
+                                </Grid>-->
 
                             </DataTemplate>
                         </TabControl.ContentTemplate>

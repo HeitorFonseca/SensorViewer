@@ -18,8 +18,13 @@ namespace SensorsViewer.Home
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets items
+        /// Gets or sets Sensors
         /// </summary>
-        public IList<OptionVm> Items { get; set; }
+        public IList<Sensors> Sensors { get; set; }
+
+        /// <summary>
+        /// Gets or sets Analysis
+        /// </summary>
+        public IList<Analysis> Analysis { get; set; }
     }
 }

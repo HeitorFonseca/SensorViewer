@@ -81,6 +81,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Home\Analysis.cs" />
     <Compile Include="Home\Sensors.cs" />
     <Compile Include="RelayCommand.cs" />
     <Page Include="Home\HomeView.xaml">

@@ -35,12 +35,12 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Private project A menu left bar
         /// </summary>
-        private ObservableCollection<OptionVm> analysisItems;
+        private ObservableCollection<OptionVm> ProjectItems;
 
         /// <summary>
         /// Private project A menu left bar
         /// </summary>
-        private ObservableCollection<OptionVm> tabCategory;
+        private ObservableCollection<ProjectGroupVm> tabCategory;
 
         /// <summary>
         /// Private mqtt connection
@@ -63,10 +63,15 @@ namespace SensorsViewer.Home
             this.CloseWindowCommand = new RelayCommand(WindowClosingAction);
             this.CreateNewProjectCommand = new RelayCommand(CreateNewProjectAction);
 
-            this.tabCategory = new ObservableCollection<OptionVm>();
+            this.tabCategory = new ObservableCollection<ProjectGroupVm>();
 
-            this.TabCategory.Add(new OptionVm("Draw-In"));
-            this.TabCategory.Add(new OptionVm("Adjustment"));
+            Sensors s = new Sensors() { Sensorid = "sensor1", Status = "Running", Values = { 1, 2, 3 }, X = "10", Y = "15", Z = "0" };
+
+            ProjectGroupVm p = new ProjectGroupVm { Name = "Draw-In", Sensors = new List<Sensors>() };
+            ProjectGroupVm p2 = new ProjectGroupVm { Name = "Adjustment", Sensors = new List<Sensors>() };
+
+            this.TabCategory.Add(p);
+            this.TabCategory.Add(p2);
         }
 
         /// <summary>
@@ -87,7 +92,7 @@ namespace SensorsViewer.Home
         /// <summary>
         ///  Gets or sets Tab category
         /// </summary>
-        public ObservableCollection<OptionVm> TabCategory
+        public ObservableCollection<ProjectGroupVm> TabCategory
         {
             get
             {
@@ -108,12 +113,12 @@ namespace SensorsViewer.Home
         {
             get
             {
-                return this.analysisItems;
+                return this.ProjectItems;
             }
 
             set
             {
-                this.analysisItems = value;
+                this.ProjectItems = value;
                 this.OnPropertyChanged("AnalysisItems");
             }
         }
