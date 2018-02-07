@@ -64,17 +64,29 @@ namespace SensorsViewer.Home
             this.CreateNewProjectCommand = new RelayCommand(CreateNewProjectAction);
 
             this.tabCategory = new ObservableCollection<ProjectGroupVm>();
+  
 
             Sensors s = new Sensors() {  X = "10", Y = "15", Z = "0" };
             Sensors s1 = new Sensors() { X = "10", Y = "15", Z = "0" };
             Sensors s2 = new Sensors() { X = "10", Y = "15", Z = "0" };
 
-            ProjectGroupVm p = new ProjectGroupVm { Name = "Draw-In", Sensors = new List<Sensors>() };
-            p.Sensors.Add(s);
-            p.Sensors.Add(s1);
+            ProjectGroupVm p = new ProjectGroupVm { Name = "Draw-In", ProjectOptions = new ObservableCollection<ProjectOptions>() };
 
-            ProjectGroupVm p2 = new ProjectGroupVm { Name = "Adjustment", Sensors = new List<Sensors>() };
-            p2.Sensors.Add(s2);
+            ProjectOptions poSensor = new ProjectOptions() { OptionName = "Sensors" } ;
+            ProjectOptions poAnalysis = new ProjectOptions() { OptionName = "Analysis" };
+
+            poSensor.Sensors.Add(s);
+            poSensor.Sensors.Add(s1);
+
+            p.ProjectOptions.Add(poSensor);
+            p.ProjectOptions.Add(poAnalysis);
+
+            ProjectGroupVm p2 = new ProjectGroupVm { Name = "Adjustment", ProjectOptions = new ObservableCollection<ProjectOptions>() };
+
+            ProjectOptions po2 = new ProjectOptions() { OptionName = "Analysis" };
+
+            p2.ProjectOptions.Add(poSensor);
+            p2.ProjectOptions.Add(poAnalysis);
 
             this.TabCategory.Add(p);
             this.TabCategory.Add(p2);

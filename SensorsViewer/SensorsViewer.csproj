@@ -83,6 +83,7 @@
     </ApplicationDefinition>
     <Compile Include="Home\Analysis.cs" />
     <Compile Include="Home\Sensors.cs" />
+    <Compile Include="Home\ProjectOptions.cs" />
     <Compile Include="RelayCommand.cs" />
     <Page Include="Home\HomeView.xaml">
       <SubType>Designer</SubType>

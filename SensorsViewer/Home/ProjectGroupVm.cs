@@ -6,6 +6,7 @@ namespace SensorsViewer.Home
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
 
     /// <summary>
     /// Project group left bar
@@ -18,13 +19,8 @@ namespace SensorsViewer.Home
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets Sensors
+        /// Gets or sets project options
         /// </summary>
-        public IList<Sensors> Sensors { get; set; }
-
-        /// <summary>
-        /// Gets or sets Analysis
-        /// </summary>
-        public IList<Analysis> Analysis { get; set; }
+        public ObservableCollection<ProjectOptions> ProjectOptions { get; set; }     
     }
 }
