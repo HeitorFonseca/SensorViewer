@@ -72,44 +72,22 @@ namespace SensorsViewer.Home
 
             this.tabCategory = new ObservableCollection<ProjectGroupVm>();
 
-
-            //Sensors s = new Sensors() {  X = "10", Y = "15", Z = "0" };
-            //Sensors s1 = new Sensors() { X = "10", Y = "15", Z = "0" };
-            //Sensors s2 = new Sensors() { X = "10", Y = "15", Z = "0" };
-
             ProjectGroupVm p = new ProjectGroupVm { Name = "Draw-In", ProjectOptions = new ObservableCollection<ProjectOptions>() };
             ProjectGroupVm p2 = new ProjectGroupVm { Name = "Adjustment", ProjectOptions = new ObservableCollection<ProjectOptions>() };
 
-            UserControl asd = ((UserControl) new SensorOptionView("aaaaaaaaaaa", Colors.WhiteSmoke));
-            UserControl asd2 = ((UserControl)new SensorOptionView("eeeeeeeeeee", Colors.LightGray));
-            UserControl asd3 = ((UserControl)new SensorOptionView("iiiiiiiiiii", Colors.WhiteSmoke));
+            UserControl asd = ((UserControl) new SensorOptionView("aaaaaaaaaaa", "10", "11", "0", Colors.WhiteSmoke));
+            UserControl asd2 = ((UserControl)new SensorOptionView("eeeeeeeeeee", "5", "24", "0", Colors.LightSlateGray));
+            UserControl asd3 = ((UserControl)new SensorOptionView("iiiiiiiiiii", "07", "03", "0", Colors.WhiteSmoke));
 
             ProjectOptions po = new ProjectOptions() { OptionName = "Sensors" };
             po.Content.Add(asd);
             po.Content.Add(asd2);
             po.Content.Add(asd3);
 
-            p.ProjectOptions.Add(po);
-
-            //ProjectOptions poSensor = new ProjectOptions() { OptionName = "Sensors" } ;
-            //ProjectOptions poAnalysis = new ProjectOptions() { OptionName = "Analysis" };
-
-            //poSensor.Sensors.Add(s);
-            //poSensor.Sensors.Add(s1);
-
-            //p.ProjectOptions.Add(poSensor);
-            //p.ProjectOptions.Add(poAnalysis);
-
-
-            //ProjectOptions po2 = new ProjectOptions() { OptionName = "Analysis" };
-
-            //p2.ProjectOptions.Add(poSensor);
-            //p2.ProjectOptions.Add(poAnalysis);
+            p.ProjectOptions.Add(po);        
 
             this.TabCategory.Add(p);
             this.TabCategory.Add(p2);
-
-
         }
 
         /// <summary>

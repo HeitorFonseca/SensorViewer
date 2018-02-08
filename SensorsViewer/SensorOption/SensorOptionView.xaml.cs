@@ -22,13 +22,20 @@ namespace SensorsViewer.SensorOption
     public partial class SensorOptionView : UserControl
     {
 
-        public SensorOptionView(string t, Color c)
+        public SensorOptionView()
+        {
+            InitializeComponent();           
+        }    
+
+        public SensorOptionView(string t, string x, string y, string z, Color c)
         {
             InitializeComponent();
 
-            textoT.Text = t;
-
+            SensorOptionViewModel model = new SensorOptionViewModel(t, x, y, z);
+          
             SensorOptionWindow.Background = new SolidColorBrush(c);
+
+            this.DataContext = model;
         }
     }
 }

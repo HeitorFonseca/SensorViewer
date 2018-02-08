@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SensorsViewer.SensorOption"
-             mc:Ignorable="d" Height="100" Width="250" Name="SensorOptionWindow">
+             mc:Ignorable="d" Height="65.333" Width="250" Name="SensorOptionWindow">
 
     <UserControl.DataContext>
         <local:SensorOptionViewModel></local:SensorOptionViewModel>
@@ -13,8 +13,18 @@
     <UserControl.Background>
         <SolidColorBrush Color="WhiteSmoke"></SolidColorBrush>
     </UserControl.Background>
-    
+
     <Grid>
-        <TextBlock Name="textoT" Text="asdsadasd" Margin="10" Width="Auto" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Center"> </TextBlock>
+        <TextBlock Text="{Binding SensorIdText}" Margin="10,10,162,37.333" Width="Auto" Height="Auto" ></TextBlock>
+
+        <TextBlock Text="{Binding XPosition}" Width="Auto" Height="Auto" Margin="26,32,195,14.333" ></TextBlock>
+        <Label Content="X:" FontSize="11"  Margin="10,28,215,9.333" />
+
+        <TextBlock Text="{Binding YPosition}" Width="Auto" Height="Auto" Margin="79,32,142,14.333" ></TextBlock>
+        <Label Content="Y:" FontSize="11" Margin="63,28,162,9.333" />
+
+        <TextBlock Text="{Binding ZPosition}" Width="Auto" Height="Auto" Margin="129,32,92,14.333" ></TextBlock>
+        <Label Content="Z:" FontSize="11"  Margin="112,28,116,9.333" />
+
     </Grid>
 </UserControl>
