@@ -93,3 +93,12 @@ C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Microso
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Microsoft.Practices.ServiceLocation.xml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorOption\SensorOptionView.g.cs
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorOption\SensorOptionView.baml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\EntityFramework.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\System.Data.SQLite.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\EntityFramework.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\System.Data.SQLite.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\System.Data.SQLite.dll.config
