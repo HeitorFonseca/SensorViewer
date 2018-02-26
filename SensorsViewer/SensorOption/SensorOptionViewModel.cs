@@ -44,6 +44,7 @@ namespace SensorsViewer.SensorOption
         /// </summary>
         public SensorOptionViewModel()
         {
+            this.ClickOnSensorContent = new RelayCommand(ClickOnSensorContentEvent);
         }
 
         /// <summary>
@@ -55,7 +56,15 @@ namespace SensorsViewer.SensorOption
             this.xPosition = x;
             this.yPosition = y;
             this.zPosition = z;
+
+            this.ClickOnSensorContent = new RelayCommand(ClickOnSensorContentEvent);
+
         }
+
+        /// <summary>
+        ///  Gets or sets Create new project command
+        /// </summary>
+        public RelayCommand ClickOnSensorContent { get; set; }
 
         /// <summary>
         /// Gets or sets sensor id text
@@ -141,6 +150,16 @@ namespace SensorsViewer.SensorOption
             {
                 this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
+        }
+
+        /// <summary>
+        /// Evento to create new project
+        /// </summary>
+        private void ClickOnSensorContentEvent()
+        {
+            var asdasd = 123;
+
+            var asasdasd = 123123;
         }
     }
 }

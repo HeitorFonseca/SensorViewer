@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SensorsViewer.SensorOption"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
              mc:Ignorable="d" Height="65.333" Width="250" Name="SensorOptionWindow">
 
     <UserControl.DataContext>
@@ -14,6 +16,13 @@
         <SolidColorBrush Color="WhiteSmoke"></SolidColorBrush>
     </UserControl.Background>
 
+     <!--Close window event--> 
+    <!--<i:Interaction.Triggers>
+        <i:EventTrigger EventName="MouseDown">
+            <cmd:EventToCommand Command="{Binding Path=ClickOnSensorContent}" PassEventArgsToCommand="True" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>-->
+    
     <Grid>
         <TextBlock Text="{Binding SensorIdText}" Margin="10,10,162,37.333" Width="Auto" Height="Auto" ></TextBlock>
 

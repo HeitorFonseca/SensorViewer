@@ -6,8 +6,10 @@ namespace SensorsViewer.Home
 {
     using System;
     using System.Diagnostics;
+    using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
+    using System.Windows.Media;
     using System.Windows.Navigation;
     using MahApps.Metro.Controls;
     using SensorsViewer.Connection;
@@ -22,7 +24,7 @@ namespace SensorsViewer.Home
         /// </summary>
         public HomeView()
         {
-            this.InitializeComponent();
+            this.InitializeComponent();                       
         }
 
         /// <summary>
@@ -47,6 +49,48 @@ namespace SensorsViewer.Home
             var hvm = (HomeViewModel)DataContext;
             hvm.ProjectBContent = (UserControl)Activator.CreateInstance(sample.Content);
             ////hvm.IsMenuOpen = false;
-        }        
+        }
+
+        private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var tab = sender as TabItem;
+            var tab2 = sender as TextBlock;
+
+            var asdasd = this.TabCategoryTabItems;
+
+            TabControl tas = FindVisualChild<TabControl>(this.TabCategoryTabItems);
+
+            tas.SelectedIndex = 0;
+
+            if (tab != null)
+            {
+                // this tab is selected!
+            }
+        }
+
+        private childItem FindVisualChild<childItem>(DependencyObject obj) where childItem : DependencyObject
+        {
+            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
+            {
+                DependencyObject child = VisualTreeHelper.GetChild(obj, i);
+                if (child != null && child is childItem)
+                    return (childItem)child;
+                else
+                {
+                    childItem childOfChild = FindVisualChild<childItem>(child);
+                    if (childOfChild != null)
+                        return childOfChild;
+                }
+            }
+            return null;
+        }
+
+        private void ContentPresenter_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var sample = (ProjectOptions)((ItemsControl)sender).DataContext;
+
+            var asqa = 123123;
+
+        }
     }
 }

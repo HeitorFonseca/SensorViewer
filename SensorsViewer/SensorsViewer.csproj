@@ -183,9 +183,6 @@
     <Resource Include="Resources\newProjectImg.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\TranspNewProjectImg2.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\TranspNewProjectImg3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

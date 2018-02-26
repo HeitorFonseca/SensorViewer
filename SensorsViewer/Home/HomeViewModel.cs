@@ -76,7 +76,7 @@ namespace SensorsViewer.Home
             ProjectGroupVm p2 = new ProjectGroupVm { Name = "Adjustment", ProjectOptions = new ObservableCollection<ProjectOptions>() };
 
             UserControl asd = ((UserControl) new SensorOptionView("aaaaaaaaaaa", "10", "11", "0", Colors.WhiteSmoke));
-            UserControl asd2 = ((UserControl)new SensorOptionView("eeeeeeeeeee", "5", "24", "0", Colors.LightSlateGray));
+            UserControl asd2 = ((UserControl)new SensorOptionView("eeeeeeeeeee", "5", "24", "0", Colors.WhiteSmoke));
             UserControl asd3 = ((UserControl)new SensorOptionView("iiiiiiiiiii", "07", "03", "0", Colors.WhiteSmoke));
 
             ProjectOptions po = new ProjectOptions() { OptionName = "Sensors" };
@@ -84,7 +84,11 @@ namespace SensorsViewer.Home
             po.Content.Add(asd2);
             po.Content.Add(asd3);
 
-            p.ProjectOptions.Add(po);        
+            ProjectOptions po2 = new ProjectOptions() { OptionName = "Analysis" };
+            po2.Content.Add(asd);
+
+            p.ProjectOptions.Add(po);
+            p.ProjectOptions.Add(po2);
 
             this.TabCategory.Add(p);
             this.TabCategory.Add(p2);
@@ -105,6 +109,9 @@ namespace SensorsViewer.Home
         /// </summary>
         public RelayCommand CreateNewProjectCommand { get; set; }
 
+        /// <summary>
+        /// Gets or sets sensors content
+        /// </summary>
         public ObservableCollection<UserControl> SensorsContent
         {
             get
@@ -195,13 +202,14 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Event when close window
         /// </summary>
-        /// <param name="sender">object sender</param>
-        /// <param name="e">event e</param>
         private void WindowClosingAction()
         {
             this.proc.Disconnect();
         }
 
+        /// <summary>
+        /// Evento to create new project
+        /// </summary>
         private void CreateNewProjectAction()
         {
             AnalysisItems.Add(new OptionVm("whatr"));

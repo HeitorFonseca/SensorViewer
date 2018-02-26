@@ -81,29 +81,29 @@
 
             <Border Grid.Column="1" Effect="{StaticResource CardShadow}" Background="White" Height="Auto" BorderThickness="2 1 0 0">
                 <Grid>
-                    <TabControl ItemsSource="{Binding TabCategory}">
+                    <TabControl  x:Name="TabCategoryTabItems" ItemsSource="{Binding TabCategory}" >
                         <TabControl.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock MinWidth="110" Style="{StaticResource H5}" Foreground="#0398E2" Text="{Binding Name}"></TextBlock>
+                                <!--<TextBlock MinWidth="110" Style="{StaticResource H5}"  Text="{Binding Name}"></TextBlock>-->
+                                <TextBlock MinWidth="110" FontSize="16"  HorizontalAlignment="Center" TextAlignment="Center" Text="{Binding Name}" MouseDown="TextBlock_MouseDown"></TextBlock>
                             </DataTemplate>
                         </TabControl.ItemTemplate>
                         <TabControl.ContentTemplate>
                             <DataTemplate>
-                                <TabControl ItemsSource="{Binding ProjectOptions}">
+                                <TabControl x:Name="ProjectOptionsTabItem" SelectedIndex="0" ItemsSource="{Binding ProjectOptions}">
                                     <TabControl.ItemTemplate>
                                         <DataTemplate>
-                                            <TextBlock MinWidth="108" Style="{StaticResource H6}" Foreground="#43474f" Text="{Binding OptionName}"></TextBlock>
+                                            <TextBlock MinWidth="108" FontSize="14"  HorizontalAlignment="Center" TextAlignment="Center" Text="{Binding OptionName}"></TextBlock>
                                         </DataTemplate>
                                     </TabControl.ItemTemplate>
 
                                     <TabControl.ContentTemplate>
                                         <DataTemplate>
-
-                                            <ItemsControl ItemsSource="{Binding Content}">
-                                                <ItemsControl.ItemTemplate>
+                                            <ItemsControl ItemsSource="{Binding Content}" >
+                                                <ItemsControl.ItemTemplate >
                                                     <DataTemplate>
-                                                        <Border BorderThickness="10 10 10 10">
-                                                            <ContentPresenter Content="{Binding}"> </ContentPresenter>
+                                                        <Border  BorderThickness="10 10 10 10" Style="{StaticResource MenuItem}">
+                                                            <ContentPresenter Content="{Binding}" MouseDown="ContentPresenter_MouseDown"> </ContentPresenter>
                                                         </Border>
                                                     </DataTemplate>
                                                 </ItemsControl.ItemTemplate>
