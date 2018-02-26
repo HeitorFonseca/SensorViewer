@@ -13,6 +13,7 @@ namespace SensorsViewer.Home
     using System.Windows.Navigation;
     using MahApps.Metro.Controls;
     using SensorsViewer.Connection;
+    using SensorsViewer.SensorOption;
 
     /// <summary>
     /// Interaction logic for HomeView.xaml
@@ -87,9 +88,16 @@ namespace SensorsViewer.Home
 
         private void ContentPresenter_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            var sample = (ProjectOptions)((ItemsControl)sender).DataContext;
+            var item = ItemsControl.ContainerFromElement(sender as ListBox, e.OriginalSource as DependencyObject) as ListBoxItem;
 
-            var asqa = 123123;
+
+            var sample = (SensorOptionView)item.DataContext;
+
+            SensorOptionViewModel asd = (SensorOptionViewModel)sample.DataContext;
+            if (item != null)
+            {
+                // ListBox item clicked - do some cool things here
+            }
 
         }
     }
