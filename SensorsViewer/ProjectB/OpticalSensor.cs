@@ -11,12 +11,12 @@ namespace SensorsViewer.ProjectB
     /// <summary>
     /// Optical Sensor Class
     /// </summary>
-    public class OpticalSensor : SensorOption.Sensors
+    public class OpticalSensor : SensorOption.Sensor
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OpticalSensor"/> class
         /// </summary>
-        public OpticalSensor()
+        public OpticalSensor(string text, string x, string y, string z) : base(text, x, y, z)
         {
             this.Values = new List<double>();
             this.TimeStamp = new List<double>();

@@ -41,6 +41,16 @@
         <Setter Property="FontSize" Value="24"></Setter>
     </Style>
 
+    <Style x:Key="SensorsData" TargetType="TextBlock" BasedOn="{StaticResource Title}">
+        <Setter Property="FontSize" Value="12"></Setter>
+    </Style>
+
+    <Style x:Key="AnalysisData" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="12"></Setter>
+        <!--<Setter Property="FontWeight" Value="Black" />-->
+        <Setter Property="Foreground" Value="DarkGray"/>
+    </Style>
+
     <system:Double x:Key="SecondaryTextOpacity">0.6</system:Double>
 
     <!-- Menu Item -->
@@ -87,12 +97,51 @@
 
 
     <Style x:Key="MainTabItem" TargetType="TabItem" BasedOn="{StaticResource MetroTabItem}">
-        <Style.Triggers>
+        <Setter Property="controls:ControlsHelper.HeaderFontSize" Value="16"/>
+        <!--<Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="WhiteSmoke"></Setter>
+            </Trigger>
+        </Style.Triggers>-->
+    </Style>
+
+    <Style x:Key="DeleteButton" TargetType="Button" >
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Black"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Foreground" Value="Transparent"/>
+                <Setter Property="BorderThickness" Value="0" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="AddSensorButton" TargetType="Button">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="WhiteSmoke"></Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="BorderBrush" Value="Transparent" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
 
+    <Style  x:Key="sensorDataText" TargetType="{x:Type TextBox}" BasedOn="{StaticResource {x:Type TextBox}}">
+
+        <Setter Property="BorderThickness" Value="0"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="BlueViolet"></Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

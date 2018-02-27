@@ -13,8 +13,26 @@ namespace SensorsViewer.SensorOption
     /// <summary>
     /// Class of sensors
     /// </summary>
-    public class Sensors
+    public class Sensor
     {
+        /// <summary>
+        /// Initializes a new instance of the class <see cref="Sensor"/> class
+        /// </summary>
+        public Sensor()
+        {          
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the class <see cref="Sensor"/> class
+        /// </summary>
+        public Sensor(string text, string x, string y, string z)
+        {
+            this.Sensorid = text;
+            this.X = x;
+            this.Y = y;
+            this.Z = z;
+        }
+
         /// <summary>
         /// Gets or sets X position
         /// </summary>

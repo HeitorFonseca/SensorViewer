@@ -4,6 +4,7 @@
 
 namespace SensorsViewer.Home
 {
+    using SensorsViewer.SensorOption;
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
@@ -19,8 +20,20 @@ namespace SensorsViewer.Home
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets project options
+        /// Gets or sets Sensors
         /// </summary>
-        public ObservableCollection<ProjectOptions> ProjectOptions { get; set; }     
+        public ObservableCollection<Sensor> Sensors { get; set; }
+
+        /// <summary>
+        /// Gets or sets Sensors
+        /// </summary>
+        public ObservableCollection<Analysis> Analysis { get; set; }
+
+        public ProjectGroupVm()
+        {
+            Sensors = new ObservableCollection<Sensor>();
+            Analysis = new ObservableCollection<Analysis>();
+
+        }
     }
 }

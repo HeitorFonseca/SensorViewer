@@ -24,8 +24,8 @@ namespace SensorsViewer.Home
         /// Initializes a new instance of the <see cref="HomeView"/> class
         /// </summary>
         public HomeView()
-        {
-            this.InitializeComponent();                       
+        {           
+            this.InitializeComponent();           
         }
 
         /// <summary>
@@ -86,18 +86,14 @@ namespace SensorsViewer.Home
             return null;
         }
 
-        private void ContentPresenter_MouseDown(object sender, MouseButtonEventArgs e)
+        private void delSensorBtn_Click(object sender, RoutedEventArgs e)
         {
-            var item = ItemsControl.ContainerFromElement(sender as ListBox, e.OriginalSource as DependencyObject) as ListBoxItem;
+            // var asd = ((Button)sender).DataContext;
 
-
-            var sample = (SensorOptionView)item.DataContext;
-
-            SensorOptionViewModel asd = (SensorOptionViewModel)sample.DataContext;
-            if (item != null)
-            {
-                // ListBox item clicked - do some cool things here
-            }
+            //object clicked = (e.OriginalSource as FrameworkElement).DataContext;
+            //var lbi = listbo ItemContainerGenerator.ContainerFromItem(clicked) as ListBoxItem;
+            
+            //lbi.IsSelected = true;
 
         }
     }

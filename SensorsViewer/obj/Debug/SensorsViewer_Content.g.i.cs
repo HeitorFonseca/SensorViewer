@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/transpnewprojectimg3.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/addsensorbtn.png")]
 
 

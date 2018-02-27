@@ -8,9 +8,12 @@ namespace SensorsViewer.Home
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
+    using System.Windows;
     using System.Windows.Controls;
+    using System.Windows.Input;
     using System.Windows.Media;
     using SensorsViewer.Connection;
+    using SensorsViewer.Home.Commands;
     using SensorsViewer.ProjectB;
     using SensorsViewer.SensorOption;
 
@@ -19,16 +22,6 @@ namespace SensorsViewer.Home
     /// </summary>
     public class HomeViewModel : INotifyPropertyChanged
     {
-        /// <summary>
-        /// Private enumerable datasource
-        /// </summary>
-        private readonly IList<ProjectGroupVm> dataSource;
-
-        /// <summary>
-        /// Project A User control content
-        /// </summary>
-        private UserControl projectAContent;
-
         /// <summary>
         /// Project B User control content
         /// </summary>
@@ -52,7 +45,9 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Private Sensors Content
         /// </summary>
-        private ObservableCollection<UserControl> sensorsContent;
+        private ObservableCollection<Sensor> sensorsContent;
+
+        private Sensor selectedSensor;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HomeViewModel"/> class
@@ -69,31 +64,39 @@ namespace SensorsViewer.Home
 
             this.CloseWindowCommand = new RelayCommand(WindowClosingAction);
             this.CreateNewProjectCommand = new RelayCommand(CreateNewProjectAction);
+            this.DeleteSensorCommand = new DeleteItemCommand(this);
+            this.AddNewSensorCommand = new AddSensorCommand(this);
 
             this.tabCategory = new ObservableCollection<ProjectGroupVm>();
 
-            ProjectGroupVm p = new ProjectGroupVm { Name = "Draw-In", ProjectOptions = new ObservableCollection<ProjectOptions>() };
-            ProjectGroupVm p2 = new ProjectGroupVm { Name = "Adjustment", ProjectOptions = new ObservableCollection<ProjectOptions>() };
+            ProjectGroupVm p = new ProjectGroupVm { Name = "Draw-In" };
+            ProjectGroupVm p2 = new ProjectGroupVm { Name = "Adjustment" };
 
-            UserControl asd = ((UserControl) new SensorOptionView("aaaaaaaaaaa", "10", "11", "0", Colors.WhiteSmoke));
-            UserControl asd2 = ((UserControl)new SensorOptionView("eeeeeeeeeee", "5", "24", "0", Colors.WhiteSmoke));
-            UserControl asd3 = ((UserControl)new SensorOptionView("iiiiiiiiiii", "07", "03", "0", Colors.WhiteSmoke));
+            Sensor asd = new Sensor("Sensor 1", "10", "11", "0");
+            Sensor asd2 = new Sensor("Sensor 2", "5", "24", "0");
+            Sensor asd3 = new Sensor("Sensor 3", "07", "03", "0");
 
-            ProjectOptions po = new ProjectOptions() { OptionName = "Sensors" };
-            po.Content.Add(asd);
-            po.Content.Add(asd2);
-            po.Content.Add(asd3);
+            Analysis an = new Analysis("Analysis 1", "3 FEV 2018", "10:10:01");
+            Analysis an2 = new Analysis("Analysis 2", "3 FEV 2018", "10:20:47");
 
-            ProjectOptions po2 = new ProjectOptions() { OptionName = "Analysis" };
-            po2.Content.Add(asd);
+            p.Sensors.Add(asd);
+            p.Sensors.Add(asd2);
+            p.Sensors.Add(asd3);
 
-            p.ProjectOptions.Add(po);
-            p.ProjectOptions.Add(po2);
+            p.Analysis.Add(an);
+            p.Analysis.Add(an2);
+
+            p2.Sensors.Add(asd3);
+            p2.Analysis.Add(an);
+
 
             this.TabCategory.Add(p);
             this.TabCategory.Add(p2);
+
+            selectedSensor = new Sensor();
         }
 
+        #region Properties Declarations
         /// <summary>
         /// Event for when change property
         /// </summary>
@@ -110,9 +113,34 @@ namespace SensorsViewer.Home
         public RelayCommand CreateNewProjectCommand { get; set; }
 
         /// <summary>
+        ///  Gets or sets Create new project command
+        /// </summary>
+        public ICommand AddNewSensorCommand { get; set; }
+
+        /// <summary>
+        ///  Gets or sets delete sensor command
+        /// </summary>
+        public ICommand DeleteSensorCommand { get; set; }
+
+        public Sensor SelectedSensor {
+            get
+            {
+                return selectedSensor;
+            }
+
+            set
+            {
+                selectedSensor = value;
+                this.OnPropertyChanged("SelectedSensor");
+
+            }
+
+        }
+
+        /// <summary>
         /// Gets or sets sensors content
         /// </summary>
-        public ObservableCollection<UserControl> SensorsContent
+        public ObservableCollection<Sensor> SensorsContent
         {
             get
             {
@@ -126,7 +154,6 @@ namespace SensorsViewer.Home
             }
 
         }
-
 
         /// <summary>
         ///  Gets or sets Tab category
@@ -191,6 +218,8 @@ namespace SensorsViewer.Home
             }
         }
 
+        #endregion
+
         /// <summary>
         /// Initialize left bar menu
         /// </summary>
@@ -199,6 +228,7 @@ namespace SensorsViewer.Home
             this.AnalysisItems = new ObservableCollection<OptionVm> { new OptionVm { Title = "test" }, new OptionVm { Title = "test2" } };
         }
 
+        #region Actions
         /// <summary>
         /// Event when close window
         /// </summary>
@@ -214,5 +244,6 @@ namespace SensorsViewer.Home
         {
             AnalysisItems.Add(new OptionVm("whatr"));
         }
+        #endregion
     }
 }

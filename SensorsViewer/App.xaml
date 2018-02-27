@@ -3,14 +3,11 @@
     <ResourceDictionary>
       <ResourceDictionary.MergedDictionaries>
         <!-- local resources-->
-           <ResourceDictionary Source="pack://application:,,,
-             /MahApps.Metro;component/Styles/Controls.xaml" />
-                <ResourceDictionary Source="pack://application:,,,
-             /MahApps.Metro;component/Styles/Fonts.xaml" />
-                <ResourceDictionary Source="pack://application:,,,
-             /MahApps.Metro;component/Styles/Colors.xaml" />
-
-                <ResourceDictionary Source="Resources/AppDictionary.xaml">
+           <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+           <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+           <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colors.xaml" />
+            
+           <ResourceDictionary Source="Resources/AppDictionary.xaml">
           <!--<vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" xmlns:vm="clr-namespace:SensorsViewer.ViewModel" />-->
         </ResourceDictionary>
       </ResourceDictionary.MergedDictionaries>

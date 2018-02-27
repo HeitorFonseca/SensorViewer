@@ -90,21 +90,91 @@
                         </TabControl.ItemTemplate>
                         <TabControl.ContentTemplate>
                             <DataTemplate>
-                                <TabControl x:Name="ProjectOptionsTabItem" SelectedIndex="0" ItemsSource="{Binding ProjectOptions}">
-                                    <TabControl.ItemTemplate>
-                                        <DataTemplate>
-                                            <TextBlock MinWidth="108" FontSize="14"  HorizontalAlignment="Center" TextAlignment="Center" Text="{Binding OptionName}"></TextBlock>
-                                        </DataTemplate>
-                                    </TabControl.ItemTemplate>
+                                <TabControl FontSize="10">
+                                    <TabItem Header="Sensors" FontSize="5" Margin="25, 0, -25 , 0" Style="{StaticResource MainTabItem}">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="30"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            
+                                            <ListBox x:Name="SensorListBox" ItemsSource="{Binding Sensors}"  SelectedItem="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectedSensor, Mode=TwoWay}">
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Border BorderThickness="0 0 0 2" BorderBrush="#EBEBEB" >
+                                                            <Grid>
+                                                                <Grid.RowDefinitions>
+                                                                    <RowDefinition Height="30"></RowDefinition>
+                                                                    <RowDefinition Height="30"></RowDefinition>
+                                                                </Grid.RowDefinitions>
 
-                                    <TabControl.ContentTemplate>
-                                        <DataTemplate>
-                                            <ListBox ItemsSource="{Binding Content}" PreviewMouseDown="ContentPresenter_MouseDown">
-                                                
+                                                                <TextBlock Grid.Row="0" Text="{Binding Sensorid}" FontSize="14" Margin="5,8,0,0"></TextBlock>
+
+                                                                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                                                                    <Label Content="X:" Margin="0,0,0,-0.2" FontSize="12"></Label>
+                                                                    <TextBlock Text="{Binding X}" Margin="0,5,0,-0.2" Style="{StaticResource SensorsData}"></TextBlock>
+                                                                    <Label Content="Y:" Margin="0,0,0,-0.2" FontSize="12"></Label>
+                                                                    <TextBlock Text="{Binding Y}" Margin="0,5,0,-0.2" Style="{StaticResource SensorsData}"></TextBlock>
+                                                                    <Label Content="Z:" Margin="0,0,0,-0.2" FontSize="12"></Label>
+                                                                    <TextBlock Text="{Binding Z}" Margin="0,5,0,-0.2" Style="{StaticResource SensorsData}"></TextBlock>
+                                                                    <TextBox Text="asdas" Margin="0,5,0,-0.2" Style="{StaticResource sensorDataText}"></TextBox>
+                                                                    <TextBlock Text="asdas" Margin="0,5,0,-0.2" FontSize="14"></TextBlock>
+
+                                                                    <TextBox 
+                                                                        controls:TextBoxHelper.SelectAllOnFocus="True"
+                                                                        Text="{Binding Z, Mode=TwoWay}"
+                                                                        Style="{StaticResource sensorDataText}"/>
+                                                                </StackPanel>
+
+                                                                <Button x:Name="delSensorBtn" 
+                                                                        Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.DeleteSensorCommand}"
+                                                                        CommandParameter="{Binding}"
+                                                                        Grid.Row="0" BorderThickness="0" Padding="0,0,0,0" Margin="201,6,17.667,8" Style="{StaticResource DeleteButton}">
+                                                                    <Image Source="../Resources/deleteSensor3.png" Stretch="None" />
+                                                                </Button>
+                                                            </Grid>
+                                                        </Border>
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
                                             </ListBox>
-                                        </DataTemplate>
-                                    </TabControl.ContentTemplate>
+
+                                            <Button Grid.Row="1"  Padding="0,0,0,0" BorderThickness="0" Width="124" Style="{StaticResource AddSensorButton}"
+                                                    Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.AddNewSensorCommand}"
+                                                    CommandParameter="{Binding}">
+                                                
+                                                <Image Source="../Resources/AddSensorBtn.png" Stretch="None" />
+                                            </Button>
+                                        </Grid>
+                                    </TabItem>
+                                    <TabItem Header="Analysis" Margin="80,0,-80,0" Style="{StaticResource MainTabItem}">
+                                        <ListBox ItemsSource="{Binding Analysis}">
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border BorderThickness="0 0 0 2" BorderBrush="#EBEBEB">
+                                                        <Grid>
+                                                            <Grid.RowDefinitions>
+                                                                <RowDefinition Height="30"></RowDefinition>
+                                                                <RowDefinition Height="35"></RowDefinition>
+                                                            </Grid.RowDefinitions>
+
+                                                            <TextBlock Grid.Row="0" Text="{Binding Name}" FontSize="14" Margin="5,8,0,0"></TextBlock>
+
+                                                            <StackPanel Grid.Row="1" Orientation="Vertical">
+                                                                <TextBlock Text="{Binding Date}" Margin="5, 0 , 0 , 0" Style="{StaticResource AnalysisData}"></TextBlock>
+                                                                <TextBlock Text="{Binding Time}"  Margin="5, 0 , 0 , 0" Style="{StaticResource AnalysisData}"></TextBlock>
+                                                            </StackPanel>
+
+                                                            <Button Grid.Row="0" BorderThickness="0" Padding="0,0,0,0" Margin="201,6,17.667,8" Style="{StaticResource DeleteButton}">
+                                                                <Image Source="../Resources/deleteSensor3.png" Stretch="None" />
+                                                            </Button>
+                                                        </Grid>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                    </TabItem>
                                 </TabControl>
+                                
                             </DataTemplate>
                         </TabControl.ContentTemplate>
                     </TabControl>
