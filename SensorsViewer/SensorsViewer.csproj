@@ -100,6 +100,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Home\Commands\AddSensorCommand.cs" />
+    <Compile Include="Home\Commands\ChangeSensorDataCommand.cs" />
+    <Compile Include="Home\Commands\ClickInOptionCommand.cs" />
     <Compile Include="Home\Commands\DeleteItemCommand.cs" />
     <Compile Include="SensorOption\Analysis.cs" />
     <Compile Include="SensorOption\Sensor.cs" />

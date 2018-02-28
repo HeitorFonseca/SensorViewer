@@ -8,10 +8,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
-    <UserControl.DataContext>
-        <local:OpticalSensorViewModel></local:OpticalSensorViewModel>
-    </UserControl.DataContext>
-    
     <Grid>
         <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Right" >
             <lvc:CartesianChart.AxisX>

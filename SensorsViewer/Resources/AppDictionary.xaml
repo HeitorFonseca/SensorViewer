@@ -140,7 +140,7 @@
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="BlueViolet"></Setter>
+                <Setter Property="Background" Value="WhiteSmoke"></Setter>
             </Trigger>
         </Style.Triggers>
     </Style>

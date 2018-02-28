@@ -25,12 +25,12 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Project B User control content
         /// </summary>
-        private UserControl projectBContent;
+        private UserControl selectedProjectContent;
 
         /// <summary>
         /// Private project A menu left bar
         /// </summary>
-        private ObservableCollection<OptionVm> ProjectItems;
+        private ObservableCollection<OptionVm> projectItems;
 
         /// <summary>
         /// Private project A menu left bar
@@ -47,6 +47,9 @@ namespace SensorsViewer.Home
         /// </summary>
         private ObservableCollection<Sensor> sensorsContent;
 
+        /// <summary>
+        /// private selected sensor
+        /// </summary>
         private Sensor selectedSensor;
 
         /// <summary>
@@ -59,13 +62,15 @@ namespace SensorsViewer.Home
 
             this.InitializeLeftBarMenu();
 
-            //Set the B project content for OpticalSensorView
-            this.projectBContent = (UserControl)(new OpticalSensorView());
+            ////Set the B project content for OpticalSensorView
+            this.SelectedProjectContent = (UserControl)(new OpticalSensorView());
 
-            this.CloseWindowCommand = new RelayCommand(WindowClosingAction);
-            this.CreateNewProjectCommand = new RelayCommand(CreateNewProjectAction);
+            this.CloseWindowCommand = new RelayCommand(this.WindowClosingAction);
+            this.CreateNewProjectCommand = new RelayCommand(this.CreateNewProjectAction);
             this.DeleteSensorCommand = new DeleteItemCommand(this);
             this.AddNewSensorCommand = new AddSensorCommand(this);
+            this.ClickInOptionVmCommand = new ClickInOptionCommand(this);
+            this.EditSensorDataCommand = new ChangeSensorDataCommand(this);
 
             this.tabCategory = new ObservableCollection<ProjectGroupVm>();
 
@@ -79,6 +84,8 @@ namespace SensorsViewer.Home
             Analysis an = new Analysis("Analysis 1", "3 FEV 2018", "10:10:01");
             Analysis an2 = new Analysis("Analysis 2", "3 FEV 2018", "10:20:47");
 
+            OpticalSensor optSensor = new OpticalSensor("SensorOpt", "5.4", "8", "4.2");
+
             p.Sensors.Add(asd);
             p.Sensors.Add(asd2);
             p.Sensors.Add(asd3);
@@ -87,13 +94,24 @@ namespace SensorsViewer.Home
             p.Analysis.Add(an2);
 
             p2.Sensors.Add(asd3);
-            p2.Analysis.Add(an);
+            p2.Analysis.Add(an);            
 
+            p.ProjectContent = (UserControl)(new OpticalSensorView());
+
+            this.SelectedProjectContent = p.ProjectContent;
+
+            ////((OpticalSensorView)p.ProjectContent).test.SeriesCollection.Add(new LiveCharts.Wpf.LineSeries
+            ////{
+            ////    Title = "Series 3",
+            ////    Values = new LiveCharts.ChartValues<double> { 7, 3, 2, 5, 8 }
+            ////});
+
+            ((OpticalSensorView)p.ProjectContent).OpticalSensorViewModel.AddSensorToGraph(asd);
 
             this.TabCategory.Add(p);
             this.TabCategory.Add(p2);
 
-            selectedSensor = new Sensor();
+            this.selectedSensor = new Sensor();
         }
 
         #region Properties Declarations
@@ -122,19 +140,31 @@ namespace SensorsViewer.Home
         /// </summary>
         public ICommand DeleteSensorCommand { get; set; }
 
-        public Sensor SelectedSensor {
+        /// <summary>
+        ///  Gets or sets delete sensor command
+        /// </summary>
+        public ICommand ClickInOptionVmCommand { get; set; }
+
+        /// <summary>
+        ///  Gets or sets delete sensor command
+        /// </summary>
+        public ICommand EditSensorDataCommand { get; set; }
+
+        /// <summary>
+        /// Gets or sets selected sensor
+        /// </summary>
+        public Sensor SelectedSensor
+        {
             get
             {
-                return selectedSensor;
+                return this.selectedSensor;
             }
 
             set
             {
-                selectedSensor = value;
+                this.selectedSensor = value;
                 this.OnPropertyChanged("SelectedSensor");
-
             }
-
         }
 
         /// <summary>
@@ -152,7 +182,6 @@ namespace SensorsViewer.Home
                 this.sensorsContent = value;
                 this.OnPropertyChanged("SensorsContent");
             }
-
         }
 
         /// <summary>
@@ -179,12 +208,12 @@ namespace SensorsViewer.Home
         {
             get
             {
-                return this.ProjectItems;
+                return this.projectItems;
             }
 
             set
             {
-                this.ProjectItems = value;
+                this.projectItems = value;
                 this.OnPropertyChanged("AnalysisItems");
             }
         }
@@ -192,17 +221,17 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Gets or sets user control content
         /// </summary>
-        public UserControl ProjectBContent
+        public UserControl SelectedProjectContent
         {
             get
             {
-                return this.projectBContent;
+                return this.selectedProjectContent;
             }
 
             set
             {
-                this.projectBContent = value;
-                this.OnPropertyChanged("ProjectBContent");
+                this.selectedProjectContent = value;
+                this.OnPropertyChanged("SelectedProjectContent");
             }
         }
 
@@ -242,7 +271,7 @@ namespace SensorsViewer.Home
         /// </summary>
         private void CreateNewProjectAction()
         {
-            AnalysisItems.Add(new OptionVm("whatr"));
+            this.AnalysisItems.Add(new OptionVm("whatr"));
         }
         #endregion
     }

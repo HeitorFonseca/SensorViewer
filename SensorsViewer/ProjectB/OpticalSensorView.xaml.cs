@@ -19,6 +19,15 @@ namespace SensorsViewer.ProjectB
         public OpticalSensorView()
         {
             this.InitializeComponent();
+
+            this.OpticalSensorViewModel = new OpticalSensorViewModel();
+
+            this.DataContext = this.OpticalSensorViewModel;
         }
+
+        /// <summary>
+        /// Gets or sets optical sensor view model
+        /// </summary>
+        public OpticalSensorViewModel OpticalSensorViewModel { get; set; }
     }
 }

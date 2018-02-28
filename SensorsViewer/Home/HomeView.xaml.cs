@@ -48,53 +48,36 @@ namespace SensorsViewer.Home
         {
             var sample = (OptionVm)((Border)sender).DataContext;
             var hvm = (HomeViewModel)DataContext;
-            hvm.ProjectBContent = (UserControl)Activator.CreateInstance(sample.Content);
+            hvm.SelectedProjectContent = (UserControl)Activator.CreateInstance(sample.Content);
             ////hvm.IsMenuOpen = false;
-        }
+        }        
 
-        private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            var tab = sender as TabItem;
-            var tab2 = sender as TextBlock;
-
-            var asdasd = this.TabCategoryTabItems;
-
-            TabControl tas = FindVisualChild<TabControl>(this.TabCategoryTabItems);
-
-            tas.SelectedIndex = 0;
-
-            if (tab != null)
-            {
-                // this tab is selected!
-            }
-        }
-
+        /// <summary>
+        /// Find visual child
+        /// </summary>
+        /// <typeparam name="childItem">Child item</typeparam>
+        /// <param name="obj">Object parameter</param>
+        /// <returns>return the child of the visual</returns>
         private childItem FindVisualChild<childItem>(DependencyObject obj) where childItem : DependencyObject
         {
             for (int i = 0; i < VisualTreeHelper.GetChildrenCount(obj); i++)
             {
                 DependencyObject child = VisualTreeHelper.GetChild(obj, i);
                 if (child != null && child is childItem)
+                {
                     return (childItem)child;
+                }
                 else
                 {
-                    childItem childOfChild = FindVisualChild<childItem>(child);
+                    childItem childOfChild = this.FindVisualChild<childItem>(child);
                     if (childOfChild != null)
+                    {
                         return childOfChild;
+                    }
                 }
             }
+
             return null;
-        }
-
-        private void delSensorBtn_Click(object sender, RoutedEventArgs e)
-        {
-            // var asd = ((Button)sender).DataContext;
-
-            //object clicked = (e.OriginalSource as FrameworkElement).DataContext;
-            //var lbi = listbo ItemContainerGenerator.ContainerFromItem(clicked) as ListBoxItem;
-            
-            //lbi.IsSelected = true;
-
         }
     }
 }

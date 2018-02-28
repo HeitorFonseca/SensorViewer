@@ -16,11 +16,15 @@ namespace SensorsViewer.ProjectB
         /// <summary>
         /// Initializes a new instance of the <see cref="OpticalSensor"/> class
         /// </summary>
+        /// <param name="text">optical sensor id</param>
+        /// <param name="x">sensor x</param>
+        /// <param name="y">sensor y</param>
+        /// <param name="z">sensor z</param>
         public OpticalSensor(string text, string x, string y, string z) : base(text, x, y, z)
         {
             this.Values = new List<double>();
             this.TimeStamp = new List<double>();
-            LnSerie = new LineSeries { };
+            this.LnSerie = new LineSeries { };
         }
 
         /// <summary>

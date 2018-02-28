@@ -1,22 +1,21 @@
-﻿// <copyright file="AddSensorCommand.cs" company="GM">
+﻿// <copyright file="ClickInOptionCommand.cs" company="GM">
 //     gm.com. All rights reserved.
 // </copyright>
 
 namespace SensorsViewer.Home.Commands
-{   
+{
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using System.Windows.Controls;
     using System.Windows.Input;
-    using SensorsViewer.ProjectB;
-    using SensorsViewer.SensorOption;
 
     /// <summary>
-    /// Class for add sensor command
+    /// Class for click in option command
     /// </summary>
-    public class AddSensorCommand : ICommand
+    public class ClickInOptionCommand : ICommand
     {
         /// <summary>
         /// View Model Variable
@@ -24,13 +23,13 @@ namespace SensorsViewer.Home.Commands
         private readonly HomeViewModel viewModel;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AddSensorCommand"/> class
+        /// Initializes a new instance of the <see cref="ClickInOptionCommand"/> class
         /// </summary>
-        /// <param name="viewModel">view model</param>
-        public AddSensorCommand(HomeViewModel viewModel)
+        /// <param name="viewModel">view model parameter</param>
+        public ClickInOptionCommand(HomeViewModel viewModel)
         {
             this.viewModel = viewModel;
-        }    
+        }
 
         /// <summary>
         /// Fires when the CanExecute status of this command changes.
@@ -45,12 +44,16 @@ namespace SensorsViewer.Home.Commands
         /// Whether this command can be executed.
         /// </summary>
         /// <param name="parameter">object parameter</param>
-        /// <returns>return if can execute</returns>
+        /// <returns>if can execute command</returns>
         public bool CanExecute(object parameter)
         {
-            var tab = parameter as ProjectGroupVm;
+            var asd = ((MouseButtonEventArgs)parameter).Source as TextBlock;
+            var dsa = (ProjectGroupVm)asd.DataContext;
 
-            return tab.Sensors != null && tab.Sensors.Count > 0;
+            ////this.viewModel.SelectedProjectContent = dsa.ProjectContent;
+            ////var tab = parameter as ProjectGroupVm;
+
+            return dsa.ProjectContent != null;
         }
 
         /// <summary>
@@ -59,16 +62,11 @@ namespace SensorsViewer.Home.Commands
         /// <param name="parameter">object parameter</param>
         public void Execute(object parameter)
         {
-            var tab = parameter as ProjectGroupVm;
+            var asd = ((MouseButtonEventArgs)parameter).Source as TextBlock;
+            var dsa = (ProjectGroupVm)asd.DataContext;
 
-            var selectedItem = this.viewModel.SelectedSensor;
-
-            ////((OpticalSensorView)m_ViewModel.SelectedProjectContent).test.AddValue("Sensor 1", 1.0);
-
-            Sensor s = new Sensor();
-            ((OpticalSensorView)this.viewModel.SelectedProjectContent).OpticalSensorViewModel.AddSensorToGraph(s);
-
-            tab.Sensors.Add(s);
+            this.viewModel.SelectedProjectContent = dsa.ProjectContent;
+            ////tab.Sensors.Add(new Sensor());
         }
     }
 }

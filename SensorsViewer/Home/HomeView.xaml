@@ -81,11 +81,17 @@
 
             <Border Grid.Column="1" Effect="{StaticResource CardShadow}" Background="White" Height="Auto" BorderThickness="2 1 0 0">
                 <Grid>
-                    <TabControl  x:Name="TabCategoryTabItems" ItemsSource="{Binding TabCategory}" >
+                    <TabControl  x:Name="TabCategoryTabItems" ItemsSource="{Binding TabCategory}" SelectedIndex="0" >
                         <TabControl.ItemTemplate>
                             <DataTemplate>
                                 <!--<TextBlock MinWidth="110" Style="{StaticResource H5}"  Text="{Binding Name}"></TextBlock>-->
-                                <TextBlock MinWidth="110" FontSize="16"  HorizontalAlignment="Center" TextAlignment="Center" Text="{Binding Name}" MouseDown="TextBlock_MouseDown"></TextBlock>
+                                <TextBlock MinWidth="110" FontSize="16"  HorizontalAlignment="Center" TextAlignment="Center" Text="{Binding Name}">                                    
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="MouseDown">
+                                            <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.ClickInOptionVmCommand}" PassEventArgsToCommand="True" />
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </TextBlock>
                             </DataTemplate>
                         </TabControl.ItemTemplate>
                         <TabControl.ContentTemplate>
@@ -98,30 +104,23 @@
                                                 <RowDefinition Height="30"></RowDefinition>
                                             </Grid.RowDefinitions>
                                             
-                                            <ListBox x:Name="SensorListBox" ItemsSource="{Binding Sensors}"  SelectedItem="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectedSensor, Mode=TwoWay}"
-                                                   >
+                                            <ListBox x:Name="SensorListBox" ItemsSource="{Binding ProjectContent.OpticalSensorViewModel.SensorList}"  SelectedItem="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectedSensor, Mode=TwoWay}">
 
                                                 <ListBox.ItemContainerStyle>
                                                     <Style TargetType="{x:Type ListBoxItem}">
                                                         <Setter Property="Background" Value="Transparent"/>
-                                                        <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, 
-            RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
-                                                        <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment,
-             RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                                                        <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment,  RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+                                                        <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
                                                         <Setter Property="Padding" Value="2,0,0,0"/>
                                                         <Setter Property="Template">
                                                             <Setter.Value>
                                                                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                                                                    <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" 
-                            BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" 
-                            Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
-                                                                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                                                    <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                                                                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"  VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                                                                     </Border>
                                                                     <ControlTemplate.Triggers>
                                                                         <Trigger Property="IsSelected" Value="true">
-                                                                            <Setter Property="Background" TargetName="Bd" Value="WhiteSmoke"/>
+                                                                            <Setter Property="Background" TargetName="Bd" Value="Transparent"/>
                                                                         </Trigger>
                                                                     </ControlTemplate.Triggers>
                                                                 </ControlTemplate>
@@ -139,22 +138,31 @@
                                                                     <RowDefinition Height="30"></RowDefinition>
                                                                 </Grid.RowDefinitions>
 
-                                                                <TextBlock Grid.Row="0" Text="{Binding Sensorid}" FontSize="14" Margin="5,8,0,0"></TextBlock>
+                                                                <TextBox Grid.Row="0" controls:TextBoxHelper.SelectAllOnFocus="True" controls:TextBoxHelper.Watermark="Sensor Name"
+                                                                         Text="{Binding SensorName, Mode=TwoWay}" Width="100" Margin="-135,0,0,0"  Style="{StaticResource sensorDataText}">
+                                                                    <i:Interaction.Triggers>
+                                                                        <i:EventTrigger EventName="LostFocus">
+                                                                            <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.EditSensorDataCommand}" PassEventArgsToCommand="True" />
+                                                                        </i:EventTrigger>
+                                                                    </i:Interaction.Triggers>
+                                                                </TextBox>
+
+                                                                <!--<TextBlock Grid.Row="0" Text="{Binding Sensorid}" FontSize="14" Margin="5,8,0,0"></TextBlock>-->
 
                                                                 <StackPanel Grid.Row="1" Orientation="Horizontal">
                                                                     <Label Content="X:" Margin="0,0,0,-0.2" FontSize="12"></Label>
-                                                                    <TextBlock Text="{Binding X}" Margin="0,5,0,-0.2" Style="{StaticResource SensorsData}"></TextBlock>
+                                                                    <TextBox controls:TextBoxHelper.SelectAllOnFocus="True" controls:TextBoxHelper.Watermark="X"
+                                                                             Text="{Binding X, Mode=TwoWay}" Style="{StaticResource sensorDataText}" Margin="-5,1,0,0"/>
+                                                                    <!--<TextBlock Text="{Binding X}" Margin="0,5,0,-0.2" Style="{StaticResource SensorsData}"></TextBlock>-->
                                                                     <Label Content="Y:" Margin="0,0,0,-0.2" FontSize="12"></Label>
-                                                                    <TextBlock Text="{Binding Y}" Margin="0,5,0,-0.2" Style="{StaticResource SensorsData}"></TextBlock>
+                                                                    <TextBox controls:TextBoxHelper.SelectAllOnFocus="True" controls:TextBoxHelper.Watermark="Y"
+                                                                             Text="{Binding Y, Mode=TwoWay}" Style="{StaticResource sensorDataText}" Margin="-5,1,0,0"/>
+                                                                    <!--<TextBlock Text="{Binding Y}" Margin="0,5,0,-0.2" Style="{StaticResource SensorsData}"></TextBlock>-->
                                                                     <Label Content="Z:" Margin="0,0,0,-0.2" FontSize="12"></Label>
-                                                                    <TextBlock Text="{Binding Z}" Margin="0,5,0,-0.2" Style="{StaticResource SensorsData}"></TextBlock>
-                                                                    <TextBox Text="asdas" Margin="0,5,0,-0.2" Style="{StaticResource sensorDataText}"></TextBox>
-                                                                    <TextBlock Text="asdas" Margin="0,5,0,-0.2" FontSize="14"></TextBlock>
+                                                                    <TextBox controls:TextBoxHelper.SelectAllOnFocus="True" controls:TextBoxHelper.Watermark="Z"
+                                                                             Text="{Binding Z, Mode=TwoWay}" Style="{StaticResource sensorDataText}" Margin="-5,1,0,0"/>
+                                                                    <!--<TextBlock Text="{Binding Z}" Margin="0,5,0,-0.2" Style="{StaticResource SensorsData}"></TextBlock>-->
 
-                                                                    <TextBox 
-                                                                        controls:TextBoxHelper.SelectAllOnFocus="True"
-                                                                        Text="{Binding Z, Mode=TwoWay}"
-                                                                        Style="{StaticResource sensorDataText}"/>
                                                                 </StackPanel>
 
                                                                 <Button x:Name="delSensorBtn" 
@@ -213,7 +221,7 @@
             </Border>
 
             <Border Grid.Column="2" BorderThickness="0 1 0 0" BorderBrush="#E6E6E6">
-                <Grid >
+                <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"></RowDefinition>
                         <RowDefinition Height="Auto"></RowDefinition>
@@ -221,7 +229,10 @@
                     </Grid.RowDefinitions>
 
                     <Border Grid.Row="2" Margin="25" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
-                        <ContentPresenter  Content="{Binding ProjectAContent}"/>
+                        <ContentControl Content="{Binding SelectedProjectContent}">
+                            
+                        </ContentControl>
+                       
                     </Border>
                 </Grid>
             </Border>

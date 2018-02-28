@@ -16,16 +16,18 @@ namespace SensorsViewer.SensorOption
     public class Analysis
     {
         /// <summary>
-        /// Initializes a new instance of the class <see cref="Analysis"/> class
+        /// Initializes a new instance of the <see cref="Analysis"/> class
         /// </summary>
         public Analysis()
         {
-
         }
 
-        // <summary>
-        /// Initializes a new instance of the class <see cref="Analysis"/> class
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Analysis"/> class
         /// </summary>
+        /// <param name="name">analysis name</param>
+        /// <param name="date">analysis date</param>
+        /// <param name="time">analysis time</param>
         public Analysis(string name, string date, string time)
         {
             this.Name = name;

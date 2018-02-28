@@ -1,4 +1,4 @@
-﻿// <copyright file="Sensors.cs" company="GM">
+﻿// <copyright file="Sensor.cs" company="GM">
 //     gm.com. All rights reserved.
 // </copyright>
 
@@ -16,22 +16,34 @@ namespace SensorsViewer.SensorOption
     public class Sensor
     {
         /// <summary>
-        /// Initializes a new instance of the class <see cref="Sensor"/> class
+        /// Initializes a new instance of the <see cref="Sensor"/> class
         /// </summary>
         public Sensor()
-        {          
+        {
+            this.Id = this.generateID();
         }
 
         /// <summary>
-        /// Initializes a new instance of the class <see cref="Sensor"/> class
+        /// Initializes a new instance of the <see cref="Sensor"/> class
         /// </summary>
+        /// <param name="text"> sensor name </param>
+        /// <param name="x">x parameter</param>
+        /// <param name="y">y parameter</param>
+        /// <param name="z">z parameter</param>
         public Sensor(string text, string x, string y, string z)
         {
-            this.Sensorid = text;
+            this.SensorName = text;
             this.X = x;
             this.Y = y;
             this.Z = z;
+
+            this.Id = this.generateID();
         }
+
+        /// <summary>
+        /// Gets or sets Id
+        /// </summary>
+        public string Id { get; set; }
 
         /// <summary>
         /// Gets or sets X position
@@ -56,7 +68,7 @@ namespace SensorsViewer.SensorOption
         /// <summary>
         /// Gets or sets Sensorid
         /// </summary>
-        public string Sensorid { get; set; }
+        public string SensorName { get; set; }
 
         /// <summary>
         /// Gets or sets Values
@@ -66,6 +78,15 @@ namespace SensorsViewer.SensorOption
         /// <summary>
         /// Gets or sets TimeStamp
         /// </summary>
-        public List<double> TimeStamp { get; set; }        
+        public List<double> TimeStamp { get; set; }
+
+        /// <summary>
+        /// Generate unique Id
+        /// </summary>
+        /// <returns>generated id</returns>
+        public string generateID()
+        {
+            return Guid.NewGuid().ToString();
+        }
     }
 }
