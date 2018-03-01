@@ -52,6 +52,8 @@ namespace SensorsViewer.Home
         /// </summary>
         private Sensor selectedSensor;
 
+        private System.Windows.Threading.DispatcherTimer dispatcherTimer;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="HomeViewModel"/> class
         /// </summary>
@@ -112,6 +114,13 @@ namespace SensorsViewer.Home
             this.TabCategory.Add(p2);
 
             this.selectedSensor = new Sensor();
+
+            //  DispatcherTimer setup
+            dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(DispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
+            dispatcherTimer.Start();
+
         }
 
         #region Properties Declarations
@@ -274,5 +283,17 @@ namespace SensorsViewer.Home
             this.AnalysisItems.Add(new OptionVm("whatr"));
         }
         #endregion
+
+        private void DispatcherTimer_Tick(object sender, EventArgs e)
+        {
+
+            Random rnd = new Random();
+
+            double value = rnd.Next(0, 50);
+
+            ((OpticalSensorView)SelectedProjectContent).OpticalSensorViewModel.AddValue("Sensor 1", value);
+
+
+        }
     }
 }
