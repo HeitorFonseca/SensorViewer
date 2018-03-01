@@ -37,8 +37,8 @@
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="254" />
-                <ColumnDefinition Width="254" />
+                <ColumnDefinition Width="204" />
+                <ColumnDefinition Width="264" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
@@ -58,7 +58,7 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
 
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" Margin="-10,0,10,0">
                             <Image Source="../Resources/TranspNewProjectImg3.png"  Stretch="None" Margin="0,0,0,0.333" Width="48"></Image>
                             <TextBlock  Style="{StaticResource H5}" Opacity="{StaticResource SecondaryTextOpacity}" FontSize="20" Width="Auto" Margin="0,10,0,0.333" ><Run Text="New Project"/></TextBlock>
                         </StackPanel>
@@ -100,18 +100,30 @@
                                     <TabItem Header="Sensors" FontSize="5" Margin="25, 0, -25 , 0" Style="{StaticResource MainTabItem}">
                                         <Grid>
                                             <Grid.RowDefinitions>
+                                                <RowDefinition Height="30"></RowDefinition>
                                                 <RowDefinition Height="*"></RowDefinition>
                                                 <RowDefinition Height="30"></RowDefinition>
                                             </Grid.RowDefinitions>
-                                            
-                                            <ListBox x:Name="SensorListBox" ItemsSource="{Binding ProjectContent.OpticalSensorViewModel.SensorList}"  SelectedItem="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectedSensor, Mode=TwoWay}">
+
+                                            <TextBox controls:TextBoxHelper.Watermark="Upload sensor file" 
+                                                     Style="{DynamicResource ButtonCommandMetroTextBox}" IsReadOnly="True"
+                                                     controls:TextBoxHelper.ButtonCommand="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.BrowseFileCommand}">
+                                                <controls:TextBoxHelper.ButtonContent>
+                                                    <Image Source="../Resources/uploadDocument.png" />
+                                                </controls:TextBoxHelper.ButtonContent>
+                                            </TextBox>
+
+                                            <ListBox Grid.Row="1" x:Name="SensorListBox" 
+                                                     ItemsSource="{Binding ProjectContent.OpticalSensorViewModel.SensorList}"  
+                                                     SelectedItem="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectedSensor, Mode=TwoWay}"
+                                                     ScrollViewer.HorizontalScrollBarVisibility="Hidden">
 
                                                 <ListBox.ItemContainerStyle>
                                                     <Style TargetType="{x:Type ListBoxItem}">
                                                         <Setter Property="Background" Value="Transparent"/>
                                                         <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment,  RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
                                                         <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
-                                                        <Setter Property="Padding" Value="2,0,0,0"/>
+                                                        <Setter Property="Padding" Value="0,0,0,0"/>
                                                         <Setter Property="Template">
                                                             <Setter.Value>
                                                                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
@@ -137,7 +149,7 @@
                                                                     <RowDefinition Height="30"></RowDefinition>
                                                                     <RowDefinition Height="30"></RowDefinition>
                                                                 </Grid.RowDefinitions>
-
+                                                            
                                                                 <TextBox Grid.Row="0" controls:TextBoxHelper.SelectAllOnFocus="True" controls:TextBoxHelper.Watermark="Sensor Name"
                                                                          Text="{Binding SensorName, Mode=TwoWay}" Width="100" Margin="-135,0,0,0"  Style="{StaticResource sensorDataText}">
                                                                     <i:Interaction.Triggers>
@@ -165,10 +177,10 @@
 
                                                                 </StackPanel>
 
-                                                                <Button x:Name="delSensorBtn" 
+                                                                <Button x:Name="delSensorBtn"  Grid.Row="0"
                                                                         Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.DeleteSensorCommand}"
                                                                         CommandParameter="{Binding}"
-                                                                        Grid.Row="0" BorderThickness="0" Padding="0,0,0,0" Margin="201,6,17.667,8" Style="{StaticResource DeleteButton}">
+                                                                        BorderThickness="0" Padding="0,0,0,0" Margin="210,6,23,8" Style="{StaticResource DeleteButton}">
                                                                     <Image Source="../Resources/deleteSensor3.png" Stretch="None" />
                                                                 </Button>
                                                             </Grid>
@@ -177,7 +189,7 @@
                                                 </ListBox.ItemTemplate>
                                             </ListBox>
 
-                                            <Button Grid.Row="1"  Padding="0,0,0,0" BorderThickness="0" Width="124" Style="{StaticResource AddSensorButton}"
+                                            <Button Grid.Row="2"  Padding="0,0,0,0" BorderThickness="0" Width="124" Style="{StaticResource AddSensorButton}"
                                                     Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.AddNewSensorCommand}"
                                                     CommandParameter="{Binding}">
                                                 
@@ -220,21 +232,30 @@
                 </Grid>
             </Border>
 
-            <Border Grid.Column="2" BorderThickness="0 1 0 0" BorderBrush="#E6E6E6">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="*"></RowDefinition>
-                    </Grid.RowDefinitions>
+            <Border Grid.Column="2" BorderThickness="2 1 0 0" BorderBrush="#E6E6E6">
 
-                    <Border Grid.Row="2" Margin="25" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
-                        <ContentControl Content="{Binding SelectedProjectContent}">
+                <TabControl Background="WhiteSmoke" >
+                    <TabItem Header="Result" Style="{StaticResource ContentTabItem}" Margin="30,0,-30,0" Padding="0,0,30,0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+
+                            <Border Grid.Row="2" Margin="25" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
+                                <ContentControl Content="{Binding SelectedProjectContent}"/>
+                            </Border>
                             
-                        </ContentControl>
-                       
-                    </Border>
-                </Grid>
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Sensors Log" Style="{StaticResource ContentTabItem}" Margin="30,0,-30,0" Padding="0,0,30,0">
+                        <Grid>
+                           
+                        </Grid>
+                    </TabItem>
+                </TabControl>
             </Border>
         </Grid>
     </Grid>

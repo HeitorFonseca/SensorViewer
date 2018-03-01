@@ -19,13 +19,19 @@ namespace SensorsViewer
         /// <summary>
         /// Action to be executed
         /// </summary>
-        private Action action;
+        private Action<object> action;
+
+
+        /// <summary>
+        /// Can execute function
+        /// </summary>
+        private Func<object, bool> canExecute;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="RelayCommand"/> class
         /// </summary>
         /// <param name="action">Action to be executed</param>
-        public RelayCommand(Action action)
+        public RelayCommand(Action<object> action)
         {
             this.action = action;
         }
@@ -55,7 +61,7 @@ namespace SensorsViewer
         /// <param name="parameter">object parameter</param>
         public void Execute(object parameter)
         {
-            this.action();
+            this.action(parameter);
         }       
     }
 }

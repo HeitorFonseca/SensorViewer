@@ -12,6 +12,7 @@ namespace SensorsViewer.Home
     using System.Windows.Controls;
     using System.Windows.Input;
     using System.Windows.Media;
+    using Microsoft.Win32;
     using SensorsViewer.Connection;
     using SensorsViewer.Home.Commands;
     using SensorsViewer.ProjectB;
@@ -52,6 +53,11 @@ namespace SensorsViewer.Home
         /// </summary>
         private Sensor selectedSensor;
 
+        /// <summary>
+        /// Path of sensors file
+        /// </summary>
+        private string fileSensorsPath;
+
         private System.Windows.Threading.DispatcherTimer dispatcherTimer;
 
         /// <summary>
@@ -73,6 +79,7 @@ namespace SensorsViewer.Home
             this.AddNewSensorCommand = new AddSensorCommand(this);
             this.ClickInOptionVmCommand = new ClickInOptionCommand(this);
             this.EditSensorDataCommand = new ChangeSensorDataCommand(this);
+            this.BrowseFileCommand = new RelayCommand(this.BrowseFileAction);
 
             this.tabCategory = new ObservableCollection<ProjectGroupVm>();
 
@@ -116,10 +123,10 @@ namespace SensorsViewer.Home
             this.selectedSensor = new Sensor();
 
             //  DispatcherTimer setup
-            dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-            dispatcherTimer.Tick += new EventHandler(DispatcherTimer_Tick);
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
-            dispatcherTimer.Start();
+            //dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            //dispatcherTimer.Tick += new EventHandler(DispatcherTimer_Tick);
+            //dispatcherTimer.Interval = new TimeSpan(1, 0, 5);
+            //dispatcherTimer.Start();
 
         }
 
@@ -132,12 +139,12 @@ namespace SensorsViewer.Home
         /// <summary>
         ///  Gets or sets Close window command
         /// </summary>
-        public RelayCommand CloseWindowCommand { get; set; }
+        public ICommand CloseWindowCommand { get; set; }
 
         /// <summary>
         ///  Gets or sets Create new project command
         /// </summary>
-        public RelayCommand CreateNewProjectCommand { get; set; }
+        public ICommand CreateNewProjectCommand { get; set; }
 
         /// <summary>
         ///  Gets or sets Create new project command
@@ -158,6 +165,11 @@ namespace SensorsViewer.Home
         ///  Gets or sets delete sensor command
         /// </summary>
         public ICommand EditSensorDataCommand { get; set; }
+
+        /// <summary>
+        ///  Gets or sets browse sensor file
+        /// </summary>
+        public ICommand BrowseFileCommand { get; set; }
 
         /// <summary>
         /// Gets or sets selected sensor
@@ -270,18 +282,54 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Event when close window
         /// </summary>
-        private void WindowClosingAction()
+        private void WindowClosingAction(object parameter)
         {
             this.proc.Disconnect();
         }
 
         /// <summary>
-        /// Evento to create new project
+        /// Event to create new project
         /// </summary>
-        private void CreateNewProjectAction()
+        private void CreateNewProjectAction(object parameter)
         {
             this.AnalysisItems.Add(new OptionVm("whatr"));
         }
+
+        /// <summary>
+        /// Event to open file browser
+        /// </summary>
+        private void BrowseFileAction(object parameter)
+        {
+            var textBox = (TextBox)parameter;
+
+            var dialog = new OpenFileDialog();
+            dialog.Filter = "Text (*.txt)|*.txt|All Files(*.*)|*.*";
+
+            bool? result = dialog.ShowDialog();
+
+            if ((result.HasValue) && (result.Value))
+            {
+                this.fileSensorsPath = dialog.FileName;
+
+                textBox.Text = System.IO.Path.GetFileName(this.fileSensorsPath);
+
+                string[] lines = System.IO.File.ReadAllLines(this.fileSensorsPath);
+
+                int counter = 1;
+
+                foreach (string line in lines)
+                {
+                    string[] data = line.Split(' ');
+
+                    Sensor sensor = new Sensor("Sensor Name " + counter, data[0], data[1], data[2]);
+
+                    ((OpticalSensorView)this.SelectedProjectContent).OpticalSensorViewModel.AddSensorToGraph(sensor);
+
+                    counter++;
+                }
+            }
+        }
+
         #endregion
 
         private void DispatcherTimer_Tick(object sender, EventArgs e)
@@ -289,7 +337,11 @@ namespace SensorsViewer.Home
 
             Random rnd = new Random();
 
-            double value = rnd.Next(0, 50);
+            double value = Convert.ToDouble(rnd.Next(0, 50));
+
+            //LiveCharts.ChartValues<double> v = new LiveCharts.ChartValues { 1, 2 }
+
+            //LiveCharts.Defaults.ObservableValue va = new LiveCharts.Defaults.ObservableValue(value);
 
             ((OpticalSensorView)SelectedProjectContent).OpticalSensorViewModel.AddValue("Sensor 1", value);
 

@@ -68,7 +68,7 @@ namespace SensorsViewer.ProjectB
             {
                 foreach (double value in sensor.Values)
                 {
-                    newLs.Values.Add(value);
+                    newLs.Values.Add(new LiveCharts.Defaults.ObservableValue(value));
                 }
             }
 
@@ -106,10 +106,10 @@ namespace SensorsViewer.ProjectB
         /// <param name="sensorid">sensor id</param>
         /// <param name="value">value to add</param>
         public void AddValue(string sensorid, double value)
-        {
-            var asd = this.SeriesCollection.FirstOrDefault(a => a.Title == sensorid);
-
-            asd.Values.Add(value); 
+        {            
+            LineSeries asd = this.SeriesCollection.FirstOrDefault(a => a.Title == sensorid) as LineSeries;
+            
+            asd.Values.Add(new LiveCharts.Defaults.ObservableValue(value)); 
         }
     }
 }
