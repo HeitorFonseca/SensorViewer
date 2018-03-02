@@ -23,7 +23,7 @@ namespace SensorsViewer.ProjectB
         public OpticalSensor(string text, string x, string y, string z) : base(text, x, y, z)
         {
             this.Values = new List<double>();
-            this.TimeStamp = new List<double>();
+            this.TimeStamp = new List<string>();
             this.LnSerie = new LineSeries { };
         }
 

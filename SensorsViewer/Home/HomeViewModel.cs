@@ -8,11 +8,14 @@ namespace SensorsViewer.Home
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
+    using System.Text;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
     using System.Windows.Media;
     using Microsoft.Win32;
+    using Newtonsoft.Json;
+    using RabbitMQ.Client.Events;
     using SensorsViewer.Connection;
     using SensorsViewer.Home.Commands;
     using SensorsViewer.ProjectB;
@@ -70,11 +73,9 @@ namespace SensorsViewer.Home
         {
             this.proc = new MqttConnection("localhost", 5672, "userTest", "userTest", "hello");
             this.proc.Connect();
+            this.proc.ReadDataEvnt(WhenMessageReceived);
 
             this.InitializeLeftBarMenu();
-
-            ////Set the B project content for OpticalSensorView
-            this.SelectedProjectContent = (UserControl)(new OpticalSensorView());
 
             this.CloseWindowCommand = new RelayCommand(this.WindowClosingAction);
             this.CreateNewProjectCommand = new RelayCommand(this.CreateNewProjectAction);
@@ -120,7 +121,7 @@ namespace SensorsViewer.Home
             //  DispatcherTimer setup
             //dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
             //dispatcherTimer.Tick += new EventHandler(DispatcherTimer_Tick);
-            //dispatcherTimer.Interval = new TimeSpan(1, 0, 5);
+            //dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
             //dispatcherTimer.Start();
 
         }
@@ -332,15 +333,66 @@ namespace SensorsViewer.Home
 
             Random rnd = new Random();
 
-            double value = Convert.ToDouble(rnd.Next(0, 50));
+            double value2 = Convert.ToDouble(rnd.Next(0, 50));
 
-            //LiveCharts.ChartValues<double> v = new LiveCharts.ChartValues { 1, 2 }
-
-            //LiveCharts.Defaults.ObservableValue va = new LiveCharts.Defaults.ObservableValue(value);
-
-            ((OpticalSensorView)SelectedProjectContent).OpticalSensorViewModel.AddValue("Sensor 1", value);
+            ((OpticalSensorView)SelectedProjectContent).OpticalSensorViewModel.AddValue("Sensor 1", value2);
 
 
+        }
+
+        /// <summary>
+        /// Event for when receive a mqtt message
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="ea"></param>
+        private void WhenMessageReceived(object sender, BasicDeliverEventArgs ea)
+        {
+            var body = ea.Body;
+            var message = Encoding.UTF8.GetString(body);
+
+            JsonData jsonData = JsonConvert.DeserializeObject<JsonData>(message);
+
+           
+            System.Windows.Application.Current.Dispatcher.Invoke((Action)(() =>
+            {
+                UpdateValue(jsonData);
+            }));
+                
+            
+        }
+
+        private void UpdateValue(JsonData jsonData)
+        {
+          
+            foreach (List<string> data in jsonData.values)
+            {
+                string sensorName = data[0];
+                long timestamp = Convert.ToInt64(data[1]);
+                DateTimeOffset dateTimeOffset = DateTimeOffset.Now;
+
+                double value;
+                double.TryParse(data[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out value);
+               
+                string parameter = data[3];
+                string status = data[4];
+
+                Sensor sensor = new Sensor(sensorName, parameter);
+                sensor.Values.Add(value);
+
+                string dateTime = UnixTimeStampToDateTime(timestamp);
+                sensor.TimeStamp.Add(dateTime);
+
+                ((OpticalSensorView)SelectedProjectContent).OpticalSensorViewModel.AddValue(sensorName, value);
+
+                ((OpticalSensorView)SelectedProjectContent).OpticalSensorViewModel.AddSensorLogData(sensor);
+            }
+        }
+
+        private static string UnixTimeStampToDateTime(long unixTimeStamp)
+        {
+            System.DateTime dtDateTime = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
+            dtDateTime = dtDateTime.AddMilliseconds(unixTimeStamp);
+            return dtDateTime.ToString();
         }
     }
 }

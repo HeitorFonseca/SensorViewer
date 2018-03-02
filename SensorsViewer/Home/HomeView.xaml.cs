@@ -25,7 +25,7 @@ namespace SensorsViewer.Home
         /// </summary>
         public HomeView()
         {           
-            this.InitializeComponent();           
+            this.InitializeComponent();                         
         }
 
         /// <summary>

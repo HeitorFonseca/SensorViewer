@@ -50,7 +50,8 @@ namespace SensorsViewer.Home.Commands
         /// <returns>returns if can execute command</returns>
         public bool CanExecute(object parameter)
         {
-            return ((OpticalSensorView)this.viewModel.SelectedProjectContent).OpticalSensorViewModel != null;
+            //((OpticalSensorView)this.viewModel.SelectedProjectContent).OpticalSensorViewModel != null;
+            return true;
         }
 
         /// <summary>

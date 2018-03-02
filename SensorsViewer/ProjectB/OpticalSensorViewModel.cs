@@ -23,22 +23,9 @@ namespace SensorsViewer.ProjectB
         /// </summary>
         public OpticalSensorViewModel()
         {
-            ////this.SeriesCollection = new SeriesCollection
-            ////{
-            ////    new LineSeries
-            ////    {
-            ////        Title = "Series 1",
-            ////        Values = new ChartValues<double> { 4, 6, 5, 2 ,7 }
-            ////    },
-            ////    new LineSeries
-            ////    {
-            ////        Title = "Series 2",
-            ////        Values = new ChartValues<double> { 6, 7, 3, 4 ,6 }
-            ////    }
-            ////};
-
             this.SeriesCollection = new SeriesCollection();
             this.SensorList = new ObservableCollection<SensorOption.Sensor>();
+            this.SensorsLog = new ObservableCollection<SensorOption.Sensor>();
         }
 
         /// <summary>
@@ -50,6 +37,11 @@ namespace SensorsViewer.ProjectB
         /// Gets or sets series collection
         /// </summary>
         public SeriesCollection SeriesCollection { get; set; }
+ 
+        /// <summary>
+        /// Gets or sets series sensor log list
+        /// </summary>
+        public ObservableCollection<SensorOption.Sensor> SensorsLog { get; set; }
 
         /// <summary>
         /// Add sensor in linesgraph
@@ -107,9 +99,24 @@ namespace SensorsViewer.ProjectB
         /// <param name="value">value to add</param>
         public void AddValue(string sensorid, double value)
         {            
-            LineSeries asd = this.SeriesCollection.FirstOrDefault(a => a.Title == sensorid) as LineSeries;
-            
-            asd.Values.Add(new LiveCharts.Defaults.ObservableValue(value)); 
+            // If exist a line series with sensor with sensorid
+            if (this.SeriesCollection.FirstOrDefault(a => a.Title == sensorid) is LineSeries ls)
+            {
+                LiveCharts.Defaults.ObservableValue obsValue = new LiveCharts.Defaults.ObservableValue(value);
+                ls.Values.Add(value);
+            }
+        }
+
+        /// <summary>
+        /// Adds in drawInSensorData list 
+        /// </summary>
+        /// <param name="sensor">sensor to be added in sensor log</param>
+        public void AddSensorLogData(SensorOption.Sensor sensor)
+        {
+            if (sensor != null)
+            {
+                this.SensorsLog.Add(sensor);
+            }
         }
     }
 }

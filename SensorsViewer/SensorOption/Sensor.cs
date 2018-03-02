@@ -20,23 +20,42 @@ namespace SensorsViewer.SensorOption
         /// </summary>
         public Sensor()
         {
+            this.TimeStamp = new List<string>();
+            this.Values = new List<double>();
             this.Id = this.generateID();
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Sensor"/> class
         /// </summary>
-        /// <param name="text"> sensor name </param>
+        /// <param name="sensorName"> sensor name </param>
         /// <param name="x">x parameter</param>
         /// <param name="y">y parameter</param>
         /// <param name="z">z parameter</param>
-        public Sensor(string text, string x, string y, string z)
+        public Sensor(string sensorName, string x, string y, string z)
         {
-            this.SensorName = text;
+            this.SensorName = sensorName;
             this.X = x;
             this.Y = y;
             this.Z = z;
 
+            this.TimeStamp = new List<string>();
+            this.Values = new List<double>();
+            this.Id = this.generateID();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Sensor"/> class
+        /// </summary>
+        /// <param name="sensorName">sensorName</param>
+        /// <param name="parameter">parameter of the value</param>
+        public Sensor(string sensorName, string parameter)
+        {
+            this.SensorName = sensorName;
+            this.Parameter = parameter;
+
+            this.TimeStamp = new List<string>();
+            this.Values = new List<double>();
             this.Id = this.generateID();
         }
 
@@ -78,12 +97,12 @@ namespace SensorsViewer.SensorOption
         /// <summary>
         /// Gets or sets TimeStamp
         /// </summary>
-        public List<double> TimeStamp { get; set; }
+        public List<string> TimeStamp { get; set; }
 
         /// <summary>
         /// Gets or sets Parameter
         /// </summary>
-        public List<double> Parameter { get; set; }
+        public string Parameter { get; set; }
 
         /// <summary>
         /// Generate unique Id
