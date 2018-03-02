@@ -5,7 +5,9 @@
 namespace SensorsViewer.ProjectB
 {
     using System;
+    using System.Windows;
     using System.Windows.Controls;
+    using System.Windows.Input;
     using LiveCharts;
 
     /// <summary>
@@ -22,12 +24,25 @@ namespace SensorsViewer.ProjectB
 
             this.OpticalSensorViewModel = new OpticalSensorViewModel();
 
-            this.DataContext = this.OpticalSensorViewModel;
+            this.DataContext = this.OpticalSensorViewModel;            
         }
 
         /// <summary>
         /// Gets or sets optical sensor view model
         /// </summary>
         public OpticalSensorViewModel OpticalSensorViewModel { get; set; }
+
+
+        private void ListBox_OnPreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            var item = ItemsControl.ContainerFromElement(ListBox, (DependencyObject)e.OriginalSource) as ListBoxItem;
+            if (item == null) return;
+
+            var series = (LiveCharts.Wpf.LineSeries)item.Content;
+
+            series.Visibility = series.Visibility == Visibility.Visible
+                ? Visibility.Hidden
+                : Visibility.Visible;
+        }
     }
 }

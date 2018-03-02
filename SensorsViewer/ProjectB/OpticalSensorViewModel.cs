@@ -10,6 +10,8 @@ namespace SensorsViewer.ProjectB
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using System.Windows.Input;
+    using System.Windows.Media;
     using LiveCharts;
     using LiveCharts.Wpf;
 
@@ -17,16 +19,30 @@ namespace SensorsViewer.ProjectB
     /// Optical Sensor View Model
     /// </summary>
     public class OpticalSensorViewModel
-    {       
+    {
+        private int currentSeriesIndex = 0;
+        private ColorsCollection SeriesColors = new ColorsCollection();
+        private bool RandomizeStartingColor = true;
+
+        private static Random Randomizer { get; set; }
+
+
         /// <summary>
         /// Initializes a new instance of the <see cref="OpticalSensorViewModel"/> class
         /// </summary>
         public OpticalSensorViewModel()
         {
+            this.InitializeSeriesColors();
             this.SeriesCollection = new SeriesCollection();
             this.SensorList = new ObservableCollection<SensorOption.Sensor>();
             this.SensorsLog = new ObservableCollection<SensorOption.Sensor>();
+            this.LoadedWindowCommand = new RelayCommand(WindowLoadedAction);
         }
+
+        /// <summary>
+        ///  Gets or sets Close window command
+        /// </summary>
+        public ICommand LoadedWindowCommand { get; set; }
 
         /// <summary>
         /// Gets or sets sensor list
@@ -44,6 +60,16 @@ namespace SensorsViewer.ProjectB
         public ObservableCollection<SensorOption.Sensor> SensorsLog { get; set; }
 
         /// <summary>
+        /// Event when close window
+        /// </summary>
+        private void WindowLoadedAction(object parameter)
+        {
+            var a = 1;
+
+        }
+
+
+        /// <summary>
         /// Add sensor in linesgraph
         /// </summary>
         /// <param name="sensor">sensor to add</param>
@@ -53,7 +79,7 @@ namespace SensorsViewer.ProjectB
             {
                 Title = sensor.SensorName,
                 Values = new ChartValues<double>(),
-                Tag = sensor.Id
+                Tag = sensor.Id                
             };
 
             if (sensor.Values != null)
@@ -117,6 +143,29 @@ namespace SensorsViewer.ProjectB
             {
                 this.SensorsLog.Add(sensor);
             }
+        }
+
+        public Color GetNextDefaultColor()
+        {
+            if (this.currentSeriesIndex == int.MaxValue) this.currentSeriesIndex = 0;
+            var i = this.currentSeriesIndex;
+            this.currentSeriesIndex++;
+
+
+            var r = RandomizeStartingColor ? Randomizer.Next(0, SeriesColors.Count) : 0;
+            return SeriesColors[(i + r) % SeriesColors.Count];
+        }
+
+        private void InitializeSeriesColors()
+        {
+            SeriesColors.Add(new Color() { A = 255, R = 45, G = 137, B = 239 });
+            SeriesColors.Add(new Color() { A = 255, R = 238, G = 17, B = 17 });
+            SeriesColors.Add(new Color() { A = 255, R = 255, G = 196, B = 13 });
+            SeriesColors.Add(new Color() { A = 255, R = 0, G = 171, B = 169 });
+            SeriesColors.Add(new Color() { A = 255, R = 255, G = 0, B = 151 });
+            SeriesColors.Add(new Color() { A = 255, R = 0, G = 163, B = 0 });
+            SeriesColors.Add(new Color() { A = 255, R = 218, G = 83, B = 44 });
+            SeriesColors.Add(new Color() { A = 255, R = 43, G = 87, B = 151 });
         }
     }
 }

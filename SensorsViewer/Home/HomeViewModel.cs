@@ -113,6 +113,7 @@ namespace SensorsViewer.Home
             this.SelectedSensorList = ((OpticalSensorView)p.ProjectContent).OpticalSensorViewModel.SensorList;
 
             ((OpticalSensorView)p.ProjectContent).OpticalSensorViewModel.AddSensorToGraph(asd);
+            ((OpticalSensorView)SelectedProjectContent).OpticalSensorViewModel.AddValue("Sensor 1", 1.0);
 
             this.TabCategory.Add(p);
             this.TabCategory.Add(p2);
@@ -131,6 +132,7 @@ namespace SensorsViewer.Home
         /// Event for when change property
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
+
 
         /// <summary>
         ///  Gets or sets Close window command

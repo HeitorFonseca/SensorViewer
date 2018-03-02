@@ -5,14 +5,60 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:local="clr-namespace:SensorsViewer.ProjectB"
+             xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+             xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
+    <!-- Close window event -->
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command="{Binding Path=LoadedWindowCommand}" PassEventArgsToCommand="True" />
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    
     <Grid>
-        <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Right" >
-            <lvc:CartesianChart.AxisX>
-                <lvc:Axis Title="Sales" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
-            </lvc:CartesianChart.AxisX>
-        </lvc:CartesianChart>
+
+        <Grid.Effect>
+            <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" Opacity=".2" ShadowDepth="1"/>
+        </Grid.Effect>
+        
+        <Grid.Resources>
+            <local:OpacityConverter x:Key="OpacityConverter"></local:OpacityConverter>
+        </Grid.Resources>
+        
+        <Canvas Name="Canvas">
+
+            <ListBox Name="ListBox" ItemsSource="{Binding SeriesCollection}" PreviewMouseDown="ListBox_OnPreviewMouseDown" 
+                             Panel.ZIndex="1" Canvas.Left="60" Canvas.Top="20" BorderThickness="0" Background="Transparent">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Title}" 
+                                           Foreground="{Binding Fill}"
+                                           Opacity="{Binding Visibility, Converter={StaticResource OpacityConverter}}"
+                                           FontSize="18" FontWeight="UltraBlack"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                                    <ContentPresenter />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+
+            <lvc:CartesianChart Series="{Binding SeriesCollection}" Height="{Binding ElementName=Canvas, Path=ActualHeight}" Width="{Binding ElementName=Canvas, Path=ActualWidth}"
+                                Hoverable="False" DataTooltip="{x:Null}" >
+                <lvc:CartesianChart.AxisX>
+                    <lvc:Axis Title="Sales" ></lvc:Axis>
+                </lvc:CartesianChart.AxisX>
+            </lvc:CartesianChart>
+        </Canvas>
     </Grid>
 </UserControl>
