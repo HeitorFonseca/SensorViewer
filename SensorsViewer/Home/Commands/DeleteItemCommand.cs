@@ -50,7 +50,7 @@ namespace SensorsViewer.Home.Commands
         /// <returns>returns if can execute command</returns>
         public bool CanExecute(object parameter)
         {
-            return this.viewModel.SelectedSensor != null;
+            return ((OpticalSensorView)this.viewModel.SelectedProjectContent).OpticalSensorViewModel != null;
         }
 
         /// <summary>
@@ -61,7 +61,7 @@ namespace SensorsViewer.Home.Commands
         {
             var sensor = parameter as Sensor;
 
-            var selectedItem = this.viewModel.SelectedSensor;
+            ///var selectedItem = this.viewModel.SelectedSensor;
 
             ((OpticalSensorView)this.viewModel.SelectedProjectContent).OpticalSensorViewModel.RemoveSensorFromGraph(sensor);
 

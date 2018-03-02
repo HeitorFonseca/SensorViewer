@@ -66,7 +66,7 @@ namespace SensorsViewer.SensorOption
         public string Status { get; set; }
 
         /// <summary>
-        /// Gets or sets Sensorid
+        /// Gets or sets Sensor Name
         /// </summary>
         public string SensorName { get; set; }
 
@@ -79,6 +79,11 @@ namespace SensorsViewer.SensorOption
         /// Gets or sets TimeStamp
         /// </summary>
         public List<double> TimeStamp { get; set; }
+
+        /// <summary>
+        /// Gets or sets Parameter
+        /// </summary>
+        public List<double> Parameter { get; set; }
 
         /// <summary>
         /// Generate unique Id

@@ -243,7 +243,6 @@
                                 <RowDefinition Height="*"></RowDefinition>
                             </Grid.RowDefinitions>
 
-
                             <Border Grid.Row="2" Margin="25" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
                                 <ContentControl Content="{Binding SelectedProjectContent}"/>
                             </Border>
@@ -252,7 +251,18 @@
                     </TabItem>
                     <TabItem Header="Sensors Log" Style="{StaticResource ContentTabItem}" Margin="30,0,-30,0" Padding="0,0,30,0">
                         <Grid>
-                           
+                            <Border Grid.Row="2" Margin="25" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
+                                <ListView Margin="1" BorderThickness="1" ItemsSource="{Binding SelectedSensorList}" SelectedIndex="0" Style="{StaticResource VirtualisedMetroListView}">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn DisplayMemberBinding="{Binding SensorName}" Header="Sensor Id"/>
+                                            <GridViewColumn DisplayMemberBinding="{Binding Timestamp}" Header="Timestamp"/>
+                                            <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Value" />
+                                            <GridViewColumn DisplayMemberBinding="{Binding Parameter}" Header="Parameter" />
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                            </Border>
                         </Grid>
                     </TabItem>
                 </TabControl>

@@ -49,15 +49,18 @@ namespace SensorsViewer.Home
         private ObservableCollection<Sensor> sensorsContent;
 
         /// <summary>
-        /// private selected sensor
+        /// private selected sensor list
         /// </summary>
-        private Sensor selectedSensor;
+        private ObservableCollection<Sensor> selectedSensorList;
 
         /// <summary>
         /// Path of sensors file
         /// </summary>
         private string fileSensorsPath;
 
+        /// <summary>
+        /// Event for test
+        /// </summary>
         private System.Windows.Threading.DispatcherTimer dispatcherTimer;
 
         /// <summary>
@@ -93,8 +96,6 @@ namespace SensorsViewer.Home
             Analysis an = new Analysis("Analysis 1", "3 FEV 2018", "10:10:01");
             Analysis an2 = new Analysis("Analysis 2", "3 FEV 2018", "10:20:47");
 
-            OpticalSensor optSensor = new OpticalSensor("SensorOpt", "5.4", "8", "4.2");
-
             p.Sensors.Add(asd);
             p.Sensors.Add(asd2);
             p.Sensors.Add(asd3);
@@ -108,19 +109,13 @@ namespace SensorsViewer.Home
             p.ProjectContent = (UserControl)(new OpticalSensorView());
 
             this.SelectedProjectContent = p.ProjectContent;
-
-            ////((OpticalSensorView)p.ProjectContent).test.SeriesCollection.Add(new LiveCharts.Wpf.LineSeries
-            ////{
-            ////    Title = "Series 3",
-            ////    Values = new LiveCharts.ChartValues<double> { 7, 3, 2, 5, 8 }
-            ////});
+            this.SelectedSensorList = ((OpticalSensorView)p.ProjectContent).OpticalSensorViewModel.SensorList;
 
             ((OpticalSensorView)p.ProjectContent).OpticalSensorViewModel.AddSensorToGraph(asd);
 
             this.TabCategory.Add(p);
             this.TabCategory.Add(p2);
 
-            this.selectedSensor = new Sensor();
 
             //  DispatcherTimer setup
             //dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
@@ -174,17 +169,17 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Gets or sets selected sensor
         /// </summary>
-        public Sensor SelectedSensor
+        public ObservableCollection<Sensor> SelectedSensorList
         {
             get
             {
-                return this.selectedSensor;
+                return this.selectedSensorList;
             }
 
             set
             {
-                this.selectedSensor = value;
-                this.OnPropertyChanged("SelectedSensor");
+                this.selectedSensorList = value;
+                this.OnPropertyChanged("SelectedSensorList");
             }
         }
 
