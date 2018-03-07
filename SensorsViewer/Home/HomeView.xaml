@@ -236,6 +236,10 @@
                 <TabControl Background="WhiteSmoke" >
                     <!-- Result -->
                     <TabItem Header="Result" Style="{StaticResource ContentTabItem}" Margin="30,8,-30,-8" Padding="0,0,30,0">
+                        
+                    </TabItem>
+
+                    <TabItem Header="Chart" Style="{StaticResource ContentTabItem}" Margin="30,8,-30,-8" Padding="0,0,30,0">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"></RowDefinition>
@@ -246,9 +250,9 @@
                             <Border Grid.Row="2" Margin="18" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
                                 <ContentControl Content="{Binding SelectedProjectContent}"/>
                             </Border>
-
                         </Grid>
                     </TabItem>
+                    
                     <!-- Sensors Log -->
                     <TabItem Header="Sensors Log" Style="{StaticResource ContentTabItem}"  Margin="30,8,-30,-8" Padding="0,0,30,0">
                         <Grid>

@@ -108,7 +108,6 @@ namespace SensorsViewer.Home
             p2.Analysis.Add(an);            
 
             p.ProjectContent = (UserControl)(new OpticalSensorView());
-            ((OpticalSensorView)p.ProjectContent).OpticalSensorViewModel.SensorsFilePath = "asdsadas";
 
             this.SelectedProjectContent = p.ProjectContent;
             this.SelectedSensorList = ((OpticalSensorView)p.ProjectContent).OpticalSensorViewModel.SensorList;
@@ -312,8 +311,6 @@ namespace SensorsViewer.Home
 
                 ((OpticalSensorView)this.SelectedProjectContent).OpticalSensorViewModel.SensorsFilePath = System.IO.Path.GetFileName(this.fileSensorsPath);
 
-                //textBox.Text = System.IO.Path.GetFileName(this.fileSensorsPath);
-
                 string[] lines = System.IO.File.ReadAllLines(this.fileSensorsPath);
 
                 int counter = 1;
@@ -360,9 +357,7 @@ namespace SensorsViewer.Home
             System.Windows.Application.Current.Dispatcher.Invoke((Action)(() =>
             {
                 UpdateValue(jsonData);
-            }));
-                
-            
+            }));                            
         }
 
         private void UpdateValue(JsonData jsonData)
