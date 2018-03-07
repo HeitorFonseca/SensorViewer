@@ -16,13 +16,9 @@
             <cmd:EventToCommand Command="{Binding Path=LoadedWindowCommand}" PassEventArgsToCommand="True" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    
+
     <Grid>
 
-        <Grid.Effect>
-            <DropShadowEffect BlurRadius="15" Direction="-90" RenderingBias="Quality" Opacity=".2" ShadowDepth="1"/>
-        </Grid.Effect>
-        
         <Grid.Resources>
             <local:OpacityConverter x:Key="OpacityConverter"></local:OpacityConverter>
         </Grid.Resources>
@@ -36,7 +32,7 @@
                         <TextBlock Text="{Binding Title}" 
                                            Foreground="{Binding Fill}"
                                            Opacity="{Binding Visibility, Converter={StaticResource OpacityConverter}}"
-                                           FontSize="18" FontWeight="UltraBlack"/>
+                                           FontSize="14"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
                 <ListBox.ItemContainerStyle>

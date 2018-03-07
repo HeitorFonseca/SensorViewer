@@ -22,7 +22,6 @@ namespace SensorsViewer.ProjectB
     {
         private int currentSeriesIndex = 0;
         private ColorsCollection SeriesColors = new ColorsCollection();
-        private bool RandomizeStartingColor = true;
 
         private static Random Randomizer { get; set; }
 
@@ -79,7 +78,8 @@ namespace SensorsViewer.ProjectB
             {
                 Title = sensor.SensorName,
                 Values = new ChartValues<double>(),
-                Tag = sensor.Id                
+                Tag = sensor.Id,
+                Fill = new SolidColorBrush(this.GetNextDefaultColor()) { Opacity = 1d }
             };
 
             if (sensor.Values != null)
@@ -152,20 +152,25 @@ namespace SensorsViewer.ProjectB
             this.currentSeriesIndex++;
 
 
-            var r = RandomizeStartingColor ? Randomizer.Next(0, SeriesColors.Count) : 0;
-            return SeriesColors[(i + r) % SeriesColors.Count];
+            return SeriesColors[i % SeriesColors.Count];
         }
 
         private void InitializeSeriesColors()
         {
-            SeriesColors.Add(new Color() { A = 255, R = 45, G = 137, B = 239 });
-            SeriesColors.Add(new Color() { A = 255, R = 238, G = 17, B = 17 });
-            SeriesColors.Add(new Color() { A = 255, R = 255, G = 196, B = 13 });
-            SeriesColors.Add(new Color() { A = 255, R = 0, G = 171, B = 169 });
-            SeriesColors.Add(new Color() { A = 255, R = 255, G = 0, B = 151 });
-            SeriesColors.Add(new Color() { A = 255, R = 0, G = 163, B = 0 });
-            SeriesColors.Add(new Color() { A = 255, R = 218, G = 83, B = 44 });
-            SeriesColors.Add(new Color() { A = 255, R = 43, G = 87, B = 151 });
+            SeriesColors.Add(new Color() { A = 255, R = 45, G = 137, B = 239 }); //blue
+            SeriesColors.Add(new Color() { A = 255, R = 238, G = 17, B = 17 });  //red
+            SeriesColors.Add(new Color() { A = 255, R = 255, G = 196, B = 13 }); //yellow
+            SeriesColors.Add(new Color() { A = 255, R = 0, G = 171, B = 169 });  //green blue
+            SeriesColors.Add(new Color() { A = 255, R = 255, G = 0, B = 151 });  //pink
+            SeriesColors.Add(new Color() { A = 255, R = 0, G = 163, B = 0 });    //green
+            SeriesColors.Add(new Color() { A = 255, R = 218, G = 83, B = 44 });  //orange
+            SeriesColors.Add(new Color() { A = 255, R = 43, G = 87, B = 151 });  //blue
+            SeriesColors.Add(new Color() { A = 255, R = 109, G =0, B = 172 });   //purple
+            SeriesColors.Add(new Color() { A = 255, R = 118, G = 59, B = 29 });  //brown
+            SeriesColors.Add(new Color() { A = 255, R = 33, G = 53, B = 23 });   //dark green
+            SeriesColors.Add(new Color() { A = 255, R = 26, G = 31, B = 55 });   //dark blue
+            SeriesColors.Add(new Color() { A = 255, R = 98, G = 98, B = 98 });   //gray
+
         }
     }
 }

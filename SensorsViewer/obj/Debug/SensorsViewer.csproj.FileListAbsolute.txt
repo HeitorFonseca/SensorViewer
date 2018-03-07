@@ -157,3 +157,5 @@ C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\obj\Debug\SensorsViewer.pdb
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Newtonsoft.Json.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\Newtonsoft.Json.xml
