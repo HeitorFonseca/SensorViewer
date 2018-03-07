@@ -76,8 +76,8 @@ namespace SensorsViewer.Connection
                 HostName = this.HostName,
                 //UserName = this.Username,
                 //Password = this.Password,
-                //Port = this.Port,
-                //Protocol = Protocols.DefaultProtocol
+                Port = this.Port,
+                Protocol = Protocols.DefaultProtocol
             };
 
             this.connection = connectionFactory.CreateConnection();

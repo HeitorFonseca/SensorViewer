@@ -235,7 +235,7 @@
             <Border Grid.Column="2" BorderThickness="2 1 0 0" BorderBrush="#E6E6E6">
 
                 <TabControl Background="WhiteSmoke" >
-                    <TabItem Header="Result" Style="{StaticResource ContentTabItem}" Margin="30,0,-30,0" Padding="0,0,30,0">
+                    <TabItem Header="Result" Style="{StaticResource ContentTabItem}" Margin="30,8,-30,-8" Padding="0,0,30,0">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"></RowDefinition>
@@ -249,7 +249,7 @@
                             
                         </Grid>
                     </TabItem>
-                    <TabItem Header="Sensors Log" Style="{StaticResource ContentTabItem}" Margin="30,0,-30,0" Padding="0,0,30,0">
+                    <TabItem Header="Sensors Log" Style="{StaticResource ContentTabItem}"  Margin="30,8,-30,-8" Padding="0,0,30,0">
                         <Grid>
                             <Border Grid.Row="2" Margin="25" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
                                 <ListView Margin="1" BorderThickness="1" ItemsSource="{Binding SelectedProjectContent.OpticalSensorViewModel.SensorsLog}" 

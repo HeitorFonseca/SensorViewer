@@ -21,6 +21,8 @@
 
         <Grid.Resources>
             <local:OpacityConverter x:Key="OpacityConverter"></local:OpacityConverter>
+            <local:FillConverter x:Key="FillConverter"></local:FillConverter>
+
         </Grid.Resources>
         
         <Canvas Name="Canvas">
@@ -30,7 +32,7 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Title}" 
-                                           Foreground="{Binding Fill}"
+                                           Foreground="{Binding Fill, Converter={StaticResource FillConverter}}"
                                            Opacity="{Binding Visibility, Converter={StaticResource OpacityConverter}}"
                                            FontSize="14"/>
                     </DataTemplate>

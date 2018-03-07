@@ -22,7 +22,7 @@ namespace SensorsViewer.ProjectB
     {
         private int currentSeriesIndex = 0;
         private ColorsCollection SeriesColors = new ColorsCollection();
-
+        
         private static Random Randomizer { get; set; }
 
 
@@ -36,6 +36,8 @@ namespace SensorsViewer.ProjectB
             this.SensorList = new ObservableCollection<SensorOption.Sensor>();
             this.SensorsLog = new ObservableCollection<SensorOption.Sensor>();
             this.LoadedWindowCommand = new RelayCommand(WindowLoadedAction);
+
+            this.TextBoxColors = new ObservableCollection<Brush>();
         }
 
         /// <summary>
@@ -59,6 +61,11 @@ namespace SensorsViewer.ProjectB
         public ObservableCollection<SensorOption.Sensor> SensorsLog { get; set; }
 
         /// <summary>
+        /// Gets or sets sensor list
+        /// </summary>
+        public ObservableCollection<Brush> TextBoxColors { get; set; }
+
+        /// <summary>
         /// Event when close window
         /// </summary>
         private void WindowLoadedAction(object parameter)
@@ -74,13 +81,22 @@ namespace SensorsViewer.ProjectB
         /// <param name="sensor">sensor to add</param>
         public void AddSensorToGraph(SensorOption.Sensor sensor)
         {
+            Color nextColor = this.GetNextDefaultColor();
+
             LineSeries newLs = new LineSeries
             {
                 Title = sensor.SensorName,
                 Values = new ChartValues<double>(),
                 Tag = sensor.Id,
-                Fill = new SolidColorBrush(this.GetNextDefaultColor()) { Opacity = 1d }
+                Fill = new SolidColorBrush(nextColor) { Opacity = 0.15d }
             };
+
+            Brush textBrush = newLs.Fill.Clone();
+            textBrush.Opacity = 1d;
+
+            TextBoxColors.Add(textBrush);
+
+
 
             if (sensor.Values != null)
             {
@@ -89,7 +105,7 @@ namespace SensorsViewer.ProjectB
                     newLs.Values.Add(new LiveCharts.Defaults.ObservableValue(value));
                 }
             }
-
+            
             this.SensorList.Add(sensor);
             this.SeriesCollection.Add(newLs);
         }
