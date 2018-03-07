@@ -35,8 +35,8 @@ namespace SensorsViewer.Connection
         {
             this.HostName = hostName;
             this.Port = port;
-            this.Username = username;
-            this.Password = password;
+            //this.Username = username;
+            //this.Password = password;
             this.QueueName = queueName;
         }
 

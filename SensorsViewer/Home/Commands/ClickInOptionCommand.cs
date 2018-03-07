@@ -66,6 +66,7 @@ namespace SensorsViewer.Home.Commands
             var dsa = (ProjectGroupVm)asd.DataContext;
 
             this.viewModel.SelectedProjectContent = dsa.ProjectContent;
+
             ////tab.Sensors.Add(new Sensor());
         }
     }

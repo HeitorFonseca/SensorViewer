@@ -7,6 +7,7 @@ namespace SensorsViewer.ProjectB
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.ComponentModel;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -18,13 +19,12 @@ namespace SensorsViewer.ProjectB
     /// <summary>
     /// Optical Sensor View Model
     /// </summary>
-    public class OpticalSensorViewModel
+    public class OpticalSensorViewModel : INotifyPropertyChanged
     {
         private int currentSeriesIndex = 0;
         private ColorsCollection SeriesColors = new ColorsCollection();
-        
+        private string sensorsFilePath;
         private static Random Randomizer { get; set; }
-
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OpticalSensorViewModel"/> class
@@ -35,15 +35,12 @@ namespace SensorsViewer.ProjectB
             this.SeriesCollection = new SeriesCollection();
             this.SensorList = new ObservableCollection<SensorOption.Sensor>();
             this.SensorsLog = new ObservableCollection<SensorOption.Sensor>();
-            this.LoadedWindowCommand = new RelayCommand(WindowLoadedAction);
-
-            this.TextBoxColors = new ObservableCollection<Brush>();
         }
 
         /// <summary>
-        ///  Gets or sets Close window command
+        /// Event for when change property
         /// </summary>
-        public ICommand LoadedWindowCommand { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets or sets sensor list
@@ -61,19 +58,21 @@ namespace SensorsViewer.ProjectB
         public ObservableCollection<SensorOption.Sensor> SensorsLog { get; set; }
 
         /// <summary>
-        /// Gets or sets sensor list
+        /// Gets or sets sensors file path
         /// </summary>
-        public ObservableCollection<Brush> TextBoxColors { get; set; }
-
-        /// <summary>
-        /// Event when close window
-        /// </summary>
-        private void WindowLoadedAction(object parameter)
+        public string SensorsFilePath
         {
-            var a = 1;
+            get
+            {
+                return this.sensorsFilePath;
+            }
 
+            set
+            {
+                this.sensorsFilePath = value;
+                this.OnPropertyChanged("SensorsFilePath");
+            }
         }
-
 
         /// <summary>
         /// Add sensor in linesgraph
@@ -93,10 +92,6 @@ namespace SensorsViewer.ProjectB
 
             Brush textBrush = newLs.Fill.Clone();
             textBrush.Opacity = 1d;
-
-            TextBoxColors.Add(textBrush);
-
-
 
             if (sensor.Values != null)
             {
@@ -187,6 +182,18 @@ namespace SensorsViewer.ProjectB
             SeriesColors.Add(new Color() { A = 255, R = 26, G = 31, B = 55 });   //dark blue
             SeriesColors.Add(new Color() { A = 255, R = 98, G = 98, B = 98 });   //gray
 
+        }
+
+        /// <summary>
+        /// When changes property
+        /// </summary>
+        /// <param name="propertyName">Property name</param>
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

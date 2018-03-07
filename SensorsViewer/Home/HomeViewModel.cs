@@ -108,6 +108,7 @@ namespace SensorsViewer.Home
             p2.Analysis.Add(an);            
 
             p.ProjectContent = (UserControl)(new OpticalSensorView());
+            ((OpticalSensorView)p.ProjectContent).OpticalSensorViewModel.SensorsFilePath = "asdsadas";
 
             this.SelectedProjectContent = p.ProjectContent;
             this.SelectedSensorList = ((OpticalSensorView)p.ProjectContent).OpticalSensorViewModel.SensorList;
@@ -309,7 +310,9 @@ namespace SensorsViewer.Home
             {
                 this.fileSensorsPath = dialog.FileName;
 
-                textBox.Text = System.IO.Path.GetFileName(this.fileSensorsPath);
+                ((OpticalSensorView)this.SelectedProjectContent).OpticalSensorViewModel.SensorsFilePath = System.IO.Path.GetFileName(this.fileSensorsPath);
+
+                //textBox.Text = System.IO.Path.GetFileName(this.fileSensorsPath);
 
                 string[] lines = System.IO.File.ReadAllLines(this.fileSensorsPath);
 
@@ -338,7 +341,6 @@ namespace SensorsViewer.Home
             double value2 = Convert.ToDouble(rnd.Next(0, 50));
 
             ((OpticalSensorView)SelectedProjectContent).OpticalSensorViewModel.AddValue("Sensor 1", value2);
-
 
         }
 
