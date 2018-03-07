@@ -215,7 +215,7 @@
                                                                 <TextBlock Text="{Binding Time}"  Margin="5, 0 , 0 , 0" Style="{StaticResource AnalysisData}"></TextBlock>
                                                             </StackPanel>
 
-                                                            <Button Grid.Row="0" BorderThickness="0" Padding="0,0,0,0" Margin="201,6,17.667,8" Style="{StaticResource DeleteButton}">
+                                                            <Button Grid.Row="0" BorderThickness="0" Padding="0,0,0,0" Margin="212,6,17.6,8.4" Style="{StaticResource DeleteButton}">
                                                                 <Image Source="../Resources/deleteSensor3.png" Stretch="None" />
                                                             </Button>
                                                         </Grid>
@@ -243,7 +243,7 @@
                                 <RowDefinition Height="*"></RowDefinition>
                             </Grid.RowDefinitions>
 
-                            <Border Grid.Row="2" Margin="25" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
+                            <Border Grid.Row="2" Margin="18" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
                                 <ContentControl Content="{Binding SelectedProjectContent}"/>
                             </Border>
                             
