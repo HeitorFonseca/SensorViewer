@@ -32,7 +32,6 @@ namespace SensorsViewer.ProjectB
         /// </summary>
         public OpticalSensorViewModel OpticalSensorViewModel { get; set; }
 
-
         private void ListBox_OnPreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             var item = ItemsControl.ContainerFromElement(ListBox, (DependencyObject)e.OriginalSource) as ListBoxItem;

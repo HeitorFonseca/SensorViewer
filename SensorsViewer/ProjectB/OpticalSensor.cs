@@ -20,7 +20,7 @@ namespace SensorsViewer.ProjectB
         /// <param name="x">sensor x</param>
         /// <param name="y">sensor y</param>
         /// <param name="z">sensor z</param>
-        public OpticalSensor(string text, string x, string y, string z) : base(text, x, y, z)
+        public OpticalSensor(string text, double x, double y, double z) : base(text, x, y, z)
         {
             this.Values = new List<double>();
             this.TimeStamp = new List<string>();

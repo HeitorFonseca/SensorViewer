@@ -32,7 +32,7 @@ namespace SensorsViewer.SensorOption
         /// <param name="x">x parameter</param>
         /// <param name="y">y parameter</param>
         /// <param name="z">z parameter</param>
-        public Sensor(string sensorName, string x, string y, string z)
+        public Sensor(string sensorName, double x, double y, double z)
         {
             this.SensorName = sensorName;
             this.X = x;
@@ -67,17 +67,17 @@ namespace SensorsViewer.SensorOption
         /// <summary>
         /// Gets or sets X position
         /// </summary>
-        public string X { get; set; }
+        public double X { get; set; }
 
         /// <summary>
         /// Gets or sets Y position
         /// </summary>
-        public string Y { get; set; }
+        public double Y { get; set; }
 
         /// <summary>
         /// Gets or sets Z position
         /// </summary>
-        public string Z { get; set; }
+        public double Z { get; set; }
 
         /// <summary>
         /// Gets or sets status

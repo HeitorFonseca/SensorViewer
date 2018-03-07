@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:SensorsViewer.Home"
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
-                      
+                     
         mc:Ignorable="d" Height="650" Width="1100"
         Style="{StaticResource WindowStyle}"
         WindowStartupLocation="CenterScreen"
@@ -68,7 +68,7 @@
 
                     <Grid Grid.Row="1">
                         <TextBlock Text="Projects"  Style="{StaticResource H3}" Foreground="#BEC5DB" HorizontalAlignment="Left"  Margin="15,0,0,0" Padding="10"></TextBlock>
-                        <ItemsControl ItemsSource="{Binding AnalysisItems}" Margin="0,52,0.333,-52">
+                        <ItemsControl ItemsSource="{Binding ProjectItems}" Margin="0,52,0.333,-52">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <Border MouseDown="UIElement_OnMouseDown" Style="{StaticResource MenuItem}" BorderBrush="Transparent">
@@ -84,7 +84,7 @@
             <!-- Second Grid -->
             <Border Grid.Column="1" Effect="{StaticResource CardShadow}" Background="White" Height="Auto" BorderThickness="2 1 0 0">
                 <Grid>
-                    <TabControl  x:Name="TabCategoryTabItems" ItemsSource="{Binding TabCategory}" SelectedIndex="0" >
+                    <TabControl  x:Name="TabCategoryTabItems" ItemsSource="{Binding SelectedProjectItem}" SelectedIndex="0" >
                         <TabControl.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock MinWidth="110" FontSize="16"  HorizontalAlignment="Center" TextAlignment="Center" Text="{Binding Name}">                                    
@@ -236,9 +236,21 @@
                 <TabControl Background="WhiteSmoke" >
                     <!-- Result -->
                     <TabItem Header="Result" Style="{StaticResource ContentTabItem}" Margin="30,8,-30,-8" Padding="0,0,30,0">
-                        
+
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="Auto"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+
+                            <Border Grid.Row="2" Margin="18" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
+                                <ContentControl Content="{Binding ResultContent}"/>
+                            </Border>
+                        </Grid>
                     </TabItem>
 
+                    <!-- Chart -->
                     <TabItem Header="Chart" Style="{StaticResource ContentTabItem}" Margin="30,8,-30,-8" Padding="0,0,30,0">
                         <Grid>
                             <Grid.RowDefinitions>

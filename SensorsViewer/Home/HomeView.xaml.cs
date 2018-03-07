@@ -48,7 +48,7 @@ namespace SensorsViewer.Home
         {
             var sample = (OptionVm)((Border)sender).DataContext;
             var hvm = (HomeViewModel)DataContext;
-            hvm.SelectedProjectContent = (UserControl)Activator.CreateInstance(sample.Content);
+            //hvm.SelectedProjectContent = (UserControl)Activator.CreateInstance(sample.Content);
             ////hvm.IsMenuOpen = false;
         }        
 

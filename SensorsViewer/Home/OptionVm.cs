@@ -5,16 +5,20 @@
 namespace SensorsViewer.Home
 {
     using System;
+    using System.Collections.ObjectModel;
+    using System.ComponentModel;
 
     /// <summary>
     /// Option for left menu bar class
     /// </summary>
-    public class OptionVm
+    public class OptionVm : INotifyPropertyChanged
     {
         /// <summary>
         /// Gets os sets idCount
         /// </summary>
         private static int idCount;
+
+        private ObservableCollection<ProjectGroupVm> projects;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OptionVm"/> class
@@ -22,7 +26,7 @@ namespace SensorsViewer.Home
         public OptionVm()
         {
             this.Id = idCount++;
-            this.Tags = string.Empty;
+            this.Projects = new ObservableCollection<ProjectGroupVm>();
         }
 
         /// <summary>
@@ -33,22 +37,14 @@ namespace SensorsViewer.Home
         {
             this.Id = idCount++;
             this.Title = title;
-            this.Tags = string.Empty;
+
+            this.Projects = new ObservableCollection<ProjectGroupVm>();
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OptionVm"/> class
+        /// Event for when change property
         /// </summary>
-        /// <param name="title">Option Title</param>
-        /// <param name="content">Option content</param>
-        /// <param name="tags">Option tags</param>
-        public OptionVm(string title, Type content, string tags = "")
-        {
-            this.Id = idCount++;
-            this.Title = title;
-            this.Content = content;
-            this.Tags = tags;
-        }
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets Id
@@ -61,13 +57,32 @@ namespace SensorsViewer.Home
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or sets Content
+        /// Projects collection
         /// </summary>
-        public Type Content { get; set; }
+        public ObservableCollection<ProjectGroupVm> Projects
+        {
+            get
+            {
+                return this.projects;
+            }
+
+            set
+            {
+                this.projects = value;
+                this.OnPropertyChanged("Projects");
+            }
+        }
 
         /// <summary>
-        /// Gets or sets Tags
+        /// When changes property
         /// </summary>
-        public string Tags { get; set; }
+        /// <param name="propertyName">Property name</param>
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }
