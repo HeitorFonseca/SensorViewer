@@ -18,6 +18,14 @@ namespace SensorsViewer.Home
         /// </summary>
         private static int idCount;
 
+        /// <summary>
+        /// Gets os sets modelPath
+        /// </summary>
+        private string modelPath;
+
+        /// <summary>
+        /// Gets os sets projects
+        /// </summary>
         private ObservableCollection<ProjectGroupVm> projects;
 
         /// <summary>
@@ -33,10 +41,11 @@ namespace SensorsViewer.Home
         /// Initializes a new instance of the <see cref="OptionVm"/> class
         /// </summary>
         /// <param name="title">Option Title</param>
-        public OptionVm(string title)
+        public OptionVm(string title, string modelPath)
         {
             this.Id = idCount++;
             this.Title = title;
+            this.modelPath = modelPath;
 
             this.Projects = new ObservableCollection<ProjectGroupVm>();
         }

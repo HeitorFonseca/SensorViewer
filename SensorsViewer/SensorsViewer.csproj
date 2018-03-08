@@ -108,6 +108,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Home\AddProjectDialog.xaml.cs">
+      <DependentUpon>AddProjectDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Home\Commands\AddSensorCommand.cs" />
     <Compile Include="Home\Commands\ChangeSensorDataCommand.cs" />
     <Compile Include="Home\Commands\ClickInOptionCommand.cs" />
@@ -122,6 +125,10 @@
     <Compile Include="SensorOption\Analysis.cs" />
     <Compile Include="SensorOption\Sensor.cs" />
     <Compile Include="RelayCommand.cs" />
+    <Page Include="Home\AddProjectDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Home\HomeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

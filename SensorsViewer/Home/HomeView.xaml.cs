@@ -12,6 +12,7 @@ namespace SensorsViewer.Home
     using System.Windows.Media;
     using System.Windows.Navigation;
     using MahApps.Metro.Controls;
+    using MahApps.Metro.Controls.Dialogs;
     using SensorsViewer.Connection;
     using SensorsViewer.SensorOption;
 
@@ -25,7 +26,7 @@ namespace SensorsViewer.Home
         /// </summary>
         public HomeView()
         {           
-            this.InitializeComponent();                         
+            this.InitializeComponent();
         }
 
         /// <summary>
