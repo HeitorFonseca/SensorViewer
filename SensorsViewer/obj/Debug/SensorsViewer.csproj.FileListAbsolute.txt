@@ -167,3 +167,11 @@ C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\HelixTo
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\HelixToolkit.Wpf.pdb
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\HelixToolkit.Wpf.xml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Result\ResultView.baml
+C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\HelixToolkit.dll
+C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\HelixToolkit.Wpf.dll
+C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\HelixToolkit.pdb
+C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\HelixToolkit.xml
+C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\HelixToolkit.Wpf.pdb
+C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\HelixToolkit.Wpf.xml
+C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\obj\Debug\Result\ResultView.g.cs
+C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\obj\Debug\Result\ResultView.baml

@@ -71,8 +71,14 @@
                         <ItemsControl ItemsSource="{Binding ProjectItems}" Margin="0,52,0.333,-52">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Border MouseDown="UIElement_OnMouseDown" Style="{StaticResource MenuItem}" BorderBrush="Transparent">
-                                        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource H5}" HorizontalAlignment="Left" Text="{Binding Title}"  Margin="0,0,0,0"/>
+                                    <Border  Style="{StaticResource MenuItem}" BorderBrush="Transparent">
+                                        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource H5}" HorizontalAlignment="Left" Text="{Binding Title}"  Margin="0,0,0,0">
+                                            <i:Interaction.Triggers>
+                                                <i:EventTrigger EventName="MouseDown">
+                                                    <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectProjectCommand}" PassEventArgsToCommand="True" />
+                                                </i:EventTrigger>
+                                            </i:Interaction.Triggers>   
+                                        </TextBlock>
                                     </Border>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>

@@ -62,8 +62,8 @@ namespace SensorsViewer.Home.Commands
         /// <param name="parameter">object parameter</param>
         public void Execute(object parameter)
         {
-            var asd = ((MouseButtonEventArgs)parameter).Source as TextBlock;
-            var dsa = (ProjectGroupVm)asd.DataContext;
+            var textBlock = ((MouseButtonEventArgs)parameter).Source as TextBlock;
+            var dsa = (ProjectGroupVm)textBlock.DataContext;
 
             this.viewModel.SelectedProjectContent = dsa.ProjectContent;
 

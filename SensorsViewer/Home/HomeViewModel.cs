@@ -90,6 +90,7 @@ namespace SensorsViewer.Home
 
             this.CloseWindowCommand = new RelayCommand(this.WindowClosingAction);
             this.CreateNewProjectCommand = new RelayCommand(this.CreateNewProjectAction);
+            this.SelectProjectCommand = new RelayCommand(this.SelectProjectAction);
             this.DeleteSensorCommand = new DeleteItemCommand(this);
             this.AddNewSensorCommand = new AddSensorCommand(this);
             this.ClickInOptionVmCommand = new ClickInOptionCommand(this);
@@ -123,6 +124,11 @@ namespace SensorsViewer.Home
         ///  Gets or sets Create new project command
         /// </summary>
         public ICommand CreateNewProjectCommand { get; set; }
+
+        /// <summary>
+        ///  Gets or sets Select project command
+        /// </summary>
+        public ICommand SelectProjectCommand { get; set; }        
 
         /// <summary>
         ///  Gets or sets Create new project command
@@ -279,7 +285,18 @@ namespace SensorsViewer.Home
         /// </summary>
         private void CreateNewProjectAction(object parameter)
         {
-            this.ProjectItems.Add(new OptionVm("whatr"));
+            OptionVm newOpt = new OptionVm("whatr");
+            this.ProjectItems.Add(newOpt);
+
+        }
+
+        private void SelectProjectAction(object parameter)
+        {
+            var parent = ((MouseButtonEventArgs)parameter).Source as TextBlock;
+            var option = (OptionVm)parent.DataContext;
+
+            this.SelectedProjectItem = option.Projects;
+
         }
 
         /// <summary>

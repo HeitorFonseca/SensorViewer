@@ -21,8 +21,6 @@ namespace SensorsViewer.ProjectB
             newValue.Opacity = 1d;
 
             return newValue;
-
-
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
