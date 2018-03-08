@@ -13,6 +13,7 @@ namespace SensorsViewer.Home
     using System.Windows.Controls;
     using System.Windows.Input;
     using System.Windows.Media;
+    using MahApps.Metro.Controls.Dialogs;
     using Microsoft.Win32;
     using Newtonsoft.Json;
     using RabbitMQ.Client.Events;
@@ -113,7 +114,6 @@ namespace SensorsViewer.Home
         /// Event for when change property
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
-
 
         /// <summary>
         ///  Gets or sets Close window command
@@ -285,9 +285,21 @@ namespace SensorsViewer.Home
         /// </summary>
         private void CreateNewProjectAction(object parameter)
         {
-            OptionVm newOpt = new OptionVm("whatr");
-            this.ProjectItems.Add(newOpt);
 
+            AddProjectDialog addProjectDialog = new AddProjectDialog();
+
+            addProjectDialog.ShowDialog();
+
+            string projectName = "", modelPath = "";
+
+            // User clicked OK
+            if (addProjectDialog.DialogResult.HasValue && addProjectDialog.DialogResult.Value)
+            {
+                projectName = addProjectDialog.ProjectName;
+                modelPath = addProjectDialog.ModelPath;
+                OptionVm newOpt = new OptionVm(projectName, modelPath);
+                this.ProjectItems.Add(newOpt);
+            }            
         }
 
         private void SelectProjectAction(object parameter)
@@ -296,6 +308,7 @@ namespace SensorsViewer.Home
             var option = (OptionVm)parent.DataContext;
 
             this.SelectedProjectItem = option.Projects;
+            this.SelectedProjectContent = option.Projects[0].ProjectContent;
 
         }
 
@@ -358,8 +371,7 @@ namespace SensorsViewer.Home
             var message = Encoding.UTF8.GetString(body);
 
             JsonData jsonData = JsonConvert.DeserializeObject<JsonData>(message);
-
-           
+            
             System.Windows.Application.Current.Dispatcher.Invoke((Action)(() =>
             {
                 UpdateValue(jsonData);
