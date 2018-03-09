@@ -55,6 +55,7 @@ namespace SensorsViewer.Home
             };
 
             Tabs[0].ProjectChartContent = new OpticalSensorView();
+            Tabs[1].ProjectChartContent = new OpticalSensorView();
 
         }
 

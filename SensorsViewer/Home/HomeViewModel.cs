@@ -297,7 +297,6 @@ namespace SensorsViewer.Home
         /// </summary>
         private void CreateNewProjectAction(object parameter)
         {
-
             AddProjectDialog addProjectDialog = new AddProjectDialog(this.ProjectItems);
 
             addProjectDialog.ShowDialog();
@@ -327,14 +326,14 @@ namespace SensorsViewer.Home
             this.SelectedTabCategory = option.Tabs;
             // Select the tab item as Draw-In or Adjustment
             this.SelectedTab = this.selectedTabCategory[this.tabIndex];
-            // Select the project content as the Draw-In chart graph
-            this.SelectedProjectContent = option.Tabs[0].ProjectChartContent;
+            // Select the project content as the tab index chart graph
+            this.SelectedProjectContent = option.Tabs[this.tabIndex].ProjectChartContent;
         }
 
         /// <summary>
         /// Event for when click in one of the Tabs 
         /// </summary>
-        /// <param name="parameter"></param>
+        /// <param name="parameter">Object parameter</param>
         private void ClickInOptionAction(object parameter)
         {
             var textBlock = ((MouseButtonEventArgs)parameter).Source as TextBlock;
@@ -462,12 +461,12 @@ namespace SensorsViewer.Home
             Sensor asd2 = new Sensor("Sensor 2", 5, 24, 0);
             Sensor asd3 = new Sensor("Sensor 3", 7, 3, 0);
 
-            Analysis an = new Analysis("Analysis 1", "3 FEV 2018", "10:10:01");
-            Analysis an2 = new Analysis("Analysis 2", "3 FEV 2018", "10:20:47");
-
             p.Sensors.Add(asd);
             p.Sensors.Add(asd2);
             p.Sensors.Add(asd3);
+
+            Analysis an = new Analysis("Analysis 1", "3 FEV 2018", "10:10:01");
+            Analysis an2 = new Analysis("Analysis 2", "3 FEV 2018", "10:20:47");          
 
             p.Analysis.Add(an);
             p.Analysis.Add(an2);
@@ -476,6 +475,7 @@ namespace SensorsViewer.Home
             p2.Analysis.Add(an);
 
             p.ProjectChartContent = (UserControl)(new OpticalSensorView());
+            p2.ProjectChartContent = (UserControl)(new OpticalSensorView());
 
             this.SelectedProjectContent = p.ProjectChartContent;
             this.SelectedSensorList = ((OpticalSensorView)p.ProjectChartContent).OpticalSensorViewModel.SensorList;
