@@ -34,12 +34,12 @@ namespace SensorsViewer.Home
         private UserControl selectedProjectContent;
 
         /// <summary>
-        /// Project B User control content
+        /// Selected Tab
         /// </summary>
         private ObservableCollection<ProjectGroupVm> selectedTabCategory;
 
         /// <summary>
-        /// Project B User control content
+        /// Selected tab
         /// </summary>
         private ProjectGroupVm selectedTab;
 
@@ -64,11 +64,6 @@ namespace SensorsViewer.Home
         private MqttConnection proc;
 
         /// <summary>
-        /// Private Sensors Content
-        /// </summary>
-        private ObservableCollection<Sensor> sensorsContent;
-
-        /// <summary>
         /// Private selected sensor list
         /// </summary>
         private ObservableCollection<Sensor> selectedSensorList;
@@ -82,11 +77,6 @@ namespace SensorsViewer.Home
         /// Tab index
         /// </summary>
         private int tabIndex = 0;
-
-        /// <summary>
-        /// Event for test
-        /// </summary>
-        private System.Windows.Threading.DispatcherTimer dispatcherTimer;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HomeViewModel"/> class
@@ -107,16 +97,6 @@ namespace SensorsViewer.Home
             this.ClickInOptionVmCommand = new RelayCommand(this.ClickInOptionAction); //new ClickInOptionCommand(this);
             this.EditSensorDataCommand = new ChangeSensorDataCommand(this);
             this.BrowseFileCommand = new RelayCommand(this.BrowseFileAction);
-
-
-           
-
-            //  DispatcherTimer setup
-            //dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
-            //dispatcherTimer.Tick += new EventHandler(DispatcherTimer_Tick);
-            //dispatcherTimer.Interval = new TimeSpan(0, 0, 5);
-            //dispatcherTimer.Start();
-
         }
 
         #region Properties Declarations
@@ -161,9 +141,14 @@ namespace SensorsViewer.Home
         public ICommand EditSensorDataCommand { get; set; }
 
         /// <summary>
-        ///  Gets or sets browse sensor file
+        ///  Gets or sets browse sensor file command
         /// </summary>
         public ICommand BrowseFileCommand { get; set; }
+
+        /// <summary>
+        ///  Gets or sets sub tab item command
+        /// </summary>
+        public ICommand ClickInSubTabCommand { get; set; }
 
         /// <summary>
         /// Gets or sets selected sensor
@@ -338,7 +323,6 @@ namespace SensorsViewer.Home
             
             this.SelectedTab = this.selectedTabCategory[tabIndex];
             this.SelectedProjectContent = option.Tabs[0].ProjectChartContent;
-
         }
 
         private void ClickInOptionAction(object parameter)

@@ -21,12 +21,6 @@ namespace SensorsViewer
         /// </summary>
         private Action<object> action;
 
-
-        /// <summary>
-        /// Can execute function
-        /// </summary>
-        private Func<object, bool> canExecute;
-
         /// <summary>
         /// Initializes a new instance of the <see cref="RelayCommand"/> class
         /// </summary>

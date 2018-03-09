@@ -83,11 +83,6 @@ namespace SensorsViewer.Result
                 int nx = v.Key.Item1;
                 int ny = v.Key.Item2;
 
-                if (ny > 0 && nx == 200)
-                {
-                    var b = 1;
-                }
-
                 double d1, d2;
                 List<Tuple<int, int>> neighbors = GetNeighboringPoints(nx, ny, sensorDictionary, out d1, out d2);
 

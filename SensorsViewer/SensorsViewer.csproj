@@ -113,7 +113,6 @@
     </Compile>
     <Compile Include="Home\Commands\AddSensorCommand.cs" />
     <Compile Include="Home\Commands\ChangeSensorDataCommand.cs" />
-    <Compile Include="Home\Commands\ClickInOptionCommand.cs" />
     <Compile Include="Home\Commands\DeleteItemCommand.cs" />
     <Compile Include="ProjectB\FillConverter.cs" />
     <Compile Include="ProjectB\OpacityConverter.cs" />

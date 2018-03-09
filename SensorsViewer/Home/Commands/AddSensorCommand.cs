@@ -50,7 +50,7 @@ namespace SensorsViewer.Home.Commands
         {
             var tab = parameter as ProjectGroupVm;
 
-            return tab.Sensors != null && tab.Sensors.Count > 0;
+            return tab.Sensors != null;
         }
 
         /// <summary>

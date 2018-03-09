@@ -4,6 +4,7 @@
 
 namespace SensorsViewer.Home
 {
+    using SensorsViewer.ProjectB;
     using System;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
@@ -53,6 +54,7 @@ namespace SensorsViewer.Home
                  new ProjectGroupVm { Name = "Adjustment" }
             };
 
+            Tabs[0].ProjectChartContent = new OpticalSensorView();
 
         }
 
