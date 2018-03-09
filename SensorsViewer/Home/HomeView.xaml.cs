@@ -80,5 +80,10 @@ namespace SensorsViewer.Home
 
             return null;
         }
+
+        private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.TabCategoryTabItems.SelectedIndex = 0;
+        }
     }
 }

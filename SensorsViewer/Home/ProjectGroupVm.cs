@@ -19,7 +19,7 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Project content
         /// </summary>
-        private UserControl projectContent;
+        private UserControl projectChartContent;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectGroupVm"/> class
@@ -28,7 +28,7 @@ namespace SensorsViewer.Home
         {
             this.Sensors = new ObservableCollection<Sensor>();
             this.Analysis = new ObservableCollection<Analysis>();
-            this.ProjectContent = new UserControl();
+            this.ProjectChartContent = new UserControl();
         }
 
         /// <summary>
@@ -54,17 +54,17 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Gets or sets project B User control content
         /// </summary>
-        public UserControl ProjectContent
+        public UserControl ProjectChartContent
         {
             get
             {
-                return this.projectContent;
+                return this.projectChartContent;
             }
 
             set
             {
-                this.projectContent = value;
-                this.OnPropertyChanged("ProjectContent");
+                this.projectChartContent = value;
+                this.OnPropertyChanged("ProjectChartContent");
             }
         }       
 

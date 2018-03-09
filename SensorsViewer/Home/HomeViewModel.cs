@@ -36,7 +36,12 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Project B User control content
         /// </summary>
-        private ObservableCollection<ProjectGroupVm> selectedProjectItem;
+        private ObservableCollection<ProjectGroupVm> selectedTabCategory;
+
+        /// <summary>
+        /// Project B User control content
+        /// </summary>
+        private ProjectGroupVm selectedTab;
 
         /// <summary>
         /// Result content
@@ -64,7 +69,7 @@ namespace SensorsViewer.Home
         private ObservableCollection<Sensor> sensorsContent;
 
         /// <summary>
-        /// private selected sensor list
+        /// Private selected sensor list
         /// </summary>
         private ObservableCollection<Sensor> selectedSensorList;
 
@@ -72,6 +77,11 @@ namespace SensorsViewer.Home
         /// Path of sensors file
         /// </summary>
         private string fileSensorsPath;
+
+        /// <summary>
+        /// Tab index
+        /// </summary>
+        private int tabIndex = 0;
 
         /// <summary>
         /// Event for test
@@ -94,7 +104,7 @@ namespace SensorsViewer.Home
             this.SelectProjectCommand = new RelayCommand(this.SelectProjectAction);
             this.DeleteSensorCommand = new DeleteItemCommand(this);
             this.AddNewSensorCommand = new AddSensorCommand(this);
-            this.ClickInOptionVmCommand = new ClickInOptionCommand(this);
+            this.ClickInOptionVmCommand = new RelayCommand(this.ClickInOptionAction); //new ClickInOptionCommand(this);
             this.EditSensorDataCommand = new ChangeSensorDataCommand(this);
             this.BrowseFileCommand = new RelayCommand(this.BrowseFileAction);
 
@@ -226,17 +236,34 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Gets or sets user control content
         /// </summary>
-        public ObservableCollection<ProjectGroupVm> SelectedProjectItem
+        public ObservableCollection<ProjectGroupVm> SelectedTabCategory
         {
             get
             {
-                return this.selectedProjectItem;
+                return this.selectedTabCategory;
             }
 
             set
             {
-                this.selectedProjectItem = value;
-                this.OnPropertyChanged("SelectedProjectItem");
+                this.selectedTabCategory = value;
+                this.OnPropertyChanged("SelectedTabCategory");
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets user control content
+        /// </summary>
+        public ProjectGroupVm SelectedTab
+        {
+            get
+            {
+                return this.selectedTab;
+            }
+
+            set
+            {
+                this.selectedTab = value;
+                this.OnPropertyChanged("SelectedTab");
             }
         }
 
@@ -307,9 +334,28 @@ namespace SensorsViewer.Home
             var parent = ((MouseButtonEventArgs)parameter).Source as TextBlock;
             var option = (OptionVm)parent.DataContext;
 
-            this.SelectedProjectItem = option.Projects;
-            this.SelectedProjectContent = option.Projects[0].ProjectContent;
+            this.SelectedTabCategory = option.Tabs;
+            
+            this.SelectedTab = this.selectedTabCategory[tabIndex];
+            this.SelectedProjectContent = option.Tabs[0].ProjectChartContent;
 
+        }
+
+        private void ClickInOptionAction(object parameter)
+        {
+            var textBlock = ((MouseButtonEventArgs)parameter).Source as TextBlock;
+            var dsa = (ProjectGroupVm)textBlock.DataContext;
+
+            this.SelectedProjectContent = dsa.ProjectChartContent;
+
+            if (dsa.Name == "Draw-In")
+            {
+                this.tabIndex = 0;
+            }
+            else
+            {
+                this.tabIndex = 1;
+            }
         }
 
         /// <summary>
@@ -421,9 +467,13 @@ namespace SensorsViewer.Home
             this.ProjectItems = new ObservableCollection<OptionVm>();
 
             this.tabCategory = new ObservableCollection<ProjectGroupVm>();
+            ObservableCollection<ProjectGroupVm> tabCat2 = new ObservableCollection<ProjectGroupVm>();
 
             ProjectGroupVm p = new ProjectGroupVm { Name = "Draw-In" };
             ProjectGroupVm p2 = new ProjectGroupVm { Name = "Adjustment" };
+
+            ProjectGroupVm t = new ProjectGroupVm { Name = "Draw-In" };
+            ProjectGroupVm t2 = new ProjectGroupVm { Name = "Adjustment" };
 
             Sensor asd = new Sensor("Sensor 1", 10, 11, 0);
             Sensor asd2 = new Sensor("Sensor 2", 5, 24, 0);
@@ -442,25 +492,36 @@ namespace SensorsViewer.Home
             p2.Sensors.Add(asd3);
             p2.Analysis.Add(an);
 
-            p.ProjectContent = (UserControl)(new OpticalSensorView());
+            p.ProjectChartContent = (UserControl)(new OpticalSensorView());
 
-            this.SelectedProjectContent = p.ProjectContent;
-            this.SelectedSensorList = ((OpticalSensorView)p.ProjectContent).OpticalSensorViewModel.SensorList;
+            this.SelectedProjectContent = p.ProjectChartContent;
+            this.SelectedSensorList = ((OpticalSensorView)p.ProjectChartContent).OpticalSensorViewModel.SensorList;
 
-            ((OpticalSensorView)p.ProjectContent).OpticalSensorViewModel.AddSensorToGraph(asd);
+            ((OpticalSensorView)p.ProjectChartContent).OpticalSensorViewModel.AddSensorToGraph(asd);
             ((OpticalSensorView)SelectedProjectContent).OpticalSensorViewModel.AddValue("Sensor 1", 1.0);
 
             this.TabCategory.Add(p);
             this.TabCategory.Add(p2);
 
+            tabCat2.Add(t);
+            tabCat2.Add(t2);
+
             OptionVm opt = new OptionVm();
+            OptionVm opt2 = new OptionVm();
 
             opt.Title = "Project 1";
-            opt.Projects = tabCategory;
+            opt.Tabs = tabCategory;
 
-            SelectedProjectItem = tabCategory;
+            this.SelectedTab = opt.Tabs[0];
+
+            opt2.Title = "Project 2";
+            opt2.Tabs = tabCat2;
+
+
+            SelectedTabCategory = tabCategory;
 
             this.ProjectItems.Add(opt);
+            this.ProjectItems.Add(opt2);
 
             this.ResultContent = new ResultView();
         }

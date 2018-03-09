@@ -91,7 +91,7 @@
             <!-- Second Grid -->
             <Border Grid.Column="1" Effect="{StaticResource CardShadow}" Background="White" Height="Auto" BorderThickness="2 1 0 0">
                 <Grid>
-                    <TabControl  x:Name="TabCategoryTabItems" ItemsSource="{Binding SelectedProjectItem}" SelectedIndex="0" >
+                    <TabControl  x:Name="TabCategoryTabItems" ItemsSource="{Binding SelectedTabCategory}" SelectedIndex="0" SelectedItem="{Binding SelectedTab}" >
                         <TabControl.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock MinWidth="110" FontSize="16"  HorizontalAlignment="Center" TextAlignment="Center" Text="{Binding Name}">                                    
@@ -124,7 +124,7 @@
                                             </TextBox>
 
                                             <ListBox Grid.Row="1" x:Name="SensorListBox" 
-                                                     ItemsSource="{Binding ProjectContent.OpticalSensorViewModel.SensorList}"  
+                                                     ItemsSource="{Binding ProjectChartContent.OpticalSensorViewModel.SensorList}"  
                                                      SelectedItem="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectedSensor, Mode=TwoWay}"
                                                      ScrollViewer.HorizontalScrollBarVisibility="Hidden">
 

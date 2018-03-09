@@ -26,7 +26,7 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Gets os sets projects
         /// </summary>
-        private ObservableCollection<ProjectGroupVm> projects;
+        private ObservableCollection<ProjectGroupVm> tabs;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OptionVm"/> class
@@ -34,7 +34,7 @@ namespace SensorsViewer.Home
         public OptionVm()
         {
             this.Id = idCount++;
-            this.Projects = new ObservableCollection<ProjectGroupVm>();
+            this.Tabs = new ObservableCollection<ProjectGroupVm>();
         }
 
         /// <summary>
@@ -47,7 +47,13 @@ namespace SensorsViewer.Home
             this.Title = title;
             this.modelPath = modelPath;
 
-            this.Projects = new ObservableCollection<ProjectGroupVm>();
+            this.Tabs = new ObservableCollection<ProjectGroupVm>
+            {
+                 new ProjectGroupVm { Name = "Draw-In" },
+                 new ProjectGroupVm { Name = "Adjustment" }
+            };
+
+
         }
 
         /// <summary>
@@ -68,17 +74,17 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Projects collection
         /// </summary>
-        public ObservableCollection<ProjectGroupVm> Projects
+        public ObservableCollection<ProjectGroupVm> Tabs
         {
             get
             {
-                return this.projects;
+                return this.tabs;
             }
 
             set
             {
-                this.projects = value;
-                this.OnPropertyChanged("Projects");
+                this.tabs = value;
+                this.OnPropertyChanged("Tabs");
             }
         }
 

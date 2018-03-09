@@ -53,7 +53,7 @@ namespace SensorsViewer.Home.Commands
             ////this.viewModel.SelectedProjectContent = dsa.ProjectContent;
             ////var tab = parameter as ProjectGroupVm;
 
-            return dsa.ProjectContent != null;
+            return dsa.ProjectChartContent != null;
         }
 
         /// <summary>
@@ -65,9 +65,7 @@ namespace SensorsViewer.Home.Commands
             var textBlock = ((MouseButtonEventArgs)parameter).Source as TextBlock;
             var dsa = (ProjectGroupVm)textBlock.DataContext;
 
-            this.viewModel.SelectedProjectContent = dsa.ProjectContent;
-
-            ////tab.Sensors.Add(new Sensor());
+            this.viewModel.SelectedProjectContent = dsa.ProjectChartContent;
         }
     }
 }
