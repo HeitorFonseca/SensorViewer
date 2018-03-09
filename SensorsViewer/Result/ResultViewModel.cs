@@ -112,8 +112,5 @@ namespace SensorsViewer.Result
 
             return device;
         }
-
     }
-
-   
 }

@@ -32,10 +32,18 @@ namespace SensorsViewer.ProjectB
         /// </summary>
         public OpticalSensorViewModel OpticalSensorViewModel { get; set; }
 
+        /// <summary>
+        /// Set the visibility of the sensor in chart
+        /// </summary>
+        /// <param name="sender">object sender</param>
+        /// <param name="e">event e</param>
         private void ListBox_OnPreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             var item = ItemsControl.ContainerFromElement(ListBox, (DependencyObject)e.OriginalSource) as ListBoxItem;
-            if (item == null) return;
+            if (item == null)
+            {
+                return;
+            }
 
             var series = (LiveCharts.Wpf.LineSeries)item.Content;
 

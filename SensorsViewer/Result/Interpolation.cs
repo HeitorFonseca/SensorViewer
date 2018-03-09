@@ -56,7 +56,6 @@ namespace SensorsViewer.Result
 
         public Dictionary<Tuple<int, int>, double> FillSensorDataDictionary(List<Sensor> sensorsDataList)
         {
-
             Dictionary<Tuple<int, int>, double> newDictionary = new Dictionary<Tuple<int, int>, double>();
 
             foreach (Sensor sd in sensorsDataList)
@@ -67,7 +66,6 @@ namespace SensorsViewer.Result
                 Tuple<int, int> key = new Tuple<int, int>(x, y);
 
                 newDictionary.Add(key, sd.Z);
-
             }
           
             return newDictionary;

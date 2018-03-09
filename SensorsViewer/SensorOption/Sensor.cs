@@ -22,7 +22,7 @@ namespace SensorsViewer.SensorOption
         {
             this.TimeStamp = new List<string>();
             this.Values = new List<double>();
-            this.Id = this.generateID();
+            this.Id = this.GenerateID();
         }
 
         /// <summary>
@@ -41,14 +41,14 @@ namespace SensorsViewer.SensorOption
 
             this.TimeStamp = new List<string>();
             this.Values = new List<double>();
-            this.Id = this.generateID();
+            this.Id = this.GenerateID();
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Sensor"/> class
         /// </summary>
-        /// <param name="sensorName">sensorName</param>
-        /// <param name="parameter">parameter of the value</param>
+        /// <param name="sensorName">Sensor Name</param>
+        /// <param name="parameter">Parameter of the value</param>
         public Sensor(string sensorName, string parameter)
         {
             this.SensorName = sensorName;
@@ -56,7 +56,7 @@ namespace SensorsViewer.SensorOption
 
             this.TimeStamp = new List<string>();
             this.Values = new List<double>();
-            this.Id = this.generateID();
+            this.Id = this.GenerateID();
         }
 
         /// <summary>
@@ -108,7 +108,7 @@ namespace SensorsViewer.SensorOption
         /// Generate unique Id
         /// </summary>
         /// <returns>generated id</returns>
-        public string generateID()
+        public string GenerateID()
         {
             return Guid.NewGuid().ToString();
         }

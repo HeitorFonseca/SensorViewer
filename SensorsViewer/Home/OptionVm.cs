@@ -41,11 +41,11 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Initializes a new instance of the <see cref="OptionVm"/> class
         /// </summary>
-        /// <param name="title">Option Title</param>
-        public OptionVm(string title, string modelPath)
+        /// <param name="name">Option name</param>
+        public OptionVm(string name, string modelPath)
         {
             this.Id = idCount++;
-            this.Title = title;
+            this.Name = name;
             this.modelPath = modelPath;
 
             this.Tabs = new ObservableCollection<ProjectGroupVm>
@@ -69,9 +69,9 @@ namespace SensorsViewer.Home
         public int Id { get; private set; }
 
         /// <summary>
-        /// Gets or sets Title
+        /// Gets or sets Name
         /// </summary>
-        public string Title { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// Projects collection

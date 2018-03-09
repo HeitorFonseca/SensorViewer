@@ -73,7 +73,7 @@
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <Border  Style="{StaticResource MenuItem}" BorderBrush="Transparent">
-                                        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource H5}" HorizontalAlignment="Left" Text="{Binding Title}"  Margin="0,0,0,0">
+                                        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource H5}" HorizontalAlignment="Left" Text="{Binding Name}"  Margin="0,0,0,0">
                                             <i:Interaction.Triggers>
                                                 <i:EventTrigger EventName="MouseDown">
                                                     <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectProjectCommand}" PassEventArgsToCommand="True" />

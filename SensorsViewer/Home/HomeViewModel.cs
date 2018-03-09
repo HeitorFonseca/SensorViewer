@@ -298,7 +298,7 @@ namespace SensorsViewer.Home
         private void CreateNewProjectAction(object parameter)
         {
 
-            AddProjectDialog addProjectDialog = new AddProjectDialog();
+            AddProjectDialog addProjectDialog = new AddProjectDialog(this.ProjectItems);
 
             addProjectDialog.ShowDialog();
 
@@ -314,17 +314,27 @@ namespace SensorsViewer.Home
             }            
         }
 
+        /// <summary>
+        /// Event for when the user click in project item
+        /// </summary>
+        /// <param name="parameter">object parameter</param>
         private void SelectProjectAction(object parameter)
         {
             var parent = ((MouseButtonEventArgs)parameter).Source as TextBlock;
             var option = (OptionVm)parent.DataContext;
 
+            // Select the tabs as the new selected project tabs
             this.SelectedTabCategory = option.Tabs;
-            
-            this.SelectedTab = this.selectedTabCategory[tabIndex];
+            // Select the tab item as Draw-In or Adjustment
+            this.SelectedTab = this.selectedTabCategory[this.tabIndex];
+            // Select the project content as the Draw-In chart graph
             this.SelectedProjectContent = option.Tabs[0].ProjectChartContent;
         }
 
+        /// <summary>
+        /// Event for when click in one of the Tabs 
+        /// </summary>
+        /// <param name="parameter"></param>
         private void ClickInOptionAction(object parameter)
         {
             var textBlock = ((MouseButtonEventArgs)parameter).Source as TextBlock;
@@ -343,52 +353,36 @@ namespace SensorsViewer.Home
         }
 
         /// <summary>
-        /// Event to open file browser
+        /// Event to open file browser for upload sensor file
         /// </summary>
         private void BrowseFileAction(object parameter)
         {
-            var textBox = (TextBox)parameter;
 
             var dialog = new OpenFileDialog();
             dialog.Filter = "Text (*.txt)|*.txt|All Files(*.*)|*.*";
 
-            bool? result = dialog.ShowDialog();
+            bool? result = dialog.ShowDialog();         // Show file dialog
 
-            if ((result.HasValue) && (result.Value))
+            if ((result.HasValue) && (result.Value))    // If user select some file
             {
-                this.fileSensorsPath = dialog.FileName;
+                this.fileSensorsPath = dialog.FileName; // Get the path 
 
-                ((OpticalSensorView)this.SelectedProjectContent).OpticalSensorViewModel.SensorsFilePath = System.IO.Path.GetFileName(this.fileSensorsPath);
-
-                string[] lines = System.IO.File.ReadAllLines(this.fileSensorsPath);
-
+                ((OpticalSensorView)this.SelectedProjectContent).OpticalSensorViewModel.SensorsFilePath = System.IO.Path.GetFileName(this.fileSensorsPath); // Get the filename of the path
+               
                 int counter = 1;
-
-                foreach (string line in lines)
+                // For each line in file
+                foreach (string line in System.IO.File.ReadAllLines(this.fileSensorsPath))         
                 {
                     string[] data = line.Split(' ');
-
-                    Sensor sensor = new Sensor("Sensor Name " + counter, Convert.ToDouble(data[0]), Convert.ToDouble(data[1]), Convert.ToDouble(data[2]));
-
+                    // Create a sensor with file data
+                    Sensor sensor = new Sensor("Sensor Name " + counter++, Convert.ToDouble(data[0]), Convert.ToDouble(data[1]), Convert.ToDouble(data[2]));
+                    // Add the created sensor in graph
                     ((OpticalSensorView)this.SelectedProjectContent).OpticalSensorViewModel.AddSensorToGraph(sensor);
-
-                    counter++;
                 }
             }
         }
 
         #endregion
-
-        private void DispatcherTimer_Tick(object sender, EventArgs e)
-        {
-
-            Random rnd = new Random();
-
-            double value2 = Convert.ToDouble(rnd.Next(0, 50));
-
-            ((OpticalSensorView)SelectedProjectContent).OpticalSensorViewModel.AddValue("Sensor 1", value2);
-
-        }
 
         /// <summary>
         /// Event for when receive a mqtt message
@@ -404,44 +398,49 @@ namespace SensorsViewer.Home
             
             System.Windows.Application.Current.Dispatcher.Invoke((Action)(() =>
             {
-                UpdateValue(jsonData);
+                UpdateSensorChart(jsonData);
             }));                            
         }
 
-        private void UpdateValue(JsonData jsonData)
+        /// <summary>
+        /// Update sensor chart graph
+        /// </summary>
+        /// <param name="jsonData">Json data received</param>
+        private void UpdateSensorChart(JsonData jsonData)
         {
-          
+            //For each sensors sensor values received
             foreach (List<string> data in jsonData.values)
             {
-                string sensorName = data[0];
-                long timestamp = Convert.ToInt64(data[1]);
-                DateTimeOffset dateTimeOffset = DateTimeOffset.Now;
+                string sensorName = data[0];                        // Get the sensor name (sensor id)
+                long timestamp = Convert.ToInt64(data[1]);          // Get the timestamp                
+                double.TryParse(data[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out double value);   // Get the sensor value             
+                string parameter = data[3];                         // Get the parameter
+                string status = data[4];                            // Get the sensor status
 
-                double value;
-                double.TryParse(data[2], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out value);
-               
-                string parameter = data[3];
-                string status = data[4];
-
-                Sensor sensor = new Sensor(sensorName, parameter);
-                sensor.Values.Add(value);
+                Sensor sensor = new Sensor(sensorName, parameter);  // Create the sensor with name and parameter
+                sensor.Values.Add(value);                           // Add the value in the created sensor
 
                 string dateTime = UnixTimeStampToDateTime(timestamp);
-                sensor.TimeStamp.Add(dateTime);
+                sensor.TimeStamp.Add(dateTime);                     // Add timestamp in the created sensor
 
+                //Add value in sensor by name
                 ((OpticalSensorView)SelectedProjectContent).OpticalSensorViewModel.AddValue(sensorName, value);
-
+                //Add in the sensor log
                 ((OpticalSensorView)SelectedProjectContent).OpticalSensorViewModel.AddSensorLogData(sensor);
             }
         }
 
+        /// <summary>
+        /// Convert timestamp to Datetime
+        /// </summary>
+        /// <param name="unixTimeStamp">timestamp value</param>
+        /// <returns>Date time</returns>
         private static string UnixTimeStampToDateTime(long unixTimeStamp)
         {
             System.DateTime dtDateTime = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
             dtDateTime = dtDateTime.AddMilliseconds(unixTimeStamp);
             return dtDateTime.ToString();
         }
-
 
         /// <summary>
         /// Initialize left bar menu
@@ -451,13 +450,13 @@ namespace SensorsViewer.Home
             this.ProjectItems = new ObservableCollection<OptionVm>();
 
             this.tabCategory = new ObservableCollection<ProjectGroupVm>();
-            ObservableCollection<ProjectGroupVm> tabCat2 = new ObservableCollection<ProjectGroupVm>();
+            //ObservableCollection<ProjectGroupVm> tabCat2 = new ObservableCollection<ProjectGroupVm>();
 
             ProjectGroupVm p = new ProjectGroupVm { Name = "Draw-In" };
             ProjectGroupVm p2 = new ProjectGroupVm { Name = "Adjustment" };
 
-            ProjectGroupVm t = new ProjectGroupVm { Name = "Draw-In" };
-            ProjectGroupVm t2 = new ProjectGroupVm { Name = "Adjustment" };
+            //ProjectGroupVm t = new ProjectGroupVm { Name = "Draw-In" };
+            //ProjectGroupVm t2 = new ProjectGroupVm { Name = "Adjustment" };
 
             Sensor asd = new Sensor("Sensor 1", 10, 11, 0);
             Sensor asd2 = new Sensor("Sensor 2", 5, 24, 0);
@@ -487,25 +486,25 @@ namespace SensorsViewer.Home
             this.TabCategory.Add(p);
             this.TabCategory.Add(p2);
 
-            tabCat2.Add(t);
-            tabCat2.Add(t2);
+            //tabCat2.Add(t);
+            //tabCat2.Add(t2);
 
             OptionVm opt = new OptionVm();
-            OptionVm opt2 = new OptionVm();
+            //OptionVm opt2 = new OptionVm();
 
-            opt.Title = "Project 1";
-            opt.Tabs = tabCategory;
+            opt.Name = "Project 1";
+            opt.Tabs = this.tabCategory;
 
             this.SelectedTab = opt.Tabs[0];
 
-            opt2.Title = "Project 2";
-            opt2.Tabs = tabCat2;
+            //opt2.Title = "Project 2";
+            //opt2.Tabs = tabCat2;
 
 
-            SelectedTabCategory = tabCategory;
+            this.SelectedTabCategory = this.tabCategory;
 
             this.ProjectItems.Add(opt);
-            this.ProjectItems.Add(opt2);
+            //this.ProjectItems.Add(opt2);
 
             this.ResultContent = new ResultView();
         }

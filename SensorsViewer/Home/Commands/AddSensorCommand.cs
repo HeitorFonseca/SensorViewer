@@ -61,10 +61,6 @@ namespace SensorsViewer.Home.Commands
         {
             var tab = parameter as ProjectGroupVm;
 
-            ////var selectedItem = this.viewModel.SelectedSensor;
-
-            ////((OpticalSensorView)viewModel.SelectedProjectContent).OpticalSensorViewModel.AddValue("Sensor 1", 1.0);
-
             Sensor s = new Sensor();
             ((OpticalSensorView)this.viewModel.SelectedProjectContent).OpticalSensorViewModel.AddSensorToGraph(s);
 

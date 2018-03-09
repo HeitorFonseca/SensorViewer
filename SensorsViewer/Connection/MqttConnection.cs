@@ -35,8 +35,8 @@ namespace SensorsViewer.Connection
         {
             this.HostName = hostName;
             this.Port = port;
-            //this.Username = username;
-            //this.Password = password;
+            ////this.Username = username;
+            ////this.Password = password;
             this.QueueName = queueName;
         }
 
@@ -74,8 +74,8 @@ namespace SensorsViewer.Connection
             var connectionFactory = new ConnectionFactory()
             {
                 HostName = this.HostName,
-                //UserName = this.Username,
-                //Password = this.Password,
+                ////UserName = this.Username,
+                ////Password = this.Password,
                 Port = this.Port,
                 Protocol = Protocols.DefaultProtocol
             };
