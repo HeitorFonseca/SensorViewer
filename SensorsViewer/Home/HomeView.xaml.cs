@@ -27,6 +27,7 @@ namespace SensorsViewer.Home
         public HomeView()
         {           
             this.InitializeComponent();
+            StatePersistence.RegisterWindow(this);
         }
 
         /// <summary>
