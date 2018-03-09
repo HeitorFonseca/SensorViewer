@@ -121,8 +121,8 @@
       <DependentUpon>ResultView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Result\ResultViewModel.cs" />
-    <Compile Include="SensorOption\Analysis.cs" />
-    <Compile Include="SensorOption\Sensor.cs" />
+    <Compile Include="Model\Analysis.cs" />
+    <Compile Include="Model\Sensor.cs" />
     <Compile Include="RelayCommand.cs" />
     <Page Include="Home\AddProjectDialog.xaml">
       <SubType>Designer</SubType>

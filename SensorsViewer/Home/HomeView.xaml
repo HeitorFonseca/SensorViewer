@@ -73,7 +73,7 @@
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <Border  Style="{StaticResource MenuItem}" BorderBrush="Transparent">
-                                        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource H5}" HorizontalAlignment="Left" Text="{Binding Name}"  Margin="0,0,0,0">
+                                        <TextBlock x:Name="tbProjectItem" Grid.Row="2" Grid.Column="1" Style="{StaticResource H5}" HorizontalAlignment="Left" Text="{Binding Name}"  Margin="0,0,0,0">
                                             <i:Interaction.Triggers>
                                                 <i:EventTrigger EventName="MouseDown">
                                                     <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectProjectCommand}" PassEventArgsToCommand="True" />
@@ -94,7 +94,7 @@
                     <TabControl  x:Name="TabCategoryTabItems" ItemsSource="{Binding SelectedTabCategory}" SelectedIndex="0" SelectedItem="{Binding SelectedTab}" >
                         <TabControl.ItemTemplate>
                             <DataTemplate>
-                                <TextBlock MinWidth="110" FontSize="16"  HorizontalAlignment="Center" TextAlignment="Center" Text="{Binding Name}">                                    
+                                <TextBlock x:Name="tbTabCategory" MinWidth="110" FontSize="16"  HorizontalAlignment="Center" TextAlignment="Center" Text="{Binding Name}">                                    
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="MouseDown">
                                             <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.ClickInOptionVmCommand}" PassEventArgsToCommand="True" />
@@ -111,7 +111,7 @@
                                             <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.ClickInSubTabCommand}" PassEventArgsToCommand="True" />
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
-                                    <TabItem Header="Sensors" FontSize="5" Margin="25, 0, -25 , 0" Style="{StaticResource MainTabItem}">
+                                    <TabItem x:Name="tabItemSensor" Header="Sensors" FontSize="5" Margin="25, 0, -25 , 0" Style="{StaticResource MainTabItem}">
                                         <Grid>
                                             <Grid.RowDefinitions>
                                                 <RowDefinition Height="30"></RowDefinition>
@@ -119,7 +119,8 @@
                                                 <RowDefinition Height="30"></RowDefinition>
                                             </Grid.RowDefinitions>
 
-                                            <TextBox controls:TextBoxHelper.Watermark="Upload sensor file" 
+                                            <TextBox x:Name="tbUploadSensorFile"
+                                                     controls:TextBoxHelper.Watermark="Upload sensor file" 
                                                      Style="{DynamicResource ButtonCommandMetroTextBox}" IsReadOnly="True"
                                                      Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.SelectedProjectContent.OpticalSensorViewModel.SensorsFilePath}"
                                                      controls:TextBoxHelper.ButtonCommand="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.BrowseFileCommand}">
@@ -165,7 +166,8 @@
                                                                     <RowDefinition Height="30"></RowDefinition>
                                                                 </Grid.RowDefinitions>
 
-                                                                <TextBox Grid.Row="0" controls:TextBoxHelper.SelectAllOnFocus="True" controls:TextBoxHelper.Watermark="Sensor Name"
+                                                                <TextBox x:Name="tbSensorData" 
+                                                                         Grid.Row="0" controls:TextBoxHelper.SelectAllOnFocus="True" controls:TextBoxHelper.Watermark="Sensor Name"
                                                                          Text="{Binding SensorName, Mode=TwoWay}" Width="100" Margin="-135,0,0,0"  Style="{StaticResource sensorDataText}">
                                                                     <i:Interaction.Triggers>
                                                                         <i:EventTrigger EventName="LostFocus">
@@ -175,19 +177,22 @@
                                                                 </TextBox>
 
                                                                 <StackPanel Grid.Row="1" Orientation="Horizontal">
-                                                                    <Label Content="X:" Margin="0,0,0,-0.2" FontSize="12"></Label>
-                                                                    <TextBox controls:TextBoxHelper.SelectAllOnFocus="True" controls:TextBoxHelper.Watermark="X"
+                                                                    <Label x:Name="lbX" Content="X:" Margin="0,0,0,-0.2" FontSize="12"></Label>
+                                                                    <TextBox x:Name="tbX"
+                                                                             controls:TextBoxHelper.SelectAllOnFocus="True" controls:TextBoxHelper.Watermark="X"
                                                                              Text="{Binding X, Mode=TwoWay}" Style="{StaticResource sensorDataText}" Margin="-5,1,0,0"/>
-                                                                    <Label Content="Y:" Margin="0,0,0,-0.2" FontSize="12"></Label>
-                                                                    <TextBox controls:TextBoxHelper.SelectAllOnFocus="True" controls:TextBoxHelper.Watermark="Y"
+                                                                    <Label x:Name="lbY" Content="Y:" Margin="0,0,0,-0.2" FontSize="12"></Label>
+                                                                    <TextBox x:Name="tbY"
+                                                                             controls:TextBoxHelper.SelectAllOnFocus="True" controls:TextBoxHelper.Watermark="Y"
                                                                              Text="{Binding Y, Mode=TwoWay}" Style="{StaticResource sensorDataText}" Margin="-5,1,0,0"/>
-                                                                    <Label Content="Z:" Margin="0,0,0,-0.2" FontSize="12"></Label>
-                                                                    <TextBox controls:TextBoxHelper.SelectAllOnFocus="True" controls:TextBoxHelper.Watermark="Z"
+                                                                    <Label x:Name="lbZ" Content="Z:" Margin="0,0,0,-0.2" FontSize="12"></Label>
+                                                                    <TextBox x:Name="tbZ"
+                                                                             controls:TextBoxHelper.SelectAllOnFocus="True" controls:TextBoxHelper.Watermark="Z"
                                                                              Text="{Binding Z, Mode=TwoWay}" Style="{StaticResource sensorDataText}" Margin="-5,1,0,0"/>
 
                                                                 </StackPanel>
 
-                                                                <Button x:Name="delSensorBtn"  Grid.Row="0"
+                                                                <Button x:Name="btnDelSensor"  Grid.Row="0"
                                                                         Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.DeleteSensorCommand}"
                                                                         CommandParameter="{Binding}"
                                                                         BorderThickness="0" Padding="0,0,0,0" Margin="210,6,23,8" Style="{StaticResource DeleteButton}">
@@ -199,7 +204,8 @@
                                                 </ListBox.ItemTemplate>
                                             </ListBox>
 
-                                            <Button Grid.Row="2"  Padding="0,0,0,0" BorderThickness="0" Width="124" Style="{StaticResource AddSensorButton}"
+                                            <Button x:Name="btnAddSensor"
+                                                    Grid.Row="2"  Padding="0,0,0,0" BorderThickness="0" Width="124" Style="{StaticResource AddSensorButton}"
                                                     Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.AddNewSensorCommand}"
                                                     CommandParameter="{Binding}">
 
@@ -207,7 +213,7 @@
                                             </Button>
                                         </Grid>
                                     </TabItem>
-                                    <TabItem Header="Analysis" Margin="80,0,-80,0" Style="{StaticResource MainTabItem}">
+                                    <TabItem x:Name="tabItemAnalysis" Header="Analysis" Margin="80,0,-80,0" Style="{StaticResource MainTabItem}">
                                         <ListBox ItemsSource="{Binding Analysis}">
                                             <ListBox.ItemTemplate>
                                                 <DataTemplate>
