@@ -93,6 +93,9 @@ namespace SensorsViewer.Home
 
             this.CloseWindowCommand = new RelayCommand(this.WindowClosingAction);
             this.LoadedWindowCommand = new RelayCommand(this.WindowLoadedAction);
+            this.ClickInRenameContextMenu = new RelayCommand(this.ClickInRenameAction);
+            this.ClickInDeleteContextMenu = new RelayCommand(this.ClickInDeleteAction);
+
             this.CreateNewProjectCommand = new RelayCommand(this.CreateNewProjectAction);
             this.SelectProjectCommand = new RelayCommand(this.SelectProjectAction);
             this.DeleteSensorCommand = new DeleteItemCommand(this);
@@ -119,6 +122,16 @@ namespace SensorsViewer.Home
         ///  Gets or sets Loaded window command
         /// </summary>
         public ICommand LoadedWindowCommand { get; set; }
+
+        /// <summary>
+        ///  Gets or sets Loaded window command
+        /// </summary>
+        public ICommand ClickInRenameContextMenu { get; set; }
+
+        /// <summary>
+        ///  Gets or sets Loaded window command
+        /// </summary>
+        public ICommand ClickInDeleteContextMenu { get; set; }
 
         /// <summary>
         ///  Gets or sets Create new project command
@@ -309,23 +322,31 @@ namespace SensorsViewer.Home
         /// </summary>
         private void WindowLoadedAction(object parameter)
         {
-            //this.ProjectItems = XmlSerialization.ReadFromXmlFile<ObservableCollection<OptionVm>>(@"C: \Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt");
+            try
+            {
 
-            //foreach (OptionVm opt in this.ProjectItems)
-            //{
-            //    foreach (ProjectGroupVm tab in opt.Tabs)
-            //    {
-            //        tab.ProjectChartContent.OpticalSensorViewModel.ShowLoadedSensors();
-            //    }
-            //}
+                this.ProjectItems = XmlSerialization.ReadFromXmlFile<ObservableCollection<OptionVm>>(@"C: \Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt");
 
-            //this.tabIndex = 0;
-            //// Select the tabs as the new selected project tabs
-            //this.SelectedTabCategory = this.ProjectItems[0].Tabs;
-            //// Select the tab item as Draw-In or Adjustment
-            //this.SelectedTab = this.selectedTabCategory[this.tabIndex];
+                foreach (OptionVm opt in this.ProjectItems)
+                {
+                    foreach (ProjectGroupVm tab in opt.Tabs)
+                    {
+                        tab.ProjectChartContent.OpticalSensorViewModel.ShowLoadedSensors();
+                    }
+                }
 
-            //this.SelectedProjectContent = this.ProjectItems[0].Tabs[this.tabIndex].ProjectChartContent;
+                this.tabIndex = 0;
+                // Select the tabs as the new selected project tabs
+                this.SelectedTabCategory = this.ProjectItems[0].Tabs;
+                // Select the tab item as Draw-In or Adjustment
+                this.SelectedTab = this.selectedTabCategory[this.tabIndex];
+
+                this.SelectedProjectContent = this.ProjectItems[0].Tabs[this.tabIndex].ProjectChartContent;
+            }
+            catch(Exception e)
+            {
+                throw new Exception("Error when load xml file");
+            }
 
         }
 
@@ -347,7 +368,7 @@ namespace SensorsViewer.Home
                 modelPath = addProjectDialog.ModelPath;
                 OptionVm newOpt = new OptionVm(projectName, modelPath);
                 this.ProjectItems.Add(newOpt);
-            }            
+            }                  
         }
 
         /// <summary>
@@ -356,10 +377,10 @@ namespace SensorsViewer.Home
         /// <param name="parameter">object parameter</param>
         private void SelectProjectAction(object parameter)
         {
-            //var parent = ((MouseButtonEventArgs)parameter).Source as TextBlock;
-            //var option = (OptionVm)parent.DataContext;
+            var parent = ((MouseButtonEventArgs)parameter).Source as TextBlock;
+            var option = (OptionVm)parent.DataContext;
 
-            var option = (OptionVm)parameter;
+            //var option = (OptionVm)parameter;
 
             // Select the tabs as the new selected project tabs
             this.SelectedTabCategory = option.Tabs;
@@ -367,6 +388,24 @@ namespace SensorsViewer.Home
             this.SelectedTab = this.selectedTabCategory[this.tabIndex];
             // Select the project content as the tab index chart graph
             this.SelectedProjectContent = option.Tabs[this.tabIndex].ProjectChartContent;
+        }
+
+        /// <summary>
+        /// Event for when click rename in context menu
+        /// </summary>
+        /// <param name="parameter">Object parameter</param>
+        private void ClickInRenameAction(object parameter)
+        {
+            var a = 1;
+        }
+
+        /// <summary>
+        /// Event for when click delete in context menu
+        /// </summary>
+        /// <param name="parameter">Object parameter</param>
+        private void ClickInDeleteAction(object parameter)
+        {
+
         }
 
         /// <summary>

@@ -43,19 +43,19 @@
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="204" />
-                <ColumnDefinition Width="264" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="204"/>
+                <ColumnDefinition Width="264"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <!-- First Grid -->
             <Border Grid.Column="0" Effect="{StaticResource CardShadow}" Background="#37509F" Height="Auto" Margin="0,0,0.4,0.2" >
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="70"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
                     <Border Grid.Row="0" Style="{StaticResource MenuItem}" Margin="0,0,0.333,0" Background="#1BB9F0">
@@ -64,7 +64,7 @@
                                 <cmd:EventToCommand Command="{Binding Path=CreateNewProjectCommand}" PassEventArgsToCommand="True" />
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-
+                        
                         <StackPanel Orientation="Horizontal" Margin="-10,0,10,0">
                             <!--<Image Source="../Resources/TranspNewProjectImg3.png"  Stretch="None" Margin="0,0,0,0.333" Width="48"></Image>-->
                             <TextBlock  Style="{StaticResource H4}" FontSize="40" Foreground="White"  Width="Auto" Margin="0,-8,0,0.333" Padding="0,0,8,0" ><Run Text="+"/></TextBlock>
@@ -74,7 +74,6 @@
 
                     <Grid Grid.Row="1">
                         <TextBlock Text="Projects"  Style="{StaticResource H3}" Foreground="#BEC5DB" HorizontalAlignment="Left"  Margin="15,0,0,0" Padding="10"></TextBlock>
-
                         <ListBox  ItemsSource="{Binding ProjectItems}" Margin="0,52,0.333,-52" Background="#37509F">
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="{x:Type ListBoxItem}">
@@ -98,41 +97,38 @@
                                             </ControlTemplate>
                                         </Setter.Value>
                                     </Setter>
-                                    <Setter Property="c:CommandBehavior.Event" Value="Selected" />
+                                    
+                                    <!--<Setter Property="c:CommandBehavior.Event" Value="PreviewMouseLeftButtonDown" />
                                     <Setter Property="c:CommandBehavior.Command"
                                             Value="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectProjectCommand}" />
-                                    <Setter Property="c:CommandBehavior.CommandParameter" Value="{Binding}" />
+                                    <Setter Property="c:CommandBehavior.CommandParameter" Value="{Binding}" />-->
                                 </Style>
                             </ListBox.ItemContainerStyle>
 
+                            <ListBox.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="Rename" Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=PlacementTarget.DataContext.ClickInOptionVmCommand}" />
+                                       
+                                    <MenuItem Header="Delete" Click="TextBlock_MouseDown"/>
+                                </ContextMenu>
+                            </ListBox.ContextMenu>
+                            
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <Border  Style="{StaticResource MenuItem2}" BorderBrush="Transparent" BorderThickness="0">
-                                        <!--<i:Interaction.Triggers>
-                                            <i:EventTrigger EventName="MouseDown">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
                                                 <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectProjectCommand}" PassEventArgsToCommand="True" />
                                             </i:EventTrigger>
-                                        </i:Interaction.Triggers>-->
+                                            <i:EventTrigger EventName="PreviewMouseRightButtonDown">
+                                                <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectProjectCommand}" PassEventArgsToCommand="True" />
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
                                         <TextBlock x:Name="tbProjectItem" Grid.Row="2" Grid.Column="1" Style="{StaticResource H5}" HorizontalAlignment="Left" Text="{Binding Name}"  Margin="0,0,0,0"/>
                                     </Border>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
                         </ListBox>
-                        <!--<ItemsControl ItemsSource="{Binding ProjectItems}" Margin="0,52,0.333,-52">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Border  Style="{StaticResource MenuItem}" BorderBrush="Transparent">
-                                        <TextBlock x:Name="tbProjectItem" Grid.Row="2" Grid.Column="1" Style="{StaticResource H5}" HorizontalAlignment="Left" Text="{Binding Name}"  Margin="0,0,0,0">
-                                            <i:Interaction.Triggers>
-                                                <i:EventTrigger EventName="MouseDown">
-                                                    <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectProjectCommand}" PassEventArgsToCommand="True" />
-                                                </i:EventTrigger>
-                                            </i:Interaction.Triggers>   
-                                        </TextBlock>
-                                    </Border>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                        </ItemsControl>-->
                     </Grid>
                 </Grid>
             </Border>

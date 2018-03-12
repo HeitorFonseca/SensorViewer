@@ -144,13 +144,21 @@ namespace SensorsViewer.ProjectB
         /// </summary>
         /// <param name="sensorid">sensor id</param>
         /// <param name="value">value to add</param>
-        public void AddValue(string sensorid, double value)
+        public void AddValue(string sensorName, double value)
         {            
             // If exist a line series with sensor with sensorid
-            if (this.SeriesCollection.FirstOrDefault(a => a.Title == sensorid) is LineSeries ls)
+            if (this.SeriesCollection.FirstOrDefault(a => a.Title == sensorName) is LineSeries ls)
             {
                 LiveCharts.Defaults.ObservableValue obsValue = new LiveCharts.Defaults.ObservableValue(value);
                 ls.Values.Add(value);
+
+                for(int i = 0; i < this.SensorList.Count; i++)
+                {
+                    if (this.SensorList[i].SensorName == sensorName)
+                    {
+                        this.SensorList[i].Values.Add(value);
+                    }
+                }
             }
         }
 
@@ -187,7 +195,7 @@ namespace SensorsViewer.ProjectB
                 {
                     foreach (double value in sensor.Values)
                     {
-                        newLs.Values.Add(new LiveCharts.Defaults.ObservableValue(value));
+                        newLs.Values.Add(value);
                     }
                 }
 
