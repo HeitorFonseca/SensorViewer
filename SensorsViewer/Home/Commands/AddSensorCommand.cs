@@ -64,7 +64,6 @@ namespace SensorsViewer.Home.Commands
             Sensor s = new Sensor();
             ((OpticalSensorView)this.viewModel.SelectedProjectContent).OpticalSensorViewModel.AddSensorToGraph(s);
 
-            tab.Sensors.Add(s);
         }
     }
 }

@@ -23,6 +23,9 @@
         <i:EventTrigger EventName="Closing">
             <cmd:EventToCommand Command="{Binding Path=CloseWindowCommand}" PassEventArgsToCommand="True" />
         </i:EventTrigger>
+        <i:EventTrigger EventName="Loaded">
+            <cmd:EventToCommand Command="{Binding Path=LoadedWindowCommand}" PassEventArgsToCommand="True" />
+        </i:EventTrigger>
     </i:Interaction.Triggers>
 
     <controls:MetroWindow.IconTemplate>
@@ -278,7 +281,7 @@
                             </Grid.RowDefinitions>
 
                             <Border Grid.Row="2" Margin="18" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
-                                <ContentControl Content="{Binding SelectedProjectContent}"/>
+                                <ContentControl Content="{Binding SelectedProjectContent, UpdateSourceTrigger=PropertyChanged }"/>
                             </Border>
                         </Grid>
                     </TabItem>

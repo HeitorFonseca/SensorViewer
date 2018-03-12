@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfOptionVm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <OptionVm>
+    <Id>0</Id>
+    <Name>Project 1</Name>
+    <Tabs>
+      <ProjectGroupVm>
+        <analysis>
+          <Analysis>
+            <Name>Analysis 1</Name>
+            <Date>3 FEV 2018</Date>
+            <Time>10:10:01</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis 2</Name>
+            <Date>3 FEV 2018</Date>
+            <Time>10:20:47</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis 1</Name>
+            <Date>3 FEV 2018</Date>
+            <Time>10:10:01</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis 2</Name>
+            <Date>3 FEV 2018</Date>
+            <Time>10:20:47</Time>
+          </Analysis>
+        </analysis>
+        <Name>Draw-In</Name>
+        <Sensors>
+          <Sensor>
+            <Id>23b01bb2-8be6-4f28-ae22-5e6a9c970e8d</Id>
+            <X>10</X>
+            <Y>11</Y>
+            <Z>0</Z>
+            <SensorName>Sensor 1</SensorName>
+            <Values />
+            <TimeStamp />
+          </Sensor>
+          <Sensor>
+            <Id>155f8f2d-dd62-48f5-8bf0-89982379b9d6</Id>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <SensorName>Sensor 2</SensorName>
+            <Values />
+            <TimeStamp />
+          </Sensor>
+        </Sensors>
+        <Analysis>
+          <Analysis>
+            <Name>Analysis 1</Name>
+            <Date>3 FEV 2018</Date>
+            <Time>10:10:01</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis 2</Name>
+            <Date>3 FEV 2018</Date>
+            <Time>10:20:47</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis 1</Name>
+            <Date>3 FEV 2018</Date>
+            <Time>10:10:01</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis 2</Name>
+            <Date>3 FEV 2018</Date>
+            <Time>10:20:47</Time>
+          </Analysis>
+        </Analysis>
+      </ProjectGroupVm>
+      <ProjectGroupVm>
+        <analysis>
+          <Analysis>
+            <Name>Analysis 1</Name>
+            <Date>3 FEV 2018</Date>
+            <Time>10:10:01</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis 1</Name>
+            <Date>3 FEV 2018</Date>
+            <Time>10:10:01</Time>
+          </Analysis>
+        </analysis>
+        <Name>Adjustment</Name>
+        <Sensors />
+        <Analysis>
+          <Analysis>
+            <Name>Analysis 1</Name>
+            <Date>3 FEV 2018</Date>
+            <Time>10:10:01</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis 1</Name>
+            <Date>3 FEV 2018</Date>
+            <Time>10:10:01</Time>
+          </Analysis>
+        </Analysis>
+      </ProjectGroupVm>
+    </Tabs>
+  </OptionVm>
+  <OptionVm>
+    <Id>1</Id>
+    <Name>qasdasdasda</Name>
+    <Tabs>
+      <ProjectGroupVm>
+        <analysis />
+        <Name>Draw-In</Name>
+        <Sensors>
+          <Sensor>
+            <Id>c4f7fba2-29c2-46a4-9aec-8ee15f14cad4</Id>
+            <X>572.5</X>
+            <Y>124.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 1</SensorName>
+            <Values />
+            <TimeStamp />
+          </Sensor>
+          <Sensor>
+            <Id>c8929375-9575-4bd8-9063-99308ba2b015</Id>
+            <X>537.5</X>
+            <Y>-155.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 2</SensorName>
+            <Values />
+            <TimeStamp />
+          </Sensor>
+          <Sensor>
+            <Id>47288c55-2022-434f-831d-3c33dd21a550</Id>
+            <X>100</X>
+            <Y>-175.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 3</SensorName>
+            <Values />
+            <TimeStamp />
+          </Sensor>
+          <Sensor>
+            <Id>746b93b4-ef7d-4e8a-809b-7966e863c12c</Id>
+            <X>-100</X>
+            <Y>-175.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 4</SensorName>
+            <Values />
+            <TimeStamp />
+          </Sensor>
+          <Sensor>
+            <Id>1fb31d42-22be-435f-8d94-816126cb0efd</Id>
+            <X>-552.5</X>
+            <Y>-155.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 5</SensorName>
+            <Values />
+            <TimeStamp />
+          </Sensor>
+          <Sensor>
+            <Id>5b66e3fe-ace2-4095-a6bf-16e184c2a285</Id>
+            <X>-572.5</X>
+            <Y>124.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 6</SensorName>
+            <Values />
+            <TimeStamp />
+          </Sensor>
+          <Sensor>
+            <Id>ce17c53a-523a-420b-a371-8d555a9bdb2e</Id>
+            <X>0</X>
+            <Y>129.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 7</SensorName>
+            <Values />
+            <TimeStamp />
+          </Sensor>
+        </Sensors>
+        <Analysis />
+      </ProjectGroupVm>
+      <ProjectGroupVm>
+        <analysis />
+        <Name>Adjustment</Name>
+        <Sensors />
+        <Analysis />
+      </ProjectGroupVm>
+    </Tabs>
+  </OptionVm>
+  <OptionVm>
+    <Id>4</Id>
+    <Name>dsadasd</Name>
+    <Tabs>
+      <ProjectGroupVm>
+        <analysis />
+        <Name>Draw-In</Name>
+        <Sensors>
+          <Sensor>
+            <Id>1b0d7721-bb14-4c41-afb8-9e26ee43cf9d</Id>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <SensorName>sdsds</SensorName>
+            <Values />
+            <TimeStamp />
+          </Sensor>
+        </Sensors>
+        <Analysis />
+      </ProjectGroupVm>
+      <ProjectGroupVm>
+        <analysis />
+        <Name>Adjustment</Name>
+        <Sensors />
+        <Analysis />
+      </ProjectGroupVm>
+    </Tabs>
+  </OptionVm>
+</ArrayOfOptionVm>

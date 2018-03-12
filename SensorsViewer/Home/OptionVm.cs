@@ -67,7 +67,7 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Gets Id
         /// </summary>
-        public int Id { get; private set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Gets or sets Name

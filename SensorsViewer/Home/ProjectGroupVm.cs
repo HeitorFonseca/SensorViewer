@@ -9,6 +9,8 @@ namespace SensorsViewer.Home
     using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Windows.Controls;
+    using System.Xml.Serialization;
+    using SensorsViewer.ProjectB;
     using SensorsViewer.SensorOption;
 
     /// <summary>
@@ -19,16 +21,18 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Project content
         /// </summary>
-        private UserControl projectChartContent;
+        private OpticalSensorView projectChartContent;
+
+        public ObservableCollection<Analysis> analysis;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectGroupVm"/> class
         /// </summary>
         public ProjectGroupVm()
         {
-            this.Sensors = new ObservableCollection<Sensor>();
-            this.Analysis = new ObservableCollection<Analysis>();
-            this.ProjectChartContent = new UserControl();
+            //this.Sensors = new ObservableCollection<Sensor>();
+            this.Analysis = new ObservableCollection<Analysis>();            
+            this.ProjectChartContent = new OpticalSensorView();
         }
 
         /// <summary>
@@ -44,17 +48,41 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Gets or sets Sensors
         /// </summary>
-        public ObservableCollection<Sensor> Sensors { get; set; }
+        public ObservableCollection<Sensor> Sensors
+        {
+            get
+            {
+                return this.ProjectChartContent.OpticalSensorViewModel.SensorList;
+            }
+
+            set
+            {
+                this.ProjectChartContent.OpticalSensorViewModel.SensorList = value;
+                this.OnPropertyChanged("ProjectChartContent");
+            }
+        }
 
         /// <summary>
         /// Gets or sets Sensors
         /// </summary>
-        public ObservableCollection<Analysis> Analysis { get; set; }
+        public ObservableCollection<Analysis> Analysis
+        {
+            get
+            {
+                return this.analysis;
+            }
 
+            set
+            {
+                this.analysis = value;
+            }
+        }
+
+        [XmlIgnore]
         /// <summary>
         /// Gets or sets project B User control content
         /// </summary>
-        public UserControl ProjectChartContent
+        public OpticalSensorView ProjectChartContent
         {
             get
             {
