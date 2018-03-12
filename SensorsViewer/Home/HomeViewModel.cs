@@ -309,23 +309,23 @@ namespace SensorsViewer.Home
         /// </summary>
         private void WindowLoadedAction(object parameter)
         {
-            this.ProjectItems = XmlSerialization.ReadFromXmlFile<ObservableCollection<OptionVm>>(@"C: \Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt");
+            //this.ProjectItems = XmlSerialization.ReadFromXmlFile<ObservableCollection<OptionVm>>(@"C: \Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt");
 
-            foreach (OptionVm opt in this.ProjectItems)
-            {
-                foreach (ProjectGroupVm tab in opt.Tabs)
-                {
-                    tab.ProjectChartContent.OpticalSensorViewModel.ShowLoadedSensors();
-                }
-            }
+            //foreach (OptionVm opt in this.ProjectItems)
+            //{
+            //    foreach (ProjectGroupVm tab in opt.Tabs)
+            //    {
+            //        tab.ProjectChartContent.OpticalSensorViewModel.ShowLoadedSensors();
+            //    }
+            //}
 
-            this.tabIndex = 0;
-            // Select the tabs as the new selected project tabs
-            this.SelectedTabCategory = this.ProjectItems[0].Tabs;
-            // Select the tab item as Draw-In or Adjustment
-            this.SelectedTab = this.selectedTabCategory[this.tabIndex];
+            //this.tabIndex = 0;
+            //// Select the tabs as the new selected project tabs
+            //this.SelectedTabCategory = this.ProjectItems[0].Tabs;
+            //// Select the tab item as Draw-In or Adjustment
+            //this.SelectedTab = this.selectedTabCategory[this.tabIndex];
 
-            this.SelectedProjectContent = this.ProjectItems[0].Tabs[this.tabIndex].ProjectChartContent;
+            //this.SelectedProjectContent = this.ProjectItems[0].Tabs[this.tabIndex].ProjectChartContent;
 
         }
 
@@ -356,8 +356,10 @@ namespace SensorsViewer.Home
         /// <param name="parameter">object parameter</param>
         private void SelectProjectAction(object parameter)
         {
-            var parent = ((MouseButtonEventArgs)parameter).Source as TextBlock;
-            var option = (OptionVm)parent.DataContext;
+            //var parent = ((MouseButtonEventArgs)parameter).Source as TextBlock;
+            //var option = (OptionVm)parent.DataContext;
+
+            var option = (OptionVm)parameter;
 
             // Select the tabs as the new selected project tabs
             this.SelectedTabCategory = option.Tabs;

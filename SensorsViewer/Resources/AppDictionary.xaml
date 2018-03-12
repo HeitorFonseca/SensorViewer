@@ -68,6 +68,16 @@
         </Style.Triggers>
     </Style>
 
+
+    <!-- Menu Item 2-->
+
+    <Style x:Key="MenuItem2" TargetType="Border">
+        <Setter Property="Cursor" Value="Hand"></Setter>
+        <Setter Property="Padding" Value="25 10 10 10"></Setter>
+        <Setter Property="BorderThickness" Value="0 1 0 0"></Setter>
+        <Setter Property="BorderBrush" Value="#EBEBEB"></Setter>
+    </Style>
+    
     <!-- Menu Tab Item -->
 
     <Style x:Key="GridTabItem" TargetType="Border">

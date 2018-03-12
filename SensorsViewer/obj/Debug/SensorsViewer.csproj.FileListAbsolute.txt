@@ -179,3 +179,4 @@ C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Home\Ad
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Home\AddProjectDialog.baml
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\obj\Debug\Home\AddProjectDialog.g.cs
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\obj\Debug\Home\AddProjectDialog.baml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\AttachedCommandBehavior.dll
