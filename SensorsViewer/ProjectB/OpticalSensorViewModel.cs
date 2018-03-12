@@ -166,11 +166,40 @@ namespace SensorsViewer.ProjectB
             }
         }
 
+        public void ShowLoadedSensors()
+        {
+            foreach (SensorOption.Sensor sensor in this.SensorList)
+            {
+                Color nextColor = this.GetNextDefaultColor();
+
+                LineSeries newLs = new LineSeries
+                {
+                    Title = sensor.SensorName,
+                    Values = new ChartValues<double>(),
+                    Tag = sensor.Id,
+                    Fill = new SolidColorBrush(nextColor) { Opacity = 0.15d }
+                };
+
+                Brush textBrush = newLs.Fill.Clone();
+                textBrush.Opacity = 1d;
+
+                if (sensor.Values != null)
+                {
+                    foreach (double value in sensor.Values)
+                    {
+                        newLs.Values.Add(new LiveCharts.Defaults.ObservableValue(value));
+                    }
+                }
+
+                this.SeriesCollection.Add(newLs);
+            }
+        }
+
         /// <summary>
         /// Get next color for graph
         /// </summary>
         /// <returns></returns>
-        public Color GetNextDefaultColor()
+        private Color GetNextDefaultColor()
         {
             if (this.currentSeriesIndex == int.MaxValue) this.currentSeriesIndex = 0;
             var i = this.currentSeriesIndex;

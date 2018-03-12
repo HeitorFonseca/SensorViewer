@@ -87,9 +87,12 @@ namespace SensorsViewer.Home
             this.proc.Connect();
             this.proc.ReadDataEvnt(WhenMessageReceived);
 
-            this.InitializeMenu();
+            this.ProjectItems = new ObservableCollection<OptionVm>();
+
+            //this.InitializeMenu();
 
             this.CloseWindowCommand = new RelayCommand(this.WindowClosingAction);
+            this.LoadedWindowCommand = new RelayCommand(this.WindowLoadedAction);
             this.CreateNewProjectCommand = new RelayCommand(this.CreateNewProjectAction);
             this.SelectProjectCommand = new RelayCommand(this.SelectProjectAction);
             this.DeleteSensorCommand = new DeleteItemCommand(this);
@@ -97,6 +100,8 @@ namespace SensorsViewer.Home
             this.ClickInOptionVmCommand = new RelayCommand(this.ClickInOptionAction); //new ClickInOptionCommand(this);
             this.EditSensorDataCommand = new ChangeSensorDataCommand(this);
             this.BrowseFileCommand = new RelayCommand(this.BrowseFileAction);
+
+
         }
 
         #region Properties Declarations
@@ -109,6 +114,11 @@ namespace SensorsViewer.Home
         ///  Gets or sets Close window command
         /// </summary>
         public ICommand CloseWindowCommand { get; set; }
+
+        /// <summary>
+        ///  Gets or sets Loaded window command
+        /// </summary>
+        public ICommand LoadedWindowCommand { get; set; }
 
         /// <summary>
         ///  Gets or sets Create new project command
@@ -289,7 +299,34 @@ namespace SensorsViewer.Home
         /// </summary>
         private void WindowClosingAction(object parameter)
         {
+            XmlSerialization.WriteToXmlFile<ObservableCollection<OptionVm>>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", this.ProjectItems);
+        
             this.proc.Disconnect();
+        }
+
+        /// <summary>
+        /// Event when close window
+        /// </summary>
+        private void WindowLoadedAction(object parameter)
+        {
+            this.ProjectItems = XmlSerialization.ReadFromXmlFile<ObservableCollection<OptionVm>>(@"C: \Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt");
+
+            foreach (OptionVm opt in this.ProjectItems)
+            {
+                foreach (ProjectGroupVm tab in opt.Tabs)
+                {
+                    tab.ProjectChartContent.OpticalSensorViewModel.ShowLoadedSensors();
+                }
+            }
+
+            this.tabIndex = 0;
+            // Select the tabs as the new selected project tabs
+            this.SelectedTabCategory = this.ProjectItems[0].Tabs;
+            // Select the tab item as Draw-In or Adjustment
+            this.SelectedTab = this.selectedTabCategory[this.tabIndex];
+
+            this.SelectedProjectContent = this.ProjectItems[0].Tabs[this.tabIndex].ProjectChartContent;
+
         }
 
         /// <summary>
@@ -446,7 +483,6 @@ namespace SensorsViewer.Home
         /// </summary>
         private void InitializeMenu()
         {
-            this.ProjectItems = new ObservableCollection<OptionVm>();
 
             this.tabCategory = new ObservableCollection<ProjectGroupVm>();
             //ObservableCollection<ProjectGroupVm> tabCat2 = new ObservableCollection<ProjectGroupVm>();
@@ -458,24 +494,24 @@ namespace SensorsViewer.Home
             //ProjectGroupVm t2 = new ProjectGroupVm { Name = "Adjustment" };
 
             Sensor asd = new Sensor("Sensor 1", 10, 11, 0);
-            Sensor asd2 = new Sensor("Sensor 2", 5, 24, 0);
-            Sensor asd3 = new Sensor("Sensor 3", 7, 3, 0);
+            //Sensor asd2 = new Sensor("Sensor 2", 5, 24, 0);
+            //Sensor asd3 = new Sensor("Sensor 3", 7, 3, 0);
 
             p.Sensors.Add(asd);
-            p.Sensors.Add(asd2);
-            p.Sensors.Add(asd3);
+            //p.Sensors.Add(asd2);
+            //p.Sensors.Add(asd3);
 
             Analysis an = new Analysis("Analysis 1", "3 FEV 2018", "10:10:01");
-            Analysis an2 = new Analysis("Analysis 2", "3 FEV 2018", "10:20:47");          
+            Analysis an2 = new Analysis("Analysis 2", "3 FEV 2018", "10:20:47");
 
             p.Analysis.Add(an);
             p.Analysis.Add(an2);
 
-            p2.Sensors.Add(asd3);
+            //p2.Sensors.Add(asd3);
             p2.Analysis.Add(an);
 
-            p.ProjectChartContent = (UserControl)(new OpticalSensorView());
-            p2.ProjectChartContent = (UserControl)(new OpticalSensorView());
+            p.ProjectChartContent = new OpticalSensorView();
+            p2.ProjectChartContent = new OpticalSensorView();
 
             this.SelectedProjectContent = p.ProjectChartContent;
             this.SelectedSensorList = ((OpticalSensorView)p.ProjectChartContent).OpticalSensorViewModel.SensorList;
@@ -500,11 +536,14 @@ namespace SensorsViewer.Home
             //opt2.Title = "Project 2";
             //opt2.Tabs = tabCat2;
 
+            //XmlSerialization.WriteToXmlFile<OptionVm>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", opt);
 
             this.SelectedTabCategory = this.tabCategory;
 
             this.ProjectItems.Add(opt);
             //this.ProjectItems.Add(opt2);
+
+            XmlSerialization.WriteToXmlFile<ObservableCollection<OptionVm>>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", this.ProjectItems);
 
             this.ResultContent = new ResultView();
         }
