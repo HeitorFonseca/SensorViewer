@@ -181,3 +181,5 @@ C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\obj\Debug\Home\AddProjectDialog.baml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\System.Runtime.Serialization.Formatters.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\System.Runtime.Serialization.Primitives.dll
+C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\System.Runtime.Serialization.Formatters.dll
+C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\System.Runtime.Serialization.Primitives.dll

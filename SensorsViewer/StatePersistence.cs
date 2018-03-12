@@ -40,6 +40,11 @@ namespace SensorsViewer
         private NameValueCollection formValues = null;
 
         /// <summary>
+        /// Boolean for save control
+        /// </summary>
+        private bool alreadySaved = false;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Denso.Pcs.StatePersistence" /> class 
         /// </summary>
         /// <param name="window">Current form</param>
@@ -121,6 +126,64 @@ namespace SensorsViewer
         }
 
         /// <summary>
+        /// Save form state
+        /// </summary>
+        /// <param name="fileToSave"> The path of file.</param>
+        private void SaveFormState(string fileToSave)
+        {
+            Stream s = null;
+            string file = fileToSave;
+
+            try
+            {
+                s = new FileStream(file, FileMode.Create, FileAccess.Write);
+                SoapFormatter formatter = new SoapFormatter();
+                formatter.Serialize(s, this.formValues);
+
+                using (StreamWriter w = new StreamWriter(s))
+                {
+                    s = null;
+                    w.Flush();
+                }
+            }
+            finally
+            {
+                if (s != null)
+                {
+                    s.Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Save group box controls
+        /// </summary>
+        /// <param name="fileToSave">The path of file to be saved.</param>
+        private void SaveControlValues(string fileToSave)
+        {
+            if (this.alreadySaved == false)
+            {
+                // Save textbox contents
+                foreach (TextBox tb in FindVisualChildren<TextBox>(this.window))
+                {
+                    if (tb.Name != "tbLogOutput")
+                    {
+                        this.formValues.Set(tb.Name, tb.Text);
+                    }
+                }
+
+                // Save checkbox contents
+                foreach (CheckBox cb in FindVisualChildren<CheckBox>(this.window))
+                {
+                    this.formValues.Set(cb.Content.ToString(), cb.IsChecked.ToString());
+                }
+
+                // Save the form in the xml file
+                this.SaveFormState(fileToSave);
+            }
+        }
+
+        /// <summary>
         /// Register window to have its forms persisted
         /// </summary>
         /// <param name="window">Window to be persisted</param>
@@ -146,8 +209,8 @@ namespace SensorsViewer
         /// <param name="e">An <see cref="System.EventArgs" /> contains the event data.</param>
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            //this.SaveControlValues(this.formStateFileName);
-            //this.alreadySaved = true;
+            this.SaveControlValues(this.formStateFileName);
+            this.alreadySaved = true;
         }
 
         /// <summary>
