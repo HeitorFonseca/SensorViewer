@@ -18,7 +18,7 @@
 
     <Style x:Key="Title" TargetType="TextBlock">
         <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-        <Setter Property="Foreground" Value="#303030"></Setter>
+        <Setter Property="Foreground" Value="#FFECEAEA"></Setter>
         <Setter Property="TextAlignment" Value="Center"></Setter>
         <Setter Property="TextWrapping" Value="Wrap"></Setter>
     </Style>

@@ -84,22 +84,29 @@
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsSelected" Value="true">
-                                                        <Setter Property="Background" TargetName="Bd" Value="#FF8290B6"/>
-                                                        <Setter Property="Opacity" TargetName="Bd" Value="0.3" />
+                                                        <Setter Property="Background" TargetName="Bd">
+                                                            <Setter.Value>
+                                                                <LinearGradientBrush>
+                                                                    <GradientStop Color="#4D64AC" Offset="0"/>
+                                                                    <GradientStop Color="#37509F" Offset="1"/>
+                                                                </LinearGradientBrush>
+                                                            </Setter.Value>
+                                                        </Setter>
                                                     </Trigger>
                                                     <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter TargetName="Bd" Property="Background" Value="#FF8290B6"></Setter>
-                                                        <Setter TargetName="Bd" Property="Opacity" Value="0.1" />
+                                                        <Setter TargetName="Bd" Property="Background" >
+                                                            <Setter.Value>
+                                                                <LinearGradientBrush>
+                                                                    <GradientStop Color="#4D64AC" Offset="0"/>
+                                                                    <GradientStop Color="#37509F" Offset="1"/>
+                                                                </LinearGradientBrush>
+                                                            </Setter.Value> 
+                                                        </Setter>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
                                             </ControlTemplate>
                                         </Setter.Value>
                                     </Setter>
-                                    
-                                    <!--<Setter Property="c:CommandBehavior.Event" Value="PreviewMouseLeftButtonDown" />
-                                    <Setter Property="c:CommandBehavior.Command"
-                                            Value="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectProjectCommand}" />
-                                    <Setter Property="c:CommandBehavior.CommandParameter" Value="{Binding}" />-->
                                 </Style>
                             </ListBox.ItemContainerStyle>
 
