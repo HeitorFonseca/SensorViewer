@@ -11,6 +11,7 @@ namespace SensorsViewer.Home
     using System.Windows.Controls;
     using System.Xml.Serialization;
     using SensorsViewer.ProjectB;
+    using SensorsViewer.Result;
     using SensorsViewer.SensorOption;
 
     /// <summary>
@@ -23,6 +24,14 @@ namespace SensorsViewer.Home
         /// </summary>
         private OpticalSensorView projectChartContent;
 
+        /// <summary>
+        /// Project content
+        /// </summary>
+        private ResultView projectResultContent;
+
+        /// <summary>
+        /// Collection of analysis
+        /// </summary>
         public ObservableCollection<Analysis> analysis;
 
         /// <summary>
@@ -30,9 +39,9 @@ namespace SensorsViewer.Home
         /// </summary>
         public ProjectGroupVm()
         {
-            //this.Sensors = new ObservableCollection<Sensor>();
             this.Analysis = new ObservableCollection<Analysis>();            
             this.ProjectChartContent = new OpticalSensorView();
+            this.ProjectResutContent = new ResultView();
         }
 
         /// <summary>
@@ -94,7 +103,25 @@ namespace SensorsViewer.Home
                 this.projectChartContent = value;
                 this.OnPropertyChanged("ProjectChartContent");
             }
-        }       
+        }
+
+        [XmlIgnore]
+        /// <summary>
+        /// Gets or sets project B User control content
+        /// </summary>
+        public ResultView ProjectResutContent
+        {
+            get
+            {
+                return this.projectResultContent;
+            }
+
+            set
+            {
+                this.projectResultContent = value;
+                this.OnPropertyChanged("ProjectResutContent");
+            }
+        }
 
         /// <summary>
         /// When changes property

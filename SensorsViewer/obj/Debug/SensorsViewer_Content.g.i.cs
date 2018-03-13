@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/uploaddocument.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/open-in-browser2.png")]
 
 
