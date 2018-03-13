@@ -78,11 +78,14 @@ namespace SensorsViewer.Home
         /// </summary>
         private int tabIndex = 0;
 
+        private IDialogCoordinator dialogCoordinator;
         /// <summary>
         /// Initializes a new instance of the <see cref="HomeViewModel"/> class
         /// </summary>
-        public HomeViewModel()
+        public HomeViewModel(IDialogCoordinator dialogCoordinator)
         {
+            this.dialogCoordinator = dialogCoordinator;
+
             this.proc = new MqttConnection("localhost", 5672, "userTest", "userTest", "hello");
             this.proc.Connect();
             this.proc.ReadDataEvnt(WhenMessageReceived);
@@ -93,7 +96,7 @@ namespace SensorsViewer.Home
 
             this.CloseWindowCommand = new RelayCommand(this.WindowClosingAction);
             this.LoadedWindowCommand = new RelayCommand(this.WindowLoadedAction);
-            this.ClickInRenameContextMenu = new RelayCommand(this.ClickInRenameAction);
+            this.ClickInRenameContextMenu = new RelayCommand(this.ClickInRenameActionAsync);
             this.ClickInDeleteContextMenu = new RelayCommand(this.ClickInDeleteAction);
 
             this.CreateNewProjectCommand = new RelayCommand(this.CreateNewProjectAction);
@@ -102,9 +105,7 @@ namespace SensorsViewer.Home
             this.AddNewSensorCommand = new AddSensorCommand(this);
             this.ClickInOptionVmCommand = new RelayCommand(this.ClickInOptionAction); //new ClickInOptionCommand(this);
             this.EditSensorDataCommand = new ChangeSensorDataCommand(this);
-            this.BrowseFileCommand = new RelayCommand(this.BrowseFileAction);
-
-
+            this.BrowseFileCommand = new RelayCommand(this.BrowseFileAction);            
         }
 
         #region Properties Declarations
@@ -345,7 +346,7 @@ namespace SensorsViewer.Home
             }
             catch(Exception e)
             {
-                throw new Exception("Error when load xml file");
+                //throw new Exception("Error when load xml file");
             }
 
         }
@@ -394,9 +395,22 @@ namespace SensorsViewer.Home
         /// Event for when click rename in context menu
         /// </summary>
         /// <param name="parameter">Object parameter</param>
-        private void ClickInRenameAction(object parameter)
+        private async void ClickInRenameActionAsync(object parameter)
         {
-            var a = 1;
+            var result = await this.dialogCoordinator.ShowInputAsync(this,"Rename project", "Enter Project Name");
+
+            if (result == null) //user pressed cancel
+                return;
+
+            OptionVm currentProject = (OptionVm)parameter;
+            
+            for (int i = 0; i < this.ProjectItems.Count; i++)
+            {
+                if (this.ProjectItems[i] == currentProject)
+                {
+                    this.ProjectItems[i].Name = result;
+                }
+            }
         }
 
         /// <summary>
@@ -405,7 +419,42 @@ namespace SensorsViewer.Home
         /// <param name="parameter">Object parameter</param>
         private void ClickInDeleteAction(object parameter)
         {
+            OptionVm currentProject = (OptionVm)parameter;
+            int i = 0;
 
+            for (i = 0; i < this.ProjectItems.Count; i++)
+            {
+                if (this.ProjectItems[i] == currentProject)
+                {
+                    break;
+                }
+            }
+            
+            if (i == this.ProjectItems.Count)
+            {
+                throw new Exception("Project item not found");
+            }
+
+            this.ProjectItems.RemoveAt(i);
+
+            if (this.ProjectItems.Count == 0)
+            {
+                this.SelectedTabCategory = null;
+                // Select the tab item to null
+                this.SelectedTab = null;
+                // Select the project content to null
+                this.SelectedProjectContent = null;
+            }
+            else {
+
+                i = (i + (this.ProjectItems.Count - 1)) % this.ProjectItems.Count;
+
+                this.SelectedTabCategory = this.ProjectItems[i].Tabs;
+                // Select the tab item as Draw-In or Adjustment
+                this.SelectedTab = this.selectedTabCategory[this.tabIndex];
+                // Select the project content as the tab index chart graph
+                this.SelectedProjectContent = this.ProjectItems[i].Tabs[this.tabIndex].ProjectChartContent;
+            }
         }
 
         /// <summary>

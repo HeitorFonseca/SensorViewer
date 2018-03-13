@@ -20,6 +20,11 @@ namespace SensorsViewer.Home
         private static int idCount;
 
         /// <summary>
+        /// Gets os sets name
+        /// </summary>
+        private string name;
+
+        /// <summary>
         /// Gets os sets modelPath
         /// </summary>
         private string modelPath;
@@ -72,7 +77,19 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Gets or sets Name
         /// </summary>
-        public string Name { get; set; }
+        public string Name
+        {
+            get
+            {
+                return this.name;
+            } 
+            
+            set
+            {
+                this.name = value;
+                this.OnPropertyChanged("Name");
+            }
+        }
 
         /// <summary>
         /// Projects collection

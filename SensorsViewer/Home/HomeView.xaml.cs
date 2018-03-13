@@ -22,11 +22,20 @@ namespace SensorsViewer.Home
     public partial class HomeView : MetroWindow
     {
         /// <summary>
+        /// 
+        /// </summary>
+        private readonly HomeViewModel homeViewModel;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="HomeView"/> class
         /// </summary>
         public HomeView()
         {           
             this.InitializeComponent();
+
+            homeViewModel = new HomeViewModel(DialogCoordinator.Instance);
+
+            this.DataContext = homeViewModel;
         }
 
         /// <summary>

@@ -10,7 +10,9 @@
         xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
         xmlns:dialogs="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
         xmlns:c="clr-namespace:AttachedCommandBehavior;assembly=AttachedCommandBehavior"
-  
+    
+        dialogs:DialogParticipation.Register="{Binding}"
+                      
         mc:Ignorable="d" Height="650" Width="1100"
         Style="{StaticResource WindowStyle}"
         WindowStartupLocation="CenterScreen"
@@ -35,10 +37,6 @@
             <Image Source="../Resources/gmLogo.png"  Stretch="None"></Image>
         </DataTemplate>
     </controls:MetroWindow.IconTemplate>
-
-    <controls:MetroWindow.DataContext>
-        <local:HomeViewModel></local:HomeViewModel>
-    </controls:MetroWindow.DataContext>
 
     <Grid>
         <Grid>
@@ -74,7 +72,7 @@
 
                     <Grid Grid.Row="1">
                         <TextBlock Text="Projects"  Style="{StaticResource H3}" Foreground="#BEC5DB" HorizontalAlignment="Left"  Margin="15,0,0,0" Padding="10"></TextBlock>
-                        <ListBox  ItemsSource="{Binding ProjectItems}" Margin="0,52,0.333,-52" Background="#37509F">
+                        <ListBox x:Name="lbProjectItems" ItemsSource="{Binding ProjectItems}" Margin="0,52,0.333,-52" Background="#37509F">
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="{x:Type ListBoxItem}">
                                     <Setter Property="Padding" Value="0,0,0,0"/>
@@ -107,9 +105,13 @@
 
                             <ListBox.ContextMenu>
                                 <ContextMenu>
-                                    <MenuItem Header="Rename" Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=PlacementTarget.DataContext.ClickInOptionVmCommand}" />
-                                       
-                                    <MenuItem Header="Delete" Click="TextBlock_MouseDown"/>
+                                    <MenuItem Header="Rename" Command="{Binding ClickInRenameContextMenu}" 
+                                                              CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}},
+                                                              Path=PlacementTarget.SelectedItem}"/>
+
+                                    <MenuItem Header="Delete" Command="{Binding ClickInDeleteContextMenu}" 
+                                                              CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}},
+                                                              Path=PlacementTarget.SelectedItem}"/>
                                 </ContextMenu>
                             </ListBox.ContextMenu>
                             
@@ -124,7 +126,7 @@
                                                 <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectProjectCommand}" PassEventArgsToCommand="True" />
                                             </i:EventTrigger>
                                         </i:Interaction.Triggers>
-                                        <TextBlock x:Name="tbProjectItem" Grid.Row="2" Grid.Column="1" Style="{StaticResource H5}" HorizontalAlignment="Left" Text="{Binding Name}"  Margin="0,0,0,0"/>
+                                        <TextBlock x:Name="tbProjectItem" Grid.Row="2" Grid.Column="1" Style="{StaticResource H5}" HorizontalAlignment="Left" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"  Margin="0,0,0,0"/>
                                     </Border>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
