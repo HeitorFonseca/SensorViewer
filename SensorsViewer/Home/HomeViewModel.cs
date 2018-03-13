@@ -110,7 +110,10 @@ namespace SensorsViewer.Home
             this.AddNewSensorCommand = new AddSensorCommand(this);
             this.ClickInOptionVmCommand = new RelayCommand(this.ClickInOptionAction); //new ClickInOptionCommand(this);
             this.EditSensorDataCommand = new ChangeSensorDataCommand(this);
-            this.BrowseFileCommand = new RelayCommand(this.BrowseFileAction);            
+            this.BrowseFileCommand = new RelayCommand(this.BrowseFileAction);
+
+            this.ResultContent = new ResultView();
+
         }
 
         #region Properties Declarations
