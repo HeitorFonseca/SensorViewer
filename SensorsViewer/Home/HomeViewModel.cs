@@ -56,6 +56,11 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Private project A menu left bar
         /// </summary>
+        private OptionVm selectedProjectItem;
+
+        /// <summary>
+        /// Private project A menu left bar
+        /// </summary>
         private ObservableCollection<ProjectGroupVm> tabCategory;
 
         /// <summary>
@@ -226,6 +231,23 @@ namespace SensorsViewer.Home
         }
 
         /// <summary>
+        /// Gets or sets selected project item
+        /// </summary>
+        public OptionVm SelectedProjectItem
+        {
+            get
+            {
+                return this.selectedProjectItem;
+            }
+
+            set
+            {
+                this.selectedProjectItem = value;
+                this.OnPropertyChanged("SelectedProjectItem");
+            }
+        }
+
+        /// <summary>
         /// Gets or sets user control content
         /// </summary>
         public UserControl SelectedProjectContent
@@ -337,12 +359,15 @@ namespace SensorsViewer.Home
                 }
 
                 this.tabIndex = 0;
+
+                this.SelectedProjectItem = this.projectItems[0];
+
                 // Select the tabs as the new selected project tabs
-                this.SelectedTabCategory = this.ProjectItems[0].Tabs;
+                this.SelectedTabCategory = SelectedProjectItem.Tabs;
                 // Select the tab item as Draw-In or Adjustment
                 this.SelectedTab = this.selectedTabCategory[this.tabIndex];
 
-                this.SelectedProjectContent = this.ProjectItems[0].Tabs[this.tabIndex].ProjectChartContent;
+                this.SelectedProjectContent = SelectedProjectItem.Tabs[this.tabIndex].ProjectChartContent;
             }
             catch(Exception e)
             {
@@ -369,6 +394,14 @@ namespace SensorsViewer.Home
                 modelPath = addProjectDialog.ModelPath;
                 OptionVm newOpt = new OptionVm(projectName, modelPath);
                 this.ProjectItems.Add(newOpt);
+
+                this.SelectedProjectItem = newOpt;
+                // Select the tabs as the new selected project tabs
+                this.SelectedTabCategory = newOpt.Tabs;
+                // Select the tab item as Draw-In or Adjustment
+                this.SelectedTab = this.selectedTabCategory[this.tabIndex];
+                // Select the project content as the tab index chart graph
+                this.SelectedProjectContent = newOpt.Tabs[this.tabIndex].ProjectChartContent;
             }                  
         }
 
@@ -439,6 +472,8 @@ namespace SensorsViewer.Home
 
             if (this.ProjectItems.Count == 0)
             {
+                this.SelectedProjectItem = null;
+
                 this.SelectedTabCategory = null;
                 // Select the tab item to null
                 this.SelectedTab = null;
@@ -448,6 +483,8 @@ namespace SensorsViewer.Home
             else {
 
                 i = (i + (this.ProjectItems.Count - 1)) % this.ProjectItems.Count;
+
+                this.SelectedProjectItem = this.ProjectItems[i];
 
                 this.SelectedTabCategory = this.ProjectItems[i].Tabs;
                 // Select the tab item as Draw-In or Adjustment
