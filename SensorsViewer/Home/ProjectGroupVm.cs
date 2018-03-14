@@ -39,8 +39,18 @@ namespace SensorsViewer.Home
         /// </summary>
         public ProjectGroupVm()
         {
+            this.Analysis = new ObservableCollection<Analysis>();
+            this.ProjectChartContent = new OpticalSensorView();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ProjectGroupVm"/> class
+        /// </summary>
+        public ProjectGroupVm(string path)
+        {
             this.Analysis = new ObservableCollection<Analysis>();            
-            this.ProjectChartContent = new OpticalSensorView();            
+            this.ProjectChartContent = new OpticalSensorView();
+            this.ProjectResutContent = new ResultView(path);
         }
 
         /// <summary>

@@ -2,14 +2,15 @@
 <ArrayOfOptionVm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <OptionVm>
     <Id>0</Id>
-    <Name>Project 1</Name>
+    <Name>dasdasdsa</Name>
+    <ModelPath>C:\Users\heitor.araujo\Documents\wokspace\GM\Tests\TestsNx\Die ring.stl</ModelPath>
     <Tabs>
       <ProjectGroupVm>
         <analysis />
         <Name>Draw-In</Name>
         <Sensors>
           <Sensor>
-            <Id>a1d3693f-f8e3-461f-9bfd-5a0eb14beff8</Id>
+            <Id>6d6e31e6-24da-4213-9abf-a7d21f066988</Id>
             <X>572.5</X>
             <Y>124.5</Y>
             <Z>0</Z>
@@ -18,7 +19,7 @@
             <TimeStamp />
           </Sensor>
           <Sensor>
-            <Id>b011d03b-4e58-4aeb-82fa-c4ce8e055962</Id>
+            <Id>a75aa90d-d4bc-4471-a85e-f41ba5785201</Id>
             <X>537.5</X>
             <Y>-155.5</Y>
             <Z>0</Z>
@@ -27,7 +28,7 @@
             <TimeStamp />
           </Sensor>
           <Sensor>
-            <Id>2f89b13e-2d7b-4e6a-86f8-34bf28ba1865</Id>
+            <Id>b9d2e6e7-ebd3-4050-a607-707434778664</Id>
             <X>100</X>
             <Y>-175.5</Y>
             <Z>0</Z>
@@ -36,7 +37,7 @@
             <TimeStamp />
           </Sensor>
           <Sensor>
-            <Id>97fd066d-4d86-4633-9a53-79ea9e5f7078</Id>
+            <Id>de87c773-9816-4f20-808d-82c7dd343378</Id>
             <X>-100</X>
             <Y>-175.5</Y>
             <Z>0</Z>
@@ -45,7 +46,7 @@
             <TimeStamp />
           </Sensor>
           <Sensor>
-            <Id>74810561-2901-4f0c-af44-a3a7484e2d5d</Id>
+            <Id>91084691-1bc1-4055-b0cd-ef2b1aea7423</Id>
             <X>-552.5</X>
             <Y>-155.5</Y>
             <Z>0</Z>
@@ -54,7 +55,7 @@
             <TimeStamp />
           </Sensor>
           <Sensor>
-            <Id>90e2cb86-5fb6-45f5-9599-4b4ee5547a1d</Id>
+            <Id>86ec6eb7-a78d-4d2a-88cb-693e1a48521b</Id>
             <X>-572.5</X>
             <Y>124.5</Y>
             <Z>0</Z>
@@ -63,7 +64,7 @@
             <TimeStamp />
           </Sensor>
           <Sensor>
-            <Id>4b86f06c-7163-4d6f-88b3-a9c10f9dde4c</Id>
+            <Id>8ecf1bce-ea38-4a65-9d68-5e6a897c0141</Id>
             <X>0</X>
             <Y>129.5</Y>
             <Z>0</Z>

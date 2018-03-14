@@ -51,19 +51,19 @@ namespace SensorsViewer.Home
         {
             this.Id = idCount++;
             this.Name = name;
-            this.modelPath = modelPath;
+            this.ModelPath = modelPath;
 
             this.Tabs = new ObservableCollection<ProjectGroupVm>
             {
-                 new ProjectGroupVm { Name = "Draw-In" },
-                 new ProjectGroupVm { Name = "Adjustment" }
+                 new ProjectGroupVm(modelPath) { Name = "Draw-In" },
+                 new ProjectGroupVm(modelPath) { Name = "Adjustment" }
             };
 
             Tabs[0].ProjectChartContent = new OpticalSensorView();
             Tabs[1].ProjectChartContent = new OpticalSensorView();
 
-            Tabs[0].ProjectResutContent = new Result.ResultView(modelPath);
-            Tabs[1].ProjectResutContent = new Result.ResultView(modelPath);
+            Tabs[0].ProjectResutContent = new Result.ResultView(ModelPath);
+            Tabs[1].ProjectResutContent = new Result.ResultView(ModelPath);
 
         }
 
@@ -93,6 +93,11 @@ namespace SensorsViewer.Home
                 this.OnPropertyChanged("Name");
             }
         }
+
+        /// <summary>
+        /// Gets or sets ModelPath
+        /// </summary>
+        public string ModelPath { get; set; }
 
         /// <summary>
         /// Projects collection
