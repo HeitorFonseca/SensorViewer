@@ -40,8 +40,7 @@ namespace SensorsViewer.Home
         public ProjectGroupVm()
         {
             this.Analysis = new ObservableCollection<Analysis>();            
-            this.ProjectChartContent = new OpticalSensorView();
-            this.ProjectResutContent = new ResultView();
+            this.ProjectChartContent = new OpticalSensorView();            
         }
 
         /// <summary>

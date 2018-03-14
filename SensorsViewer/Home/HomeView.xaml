@@ -178,7 +178,7 @@
                                             <TextBox x:Name="tbUploadSensorFile"
                                                      controls:TextBoxHelper.Watermark="Upload sensor file" 
                                                      Style="{DynamicResource ButtonCommandMetroTextBox}" IsReadOnly="True"
-                                                     Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.SelectedProjectContent.OpticalSensorViewModel.SensorsFilePath}"
+                                                     Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.SelectedProjectChartContent.OpticalSensorViewModel.SensorsFilePath}"
                                                      controls:TextBoxHelper.ButtonCommand="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.BrowseFileCommand}">
                                                 <controls:TextBoxHelper.ButtonContent>
                                                     <Image Source="../Resources/open-in-browser2.png" />
@@ -319,7 +319,7 @@
                             </Grid.RowDefinitions>
 
                             <Border Grid.Row="2" Margin="18" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
-                                <ContentControl Content="{Binding ResultContent}"/>
+                                <ContentControl Content="{Binding SelectedProjectResultContent}"/>
                             </Border>
                         </Grid>
                     </TabItem>
@@ -334,7 +334,7 @@
                             </Grid.RowDefinitions>
 
                             <Border Grid.Row="2" Margin="18" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
-                                <ContentControl Content="{Binding SelectedProjectContent, UpdateSourceTrigger=PropertyChanged }"/>
+                                <ContentControl Content="{Binding SelectedProjectChartContent, UpdateSourceTrigger=PropertyChanged }"/>
                             </Border>
                         </Grid>
                     </TabItem>
@@ -343,7 +343,7 @@
                     <TabItem Header="Sensors Log" Style="{StaticResource ContentTabItem}"  Margin="30,8,-30,-8" Padding="0,0,30,0">
                         <Grid>
                             <Border Grid.Row="2" Margin="25" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
-                                <ListView Margin="1" BorderThickness="1" ItemsSource="{Binding SelectedProjectContent.OpticalSensorViewModel.SensorsLog}" 
+                                <ListView Margin="1" BorderThickness="1" ItemsSource="{Binding SelectedProjectChartContent.OpticalSensorViewModel.SensorsLog}" 
                                           SelectedIndex="0" Style="{StaticResource VirtualisedMetroListView}">
                                     <ListView.View>
                                         <GridView>

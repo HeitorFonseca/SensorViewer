@@ -64,7 +64,7 @@ namespace SensorsViewer.Home.Commands
 
             ///var selectedItem = this.viewModel.SelectedSensor;
 
-            ((OpticalSensorView)this.viewModel.SelectedProjectContent).OpticalSensorViewModel.RemoveSensorFromGraph(sensor);
+            ((OpticalSensorView)this.viewModel.SelectedProjectChartContent).OpticalSensorViewModel.RemoveSensorFromGraph(sensor);
 
             ////foreach (ProjectGroupVm pg in this.viewModel.TabCategory)
             ////{

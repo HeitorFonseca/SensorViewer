@@ -62,7 +62,7 @@ namespace SensorsViewer.Home.Commands
             var tab = parameter as ProjectGroupVm;
 
             Sensor s = new Sensor();
-            ((OpticalSensorView)this.viewModel.SelectedProjectContent).OpticalSensorViewModel.AddSensorToGraph(s);
+            ((OpticalSensorView)this.viewModel.SelectedProjectChartContent).OpticalSensorViewModel.AddSensorToGraph(s);
 
         }
     }

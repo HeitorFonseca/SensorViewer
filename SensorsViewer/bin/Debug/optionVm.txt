@@ -1,165 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ArrayOfOptionVm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <OptionVm>
-    <Id>2</Id>
-    <Name>Project 2</Name>
+    <Id>0</Id>
+    <Name>Project 1</Name>
     <Tabs>
       <ProjectGroupVm>
         <analysis />
         <Name>Draw-In</Name>
         <Sensors>
           <Sensor>
-            <Id>2ecc8d45-1de5-42d7-8694-7c19f9d8b6a1</Id>
+            <Id>a1d3693f-f8e3-461f-9bfd-5a0eb14beff8</Id>
             <X>572.5</X>
             <Y>124.5</Y>
             <Z>0</Z>
             <SensorName>Sensor Name 1</SensorName>
-            <Values>
-              <double>1</double>
-              <double>1</double>
-              <double>0</double>
-              <double>4</double>
-              <double>5</double>
-              <double>0</double>
-              <double>8</double>
-              <double>1</double>
-              <double>0</double>
-              <double>7</double>
-              <double>3</double>
-              <double>10</double>
-              <double>14</double>
-              <double>8</double>
-              <double>0</double>
-              <double>3</double>
-              <double>10</double>
-              <double>1</double>
-              <double>10</double>
-              <double>15</double>
-              <double>17</double>
-              <double>14</double>
-              <double>20</double>
-              <double>15</double>
-              <double>23</double>
-              <double>21</double>
-              <double>18</double>
-              <double>7</double>
-              <double>19</double>
-              <double>25</double>
-              <double>24</double>
-              <double>12</double>
-              <double>33</double>
-              <double>25</double>
-              <double>35</double>
-              <double>35</double>
-              <double>15</double>
-              <double>28</double>
-              <double>17</double>
-              <double>9</double>
-            </Values>
+            <Values />
             <TimeStamp />
           </Sensor>
           <Sensor>
-            <Id>05a3cdb5-3040-4dca-9db7-efade40ad9b7</Id>
+            <Id>b011d03b-4e58-4aeb-82fa-c4ce8e055962</Id>
             <X>537.5</X>
             <Y>-155.5</Y>
             <Z>0</Z>
             <SensorName>Sensor Name 2</SensorName>
-            <Values>
-              <double>0</double>
-              <double>0.5</double>
-              <double>1</double>
-              <double>1.5</double>
-              <double>2</double>
-              <double>2.5</double>
-              <double>3</double>
-              <double>3.5</double>
-              <double>4</double>
-              <double>4.5</double>
-              <double>5</double>
-              <double>5.5</double>
-              <double>6</double>
-              <double>6.5</double>
-              <double>7</double>
-              <double>7.5</double>
-              <double>8</double>
-              <double>8.5</double>
-              <double>9</double>
-              <double>9.5</double>
-              <double>10</double>
-              <double>10.5</double>
-              <double>11</double>
-              <double>11.5</double>
-              <double>12</double>
-              <double>12.5</double>
-              <double>13</double>
-              <double>13.5</double>
-              <double>14</double>
-              <double>14.5</double>
-              <double>15</double>
-              <double>15.5</double>
-              <double>16</double>
-              <double>16.5</double>
-              <double>17</double>
-              <double>17.5</double>
-              <double>18</double>
-              <double>18.5</double>
-              <double>19</double>
-              <double>19.5</double>
-            </Values>
+            <Values />
             <TimeStamp />
           </Sensor>
           <Sensor>
-            <Id>70264e18-a408-48ed-b79a-e54840a8a19f</Id>
+            <Id>2f89b13e-2d7b-4e6a-86f8-34bf28ba1865</Id>
             <X>100</X>
             <Y>-175.5</Y>
             <Z>0</Z>
             <SensorName>Sensor Name 3</SensorName>
-            <Values>
-              <double>0</double>
-              <double>0.15</double>
-              <double>0.3</double>
-              <double>0.45</double>
-              <double>0.6</double>
-              <double>0.75</double>
-              <double>0.9</double>
-              <double>1.05</double>
-              <double>1.2</double>
-              <double>1.35</double>
-              <double>1.5</double>
-              <double>1.65</double>
-              <double>1.8</double>
-              <double>1.95</double>
-              <double>2.1</double>
-              <double>2.25</double>
-              <double>2.4</double>
-              <double>2.55</double>
-              <double>2.7</double>
-              <double>2.85</double>
-              <double>3</double>
-              <double>3.15</double>
-              <double>3.3</double>
-              <double>3.45</double>
-              <double>3.6</double>
-              <double>3.75</double>
-              <double>3.9</double>
-              <double>4.05</double>
-              <double>4.2</double>
-              <double>4.35</double>
-              <double>4.5</double>
-              <double>4.65</double>
-              <double>4.8</double>
-              <double>4.95</double>
-              <double>5.1</double>
-              <double>5.25</double>
-              <double>5.4</double>
-              <double>5.55</double>
-              <double>5.7</double>
-              <double>5.85</double>
-            </Values>
+            <Values />
             <TimeStamp />
           </Sensor>
           <Sensor>
-            <Id>3dff661f-5408-434a-a666-ef4ac9e7a874</Id>
+            <Id>97fd066d-4d86-4633-9a53-79ea9e5f7078</Id>
             <X>-100</X>
             <Y>-175.5</Y>
             <Z>0</Z>
@@ -168,7 +45,7 @@
             <TimeStamp />
           </Sensor>
           <Sensor>
-            <Id>a79d0e36-6c8b-4c8b-b312-44cc2ef03bed</Id>
+            <Id>74810561-2901-4f0c-af44-a3a7484e2d5d</Id>
             <X>-552.5</X>
             <Y>-155.5</Y>
             <Z>0</Z>
@@ -177,7 +54,7 @@
             <TimeStamp />
           </Sensor>
           <Sensor>
-            <Id>0461d296-accd-4d57-b72b-4d074ca1978a</Id>
+            <Id>90e2cb86-5fb6-45f5-9599-4b4ee5547a1d</Id>
             <X>-572.5</X>
             <Y>124.5</Y>
             <Z>0</Z>
@@ -186,7 +63,7 @@
             <TimeStamp />
           </Sensor>
           <Sensor>
-            <Id>147671e8-fbe1-4e27-9870-abdba6f3a92d</Id>
+            <Id>4b86f06c-7163-4d6f-88b3-a9c10f9dde4c</Id>
             <X>0</X>
             <Y>129.5</Y>
             <Z>0</Z>

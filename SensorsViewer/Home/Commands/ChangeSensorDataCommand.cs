@@ -64,10 +64,10 @@ namespace SensorsViewer.Home.Commands
 
             Sensor sensor = ((TextBox)source).DataContext as Sensor;
 
-            var selectedItem = this.viewModel.SelectedProjectContent;
+            var selectedItem = this.viewModel.SelectedProjectChartContent;
 
-            var list = ((OpticalSensorView)this.viewModel.SelectedProjectContent).OpticalSensorViewModel.SensorList;
-            var list2 = ((OpticalSensorView)this.viewModel.SelectedProjectContent).OpticalSensorViewModel.SeriesCollection;
+            var list = ((OpticalSensorView)this.viewModel.SelectedProjectChartContent).OpticalSensorViewModel.SensorList;
+            var list2 = ((OpticalSensorView)this.viewModel.SelectedProjectChartContent).OpticalSensorViewModel.SeriesCollection;
 
             foreach (LiveCharts.Wpf.LineSeries ls in list2)
             {

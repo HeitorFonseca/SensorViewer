@@ -31,7 +31,12 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Project B User control content
         /// </summary>
-        private UserControl selectedProjectContent;
+        private UserControl selectedProjectChartContent;
+
+        /// <summary>
+        /// Project B User control content
+        /// </summary>
+        private UserControl selectedProjectResultContent;
 
         /// <summary>
         /// Selected Tab
@@ -108,11 +113,11 @@ namespace SensorsViewer.Home
             this.SelectProjectCommand = new RelayCommand(this.SelectProjectAction);
             this.DeleteSensorCommand = new DeleteItemCommand(this);
             this.AddNewSensorCommand = new AddSensorCommand(this);
-            this.ClickInOptionVmCommand = new RelayCommand(this.ClickInOptionAction); //new ClickInOptionCommand(this);
+            this.ClickInOptionVmCommand = new RelayCommand(this.ClickInOptionAction);
             this.EditSensorDataCommand = new ChangeSensorDataCommand(this);
             this.BrowseFileCommand = new RelayCommand(this.BrowseFileAction);
 
-            this.ResultContent = new ResultView();
+            //this.ResultContent = new ResultView();
 
         }
 
@@ -251,19 +256,36 @@ namespace SensorsViewer.Home
         }
 
         /// <summary>
-        /// Gets or sets user control content
+        /// Gets or sets user control content SelectedProjectContent
         /// </summary>
-        public UserControl SelectedProjectContent
+        public UserControl SelectedProjectChartContent
         {
             get
             {
-                return this.selectedProjectContent;
+                return this.selectedProjectChartContent;
             }
 
             set
             {
-                this.selectedProjectContent = value;
-                this.OnPropertyChanged("SelectedProjectContent");
+                this.selectedProjectChartContent = value;
+                this.OnPropertyChanged("SelectedProjectChartContent");
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets user control content SelectedProjectContent
+        /// </summary>
+        public UserControl SelectedProjectResultContent
+        {
+            get
+            {
+                return this.selectedProjectResultContent;
+            }
+
+            set
+            {
+                this.selectedProjectResultContent = value;
+                this.OnPropertyChanged("SelectedProjectResultContent");
             }
         }
 
@@ -350,7 +372,6 @@ namespace SensorsViewer.Home
         {
             try
             {
-
                 this.ProjectItems = XmlSerialization.ReadFromXmlFile<ObservableCollection<OptionVm>>(@"C: \Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt");
 
                 foreach (OptionVm opt in this.ProjectItems)
@@ -370,13 +391,14 @@ namespace SensorsViewer.Home
                 // Select the tab item as Draw-In or Adjustment
                 this.SelectedTab = this.selectedTabCategory[this.tabIndex];
 
-                this.SelectedProjectContent = SelectedProjectItem.Tabs[this.tabIndex].ProjectChartContent;
+                this.SelectedProjectChartContent = SelectedProjectItem.Tabs[this.tabIndex].ProjectChartContent;
+                this.SelectedProjectResultContent = SelectedProjectItem.Tabs[this.tabIndex].ProjectResutContent;
+
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 //throw new Exception("Error when load xml file");
             }
-
         }
 
         /// <summary>
@@ -385,7 +407,6 @@ namespace SensorsViewer.Home
         private void CreateNewProjectAction(object parameter)
         {
             AddProjectDialog addProjectDialog = new AddProjectDialog(this.ProjectItems);
-
             addProjectDialog.ShowDialog();
 
             string projectName = "", modelPath = "";
@@ -404,8 +425,10 @@ namespace SensorsViewer.Home
                 // Select the tab item as Draw-In or Adjustment
                 this.SelectedTab = this.selectedTabCategory[this.tabIndex];
                 // Select the project content as the tab index chart graph
-                this.SelectedProjectContent = newOpt.Tabs[this.tabIndex].ProjectChartContent;
-            }                  
+                this.SelectedProjectChartContent = newOpt.Tabs[this.tabIndex].ProjectChartContent;
+                this.SelectedProjectResultContent = newOpt.Tabs[this.tabIndex].ProjectResutContent;
+
+            }
         }
 
         /// <summary>
@@ -424,7 +447,9 @@ namespace SensorsViewer.Home
             // Select the tab item as Draw-In or Adjustment
             this.SelectedTab = this.selectedTabCategory[this.tabIndex];
             // Select the project content as the tab index chart graph
-            this.SelectedProjectContent = option.Tabs[this.tabIndex].ProjectChartContent;
+            this.SelectedProjectChartContent = option.Tabs[this.tabIndex].ProjectChartContent;
+            this.SelectedProjectResultContent = option.Tabs[this.tabIndex].ProjectResutContent;
+
         }
 
         /// <summary>
@@ -481,7 +506,10 @@ namespace SensorsViewer.Home
                 // Select the tab item to null
                 this.SelectedTab = null;
                 // Select the project content to null
-                this.SelectedProjectContent = null;
+                this.SelectedProjectChartContent = null;
+
+                this.SelectedProjectResultContent = null;
+
             }
             else {
 
@@ -493,7 +521,9 @@ namespace SensorsViewer.Home
                 // Select the tab item as Draw-In or Adjustment
                 this.SelectedTab = this.selectedTabCategory[this.tabIndex];
                 // Select the project content as the tab index chart graph
-                this.SelectedProjectContent = this.ProjectItems[i].Tabs[this.tabIndex].ProjectChartContent;
+                this.SelectedProjectChartContent = this.ProjectItems[i].Tabs[this.tabIndex].ProjectChartContent;
+                this.SelectedProjectResultContent = this.ProjectItems[i].Tabs[this.tabIndex].ProjectResutContent;
+
             }
         }
 
@@ -506,7 +536,8 @@ namespace SensorsViewer.Home
             var textBlock = ((MouseButtonEventArgs)parameter).Source as TextBlock;
             var dsa = (ProjectGroupVm)textBlock.DataContext;
 
-            this.SelectedProjectContent = dsa.ProjectChartContent;
+            this.SelectedProjectChartContent = dsa.ProjectChartContent;
+            this.SelectedProjectResultContent = dsa.ProjectResutContent;
 
             if (dsa.Name == "Draw-In")
             {
@@ -533,7 +564,7 @@ namespace SensorsViewer.Home
             {
                 this.fileSensorsPath = dialog.FileName; // Get the path 
 
-                ((OpticalSensorView)this.SelectedProjectContent).OpticalSensorViewModel.SensorsFilePath = System.IO.Path.GetFileName(this.fileSensorsPath); // Get the filename of the path
+                ((OpticalSensorView)this.SelectedProjectChartContent).OpticalSensorViewModel.SensorsFilePath = System.IO.Path.GetFileName(this.fileSensorsPath); // Get the filename of the path
                
                 int counter = 1;
                 // For each line in file
@@ -543,7 +574,7 @@ namespace SensorsViewer.Home
                     // Create a sensor with file data
                     Sensor sensor = new Sensor("Sensor Name " + counter++, Convert.ToDouble(data[0]), Convert.ToDouble(data[1]), Convert.ToDouble(data[2]));
                     // Add the created sensor in graph
-                    ((OpticalSensorView)this.SelectedProjectContent).OpticalSensorViewModel.AddSensorToGraph(sensor);
+                    ((OpticalSensorView)this.SelectedProjectChartContent).OpticalSensorViewModel.AddSensorToGraph(sensor);
                 }
             }
         }
@@ -590,9 +621,9 @@ namespace SensorsViewer.Home
                 sensor.TimeStamp.Add(dateTime);                     // Add timestamp in the created sensor
 
                 //Add value in sensor by name
-                ((OpticalSensorView)SelectedProjectContent).OpticalSensorViewModel.AddValue(sensorName, value);
+                ((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.AddValue(sensorName, value);
                 //Add in the sensor log
-                ((OpticalSensorView)SelectedProjectContent).OpticalSensorViewModel.AddSensorLogData(sensor);
+                ((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.AddSensorLogData(sensor);
             }
         }
 
@@ -643,11 +674,11 @@ namespace SensorsViewer.Home
             p.ProjectChartContent = new OpticalSensorView();
             p2.ProjectChartContent = new OpticalSensorView();
 
-            this.SelectedProjectContent = p.ProjectChartContent;
+            this.SelectedProjectChartContent = p.ProjectChartContent;
             this.SelectedSensorList = ((OpticalSensorView)p.ProjectChartContent).OpticalSensorViewModel.SensorList;
 
             ((OpticalSensorView)p.ProjectChartContent).OpticalSensorViewModel.AddSensorToGraph(asd);
-            ((OpticalSensorView)SelectedProjectContent).OpticalSensorViewModel.AddValue("Sensor 1", 1.0);
+            ((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.AddValue("Sensor 1", 1.0);
 
             this.TabCategory.Add(p);
             this.TabCategory.Add(p2);
@@ -675,7 +706,7 @@ namespace SensorsViewer.Home
 
             XmlSerialization.WriteToXmlFile<ObservableCollection<OptionVm>>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", this.ProjectItems);
 
-            this.ResultContent = new ResultView();
+            //this.ResultContent = new ResultView();
         }
     }
 }

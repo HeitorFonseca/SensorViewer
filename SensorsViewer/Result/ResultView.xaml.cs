@@ -27,12 +27,11 @@ namespace SensorsViewer.Result
         /// <summary>
         /// Initializes a new instance of the <see cref="ResultView"/> class
         /// </summary>
-        public ResultView()
+        public ResultView(string path)
         {
             InitializeComponent();
 
-            this.ResultViewModel = new ResultViewModel(@"C:\Users\heitor.araujo\Documents\wokspace\GM\Tests\TestsNx\Die ring.stl");
-            //this.ResultViewModel = new ResultViewModel(@"C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\Die ring.stl");
+            this.ResultViewModel = new ResultViewModel(path);
 
             this.ResultViewModel.LoadStlModel();
             this.viewPort3d.ZoomExtents();
