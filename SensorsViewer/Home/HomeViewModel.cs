@@ -88,7 +88,14 @@ namespace SensorsViewer.Home
         /// </summary>
         private int tabIndex = 0;
 
+        /// <summary>
+        /// Time for last message received
+        /// </summary>
+        private DateTime LastMessageReceivedTime;
+
+
         private IDialogCoordinator dialogCoordinator;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="HomeViewModel"/> class
         /// </summary>
@@ -116,9 +123,6 @@ namespace SensorsViewer.Home
             this.ClickInOptionVmCommand = new RelayCommand(this.ClickInOptionAction);
             this.EditSensorDataCommand = new ChangeSensorDataCommand(this);
             this.BrowseFileCommand = new RelayCommand(this.BrowseFileAction);
-
-            //this.ResultContent = new ResultView();
-
         }
 
         #region Properties Declarations
@@ -597,7 +601,9 @@ namespace SensorsViewer.Home
             System.Windows.Application.Current.Dispatcher.Invoke((Action)(() =>
             {
                 UpdateSensorChart(jsonData);
-            }));                            
+            }));
+
+            LastMessageReceivedTime = DateTime.Now;
         }
 
         /// <summary>
