@@ -2,11 +2,68 @@
 <ArrayOfOptionVm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <OptionVm>
     <Id>0</Id>
+    <qtdAnalysis>0</qtdAnalysis>
     <Name>dasdasdsa</Name>
     <ModelPath>C:\Users\heitor.araujo\Documents\wokspace\GM\Tests\TestsNx\Die ring.stl</ModelPath>
     <Tabs>
       <ProjectGroupVm>
-        <analysis />
+        <analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:53:39</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:53:42</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:53:49</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:53:50</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:53:51</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:53:53</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:53:55</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:53:56</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:53:58</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:53:59</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:54:01</Time>
+          </Analysis>
+        </analysis>
         <Name>Draw-In</Name>
         <Sensors>
           <Sensor>
@@ -15,7 +72,24 @@
             <Y>124.5</Y>
             <Z>0</Z>
             <SensorName>Sensor Name 1</SensorName>
-            <Values />
+            <Values>
+              <double>1</double>
+              <double>3</double>
+              <double>4</double>
+              <double>3</double>
+              <double>0</double>
+              <double>5</double>
+              <double>4</double>
+              <double>1</double>
+              <double>6</double>
+              <double>8</double>
+              <double>8</double>
+              <double>6</double>
+              <double>14</double>
+              <double>11</double>
+              <double>16</double>
+              <double>6</double>
+            </Values>
             <TimeStamp />
           </Sensor>
           <Sensor>
@@ -24,7 +98,24 @@
             <Y>-155.5</Y>
             <Z>0</Z>
             <SensorName>Sensor Name 2</SensorName>
-            <Values />
+            <Values>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+            </Values>
             <TimeStamp />
           </Sensor>
           <Sensor>
@@ -33,7 +124,24 @@
             <Y>-175.5</Y>
             <Z>0</Z>
             <SensorName>Sensor Name 3</SensorName>
-            <Values />
+            <Values>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+              <double>0</double>
+            </Values>
             <TimeStamp />
           </Sensor>
           <Sensor>
@@ -73,7 +181,63 @@
             <TimeStamp />
           </Sensor>
         </Sensors>
-        <Analysis />
+        <Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:53:39</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:53:42</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:53:49</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:53:50</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:53:51</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:53:53</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:53:55</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:53:56</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:53:58</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:53:59</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis0</Name>
+            <Date>15/03/2018</Date>
+            <Time>08:54:01</Time>
+          </Analysis>
+        </Analysis>
       </ProjectGroupVm>
       <ProjectGroupVm>
         <analysis />

@@ -93,7 +93,9 @@ namespace SensorsViewer.Home
         /// </summary>
         private DateTime LastMessageReceivedTime;
 
-
+        /// <summary>
+        /// Dialog coordinator for show dialog
+        /// </summary>
         private IDialogCoordinator dialogCoordinator;
 
         /// <summary>
@@ -123,6 +125,9 @@ namespace SensorsViewer.Home
             this.ClickInOptionVmCommand = new RelayCommand(this.ClickInOptionAction);
             this.EditSensorDataCommand = new ChangeSensorDataCommand(this);
             this.BrowseFileCommand = new RelayCommand(this.BrowseFileAction);
+
+
+            this.LastMessageReceivedTime = DateTime.Now;
         }
 
         #region Properties Declarations
@@ -593,6 +598,7 @@ namespace SensorsViewer.Home
         /// <param name="ea"></param>
         private void WhenMessageReceived(object sender, BasicDeliverEventArgs ea)
         {
+
             var body = ea.Body;
             var message = Encoding.UTF8.GetString(body);
 
@@ -612,6 +618,20 @@ namespace SensorsViewer.Home
         /// <param name="jsonData">Json data received</param>
         private void UpdateSensorChart(JsonData jsonData)
         {
+            if ((DateTime.Now - this.LastMessageReceivedTime).TotalMilliseconds >= 60)
+            {
+                Analysis newAnalysis = new Analysis("Analysis" + SelectedProjectItem.qtdAnalysis, DateTime.Now.ToString("dd/MM/yyy"), DateTime.Now.ToString("HH:mm:ss"));
+
+                if (jsonData.viewer == "drawin")
+                {
+                    this.SelectedProjectItem.Tabs[0].Analysis.Add(newAnalysis);
+                }
+                else
+                {
+                    this.SelectedProjectItem.Tabs[1].Analysis.Add(newAnalysis);                    
+                }
+            }
+
             //For each sensors sensor values received
             foreach (List<string> data in jsonData.values)
             {

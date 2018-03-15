@@ -52,6 +52,7 @@ namespace SensorsViewer.Home
             this.Id = idCount++;
             this.Name = name;
             this.ModelPath = modelPath;
+            this.qtdAnalysis = 0;
 
             this.Tabs = new ObservableCollection<ProjectGroupVm>
             {
@@ -76,6 +77,11 @@ namespace SensorsViewer.Home
         /// Gets Id
         /// </summary>
         public int Id { get; set; }
+
+        /// <summary>
+        /// Gets Id
+        /// </summary>
+        public int qtdAnalysis { get; set; }
 
         /// <summary>
         /// Gets or sets Name
