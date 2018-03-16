@@ -18,12 +18,7 @@ namespace SensorsViewer.Home
     /// Project group left bar
     /// </summary>
     public class TabCategory : INotifyPropertyChanged
-    {
-        /// <summary>
-        /// Project content
-        /// </summary>
-        private OpticalSensorView projectChartContent;
-
+    {        
         /// <summary>
         /// Project content
         /// </summary>
@@ -34,13 +29,15 @@ namespace SensorsViewer.Home
         /// </summary>
         private ObservableCollection<Analysis> analysis;
 
+        private ObservableCollection<Sensor> sensors;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TabCategory"/> class
         /// </summary>
         public TabCategory()
         {
             this.Analysis = new ObservableCollection<Analysis>();
-            this.ProjectChartContent = new OpticalSensorView();
+            this.Sensors = new ObservableCollection<Sensor>();
         }
 
         /// <summary>
@@ -48,8 +45,9 @@ namespace SensorsViewer.Home
         /// </summary>
         public TabCategory(string path)
         {
-            this.Analysis = new ObservableCollection<Analysis>();            
-            this.ProjectChartContent = new OpticalSensorView();
+            this.Analysis = new ObservableCollection<Analysis>();
+            this.Sensors = new ObservableCollection<Sensor>();
+
             this.ProjectResutContent = new ResultView(path);
         }
 
@@ -70,13 +68,14 @@ namespace SensorsViewer.Home
         {
             get
             {
-                return this.ProjectChartContent.OpticalSensorViewModel.SensorList;
+                return this.sensors;
             }
 
             set
             {
-                this.ProjectChartContent.OpticalSensorViewModel.SensorList = value;
-                this.OnPropertyChanged("ProjectChartContent");
+                this.sensors = value;
+
+                this.OnPropertyChanged("Sensors");             
             }
         }
 
@@ -94,25 +93,7 @@ namespace SensorsViewer.Home
             {
                 this.analysis = value;
             }
-        }
-
-        [XmlIgnore]
-        /// <summary>
-        /// Gets or sets project B User control content
-        /// </summary>
-        public OpticalSensorView ProjectChartContent
-        {
-            get
-            {
-                return this.projectChartContent;
-            }
-
-            set
-            {
-                this.projectChartContent = value;
-                this.OnPropertyChanged("ProjectChartContent");
-            }
-        }
+        }        
 
         [XmlIgnore]
         /// <summary>

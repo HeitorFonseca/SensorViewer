@@ -59,8 +59,11 @@ namespace SensorsViewer.Home
                  new TabCategory(modelPath) { Name = "Adjustment" }
             };
 
-            Tabs[0].ProjectChartContent = new OpticalSensorView();
-            Tabs[1].ProjectChartContent = new OpticalSensorView();
+            //Tabs[0].Analysis.Add(new SensorOption.Analysis("Analysis", "", ""));
+            //Tabs[1].Analysis.Add(new SensorOption.Analysis("Analysis", "", ""));
+
+            //Tabs[0].ProjectChartContent = new OpticalSensorView();
+            //Tabs[1].ProjectChartContent = new OpticalSensorView();
 
             Tabs[0].ProjectResutContent = new Result.ResultView(ModelPath);
             Tabs[1].ProjectResutContent = new Result.ResultView(ModelPath);

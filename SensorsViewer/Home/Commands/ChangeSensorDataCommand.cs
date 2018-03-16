@@ -58,28 +58,27 @@ namespace SensorsViewer.Home.Commands
         /// <param name="parameter">object parameter</param>
         public void Execute(object parameter)
         {
-            var tab = parameter as TabCategory;
-
             var source = ((System.Windows.RoutedEventArgs)parameter).Source;
 
             Sensor sensor = ((TextBox)source).DataContext as Sensor;
 
-            var selectedItem = this.viewModel.SelectedProjectChartContent;
-
-            var list = ((OpticalSensorView)this.viewModel.SelectedProjectChartContent).OpticalSensorViewModel.SensorList;
-            var list2 = ((OpticalSensorView)this.viewModel.SelectedProjectChartContent).OpticalSensorViewModel.SeriesCollection;
-
-            foreach (LiveCharts.Wpf.LineSeries ls in list2)
-            {
-                if (ls.Tag.ToString() == sensor.Id)
-                {
-                    ls.Title = sensor.SensorName;
-                }
-            }
-
-            var element = list.FirstOrDefault(a => a.Id == sensor.Id);
-
+            // Change in tab sensor list
+            var element = this.viewModel.SelectedTab.Sensors.FirstOrDefault(a => a.Id == sensor.Id);
             element.SensorName = sensor.SensorName;
+
+            if (this.viewModel.SelectedAnalysis != null && this.viewModel.SelectedAnalysis.ProjectChartContent != null)
+            {
+                var seriesCollection = this.viewModel.SelectedAnalysis.ProjectChartContent.OpticalSensorViewModel.SeriesCollection;
+
+                // Search in graph sensor and change its name
+                foreach (LiveCharts.Wpf.LineSeries ls in seriesCollection)
+                {
+                    if (ls.Tag.ToString() == sensor.Id)
+                    {
+                        ls.Title = sensor.SensorName;
+                    }
+                }
+            } 
         }
     }
 }

@@ -101,15 +101,7 @@ namespace SensorsViewer.ProjectB
             };
 
             Brush textBrush = newLs.Fill.Clone();
-            textBrush.Opacity = 1d;
-
-            if (sensor.Values != null)
-            {
-                foreach (double value in sensor.Values)
-                {
-                    newLs.Values.Add(new LiveCharts.Defaults.ObservableValue(value));
-                }
-            }
+            textBrush.Opacity = 1d;            
             
             this.SensorList.Add(sensor);
             this.SeriesCollection.Add(newLs);
@@ -144,7 +136,7 @@ namespace SensorsViewer.ProjectB
         /// </summary>
         /// <param name="sensorid">sensor id</param>
         /// <param name="value">value to add</param>
-        public void AddValue(string sensorName, double value)
+        public void AddValue(string sensorName, double value, string analysis)
         {            
             // If exist a line series with sensor with sensorid
             if (this.SeriesCollection.FirstOrDefault(a => a.Title == sensorName) is LineSeries ls)
@@ -156,7 +148,7 @@ namespace SensorsViewer.ProjectB
                 {
                     if (this.SensorList[i].SensorName == sensorName)
                     {
-                        this.SensorList[i].Values.Add(value);
+                        this.SensorList[i].Values.Add(new SensorOption.SensorValue(value, analysis));
                     }
                 }
             }
@@ -174,9 +166,9 @@ namespace SensorsViewer.ProjectB
             }
         }
 
-        public void ShowLoadedSensors()
+        public void ShowLoadedSensors(ObservableCollection<SensorOption.Sensor> sensorList, string analysisName)
         {
-            foreach (SensorOption.Sensor sensor in this.SensorList)
+            foreach (SensorOption.Sensor sensor in sensorList)
             {
                 Color nextColor = this.GetNextDefaultColor();
 
@@ -191,11 +183,20 @@ namespace SensorsViewer.ProjectB
                 Brush textBrush = newLs.Fill.Clone();
                 textBrush.Opacity = 1d;
 
+                bool enter = false;
                 if (sensor.Values != null)
                 {
-                    foreach (double value in sensor.Values)
+                    foreach (SensorOption.SensorValue v in sensor.Values)
                     {
-                        newLs.Values.Add(value);
+                        if (v.AnalysisName == analysisName)
+                        {
+                            newLs.Values.Add(v.Value);
+                            enter = true;
+                        }
+                        else if (enter == true)
+                        {
+                            break;
+                        }
                     }
                 }
 

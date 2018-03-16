@@ -21,7 +21,7 @@ namespace SensorsViewer.SensorOption
         public Sensor()
         {
             this.TimeStamp = new List<string>();
-            this.Values = new List<double>();
+            this.Values = new List<SensorValue>();
             this.Id = this.GenerateID();
         }
 
@@ -40,7 +40,7 @@ namespace SensorsViewer.SensorOption
             this.Z = z;
 
             this.TimeStamp = new List<string>();
-            this.Values = new List<double>();
+            this.Values = new List<SensorValue>();
             this.Id = this.GenerateID();
         }
 
@@ -55,7 +55,7 @@ namespace SensorsViewer.SensorOption
             this.Parameter = parameter;
 
             this.TimeStamp = new List<string>();
-            this.Values = new List<double>();
+            this.Values = new List<SensorValue>();
             this.Id = this.GenerateID();
         }
 
@@ -92,7 +92,7 @@ namespace SensorsViewer.SensorOption
         /// <summary>
         /// Gets or sets Values
         /// </summary>
-        public List<double> Values { get; set; }
+        public List<SensorValue> Values { get; set; }
 
         /// <summary>
         /// Gets or sets TimeStamp
@@ -113,4 +113,29 @@ namespace SensorsViewer.SensorOption
             return Guid.NewGuid().ToString();
         }
     }
+
+    public class SensorValue
+    {
+
+        public SensorValue()
+        {
+           
+        }
+
+        public SensorValue(double value, string analysis)
+        {
+            this.Value = value;
+            this.AnalysisName = analysis;
+        }
+        /// <summary>
+        /// Double value of the sensor
+        /// </summary>
+        public double Value;
+
+        /// <summary>
+        /// Which analysis the value belongs to
+        /// </summary>
+        public string AnalysisName;
+    }
+
 }

@@ -190,7 +190,7 @@
                                             </TextBox>
 
                                             <ListBox Grid.Row="1" x:Name="SensorListBox" 
-                                                     ItemsSource="{Binding ProjectChartContent.OpticalSensorViewModel.SensorList}"  
+                                                     ItemsSource="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.SelectedTab.Sensors}" 
                                                      SelectedItem="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectedSensor, Mode=TwoWay}"
                                                      ScrollViewer.HorizontalScrollBarVisibility="Hidden">
 
@@ -275,10 +275,16 @@
                                     </TabItem>
                                     <!-- Analysis -->
                                     <TabItem x:Name="tabItemAnalysis" Header="Analysis" Margin="80,0,-80,0" Style="{StaticResource MainTabItem}">
-                                        <ListBox ItemsSource="{Binding Analysis}">
+                                        <ListBox ItemsSource="{Binding Analysis}" 
+                                                 SelectedItem="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectedAnalysis}">
                                             <ListBox.ItemTemplate>
                                                 <DataTemplate>
                                                     <Border BorderThickness="0 0 0 2" BorderBrush="#EBEBEB">
+                                                        <i:Interaction.Triggers>
+                                                            <i:EventTrigger EventName="MouseDown">
+                                                                <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.ClickInAnalysisItem}" PassEventArgsToCommand="True" />
+                                                            </i:EventTrigger>
+                                                        </i:Interaction.Triggers>
                                                         <Grid>
                                                             <Grid.RowDefinitions>
                                                                 <RowDefinition Height="30"></RowDefinition>

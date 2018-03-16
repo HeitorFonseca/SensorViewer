@@ -52,7 +52,6 @@ C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\MahApps
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\System.Windows.Interactivity.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\MahApps.Metro.pdb
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\MahApps.Metro.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer.csprojResolveAssemblyReference.cache
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Home\HomeView.g.cs
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\MainWindow.g.cs
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\App.g.cs
@@ -182,3 +181,4 @@ C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\AttachedCommandBehavior.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\FontAwesome.WPF.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\FontAwesome.WPF.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer.csprojResolveAssemblyReference.cache

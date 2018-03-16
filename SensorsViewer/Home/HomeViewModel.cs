@@ -49,6 +49,11 @@ namespace SensorsViewer.Home
         private TabCategory selectedTab;
 
         /// <summary>
+        /// Selected Analysis
+        /// </summary>
+        private Analysis selectedAnalysis;
+
+        /// <summary>
         /// Result content
         /// </summary>
         private UserControl resultContent;
@@ -133,6 +138,7 @@ namespace SensorsViewer.Home
             this.EditSensorDataCommand = new ChangeSensorDataCommand(this);
             this.BrowseFileCommand = new RelayCommand(this.BrowseFileAction);
 
+            this.ClickInAnalysisItem = new RelayCommand(this.ClickInAnalysisAction);
 
             this.LastMessageReceivedTime = DateTime.Now;
         }
@@ -207,6 +213,11 @@ namespace SensorsViewer.Home
         ///  Gets or sets sub tab item command
         /// </summary>
         public ICommand ClickInSubTabCommand { get; set; }
+
+        /// <summary>
+        ///  Gets or sets sub tab item command
+        /// </summary>
+        public ICommand ClickInAnalysisItem { get; set; }
 
         /// <summary>
         /// Gets or sets selected sensor
@@ -344,6 +355,23 @@ namespace SensorsViewer.Home
             }
         }
 
+        // <summary>
+        /// Gets or sets user control content
+        /// </summary>
+        public Analysis SelectedAnalysis
+        {
+            get
+            {
+                return this.selectedAnalysis;
+            }
+
+            set
+            {
+                this.selectedAnalysis = value;
+                this.OnPropertyChanged("SelectedAnalysis");
+            }
+        }
+
         /// <summary>
         /// Gets or sets user control content
         /// </summary>
@@ -399,7 +427,12 @@ namespace SensorsViewer.Home
                 {
                     foreach (TabCategory tab in opt.Tabs)
                     {
-                        tab.ProjectChartContent.OpticalSensorViewModel.ShowLoadedSensors();
+                        // Each Tab has its chart and values
+                        for (int i = 0; i < tab.Analysis.Count; i++)
+                        {
+                            tab.Analysis[i].ProjectChartContent.OpticalSensorViewModel.ShowLoadedSensors(tab.Sensors, tab.Analysis[i].Name);
+                        }
+
                         tab.ProjectResutContent = new ResultView(opt.ModelPath);
                     }
                 }
@@ -413,7 +446,9 @@ namespace SensorsViewer.Home
                 // Select the tab item as Draw-In or Adjustment
                 this.SelectedTab = this.selectedTabCategory[this.tabIndex];
 
-                this.SelectedProjectChartContent = SelectedProjectItem.Tabs[this.tabIndex].ProjectChartContent;
+                this.SelectedAnalysis = this.SelectedTab.Analysis[0];
+
+                this.SelectedProjectChartContent = this.SelectedAnalysis.ProjectChartContent;
                 this.SelectedProjectResultContent = SelectedProjectItem.Tabs[this.tabIndex].ProjectResutContent;
 
             }
@@ -447,7 +482,7 @@ namespace SensorsViewer.Home
                 // Select the tab item as Draw-In or Adjustment
                 this.SelectedTab = this.selectedTabCategory[this.tabIndex];
                 // Select the project content as the tab index chart graph
-                this.SelectedProjectChartContent = newOpt.Tabs[this.tabIndex].ProjectChartContent;
+                this.SelectedProjectChartContent = (newOpt.Tabs[this.tabIndex].Analysis.Count > 0 ? newOpt.Tabs[this.tabIndex].Analysis[0].ProjectChartContent : null);
                 this.SelectedProjectResultContent = newOpt.Tabs[this.tabIndex].ProjectResutContent;
 
             }
@@ -469,8 +504,9 @@ namespace SensorsViewer.Home
             // Select the tab item as Draw-In or Adjustment
             this.SelectedTab = this.selectedTabCategory[this.tabIndex];
             // Select the project content as the tab index chart graph
-            this.SelectedProjectChartContent = option.Tabs[this.tabIndex].ProjectChartContent;
-            this.SelectedProjectResultContent = option.Tabs[this.tabIndex].ProjectResutContent;
+            this.SelectedAnalysis = (this.SelectedTab.Analysis.Count > 0 ? this.SelectedTab.Analysis[0] : null);
+            this.SelectedProjectChartContent = (this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectChartContent : null);
+            this.SelectedProjectResultContent = this.SelectedTab.ProjectResutContent;
 
         }
 
@@ -543,7 +579,8 @@ namespace SensorsViewer.Home
                 // Select the tab item as Draw-In or Adjustment
                 this.SelectedTab = this.SelectedTabCategory[this.tabIndex];
                 // Select the project content as the tab index chart graph
-                this.SelectedProjectChartContent = this.ProjectItems[i].Tabs[this.tabIndex].ProjectChartContent;
+                this.SelectedProjectChartContent = this.SelectedAnalysis.ProjectChartContent;
+
                 this.SelectedProjectResultContent = this.ProjectItems[i].Tabs[this.tabIndex].ProjectResutContent;
 
             }
@@ -556,12 +593,12 @@ namespace SensorsViewer.Home
         private void ClickInTabCategoryAction(object parameter)
         {
             var textBlock = ((MouseButtonEventArgs)parameter).Source as TextBlock;
-            var dsa = (TabCategory)textBlock.DataContext;
+            var dc = (TabCategory)textBlock.DataContext;
 
-            this.SelectedProjectChartContent = dsa.ProjectChartContent;
-            this.SelectedProjectResultContent = dsa.ProjectResutContent;
+            this.SelectedProjectChartContent = (dc.Analysis.Count > 0 ? dc.Analysis[0].ProjectChartContent : null);
+            this.SelectedProjectResultContent = dc.ProjectResutContent;
 
-            if (dsa.Name == "Draw-In")
+            if (dc.Name == "Draw-In")
             {
                 this.tabIndex = 0;
             }
@@ -586,7 +623,7 @@ namespace SensorsViewer.Home
             {
                 this.fileSensorsPath = dialog.FileName; // Get the path 
 
-                ((OpticalSensorView)this.SelectedProjectChartContent).OpticalSensorViewModel.SensorsFilePath = System.IO.Path.GetFileName(this.fileSensorsPath); // Get the filename of the path
+                //((OpticalSensorView)this.SelectedProjectChartContent).OpticalSensorViewModel.SensorsFilePath = System.IO.Path.GetFileName(this.fileSensorsPath); // Get the filename of the path
                
                 int counter = 1;
                 // For each line in file
@@ -595,8 +632,12 @@ namespace SensorsViewer.Home
                     string[] data = line.Split(' ');
                     // Create a sensor with file data
                     Sensor sensor = new Sensor("Sensor Name " + counter++, Convert.ToDouble(data[0]), Convert.ToDouble(data[1]), Convert.ToDouble(data[2]));
+                    
                     // Add the created sensor in graph
-                    ((OpticalSensorView)this.SelectedProjectChartContent).OpticalSensorViewModel.AddSensorToGraph(sensor);
+                    // ((OpticalSensorView)this.SelectedProjectChartContent).OpticalSensorViewModel.AddSensorToGraph(sensor);
+                   
+                    // Add sensor in sensor list
+                    this.SelectedTab.Sensors.Add(sensor);
                 }
             }
         }
@@ -608,7 +649,15 @@ namespace SensorsViewer.Home
         private void DeleteSensorAction (object parameter)
         {
             var sensor = parameter as Sensor;
-            ((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.RemoveSensorFromGraph(sensor);
+
+            // Remove sensors from chart
+            if (SelectedProjectChartContent != null)
+            {
+                ((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.RemoveSensorFromGraph(sensor);
+            }
+
+            // Remove from sensors list
+            this.SelectedTab.Sensors.Remove(sensor);
         }
 
         /// <summary>
@@ -620,6 +669,17 @@ namespace SensorsViewer.Home
             var analysis = parameter as Analysis;
 
             this.SelectedTab.Analysis.Remove(analysis);
+        }
+
+        private void ClickInAnalysisAction (object parameter)
+        {
+            var textBlock = ((MouseButtonEventArgs)parameter).Source;
+            var analysis = ((TextBlock)textBlock).DataContext as Analysis;
+               
+
+            this.SelectedAnalysis = analysis;
+
+            this.SelectedProjectChartContent = this.SelectedAnalysis.ProjectChartContent;
         }
 
         #endregion
@@ -655,9 +715,8 @@ namespace SensorsViewer.Home
             if (dif >= 60)
             {
                 int index = (jsonData.viewer == "drawin" ? 0 : 1);
-                
-                Analysis newAnalysis = new Analysis("Analysis " + (SelectedProjectItem.Tabs[index].Analysis.Count + 1), DateTime.Now.ToString("dd/MM/yyy"), DateTime.Now.ToString("HH:mm:ss.fff"));
-                this.SelectedProjectItem.Tabs[index].Analysis.Add(newAnalysis);  
+
+                this.CreateAnalysis(index);
             }
 
             //For each sensors sensor values received
@@ -670,18 +729,34 @@ namespace SensorsViewer.Home
                 string status = data[4];                            // Get the sensor status
 
                 Sensor sensor = new Sensor(sensorName, parameter);  // Create the sensor with name and parameter
-                sensor.Values.Add(value);                           // Add the value in the created sensor
+                sensor.Values.Add(new SensorValue(value, this.SelectedAnalysis.Name)); // Add the value in the created sensor
 
                 string dateTime = UnixTimeStampToDateTime(timestamp);
                 sensor.TimeStamp.Add(dateTime);                     // Add timestamp in the created sensor
 
                 //Add value in sensor by name
-                ((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.AddValue(sensorName, value);
+                ((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.AddValue(sensorName, value, this.SelectedAnalysis.Name);
                 //Add in the sensor log
                 ((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.AddSensorLogData(sensor);
             }
 
             this.LastMessageReceivedTime = DateTime.Now;
+        }
+
+        private void CreateAnalysis(int index)
+        {            
+
+            Analysis newAnalysis = new Analysis("Analysis " + (SelectedProjectItem.Tabs[index].Analysis.Count + 1), DateTime.Now.ToString("dd/MM/yyy"), DateTime.Now.ToString("HH:mm:ss.fff"));
+            // Set the list sensor of the graph the same as the sensors list tab
+
+            foreach (Sensor s in SelectedTab.Sensors)
+            {
+                newAnalysis.ProjectChartContent.OpticalSensorViewModel.AddSensorToGraph(s);
+            }
+
+            this.SelectedAnalysis = newAnalysis;
+            this.SelectedProjectItem.Tabs[index].Analysis.Add(newAnalysis);
+            this.SelectedProjectChartContent = newAnalysis.ProjectChartContent;
         }
 
         /// <summary>
@@ -702,66 +777,66 @@ namespace SensorsViewer.Home
         private void InitializeMenu()
         {
 
-            this.tabCategory = new ObservableCollection<TabCategory>();
-            ObservableCollection<TabCategory> tabCat2 = new ObservableCollection<TabCategory>();
+            //this.tabCategory = new ObservableCollection<TabCategory>();
+            //ObservableCollection<TabCategory> tabCat2 = new ObservableCollection<TabCategory>();
 
-            TabCategory p = new TabCategory { Name = "Draw-In" };
-            TabCategory p2 = new TabCategory { Name = "Adjustment" };
+            //TabCategory p = new TabCategory { Name = "Draw-In" };
+            //TabCategory p2 = new TabCategory { Name = "Adjustment" };
 
-            TabCategory t = new TabCategory { Name = "Draw-In" };
-            TabCategory t2 = new TabCategory { Name = "Adjustment" };
+            //TabCategory t = new TabCategory { Name = "Draw-In" };
+            //TabCategory t2 = new TabCategory { Name = "Adjustment" };
 
-            Sensor asd = new Sensor("Sensor 1", 10, 11, 0);
-            Sensor asd2 = new Sensor("Sensor 2", 5, 24, 0);
-            Sensor asd3 = new Sensor("Sensor 3", 7, 3, 0);
+            //Sensor asd = new Sensor("Sensor 1", 10, 11, 0);
+            //Sensor asd2 = new Sensor("Sensor 2", 5, 24, 0);
+            //Sensor asd3 = new Sensor("Sensor 3", 7, 3, 0);
 
-            p.Sensors.Add(asd);
-            p.Sensors.Add(asd2);
-            p.Sensors.Add(asd3);
+            //p.Sensors.Add(asd);
+            //p.Sensors.Add(asd2);
+            //p.Sensors.Add(asd3);
 
-            Analysis an = new Analysis("Analysis 1", "3 FEV 2018", "10:10:01");
-            Analysis an2 = new Analysis("Analysis 2", "3 FEV 2018", "10:20:47");
+            //Analysis an = new Analysis("Analysis 1", "3 FEV 2018", "10:10:01");
+            //Analysis an2 = new Analysis("Analysis 2", "3 FEV 2018", "10:20:47");
 
-            p.Analysis.Add(an);
-            p.Analysis.Add(an2);
+            //p.Analysis.Add(an);
+            //p.Analysis.Add(an2);
 
-            p2.Sensors.Add(asd3);
-            p2.Analysis.Add(an);
+            //p2.Sensors.Add(asd3);
+            //p2.Analysis.Add(an);
 
-            p.ProjectChartContent = new OpticalSensorView();
-            p2.ProjectChartContent = new OpticalSensorView();
+            //p.ProjectChartContent = new OpticalSensorView();
+            //p2.ProjectChartContent = new OpticalSensorView();
 
-            this.SelectedProjectChartContent = p.ProjectChartContent;
-            this.SelectedSensorList = ((OpticalSensorView)p.ProjectChartContent).OpticalSensorViewModel.SensorList;
+            //this.SelectedProjectChartContent = p.ProjectChartContent;
+            //this.SelectedSensorList = ((OpticalSensorView)p.ProjectChartContent).OpticalSensorViewModel.SensorList;
 
-            ((OpticalSensorView)p.ProjectChartContent).OpticalSensorViewModel.AddSensorToGraph(asd);
-            ((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.AddValue("Sensor 1", 1.0);
+            //((OpticalSensorView)p.ProjectChartContent).OpticalSensorViewModel.AddSensorToGraph(asd);
+            //((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.AddValue("Sensor 1", 1.0);
 
-            this.TabCategory.Add(p);
-            this.TabCategory.Add(p2);
+            //this.TabCategory.Add(p);
+            //this.TabCategory.Add(p2);
 
-            tabCat2.Add(t);
-            tabCat2.Add(t2);
+            //tabCat2.Add(t);
+            //tabCat2.Add(t2);
 
-            ProjectItem opt = new ProjectItem();
-            ProjectItem opt2 = new ProjectItem();
+            //ProjectItem opt = new ProjectItem();
+            //ProjectItem opt2 = new ProjectItem();
 
-            opt.Name = "Project 1";
-            opt.Tabs = this.tabCategory;
+            //opt.Name = "Project 1";
+            //opt.Tabs = this.tabCategory;
 
-            this.SelectedTab = opt.Tabs[0];
+            //this.SelectedTab = opt.Tabs[0];
 
-            opt2.Name = "Project 2";
-            opt2.Tabs = tabCat2;
+            //opt2.Name = "Project 2";
+            //opt2.Tabs = tabCat2;
 
-            XmlSerialization.WriteToXmlFile<ProjectItem>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", opt);
+            //XmlSerialization.WriteToXmlFile<ProjectItem>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", opt);
 
-            this.SelectedTabCategory = this.tabCategory;
+            //this.SelectedTabCategory = this.tabCategory;
 
-            this.ProjectItems.Add(opt);
-            this.ProjectItems.Add(opt2);
+            //this.ProjectItems.Add(opt);
+            //this.ProjectItems.Add(opt2);
 
-            XmlSerialization.WriteToXmlFile<ObservableCollection<ProjectItem>>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", this.ProjectItems);
+            //XmlSerialization.WriteToXmlFile<ObservableCollection<ProjectItem>>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", this.ProjectItems);
 
             //this.ResultContent = new ResultView();
         }
