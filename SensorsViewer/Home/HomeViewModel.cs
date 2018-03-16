@@ -98,6 +98,11 @@ namespace SensorsViewer.Home
         /// </summary>
         private IDialogCoordinator dialogCoordinator;
 
+        public HomeViewModel()
+        {
+
+        }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="HomeViewModel"/> class
         /// </summary>
@@ -120,7 +125,9 @@ namespace SensorsViewer.Home
 
             this.CreateNewProjectCommand = new RelayCommand(this.CreateNewProjectAction);
             this.SelectProjectCommand = new RelayCommand(this.SelectProjectAction);
-            this.DeleteSensorCommand = new DeleteItemCommand(this);
+            this.DeleteSensorCommand = new RelayCommand(this.DeleteSensorAction);
+            this.DeleteAnalysisCommand = new RelayCommand(this.DeleteAnalysisAction);
+
             this.AddNewSensorCommand = new AddSensorCommand(this);
             this.ClickInOptionVmCommand = new RelayCommand(this.ClickInOptionAction);
             this.EditSensorDataCommand = new ChangeSensorDataCommand(this);
@@ -175,6 +182,11 @@ namespace SensorsViewer.Home
         ///  Gets or sets delete sensor command
         /// </summary>
         public ICommand DeleteSensorCommand { get; set; }
+
+        /// <summary>
+        ///  Gets or sets delete sensor command
+        /// </summary>
+        public ICommand DeleteAnalysisCommand { get; set; }
 
         /// <summary>
         ///  Gets or sets delete sensor command
@@ -529,7 +541,7 @@ namespace SensorsViewer.Home
 
                 this.SelectedTabCategory = this.ProjectItems[i].Tabs;
                 // Select the tab item as Draw-In or Adjustment
-                this.SelectedTab = this.selectedTabCategory[this.tabIndex];
+                this.SelectedTab = this.SelectedTabCategory[this.tabIndex];
                 // Select the project content as the tab index chart graph
                 this.SelectedProjectChartContent = this.ProjectItems[i].Tabs[this.tabIndex].ProjectChartContent;
                 this.SelectedProjectResultContent = this.ProjectItems[i].Tabs[this.tabIndex].ProjectResutContent;
@@ -589,6 +601,27 @@ namespace SensorsViewer.Home
             }
         }
 
+        /// <summary>
+        /// Delete sensor 
+        /// </summary>
+        /// <param name="parameter"></param>
+        private void DeleteSensorAction (object parameter)
+        {
+            var sensor = parameter as Sensor;
+            ((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.RemoveSensorFromGraph(sensor);
+        }
+
+        /// <summary>
+        /// Delete Analysis
+        /// </summary>
+        /// <param name="parameter"></param>
+        private void DeleteAnalysisAction (object parameter)
+        {
+            var analysis = parameter as Analysis;
+
+            this.SelectedTab.Analysis.Remove(analysis);
+        }
+
         #endregion
 
         /// <summary>
@@ -609,7 +642,6 @@ namespace SensorsViewer.Home
                 UpdateSensorChart(jsonData);
             }));
 
-            LastMessageReceivedTime = DateTime.Now;
         }
 
         /// <summary>
@@ -618,18 +650,14 @@ namespace SensorsViewer.Home
         /// <param name="jsonData">Json data received</param>
         private void UpdateSensorChart(JsonData jsonData)
         {
-            if ((DateTime.Now - this.LastMessageReceivedTime).TotalMilliseconds >= 60)
-            {
-                Analysis newAnalysis = new Analysis("Analysis" + SelectedProjectItem.qtdAnalysis, DateTime.Now.ToString("dd/MM/yyy"), DateTime.Now.ToString("HH:mm:ss"));
+            double dif = (DateTime.Now - this.LastMessageReceivedTime).TotalMilliseconds;
 
-                if (jsonData.viewer == "drawin")
-                {
-                    this.SelectedProjectItem.Tabs[0].Analysis.Add(newAnalysis);
-                }
-                else
-                {
-                    this.SelectedProjectItem.Tabs[1].Analysis.Add(newAnalysis);                    
-                }
+            if (dif >= 60)
+            {
+                int index = (jsonData.viewer == "drawin" ? 0 : 1);
+                
+                Analysis newAnalysis = new Analysis("Analysis " + (SelectedProjectItem.Tabs[index].Analysis.Count + 1), DateTime.Now.ToString("dd/MM/yyy"), DateTime.Now.ToString("HH:mm:ss.fff"));
+                this.SelectedProjectItem.Tabs[index].Analysis.Add(newAnalysis);  
             }
 
             //For each sensors sensor values received
@@ -652,6 +680,8 @@ namespace SensorsViewer.Home
                 //Add in the sensor log
                 ((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.AddSensorLogData(sensor);
             }
+
+            this.LastMessageReceivedTime = DateTime.Now;
         }
 
         /// <summary>
@@ -673,65 +703,65 @@ namespace SensorsViewer.Home
         {
 
             this.tabCategory = new ObservableCollection<ProjectGroupVm>();
-            //ObservableCollection<ProjectGroupVm> tabCat2 = new ObservableCollection<ProjectGroupVm>();
+            ObservableCollection<ProjectGroupVm> tabCat2 = new ObservableCollection<ProjectGroupVm>();
 
-            //ProjectGroupVm p = new ProjectGroupVm { Name = "Draw-In" };
-            //ProjectGroupVm p2 = new ProjectGroupVm { Name = "Adjustment" };
+            ProjectGroupVm p = new ProjectGroupVm { Name = "Draw-In" };
+            ProjectGroupVm p2 = new ProjectGroupVm { Name = "Adjustment" };
 
-            //ProjectGroupVm t = new ProjectGroupVm { Name = "Draw-In" };
-            //ProjectGroupVm t2 = new ProjectGroupVm { Name = "Adjustment" };
+            ProjectGroupVm t = new ProjectGroupVm { Name = "Draw-In" };
+            ProjectGroupVm t2 = new ProjectGroupVm { Name = "Adjustment" };
 
             Sensor asd = new Sensor("Sensor 1", 10, 11, 0);
-            //Sensor asd2 = new Sensor("Sensor 2", 5, 24, 0);
-            //Sensor asd3 = new Sensor("Sensor 3", 7, 3, 0);
+            Sensor asd2 = new Sensor("Sensor 2", 5, 24, 0);
+            Sensor asd3 = new Sensor("Sensor 3", 7, 3, 0);
 
-            //p.Sensors.Add(asd);
-            //p.Sensors.Add(asd2);
-            //p.Sensors.Add(asd3);
+            p.Sensors.Add(asd);
+            p.Sensors.Add(asd2);
+            p.Sensors.Add(asd3);
 
             Analysis an = new Analysis("Analysis 1", "3 FEV 2018", "10:10:01");
             Analysis an2 = new Analysis("Analysis 2", "3 FEV 2018", "10:20:47");
 
-            //p.Analysis.Add(an);
-            //p.Analysis.Add(an2);
+            p.Analysis.Add(an);
+            p.Analysis.Add(an2);
 
-            //p2.Sensors.Add(asd3);
-            //p2.Analysis.Add(an);
+            p2.Sensors.Add(asd3);
+            p2.Analysis.Add(an);
 
-            //p.ProjectChartContent = new OpticalSensorView();
-            //p2.ProjectChartContent = new OpticalSensorView();
+            p.ProjectChartContent = new OpticalSensorView();
+            p2.ProjectChartContent = new OpticalSensorView();
 
-            //this.SelectedProjectChartContent = p.ProjectChartContent;
-            //this.SelectedSensorList = ((OpticalSensorView)p.ProjectChartContent).OpticalSensorViewModel.SensorList;
+            this.SelectedProjectChartContent = p.ProjectChartContent;
+            this.SelectedSensorList = ((OpticalSensorView)p.ProjectChartContent).OpticalSensorViewModel.SensorList;
 
-            //((OpticalSensorView)p.ProjectChartContent).OpticalSensorViewModel.AddSensorToGraph(asd);
-            //((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.AddValue("Sensor 1", 1.0);
+            ((OpticalSensorView)p.ProjectChartContent).OpticalSensorViewModel.AddSensorToGraph(asd);
+            ((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.AddValue("Sensor 1", 1.0);
 
-            //this.TabCategory.Add(p);
-            //this.TabCategory.Add(p2);
+            this.TabCategory.Add(p);
+            this.TabCategory.Add(p2);
 
-            //tabCat2.Add(t);
-            //tabCat2.Add(t2);
+            tabCat2.Add(t);
+            tabCat2.Add(t2);
 
-            //OptionVm opt = new OptionVm();
-            //OptionVm opt2 = new OptionVm();
+            OptionVm opt = new OptionVm();
+            OptionVm opt2 = new OptionVm();
 
-            //opt.Name = "Project 1";
-            //opt.Tabs = this.tabCategory;
+            opt.Name = "Project 1";
+            opt.Tabs = this.tabCategory;
 
-            //this.SelectedTab = opt.Tabs[0];
+            this.SelectedTab = opt.Tabs[0];
 
-            //opt2.Title = "Project 2";
-            //opt2.Tabs = tabCat2;
+            opt2.Name = "Project 2";
+            opt2.Tabs = tabCat2;
 
-            //XmlSerialization.WriteToXmlFile<OptionVm>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", opt);
+            XmlSerialization.WriteToXmlFile<OptionVm>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", opt);
 
-            //this.SelectedTabCategory = this.tabCategory;
+            this.SelectedTabCategory = this.tabCategory;
 
-            //this.ProjectItems.Add(opt);
-            //this.ProjectItems.Add(opt2);
+            this.ProjectItems.Add(opt);
+            this.ProjectItems.Add(opt2);
 
-            //XmlSerialization.WriteToXmlFile<ObservableCollection<OptionVm>>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", this.ProjectItems);
+            XmlSerialization.WriteToXmlFile<ObservableCollection<OptionVm>>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", this.ProjectItems);
 
             //this.ResultContent = new ResultView();
         }

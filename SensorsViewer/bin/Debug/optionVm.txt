@@ -3,149 +3,116 @@
   <OptionVm>
     <Id>0</Id>
     <qtdAnalysis>0</qtdAnalysis>
-    <Name>dasdasdsa</Name>
+    <Name>Project 1</Name>
     <ModelPath>C:\Users\heitor.araujo\Documents\wokspace\GM\Tests\TestsNx\Die ring.stl</ModelPath>
     <Tabs>
       <ProjectGroupVm>
-        <analysis>
-          <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:53:39</Time>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:53:42</Time>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:53:49</Time>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:53:50</Time>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:53:51</Time>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:53:53</Time>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:53:55</Time>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:53:56</Time>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:53:58</Time>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:53:59</Time>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:54:01</Time>
-          </Analysis>
-        </analysis>
         <Name>Draw-In</Name>
         <Sensors>
           <Sensor>
-            <Id>6d6e31e6-24da-4213-9abf-a7d21f066988</Id>
+            <Id>79cb1274-0134-4172-baf7-f778d0e2941d</Id>
             <X>572.5</X>
             <Y>124.5</Y>
             <Z>0</Z>
             <SensorName>Sensor Name 1</SensorName>
             <Values>
+              <double>2</double>
+              <double>0</double>
+              <double>0</double>
+              <double>2</double>
+              <double>0</double>
               <double>1</double>
+              <double>2</double>
               <double>3</double>
-              <double>4</double>
+              <double>6</double>
+              <double>3</double>
+              <double>3</double>
               <double>3</double>
               <double>0</double>
-              <double>5</double>
-              <double>4</double>
-              <double>1</double>
-              <double>6</double>
-              <double>8</double>
-              <double>8</double>
-              <double>6</double>
-              <double>14</double>
               <double>11</double>
-              <double>16</double>
+              <double>1</double>
+              <double>0</double>
+              <double>4</double>
+              <double>3</double>
+              <double>1</double>
+              <double>0</double>
+              <double>1</double>
+              <double>3</double>
               <double>6</double>
+              <double>3</double>
             </Values>
             <TimeStamp />
           </Sensor>
           <Sensor>
-            <Id>a75aa90d-d4bc-4471-a85e-f41ba5785201</Id>
+            <Id>ad8e1e34-6a29-4419-a19f-d428f2bb0743</Id>
             <X>537.5</X>
             <Y>-155.5</Y>
             <Z>0</Z>
             <SensorName>Sensor Name 2</SensorName>
             <Values>
               <double>0</double>
+              <double>1</double>
+              <double>1</double>
+              <double>3</double>
+              <double>3</double>
+              <double>4</double>
+              <double>3</double>
+              <double>3</double>
+              <double>1</double>
+              <double>5</double>
+              <double>2</double>
               <double>0</double>
+              <double>5</double>
+              <double>11</double>
+              <double>1</double>
+              <double>2</double>
+              <double>5</double>
+              <double>2</double>
+              <double>7</double>
               <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
+              <double>9</double>
+              <double>9</double>
+              <double>11</double>
+              <double>4</double>
             </Values>
             <TimeStamp />
           </Sensor>
           <Sensor>
-            <Id>b9d2e6e7-ebd3-4050-a607-707434778664</Id>
+            <Id>4186c8a9-69b9-40b1-82b3-f3b08e93eefa</Id>
             <X>100</X>
             <Y>-175.5</Y>
             <Z>0</Z>
             <SensorName>Sensor Name 3</SensorName>
             <Values>
+              <double>2</double>
+              <double>3</double>
+              <double>2</double>
+              <double>3</double>
+              <double>1</double>
               <double>0</double>
               <double>0</double>
               <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
-              <double>0</double>
+              <double>6</double>
+              <double>9</double>
+              <double>5</double>
+              <double>1</double>
+              <double>12</double>
+              <double>12</double>
+              <double>2</double>
+              <double>5</double>
+              <double>1</double>
+              <double>6</double>
+              <double>5</double>
+              <double>9</double>
+              <double>4</double>
+              <double>2</double>
+              <double>5</double>
               <double>0</double>
             </Values>
             <TimeStamp />
           </Sensor>
           <Sensor>
-            <Id>de87c773-9816-4f20-808d-82c7dd343378</Id>
+            <Id>d8c980f5-83b4-4f1b-9e80-7161a9109952</Id>
             <X>-100</X>
             <Y>-175.5</Y>
             <Z>0</Z>
@@ -154,7 +121,7 @@
             <TimeStamp />
           </Sensor>
           <Sensor>
-            <Id>91084691-1bc1-4055-b0cd-ef2b1aea7423</Id>
+            <Id>7c6fb01e-b45c-4c97-bb13-b5bc57a2b33f</Id>
             <X>-552.5</X>
             <Y>-155.5</Y>
             <Z>0</Z>
@@ -163,7 +130,7 @@
             <TimeStamp />
           </Sensor>
           <Sensor>
-            <Id>86ec6eb7-a78d-4d2a-88cb-693e1a48521b</Id>
+            <Id>6e7075ab-4573-4d0a-92a1-c3fcb183e894</Id>
             <X>-572.5</X>
             <Y>124.5</Y>
             <Z>0</Z>
@@ -172,7 +139,7 @@
             <TimeStamp />
           </Sensor>
           <Sensor>
-            <Id>8ecf1bce-ea38-4a65-9d68-5e6a897c0141</Id>
+            <Id>2b9adb3e-5e28-4353-a3e1-ad1ad5b6dcaf</Id>
             <X>0</X>
             <Y>129.5</Y>
             <Z>0</Z>
@@ -183,64 +150,46 @@
         </Sensors>
         <Analysis>
           <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:53:39</Time>
+            <Name>Analysis 1</Name>
+            <Date>16/03/2018</Date>
+            <Time>11:19:31.491</Time>
           </Analysis>
           <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:53:42</Time>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:53:49</Time>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:53:50</Time>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:53:51</Time>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:53:53</Time>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:53:55</Time>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:53:56</Time>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:53:58</Time>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:53:59</Time>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis0</Name>
-            <Date>15/03/2018</Date>
-            <Time>08:54:01</Time>
+            <Name>Analysis 2</Name>
+            <Date>16/03/2018</Date>
+            <Time>11:19:38.102</Time>
           </Analysis>
         </Analysis>
       </ProjectGroupVm>
       <ProjectGroupVm>
-        <analysis />
+        <Name>Adjustment</Name>
+        <Sensors />
+        <Analysis />
+      </ProjectGroupVm>
+    </Tabs>
+  </OptionVm>
+  <OptionVm>
+    <Id>1</Id>
+    <qtdAnalysis>0</qtdAnalysis>
+    <Name>Project 2</Name>
+    <ModelPath>C:\Users\heitor.araujo\Documents\wokspace\GM\Tests\TestsNx\Test.stl.stl</ModelPath>
+    <Tabs>
+      <ProjectGroupVm>
+        <Name>Draw-In</Name>
+        <Sensors>
+          <Sensor>
+            <Id>257a7a1a-f2ac-4042-9e4d-0fc753f5c069</Id>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <SensorName>Square sensor 1</SensorName>
+            <Values />
+            <TimeStamp />
+          </Sensor>
+        </Sensors>
+        <Analysis />
+      </ProjectGroupVm>
+      <ProjectGroupVm>
         <Name>Adjustment</Name>
         <Sensors />
         <Analysis />

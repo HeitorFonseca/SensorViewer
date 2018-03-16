@@ -32,7 +32,7 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Collection of analysis
         /// </summary>
-        public ObservableCollection<Analysis> analysis;
+        private ObservableCollection<Analysis> analysis;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ProjectGroupVm"/> class

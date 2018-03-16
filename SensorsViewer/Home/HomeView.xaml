@@ -39,6 +39,10 @@
         </DataTemplate>
     </controls:MetroWindow.IconTemplate>
 
+    <controls:MetroWindow.DataContext>
+        <local:HomeViewModel></local:HomeViewModel>
+    </controls:MetroWindow.DataContext>
+    
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -248,10 +252,10 @@
 
                                                                 </StackPanel>
 
-                                                                <Button x:Name="btnDelSensor"  Grid.Row="0"
+                                                                <Button x:Name="btnDelSensor" 
                                                                         Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.DeleteSensorCommand}"
                                                                         CommandParameter="{Binding}"
-                                                                        BorderThickness="0" Padding="0,0,0,0" Margin="210,6,23,8" Style="{StaticResource DeleteButton}">
+                                                                        Grid.Row="0" BorderThickness="0" Padding="0,0,0,0" Margin="210,6,23,8" Style="{StaticResource DeleteButton}">
                                                                     <Image Source="../Resources/deleteSensor3.png" Stretch="None" />
                                                                 </Button>
                                                             </Grid>
@@ -269,6 +273,7 @@
                                             </Button>
                                         </Grid>
                                     </TabItem>
+                                    <!-- Analysis -->
                                     <TabItem x:Name="tabItemAnalysis" Header="Analysis" Margin="80,0,-80,0" Style="{StaticResource MainTabItem}">
                                         <ListBox ItemsSource="{Binding Analysis}">
                                             <ListBox.ItemTemplate>
@@ -287,7 +292,10 @@
                                                                 <TextBlock Text="{Binding Time}"  Margin="5, 0 , 0 , 0" Style="{StaticResource AnalysisData}"></TextBlock>
                                                             </StackPanel>
 
-                                                            <Button Grid.Row="0" BorderThickness="0" Padding="0,0,0,0" Margin="212,6,17.6,8.4" Style="{StaticResource DeleteButton}">
+                                                            <Button  x:Name="btnDelAnalysis" 
+                                                                     Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.DeleteAnalysisCommand}"
+                                                                     CommandParameter="{Binding}"
+                                                                     Grid.Row="0" BorderThickness="0" Padding="0,0,0,0" Margin="212,6,17.6,8.4" Style="{StaticResource DeleteButton}">
                                                                 <Image Source="../Resources/deleteSensor3.png" Stretch="None" />
                                                             </Button>
                                                         </Grid>
