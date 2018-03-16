@@ -1,4 +1,4 @@
-﻿// <copyright file="OptionVm.cs" company="GM">
+﻿// <copyright file="ProjectItem.cs" company="GM">
 //     gm.com. All rights reserved.
 // </copyright>
 
@@ -12,7 +12,7 @@ namespace SensorsViewer.Home
     /// <summary>
     /// Option for left menu bar class
     /// </summary>
-    public class OptionVm : INotifyPropertyChanged
+    public class ProjectItem : INotifyPropertyChanged
     {
         /// <summary>
         /// Gets os sets idCount
@@ -32,31 +32,31 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Gets os sets projects
         /// </summary>
-        private ObservableCollection<ProjectGroupVm> tabs;
+        private ObservableCollection<TabCategory> tabs;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OptionVm"/> class
+        /// Initializes a new instance of the <see cref="ProjectItem"/> class
         /// </summary>
-        public OptionVm()
+        public ProjectItem()
         {
             this.Id = idCount++;
-            this.Tabs = new ObservableCollection<ProjectGroupVm>();
+            this.Tabs = new ObservableCollection<TabCategory>();
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OptionVm"/> class
+        /// Initializes a new instance of the <see cref="ProjectItem"/> class
         /// </summary>
         /// <param name="name">Option name</param>
-        public OptionVm(string name, string modelPath)
+        public ProjectItem(string name, string modelPath)
         {
             this.Id = idCount++;
             this.Name = name;
             this.ModelPath = modelPath;
 
-            this.Tabs = new ObservableCollection<ProjectGroupVm>
+            this.Tabs = new ObservableCollection<TabCategory>
             {
-                 new ProjectGroupVm(modelPath) { Name = "Draw-In" },
-                 new ProjectGroupVm(modelPath) { Name = "Adjustment" }
+                 new TabCategory(modelPath) { Name = "Draw-In" },
+                 new TabCategory(modelPath) { Name = "Adjustment" }
             };
 
             Tabs[0].ProjectChartContent = new OpticalSensorView();
@@ -107,7 +107,7 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Projects collection
         /// </summary>
-        public ObservableCollection<ProjectGroupVm> Tabs
+        public ObservableCollection<TabCategory> Tabs
         {
             get
             {

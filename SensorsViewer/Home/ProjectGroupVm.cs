@@ -1,4 +1,4 @@
-﻿// <copyright file="ProjectGroupVm.cs" company="GM">
+﻿// <copyright file="TabCategory.cs" company="GM">
 //     gm.com. All rights reserved.
 // </copyright>
 
@@ -17,7 +17,7 @@ namespace SensorsViewer.Home
     /// <summary>
     /// Project group left bar
     /// </summary>
-    public class ProjectGroupVm : INotifyPropertyChanged
+    public class TabCategory : INotifyPropertyChanged
     {
         /// <summary>
         /// Project content
@@ -35,18 +35,18 @@ namespace SensorsViewer.Home
         private ObservableCollection<Analysis> analysis;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProjectGroupVm"/> class
+        /// Initializes a new instance of the <see cref="TabCategory"/> class
         /// </summary>
-        public ProjectGroupVm()
+        public TabCategory()
         {
             this.Analysis = new ObservableCollection<Analysis>();
             this.ProjectChartContent = new OpticalSensorView();
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ProjectGroupVm"/> class
+        /// Initializes a new instance of the <see cref="TabCategory"/> class
         /// </summary>
-        public ProjectGroupVm(string path)
+        public TabCategory(string path)
         {
             this.Analysis = new ObservableCollection<Analysis>();            
             this.ProjectChartContent = new OpticalSensorView();

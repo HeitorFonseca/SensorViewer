@@ -48,7 +48,7 @@ namespace SensorsViewer.Home.Commands
         /// <returns>return if can execute</returns>
         public bool CanExecute(object parameter)
         {
-            var tab = parameter as ProjectGroupVm;
+            var tab = parameter as TabCategory;
 
             return tab.Sensors != null;
         }
@@ -59,7 +59,7 @@ namespace SensorsViewer.Home.Commands
         /// <param name="parameter">object parameter</param>
         public void Execute(object parameter)
         {
-            var tab = parameter as ProjectGroupVm;
+            var tab = parameter as TabCategory;
 
             Sensor s = new Sensor();
             ((OpticalSensorView)this.viewModel.SelectedProjectChartContent).OpticalSensorViewModel.AddSensorToGraph(s);

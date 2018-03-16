@@ -157,7 +157,7 @@
                                 <TextBlock x:Name="tbTabCategory" MinWidth="110" FontSize="16"  HorizontalAlignment="Center" TextAlignment="Center" Text="{Binding Name}">                                    
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="MouseDown">
-                                            <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.ClickInOptionVmCommand}" PassEventArgsToCommand="True" />
+                                            <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.ClickInTabCategoryCommand}" PassEventArgsToCommand="True" />
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </TextBlock>

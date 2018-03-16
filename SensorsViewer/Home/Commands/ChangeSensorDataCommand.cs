@@ -58,7 +58,7 @@ namespace SensorsViewer.Home.Commands
         /// <param name="parameter">object parameter</param>
         public void Execute(object parameter)
         {
-            var tab = parameter as ProjectGroupVm;
+            var tab = parameter as TabCategory;
 
             var source = ((System.Windows.RoutedEventArgs)parameter).Source;
 

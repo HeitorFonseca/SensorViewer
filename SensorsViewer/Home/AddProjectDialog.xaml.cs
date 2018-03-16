@@ -43,13 +43,13 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Projects items
         /// </summary>
-        private ObservableCollection<OptionVm> projectItems;
+        private ObservableCollection<ProjectItem> projectItems;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AddProjectDialog"/> class
         /// </summary>
         /// <param name="projectItems">Projects List</param>
-        public AddProjectDialog(ObservableCollection<OptionVm> projectItems)
+        public AddProjectDialog(ObservableCollection<ProjectItem> projectItems)
         {
             this.InitializeComponent();
 
@@ -173,7 +173,7 @@ namespace SensorsViewer.Home
         /// <returns>True if project name exist</returns>
         private bool CheckIfProjectNameExists(string newName)
         {
-            foreach (OptionVm opt in this.projectItems)
+            foreach (ProjectItem opt in this.projectItems)
             {
                 if (opt.Name == newName)
                     return true;

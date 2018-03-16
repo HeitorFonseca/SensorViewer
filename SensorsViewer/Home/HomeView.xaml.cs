@@ -56,7 +56,7 @@ namespace SensorsViewer.Home
         /// <param name="e">OnMouseDown event</param>
         private void UIElement_OnMouseDown(object sender, MouseButtonEventArgs e)
         {
-            var sample = (OptionVm)((Border)sender).DataContext;
+            var sample = (ProjectItem)((Border)sender).DataContext;
             var hvm = (HomeViewModel)DataContext;
             //hvm.SelectedProjectContent = (UserControl)Activator.CreateInstance(sample.Content);
             ////hvm.IsMenuOpen = false;

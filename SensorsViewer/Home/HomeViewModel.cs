@@ -41,12 +41,12 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Selected Tab
         /// </summary>
-        private ObservableCollection<ProjectGroupVm> selectedTabCategory;
+        private ObservableCollection<TabCategory> selectedTabCategory;
 
         /// <summary>
         /// Selected tab
         /// </summary>
-        private ProjectGroupVm selectedTab;
+        private TabCategory selectedTab;
 
         /// <summary>
         /// Result content
@@ -56,17 +56,17 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Private project A menu left bar
         /// </summary>
-        private ObservableCollection<OptionVm> projectItems;
+        private ObservableCollection<ProjectItem> projectItems;
 
         /// <summary>
         /// Private project A menu left bar
         /// </summary>
-        private OptionVm selectedProjectItem;
+        private ProjectItem selectedProjectItem;
 
         /// <summary>
         /// Private project A menu left bar
         /// </summary>
-        private ObservableCollection<ProjectGroupVm> tabCategory;
+        private ObservableCollection<TabCategory> tabCategory;
 
         /// <summary>
         /// Private mqtt connection
@@ -114,7 +114,7 @@ namespace SensorsViewer.Home
             this.proc.Connect();
             this.proc.ReadDataEvnt(WhenMessageReceived);
 
-            this.ProjectItems = new ObservableCollection<OptionVm>();
+            this.ProjectItems = new ObservableCollection<ProjectItem>();
 
             //this.InitializeMenu();
 
@@ -129,7 +129,7 @@ namespace SensorsViewer.Home
             this.DeleteAnalysisCommand = new RelayCommand(this.DeleteAnalysisAction);
 
             this.AddNewSensorCommand = new AddSensorCommand(this);
-            this.ClickInOptionVmCommand = new RelayCommand(this.ClickInOptionAction);
+            this.ClickInTabCategoryCommand = new RelayCommand(this.ClickInTabCategoryAction);
             this.EditSensorDataCommand = new ChangeSensorDataCommand(this);
             this.BrowseFileCommand = new RelayCommand(this.BrowseFileAction);
 
@@ -191,7 +191,7 @@ namespace SensorsViewer.Home
         /// <summary>
         ///  Gets or sets delete sensor command
         /// </summary>
-        public ICommand ClickInOptionVmCommand { get; set; }
+        public ICommand ClickInTabCategoryCommand { get; set; }
 
         /// <summary>
         ///  Gets or sets delete sensor command
@@ -228,7 +228,7 @@ namespace SensorsViewer.Home
         /// <summary>
         ///  Gets or sets Tab category
         /// </summary>
-        public ObservableCollection<ProjectGroupVm> TabCategory
+        public ObservableCollection<TabCategory> TabCategory
         {
             get
             {
@@ -245,7 +245,7 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Gets or sets Project Items
         /// </summary>
-        public ObservableCollection<OptionVm> ProjectItems
+        public ObservableCollection<ProjectItem> ProjectItems
         {
             get
             {
@@ -262,7 +262,7 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Gets or sets selected project item
         /// </summary>
-        public OptionVm SelectedProjectItem
+        public ProjectItem SelectedProjectItem
         {
             get
             {
@@ -313,7 +313,7 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Gets or sets user control content
         /// </summary>
-        public ObservableCollection<ProjectGroupVm> SelectedTabCategory
+        public ObservableCollection<TabCategory> SelectedTabCategory
         {
             get
             {
@@ -330,7 +330,7 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Gets or sets user control content
         /// </summary>
-        public ProjectGroupVm SelectedTab
+        public TabCategory SelectedTab
         {
             get
             {
@@ -381,7 +381,7 @@ namespace SensorsViewer.Home
         /// </summary>
         private void WindowClosingAction(object parameter)
         {
-            XmlSerialization.WriteToXmlFile<ObservableCollection<OptionVm>>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", this.ProjectItems);
+            XmlSerialization.WriteToXmlFile<ObservableCollection<ProjectItem>>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", this.ProjectItems);
         
             this.proc.Disconnect();
         }
@@ -393,11 +393,11 @@ namespace SensorsViewer.Home
         {
             try
             {
-                this.ProjectItems = XmlSerialization.ReadFromXmlFile<ObservableCollection<OptionVm>>(@"C: \Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt");
+                this.ProjectItems = XmlSerialization.ReadFromXmlFile<ObservableCollection<ProjectItem>>(@"C: \Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt");
 
-                foreach (OptionVm opt in this.ProjectItems)
+                foreach (ProjectItem opt in this.ProjectItems)
                 {
-                    foreach (ProjectGroupVm tab in opt.Tabs)
+                    foreach (TabCategory tab in opt.Tabs)
                     {
                         tab.ProjectChartContent.OpticalSensorViewModel.ShowLoadedSensors();
                         tab.ProjectResutContent = new ResultView(opt.ModelPath);
@@ -438,7 +438,7 @@ namespace SensorsViewer.Home
             {
                 projectName = addProjectDialog.ProjectName;
                 modelPath = addProjectDialog.ModelPath;
-                OptionVm newOpt = new OptionVm(projectName, modelPath);
+                ProjectItem newOpt = new ProjectItem(projectName, modelPath);
                 this.ProjectItems.Add(newOpt);
 
                 this.SelectedProjectItem = newOpt;
@@ -460,7 +460,7 @@ namespace SensorsViewer.Home
         private void SelectProjectAction(object parameter)
         {
             var parent = ((MouseButtonEventArgs)parameter).Source as TextBlock;
-            var option = (OptionVm)parent.DataContext;
+            var option = (ProjectItem)parent.DataContext;
 
             //var option = (OptionVm)parameter;
 
@@ -485,7 +485,7 @@ namespace SensorsViewer.Home
             if (result == null) //user pressed cancel
                 return;
 
-            OptionVm currentProject = (OptionVm)parameter;
+            ProjectItem currentProject = (ProjectItem)parameter;
             
             for (int i = 0; i < this.ProjectItems.Count; i++)
             {
@@ -502,7 +502,7 @@ namespace SensorsViewer.Home
         /// <param name="parameter">Object parameter</param>
         private void ClickInDeleteAction(object parameter)
         {
-            OptionVm currentProject = (OptionVm)parameter;
+            ProjectItem currentProject = (ProjectItem)parameter;
             int i = 0;
 
             for (i = 0; i < this.ProjectItems.Count; i++)
@@ -553,10 +553,10 @@ namespace SensorsViewer.Home
         /// Event for when click in one of the Tabs 
         /// </summary>
         /// <param name="parameter">Object parameter</param>
-        private void ClickInOptionAction(object parameter)
+        private void ClickInTabCategoryAction(object parameter)
         {
             var textBlock = ((MouseButtonEventArgs)parameter).Source as TextBlock;
-            var dsa = (ProjectGroupVm)textBlock.DataContext;
+            var dsa = (TabCategory)textBlock.DataContext;
 
             this.SelectedProjectChartContent = dsa.ProjectChartContent;
             this.SelectedProjectResultContent = dsa.ProjectResutContent;
@@ -702,14 +702,14 @@ namespace SensorsViewer.Home
         private void InitializeMenu()
         {
 
-            this.tabCategory = new ObservableCollection<ProjectGroupVm>();
-            ObservableCollection<ProjectGroupVm> tabCat2 = new ObservableCollection<ProjectGroupVm>();
+            this.tabCategory = new ObservableCollection<TabCategory>();
+            ObservableCollection<TabCategory> tabCat2 = new ObservableCollection<TabCategory>();
 
-            ProjectGroupVm p = new ProjectGroupVm { Name = "Draw-In" };
-            ProjectGroupVm p2 = new ProjectGroupVm { Name = "Adjustment" };
+            TabCategory p = new TabCategory { Name = "Draw-In" };
+            TabCategory p2 = new TabCategory { Name = "Adjustment" };
 
-            ProjectGroupVm t = new ProjectGroupVm { Name = "Draw-In" };
-            ProjectGroupVm t2 = new ProjectGroupVm { Name = "Adjustment" };
+            TabCategory t = new TabCategory { Name = "Draw-In" };
+            TabCategory t2 = new TabCategory { Name = "Adjustment" };
 
             Sensor asd = new Sensor("Sensor 1", 10, 11, 0);
             Sensor asd2 = new Sensor("Sensor 2", 5, 24, 0);
@@ -743,8 +743,8 @@ namespace SensorsViewer.Home
             tabCat2.Add(t);
             tabCat2.Add(t2);
 
-            OptionVm opt = new OptionVm();
-            OptionVm opt2 = new OptionVm();
+            ProjectItem opt = new ProjectItem();
+            ProjectItem opt2 = new ProjectItem();
 
             opt.Name = "Project 1";
             opt.Tabs = this.tabCategory;
@@ -754,14 +754,14 @@ namespace SensorsViewer.Home
             opt2.Name = "Project 2";
             opt2.Tabs = tabCat2;
 
-            XmlSerialization.WriteToXmlFile<OptionVm>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", opt);
+            XmlSerialization.WriteToXmlFile<ProjectItem>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", opt);
 
             this.SelectedTabCategory = this.tabCategory;
 
             this.ProjectItems.Add(opt);
             this.ProjectItems.Add(opt2);
 
-            XmlSerialization.WriteToXmlFile<ObservableCollection<OptionVm>>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", this.ProjectItems);
+            XmlSerialization.WriteToXmlFile<ObservableCollection<ProjectItem>>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", this.ProjectItems);
 
             //this.ResultContent = new ResultView();
         }
