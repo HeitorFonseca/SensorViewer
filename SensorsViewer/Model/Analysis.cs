@@ -5,6 +5,7 @@
 namespace SensorsViewer.SensorOption
 {
     using SensorsViewer.ProjectB;
+    using SensorsViewer.Result;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -24,6 +25,11 @@ namespace SensorsViewer.SensorOption
         private OpticalSensorView projectChartContent;
 
         /// <summary>
+        /// Project content
+        /// </summary>
+        private ResultView projectResultContent;
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="Analysis"/> class
         /// </summary>
         public Analysis()
@@ -34,16 +40,26 @@ namespace SensorsViewer.SensorOption
         /// <summary>
         /// Initializes a new instance of the <see cref="Analysis"/> class
         /// </summary>
+        public Analysis(string path)
+        {
+            this.ProjectChartContent = new OpticalSensorView();
+            this.ProjectResutContent = new ResultView();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Analysis"/> class
+        /// </summary>
         /// <param name="name">analysis name</param>
         /// <param name="date">analysis date</param>
         /// <param name="time">analysis time</param>
-        public Analysis(string name, string date, string time)
+        public Analysis(string name, string date, string time, string path)
         {
             this.Name = name;
             this.Date = date;
             this.Time = time;
 
             this.ProjectChartContent = new OpticalSensorView();
+            this.ProjectResutContent = new ResultView(path);
         }
 
         /// <summary>
@@ -81,6 +97,24 @@ namespace SensorsViewer.SensorOption
             {
                 this.projectChartContent = value;
                 this.OnPropertyChanged("ProjectChartContent");
+            }
+        }
+
+        [XmlIgnore]
+        /// <summary>
+        /// Gets or sets project B User control content
+        /// </summary>
+        public ResultView ProjectResutContent
+        {
+            get
+            {
+                return this.projectResultContent;
+            }
+
+            set
+            {
+                this.projectResultContent = value;
+                this.OnPropertyChanged("ProjectResutContent");
             }
         }
 

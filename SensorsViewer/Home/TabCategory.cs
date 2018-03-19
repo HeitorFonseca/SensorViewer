@@ -18,12 +18,7 @@ namespace SensorsViewer.Home
     /// Project group left bar
     /// </summary>
     public class TabCategory : INotifyPropertyChanged
-    {        
-        /// <summary>
-        /// Project content
-        /// </summary>
-        private ResultView projectResultContent;
-
+    {                
         /// <summary>
         /// Collection of analysis
         /// </summary>
@@ -47,8 +42,6 @@ namespace SensorsViewer.Home
         {
             this.Analysis = new ObservableCollection<Analysis>();
             this.Sensors = new ObservableCollection<Sensor>();
-
-            this.ProjectResutContent = new ResultView(path);
         }
 
         /// <summary>
@@ -93,25 +86,7 @@ namespace SensorsViewer.Home
             {
                 this.analysis = value;
             }
-        }        
-
-        [XmlIgnore]
-        /// <summary>
-        /// Gets or sets project B User control content
-        /// </summary>
-        public ResultView ProjectResutContent
-        {
-            get
-            {
-                return this.projectResultContent;
-            }
-
-            set
-            {
-                this.projectResultContent = value;
-                this.OnPropertyChanged("ProjectResutContent");
-            }
-        }
+        }                
 
         /// <summary>
         /// When changes property

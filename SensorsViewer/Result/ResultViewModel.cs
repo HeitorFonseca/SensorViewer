@@ -42,9 +42,8 @@ namespace SensorsViewer.Result
         /// <summary>
         /// Initializes a new instance of the <see cref="ResultViewModel"/> class
         /// </summary>
-        public ResultViewModel(string stlFile)
+        public ResultViewModel()
         {
-            this.stlFilePath = stlFile;
             this.viewPort3d = new HelixViewport3D();
             this.device3D = new ModelVisual3D();
         }
@@ -67,8 +66,9 @@ namespace SensorsViewer.Result
             }
         }
 
-        public void LoadStlModel()
+        public void LoadStlModel(string stlFile)
         {
+            this.stlFilePath = stlFile;
             Model3D stlModel = Display3d(this.stlFilePath);
 
             groupModel.Children.Add(stlModel);

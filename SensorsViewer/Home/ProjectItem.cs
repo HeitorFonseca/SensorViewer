@@ -65,9 +65,8 @@ namespace SensorsViewer.Home
             //Tabs[0].ProjectChartContent = new OpticalSensorView();
             //Tabs[1].ProjectChartContent = new OpticalSensorView();
 
-            Tabs[0].ProjectResutContent = new Result.ResultView(ModelPath);
-            Tabs[1].ProjectResutContent = new Result.ResultView(ModelPath);
-
+            //Tabs[0].ProjectResutContent = new Result.ResultView(ModelPath);
+            //Tabs[1].ProjectResutContent = new Result.ResultView(ModelPath);
         }
 
         /// <summary>
