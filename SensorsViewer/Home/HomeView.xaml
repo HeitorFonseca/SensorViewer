@@ -362,9 +362,9 @@
                                     <ListView.View>
                                         <GridView>
                                             <GridViewColumn DisplayMemberBinding="{Binding SensorName}" Header="Sensor Id"/>
-                                            <GridViewColumn DisplayMemberBinding="{Binding TimeStamp[0]}" Header="Timestamp"/>
-                                            <GridViewColumn DisplayMemberBinding="{Binding Values[0]}" Header="Value" />
-                                            <GridViewColumn DisplayMemberBinding="{Binding Parameter}" Header="Parameter" />
+                                            <GridViewColumn DisplayMemberBinding="{Binding Values[0].Timestamp}" Header="Timestamp"/>
+                                            <GridViewColumn DisplayMemberBinding="{Binding Values[0].Value}" Header="Value" />
+                                            <GridViewColumn DisplayMemberBinding="{Binding Values[0].Parameter}" Header="Parameter" />
                                         </GridView>
                                     </ListView.View>
                                 </ListView>

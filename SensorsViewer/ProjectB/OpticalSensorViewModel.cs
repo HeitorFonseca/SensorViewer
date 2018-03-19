@@ -136,7 +136,7 @@ namespace SensorsViewer.ProjectB
         /// </summary>
         /// <param name="sensorid">sensor id</param>
         /// <param name="value">value to add</param>
-        public void AddValue(string sensorName, double value, string analysis)
+        public void AddValue(string sensorName, double value, SensorOption.SensorValue sv)
         {            
             // If exist a line series with sensor with sensorid
             if (this.SeriesCollection.FirstOrDefault(a => a.Title == sensorName) is LineSeries ls)
@@ -148,7 +148,7 @@ namespace SensorsViewer.ProjectB
                 {
                     if (this.SensorList[i].SensorName == sensorName)
                     {
-                        this.SensorList[i].Values.Add(new SensorOption.SensorValue(value, analysis));
+                        this.SensorList[i].Values.Add(sv);
                     }
                 }
             }
@@ -202,6 +202,29 @@ namespace SensorsViewer.ProjectB
 
                 this.SeriesCollection.Add(newLs);
             }
+        }
+
+        public void ShowSensorsLog(ObservableCollection<SensorOption.Sensor> sensorList, string analysisName)
+        {
+            ObservableCollection<SensorOption.Sensor> list = new ObservableCollection<SensorOption.Sensor>();
+
+            foreach (SensorOption.Sensor sensor in sensorList)
+            {
+
+                foreach (SensorOption.SensorValue values in sensor.Values)
+                {
+                    if (values.AnalysisName == analysisName)
+                    {
+                        SensorOption.Sensor s = new SensorOption.Sensor(sensor.SensorName);
+                        s.Values.Add(values);
+                        list.Add(s);
+                    }
+                }              
+            }
+
+            list = new ObservableCollection<SensorOption.Sensor>(list.OrderBy( a=> a.Values[0].Timestamp));
+
+            this.SensorsLog = list;
         }
 
         /// <summary>

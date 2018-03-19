@@ -431,8 +431,9 @@ namespace SensorsViewer.Home
                         for (int i = 0; i < tab.Analysis.Count; i++)
                         {
                             tab.Analysis[i].ProjectChartContent.OpticalSensorViewModel.ShowLoadedSensors(tab.Sensors, tab.Analysis[i].Name);
+                            tab.Analysis[i].ProjectChartContent.OpticalSensorViewModel.ShowSensorsLog(tab.Sensors, tab.Analysis[i].Name);
                         }
-
+                        
                         tab.ProjectResutContent = new ResultView(opt.ModelPath);
                     }
                 }
@@ -578,8 +579,10 @@ namespace SensorsViewer.Home
                 this.SelectedTabCategory = this.ProjectItems[i].Tabs;
                 // Select the tab item as Draw-In or Adjustment
                 this.SelectedTab = this.SelectedTabCategory[this.tabIndex];
+                // Selected analysis
+                this.SelectedAnalysis = selectedTab.Analysis[0];
                 // Select the project content as the tab index chart graph
-                this.SelectedProjectChartContent = this.SelectedAnalysis.ProjectChartContent;
+                this.SelectedProjectChartContent = (this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectChartContent : null);
 
                 this.SelectedProjectResultContent = this.ProjectItems[i].Tabs[this.tabIndex].ProjectResutContent;
 
@@ -728,14 +731,16 @@ namespace SensorsViewer.Home
                 string parameter = data[3];                         // Get the parameter
                 string status = data[4];                            // Get the sensor status
 
-                Sensor sensor = new Sensor(sensorName, parameter);  // Create the sensor with name and parameter
-                sensor.Values.Add(new SensorValue(value, this.SelectedAnalysis.Name)); // Add the value in the created sensor
+                Sensor sensor = new Sensor(sensorName);  // Create the sensor with name and parameter
 
                 string dateTime = UnixTimeStampToDateTime(timestamp);
-                sensor.TimeStamp.Add(dateTime);                     // Add timestamp in the created sensor
+
+                SensorValue sv = new SensorValue(value, dateTime, parameter, this.SelectedAnalysis.Name);
+
+                sensor.Values.Add(sv); // Add the value in the created sensor
 
                 //Add value in sensor by name
-                ((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.AddValue(sensorName, value, this.SelectedAnalysis.Name);
+                ((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.AddValue(sensorName, value, sv);
                 //Add in the sensor log
                 ((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.AddSensorLogData(sensor);
             }
@@ -768,7 +773,7 @@ namespace SensorsViewer.Home
         {
             System.DateTime dtDateTime = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
             dtDateTime = dtDateTime.AddMilliseconds(unixTimeStamp);
-            return dtDateTime.ToString();
+            return dtDateTime.ToString("dd/MM/yyy HH:mm:ss.fff");
         }
 
         /// <summary>

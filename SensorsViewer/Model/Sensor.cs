@@ -20,7 +20,6 @@ namespace SensorsViewer.SensorOption
         /// </summary>
         public Sensor()
         {
-            this.TimeStamp = new List<string>();
             this.Values = new List<SensorValue>();
             this.Id = this.GenerateID();
         }
@@ -39,7 +38,6 @@ namespace SensorsViewer.SensorOption
             this.Y = y;
             this.Z = z;
 
-            this.TimeStamp = new List<string>();
             this.Values = new List<SensorValue>();
             this.Id = this.GenerateID();
         }
@@ -49,12 +47,9 @@ namespace SensorsViewer.SensorOption
         /// </summary>
         /// <param name="sensorName">Sensor Name</param>
         /// <param name="parameter">Parameter of the value</param>
-        public Sensor(string sensorName, string parameter)
+        public Sensor(string sensorName)
         {
             this.SensorName = sensorName;
-            this.Parameter = parameter;
-
-            this.TimeStamp = new List<string>();
             this.Values = new List<SensorValue>();
             this.Id = this.GenerateID();
         }
@@ -95,16 +90,6 @@ namespace SensorsViewer.SensorOption
         public List<SensorValue> Values { get; set; }
 
         /// <summary>
-        /// Gets or sets TimeStamp
-        /// </summary>
-        public List<string> TimeStamp { get; set; }
-
-        /// <summary>
-        /// Gets or sets Parameter
-        /// </summary>
-        public string Parameter { get; set; }
-
-        /// <summary>
         /// Generate unique Id
         /// </summary>
         /// <returns>generated id</returns>
@@ -122,20 +107,33 @@ namespace SensorsViewer.SensorOption
            
         }
 
-        public SensorValue(double value, string analysis)
+        public SensorValue(double value, string timestamp, string parameter, string analysis)
         {
             this.Value = value;
+            this.Timestamp = timestamp;
             this.AnalysisName = analysis;
+            this.Parameter = parameter;
         }
+        
         /// <summary>
         /// Double value of the sensor
         /// </summary>
-        public double Value;
+        public double Value { get; set; }
+
+        /// <summary>
+        /// Double value of the sensor
+        /// </summary>
+        public string Timestamp { get; set; }
+
+        /// <summary>
+        /// Gets or sets Parameter
+        /// </summary>
+        public string Parameter { get; set; }
 
         /// <summary>
         /// Which analysis the value belongs to
         /// </summary>
-        public string AnalysisName;
+        public string AnalysisName { get; set; }
     }
 
 }
