@@ -4,8 +4,6 @@
 
 namespace SensorsViewer.SensorOption
 {
-    using SensorsViewer.ProjectB;
-    using SensorsViewer.Result;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel;
@@ -13,6 +11,8 @@ namespace SensorsViewer.SensorOption
     using System.Text;
     using System.Threading.Tasks;
     using System.Xml.Serialization;
+    using SensorsViewer.ProjectB;
+    using SensorsViewer.Result;
 
     /// <summary>
     /// Class of Analysis
@@ -40,6 +40,7 @@ namespace SensorsViewer.SensorOption
         /// <summary>
         /// Initializes a new instance of the <see cref="Analysis"/> class
         /// </summary>
+        /// <param name="path">Model path</param>
         public Analysis(string path)
         {
             this.ProjectChartContent = new OpticalSensorView();
@@ -49,9 +50,10 @@ namespace SensorsViewer.SensorOption
         /// <summary>
         /// Initializes a new instance of the <see cref="Analysis"/> class
         /// </summary>
-        /// <param name="name">analysis name</param>
-        /// <param name="date">analysis date</param>
-        /// <param name="time">analysis time</param>
+        /// <param name="name">Analysis name</param>
+        /// <param name="date">Analysis date</param>
+        /// <param name="time">Analysis time</param>
+        /// <param name="path">Analysis Model path</param>
         public Analysis(string name, string date, string time, string path)
         {
             this.Name = name;
@@ -82,10 +84,10 @@ namespace SensorsViewer.SensorOption
         /// </summary>
         public string Time { get; set; }
 
-        [XmlIgnore]
         /// <summary>
         /// Gets or sets project B User control content
         /// </summary>
+        [XmlIgnore]
         public OpticalSensorView ProjectChartContent
         {
             get
@@ -100,10 +102,10 @@ namespace SensorsViewer.SensorOption
             }
         }
 
-        [XmlIgnore]
         /// <summary>
         /// Gets or sets project B User control content
         /// </summary>
+        [XmlIgnore]
         public ResultView ProjectResutContent
         {
             get

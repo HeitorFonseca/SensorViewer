@@ -29,7 +29,7 @@ namespace SensorsViewer.ProjectB
         /// <summary>
         /// Collection of colors to be used in graph
         /// </summary>
-        private ColorsCollection SeriesColors = new ColorsCollection();
+        private ColorsCollection seriesColors = new ColorsCollection();
 
         /// <summary>
         /// File path of the sensor
@@ -107,6 +107,10 @@ namespace SensorsViewer.ProjectB
             this.SeriesCollection.Add(newLs);
         }
 
+        /// <summary>
+        /// Remove sensor from chart graph
+        /// </summary>
+        /// <param name="sensor">Which sensor is going to be removed</param>
         public void RemoveSensorFromGraph(SensorOption.Sensor sensor)
         {
             this.SensorList.Remove(sensor);
@@ -128,14 +132,14 @@ namespace SensorsViewer.ProjectB
             {
                 this.SeriesCollection.Remove(ls);
             }
-
         }
 
         /// <summary>
         /// Add value for sensor
         /// </summary>
-        /// <param name="sensorid">sensor id</param>
-        /// <param name="value">value to add</param>
+        /// <param name="sensorName">Sensor id</param>
+        /// <param name="value">Value to add</param>
+        /// <param name="sv">Sensor value</param>
         public void AddValue(string sensorName, double value, SensorOption.SensorValue sv)
         {            
             // If exist a line series with sensor with sensorid
@@ -144,7 +148,7 @@ namespace SensorsViewer.ProjectB
                 LiveCharts.Defaults.ObservableValue obsValue = new LiveCharts.Defaults.ObservableValue(value);
                 ls.Values.Add(value);
 
-                for(int i = 0; i < this.SensorList.Count; i++)
+                for (int i = 0; i < this.SensorList.Count; i++)
                 {
                     if (this.SensorList[i].SensorName == sensorName)
                     {
@@ -166,6 +170,11 @@ namespace SensorsViewer.ProjectB
             }
         }
 
+        /// <summary>
+        /// Show loaded sensors when load windows
+        /// </summary>
+        /// <param name="sensorList">Sensor list</param>
+        /// <param name="analysisName">Analysis name</param>
         public void ShowLoadedSensors(ObservableCollection<SensorOption.Sensor> sensorList, string analysisName)
         {
             foreach (SensorOption.Sensor sensor in sensorList)
@@ -204,13 +213,17 @@ namespace SensorsViewer.ProjectB
             }
         }
 
+        /// <summary>
+        /// Show sensor log when load window
+        /// </summary>
+        /// <param name="sensorList">Sensor list</param>
+        /// <param name="analysisName">Analysis name</param>
         public void ShowSensorsLog(ObservableCollection<SensorOption.Sensor> sensorList, string analysisName)
         {
             ObservableCollection<SensorOption.Sensor> list = new ObservableCollection<SensorOption.Sensor>();
 
             foreach (SensorOption.Sensor sensor in sensorList)
             {
-
                 foreach (SensorOption.SensorValue values in sensor.Values)
                 {
                     if (values.AnalysisName == analysisName)
@@ -222,41 +235,9 @@ namespace SensorsViewer.ProjectB
                 }              
             }
 
-            list = new ObservableCollection<SensorOption.Sensor>(list.OrderBy( a=> a.Values[0].Timestamp));
+            list = new ObservableCollection<SensorOption.Sensor>(list.OrderBy(a => a.Values[0].Timestamp));
 
             this.SensorsLog = list;
-        }
-
-        /// <summary>
-        /// Get next color for graph
-        /// </summary>
-        /// <returns></returns>
-        private Color GetNextDefaultColor()
-        {
-            if (this.currentSeriesIndex == int.MaxValue) this.currentSeriesIndex = 0;
-            var i = this.currentSeriesIndex;
-            this.currentSeriesIndex++;
-
-
-            return SeriesColors[i % SeriesColors.Count];
-        }
-
-        private void InitializeSeriesColors()
-        {
-           this.SeriesColors.Add(new Color() { A = 255, R = 45, G = 137, B = 239 }); // blue
-           this.SeriesColors.Add(new Color() { A = 255, R = 238, G = 17, B = 17 });  // red
-           this.SeriesColors.Add(new Color() { A = 255, R = 255, G = 196, B = 13 }); // yellow
-           this.SeriesColors.Add(new Color() { A = 255, R = 0, G = 171, B = 169 });  // green blue
-           this.SeriesColors.Add(new Color() { A = 255, R = 255, G = 0, B = 151 });  // pink
-           this.SeriesColors.Add(new Color() { A = 255, R = 0, G = 163, B = 0 });    // green
-           this.SeriesColors.Add(new Color() { A = 255, R = 218, G = 83, B = 44 });  // orange
-           this.SeriesColors.Add(new Color() { A = 255, R = 43, G = 87, B = 151 });  // blue
-           this.SeriesColors.Add(new Color() { A = 255, R = 109, G =0, B = 172 });   // purple
-           this.SeriesColors.Add(new Color() { A = 255, R = 118, G = 59, B = 29 });  // brown
-           this.SeriesColors.Add(new Color() { A = 255, R = 33, G = 53, B = 23 });   // dark green
-           this.SeriesColors.Add(new Color() { A = 255, R = 26, G = 31, B = 55 });   // dark blue
-           this.SeriesColors.Add(new Color() { A = 255, R = 98, G = 98, B = 98 });   // gray
-
         }
 
         /// <summary>
@@ -270,5 +251,42 @@ namespace SensorsViewer.ProjectB
                 this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        /// <summary>
+        /// Get next color for graph
+        /// </summary>
+        /// <returns>Returns the next default color</returns>
+        private Color GetNextDefaultColor()
+        {
+            if (this.currentSeriesIndex == int.MaxValue)
+            {
+                this.currentSeriesIndex = 0;
+            }
+
+            var i = this.currentSeriesIndex;
+            this.currentSeriesIndex++;
+
+            return this.seriesColors[i % this.seriesColors.Count];
+        }
+
+        /// <summary>
+        /// Initialize defaults color
+        /// </summary>
+        private void InitializeSeriesColors()
+        {
+           this.seriesColors.Add(new Color() { A = 255, R = 45, G = 137, B = 239 }); // blue
+           this.seriesColors.Add(new Color() { A = 255, R = 238, G = 17, B = 17 });  // red
+           this.seriesColors.Add(new Color() { A = 255, R = 255, G = 196, B = 13 }); // yellow
+           this.seriesColors.Add(new Color() { A = 255, R = 0, G = 171, B = 169 });  // green blue
+           this.seriesColors.Add(new Color() { A = 255, R = 255, G = 0, B = 151 });  // pink
+           this.seriesColors.Add(new Color() { A = 255, R = 0, G = 163, B = 0 });    // green
+           this.seriesColors.Add(new Color() { A = 255, R = 218, G = 83, B = 44 });  // orange
+           this.seriesColors.Add(new Color() { A = 255, R = 43, G = 87, B = 151 });  // blue
+           this.seriesColors.Add(new Color() { A = 255, R = 109, G = 0, B = 172 });   // purple
+           this.seriesColors.Add(new Color() { A = 255, R = 118, G = 59, B = 29 });  // brown
+           this.seriesColors.Add(new Color() { A = 255, R = 33, G = 53, B = 23 });   // dark green
+           this.seriesColors.Add(new Color() { A = 255, R = 26, G = 31, B = 55 });   // dark blue
+           this.seriesColors.Add(new Color() { A = 255, R = 98, G = 98, B = 98 });   // gray
+        }        
     }
 }

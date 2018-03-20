@@ -4,7 +4,6 @@
 
 namespace SensorsViewer.Result
 {
-    using HelixToolkit.Wpf;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -13,6 +12,7 @@ namespace SensorsViewer.Result
     using System.Windows.Input;
     using System.Windows.Media;
     using System.Windows.Media.Media3D;
+    using HelixToolkit.Wpf;
 
     /// <summary>
     /// Class for result view model
@@ -27,12 +27,12 @@ namespace SensorsViewer.Result
         /// <summary>
         /// Group Model
         /// </summary>
-        Model3DGroup groupModel = new Model3DGroup();
+        private Model3DGroup groupModel = new Model3DGroup();
 
         /// <summary>
         /// Stl model mesh
         /// </summary>
-        MeshGeometry3D modelMesh = new MeshGeometry3D();
+        private MeshGeometry3D modelMesh = new MeshGeometry3D();
 
         /// <summary>
         /// Stl file path
@@ -44,14 +44,17 @@ namespace SensorsViewer.Result
         /// </summary>
         public ResultViewModel()
         {
-            this.viewPort3d = new HelixViewport3D();
+            this.ViewPort3d = new HelixViewport3D();
             this.device3D = new ModelVisual3D();
         }
 
-        public HelixViewport3D viewPort3d { get; set; }
+        /// <summary>
+        /// Gets or sets Hellix view port 3d
+        /// </summary>
+        public HelixViewport3D ViewPort3d { get; set; }
 
         /// <summary>
-        /// 
+        /// Gets or sets group model
         /// </summary>
         public Model3DGroup GroupModel
         {
@@ -66,13 +69,17 @@ namespace SensorsViewer.Result
             }
         }
 
+        /// <summary>
+        /// Load stl model
+        /// </summary>
+        /// <param name="stlFile">Stl model path</param>
         public void LoadStlModel(string stlFile)
         {
             this.stlFilePath = stlFile;
-            Model3D stlModel = Display3d(this.stlFilePath);
+            Model3D stlModel = this.Display3d(this.stlFilePath);
 
-            groupModel.Children.Add(stlModel);
-            device3D.Content = groupModel;           
+            this.groupModel.Children.Add(stlModel);
+            this.device3D.Content = this.groupModel;           
         }
 
         /// <summary>
@@ -85,22 +92,22 @@ namespace SensorsViewer.Result
             Model3D device = null;
             try
             {
-                //Adding a gesture here
-                viewPort3d.RotateGesture = new MouseGesture(MouseAction.LeftClick);
+                // Adding a gesture here
+                this.ViewPort3d.RotateGesture = new MouseGesture(MouseAction.LeftClick);
 
-                //Import 3D model file
+                // Import 3D model file
                 ModelImporter import = new ModelImporter();
 
                 Material material = new DiffuseMaterial(new SolidColorBrush(Colors.Black));
                 import.DefaultMaterial = material;
 
-                //Load the 3D model file
+                // Load the 3D model file
                 device = import.Load(model);
 
-                Action<GeometryModel3D, Transform3D> nameAction = ((geometryModel, transform) =>
+                Action<GeometryModel3D, Transform3D> nameAction = (geometryModel, transform) =>
                 {
                     modelMesh = (MeshGeometry3D)geometryModel.Geometry;
-                });
+                };
 
                 device.Traverse(nameAction);
             }

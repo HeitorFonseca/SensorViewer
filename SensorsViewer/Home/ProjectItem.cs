@@ -4,7 +4,6 @@
 
 namespace SensorsViewer.Home
 {
-    using SensorsViewer.ProjectB;
     using System;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
@@ -47,6 +46,7 @@ namespace SensorsViewer.Home
         /// Initializes a new instance of the <see cref="ProjectItem"/> class
         /// </summary>
         /// <param name="name">Option name</param>
+        /// <param name="modelPath">Path of the model</param>
         public ProjectItem(string name, string modelPath)
         {
             this.Id = idCount++;
@@ -59,14 +59,14 @@ namespace SensorsViewer.Home
                  new TabCategory(modelPath) { Name = "Adjustment" }
             };
 
-            //Tabs[0].Analysis.Add(new SensorOption.Analysis("Analysis", "", ""));
-            //Tabs[1].Analysis.Add(new SensorOption.Analysis("Analysis", "", ""));
+            ////Tabs[0].Analysis.Add(new SensorOption.Analysis("Analysis", "", ""));
+            ////Tabs[1].Analysis.Add(new SensorOption.Analysis("Analysis", "", ""));
 
-            //Tabs[0].ProjectChartContent = new OpticalSensorView();
-            //Tabs[1].ProjectChartContent = new OpticalSensorView();
+            ////Tabs[0].ProjectChartContent = new OpticalSensorView();
+            ////Tabs[1].ProjectChartContent = new OpticalSensorView();
 
-            //Tabs[0].ProjectResutContent = new Result.ResultView(ModelPath);
-            //Tabs[1].ProjectResutContent = new Result.ResultView(ModelPath);
+            ////Tabs[0].ProjectResutContent = new Result.ResultView(ModelPath);
+            ////Tabs[1].ProjectResutContent = new Result.ResultView(ModelPath);
         }
 
         /// <summary>
@@ -75,14 +75,14 @@ namespace SensorsViewer.Home
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
-        /// Gets Id
+        /// Gets or sets Id
         /// </summary>
         public int Id { get; set; }
 
         /// <summary>
-        /// Gets Id
+        /// Gets or sets Id
         /// </summary>
-        public int qtdAnalysis { get; set; }
+        public int QtdAnalysis { get; set; }
 
         /// <summary>
         /// Gets or sets Name
@@ -107,7 +107,7 @@ namespace SensorsViewer.Home
         public string ModelPath { get; set; }
 
         /// <summary>
-        /// Projects collection
+        /// Gets or sets projects collection
         /// </summary>
         public ObservableCollection<TabCategory> Tabs
         {

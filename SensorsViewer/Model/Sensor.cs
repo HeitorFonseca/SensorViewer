@@ -46,7 +46,6 @@ namespace SensorsViewer.SensorOption
         /// Initializes a new instance of the <see cref="Sensor"/> class
         /// </summary>
         /// <param name="sensorName">Sensor Name</param>
-        /// <param name="parameter">Parameter of the value</param>
         public Sensor(string sensorName)
         {
             this.SensorName = sensorName;
@@ -99,14 +98,25 @@ namespace SensorsViewer.SensorOption
         }
     }
 
+    /// <summary>
+    /// Class of sensor value
+    /// </summary>
     public class SensorValue
     {
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SensorValue"/> class
+        /// </summary>
         public SensorValue()
-        {
-           
+        {           
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SensorValue"/> class
+        /// </summary>
+        /// <param name="value">Sensor value</param>
+        /// <param name="timestamp">Value timestamp</param>
+        /// <param name="parameter">Value parameter</param>
+        /// <param name="analysis">Value Analysis</param>
         public SensorValue(double value, string timestamp, string parameter, string analysis)
         {
             this.Value = value;
@@ -116,12 +126,12 @@ namespace SensorsViewer.SensorOption
         }
         
         /// <summary>
-        /// Double value of the sensor
+        /// Gets or sets double value of the sensor
         /// </summary>
         public double Value { get; set; }
 
         /// <summary>
-        /// Double value of the sensor
+        /// Gets or sets Double value of the sensor
         /// </summary>
         public string Timestamp { get; set; }
 
@@ -131,9 +141,8 @@ namespace SensorsViewer.SensorOption
         public string Parameter { get; set; }
 
         /// <summary>
-        /// Which analysis the value belongs to
+        /// Gets or sets which analysis the value belongs to
         /// </summary>
         public string AnalysisName { get; set; }
     }
-
 }

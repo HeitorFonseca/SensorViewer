@@ -12,6 +12,9 @@ namespace SensorsViewer
     using System.Threading.Tasks;
     using System.Xml.Serialization;
 
+    /// <summary>
+    /// Xml serialization class
+    /// </summary>
     public static class XmlSerialization
     {
         /// <summary>

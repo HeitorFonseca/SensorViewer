@@ -1,4 +1,4 @@
-﻿// <copyright file="ResultView.cs" company="GM">
+﻿// <copyright file="ResultView.xaml.cs" company="GM">
 //     gm.com. All rights reserved.
 // </copyright>
 
@@ -29,16 +29,20 @@ namespace SensorsViewer.Result
         /// </summary>
         public ResultView()
         {
-            InitializeComponent();
+            this.InitializeComponent();
 
             this.ResultViewModel = new ResultViewModel();           
 
             this.DataContext = this.ResultViewModel;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ResultView"/> class
+        /// </summary>
+        /// <param name="path">Model path</param>
         public ResultView(string path)
         {
-            InitializeComponent();
+            this.InitializeComponent();
 
             this.ResultViewModel = new ResultViewModel();
 
@@ -52,6 +56,15 @@ namespace SensorsViewer.Result
             this.DataContext = this.ResultViewModel;
         }
 
+        /// <summary>
+        /// Gets or sets optical sensor view model
+        /// </summary>
+        public ResultViewModel ResultViewModel { get; set; }
+
+        /// <summary>
+        /// Load model
+        /// </summary>
+        /// <param name="path">Model path</param>
         public void LoadContent(string path)
         {
             if (!string.IsNullOrEmpty(path) && this.ResultViewModel != null)
@@ -60,10 +73,6 @@ namespace SensorsViewer.Result
                 this.viewPort3d.ZoomExtents();
                 this.viewPort3d.ZoomExtentsWhenLoaded = true;
             }
-        }
-        /// <summary>
-        /// Gets or sets optical sensor view model
-        /// </summary>
-        public ResultViewModel ResultViewModel { get; set; }
+        }        
     }
 }

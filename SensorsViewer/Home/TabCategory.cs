@@ -24,6 +24,9 @@ namespace SensorsViewer.Home
         /// </summary>
         private ObservableCollection<Analysis> analysis;
 
+        /// <summary>
+        /// Collection of sensors
+        /// </summary>
         private ObservableCollection<Sensor> sensors;
 
         /// <summary>
@@ -34,10 +37,11 @@ namespace SensorsViewer.Home
             this.Analysis = new ObservableCollection<Analysis>();
             this.Sensors = new ObservableCollection<Sensor>();
         }
-
+    
         /// <summary>
         /// Initializes a new instance of the <see cref="TabCategory"/> class
         /// </summary>
+        /// <param name="path">Model path</param>
         public TabCategory(string path)
         {
             this.Analysis = new ObservableCollection<Analysis>();

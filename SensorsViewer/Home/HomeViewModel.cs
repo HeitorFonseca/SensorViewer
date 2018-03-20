@@ -446,22 +446,16 @@ namespace SensorsViewer.Home
 
                 this.tabIndex = 0;
 
-                this.SelectedProjectItem = this.projectItems[0];
-
-                // Select the tabs as the new selected project tabs
-                this.SelectedTabCategory = this.SelectedProjectItem.Tabs;
-
-                // Select the tab item as Draw-In or Adjustment
-                this.SelectedTab = this.selectedTabCategory[this.tabIndex];
-
+                this.SelectedProjectItem = this.projectItems[0];                
+                this.SelectedTabCategory = this.SelectedProjectItem.Tabs;   // Select the tabs as the new selected project tabs         
+                this.SelectedTab = this.selectedTabCategory[this.tabIndex]; // Select the tab item as Draw-In or Adjustment
                 this.SelectedAnalysis = this.SelectedTab.Analysis[0];
-
                 this.SelectedProjectChartContent = this.SelectedAnalysis.ProjectChartContent;
                 this.SelectedProjectResultContent = this.SelectedAnalysis.ProjectResutContent;
             }
-            catch (Exception e)
+            catch (Exception)
             {
-               //throw new Exception("Error when load xml file");
+               ////throw new Exception("Error when load xml file");
             }
         }
 
@@ -493,10 +487,10 @@ namespace SensorsViewer.Home
                 this.SelectedTab = this.selectedTabCategory[this.tabIndex];
 
                 // Select the project content as the tab index chart graph
-                this.SelectedProjectChartContent = (newOpt.Tabs[this.tabIndex].Analysis.Count > 0 ? newOpt.Tabs[this.tabIndex].Analysis[0].ProjectChartContent : null);
+                this.SelectedProjectChartContent = newOpt.Tabs[this.tabIndex].Analysis.Count > 0 ? newOpt.Tabs[this.tabIndex].Analysis[0].ProjectChartContent : null;
 
                 // Show the slt model when does not have the analysis yet
-                this.SelectedProjectResultContent = (newOpt.Tabs[this.tabIndex].Analysis.Count > 0 ? newOpt.Tabs[this.tabIndex].Analysis[0].ProjectResutContent : new ResultView(modelPath));
+                this.SelectedProjectResultContent = newOpt.Tabs[this.tabIndex].Analysis.Count > 0 ? newOpt.Tabs[this.tabIndex].Analysis[0].ProjectResutContent : new ResultView(modelPath);
             }
         }
 
@@ -527,9 +521,9 @@ namespace SensorsViewer.Home
         /// <param name="parameter">Object parameter</param>
         private async void ClickInRenameActionAsync(object parameter)
         {
-            var result = await this.dialogCoordinator.ShowInputAsync(this,"Rename project", "Enter Project Name");
+            var result = await this.dialogCoordinator.ShowInputAsync(this, "Rename project", "Enter Project Name");
 
-            //user pressed cancel
+            // User pressed cancel
             if (result == null)
             {
                 return;
@@ -583,16 +577,15 @@ namespace SensorsViewer.Home
                 this.SelectedProjectChartContent = null;
 
                 this.SelectedProjectResultContent = null;
-
             }
-            else {
-
+            else
+            {
                 i = (i + (this.ProjectItems.Count - 1)) % this.ProjectItems.Count;
 
                 this.SelectedProjectItem = this.ProjectItems[i];
                 this.SelectedTabCategory = this.ProjectItems[i].Tabs;               
                 this.SelectedTab = this.SelectedTabCategory[this.tabIndex];  // Select the tab item as Draw-In or Adjustment               
-                this.SelectedAnalysis = selectedTab.Analysis[0];             // Selected analysis               
+                this.SelectedAnalysis = this.SelectedTab.Analysis[0];             // Selected analysis               
                 this.SelectedProjectChartContent = this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectChartContent : null;  // Select the project content as the tab index chart graph
                 this.SelectedProjectResultContent = this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectResutContent : null;
             }
@@ -623,16 +616,16 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Event to open file browser for upload sensor file
         /// </summary>
+        /// <param name="parameter">Object parameter</param>
         private void BrowseFileAction(object parameter)
         {
-
             var dialog = new OpenFileDialog();
             dialog.Filter = "Text (*.txt)|*.txt|All Files(*.*)|*.*";
 
             bool? result = dialog.ShowDialog(); // Show file dialog
 
             // If user select some file
-            if ((result.HasValue) && (result.Value))    
+            if (result.HasValue && result.Value)    
             {
                 this.fileSensorsPath = dialog.FileName; // Get the path 
                
@@ -656,14 +649,14 @@ namespace SensorsViewer.Home
         /// Delete sensor 
         /// </summary>
         /// <param name="parameter">Object Parameter</param>
-        private void DeleteSensorAction (object parameter)
+        private void DeleteSensorAction(object parameter)
         {
             var sensor = parameter as Sensor;
 
             // Remove sensors from chart
-            if (SelectedProjectChartContent != null)
+            if (this.SelectedProjectChartContent != null)
             {
-                ((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.RemoveSensorFromGraph(sensor);
+                ((OpticalSensorView)this.SelectedProjectChartContent).OpticalSensorViewModel.RemoveSensorFromGraph(sensor);
             }
 
             // Remove from sensors list
@@ -673,15 +666,19 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Delete Analysis
         /// </summary>
-        /// <param name="parameter"></param>
-        private void DeleteAnalysisAction (object parameter)
+        /// <param name="parameter">Object parameter</param>
+        private void DeleteAnalysisAction(object parameter)
         {
             var analysis = parameter as Analysis;
 
             this.SelectedTab.Analysis.Remove(analysis);
         }
 
-        private void ClickInAnalysisAction (object parameter)
+        /// <summary>
+        /// DClick in analysis list item
+        /// </summary>
+        /// <param name="parameter">Object parameter</param>
+        private void ClickInAnalysisAction(object parameter)
         {
             Analysis analysis = null;
 
@@ -698,7 +695,6 @@ namespace SensorsViewer.Home
 
             this.SelectedProjectChartContent = this.SelectedAnalysis.ProjectChartContent;
             this.SelectedProjectResultContent = this.SelectedAnalysis.ProjectResutContent;
-
         }
 
         #endregion
@@ -706,11 +702,10 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Event for when receive a mqtt message
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="ea"></param>
+        /// <param name="sender">Object sender</param>
+        /// <param name="ea">Event arguments</param>
         private void WhenMessageReceived(object sender, BasicDeliverEventArgs ea)
         {
-
             var body = ea.Body;
             var message = Encoding.UTF8.GetString(body);
 
@@ -720,7 +715,6 @@ namespace SensorsViewer.Home
             {
                 UpdateSensorChart(jsonData);
             }));
-
         }
 
         /// <summary>
@@ -733,12 +727,12 @@ namespace SensorsViewer.Home
 
             if (dif >= 60)
             {
-                int index = (jsonData.viewer == "drawin" ? 0 : 1);
+                int index = jsonData.viewer == "drawin" ? 0 : 1;
 
                 this.CreateAnalysis(index);
             }
 
-            //For each sensors sensor values received
+            // For each sensors sensor values received
             foreach (List<string> data in jsonData.values)
             {
                 string sensorName = data[0];                        // Get the sensor name (sensor id)
@@ -747,30 +741,30 @@ namespace SensorsViewer.Home
                 string parameter = data[3];                         // Get the parameter
                 string status = data[4];                            // Get the sensor status
 
-                Sensor sensor = new Sensor(sensorName);  // Create the sensor with name and parameter
+                Sensor sensor = new Sensor(sensorName);             // Create the sensor with name and parameter
 
-                string dateTime = UnixTimeStampToDateTime(timestamp);
+                string dateTime = this.UnixTimeStampToDateTime(timestamp);
 
                 SensorValue sv = new SensorValue(value, dateTime, parameter, this.SelectedAnalysis.Name);
 
-                sensor.Values.Add(sv); // Add the value in the created sensor
-
-                //Add value in sensor by name
-                ((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.AddValue(sensorName, value, sv);
-                //Add in the sensor log
-                ((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.AddSensorLogData(sensor);
+                sensor.Values.Add(sv);                                                                                        // Add the value in the created sensor                
+                ((OpticalSensorView)this.SelectedProjectChartContent).OpticalSensorViewModel.AddValue(sensorName, value, sv); // Add value in sensor by name               
+                ((OpticalSensorView)this.SelectedProjectChartContent).OpticalSensorViewModel.AddSensorLogData(sensor);        // Add in the sensor log
             }
 
             this.lastMessageReceivedTime = DateTime.Now;
         }
 
+        /// <summary>
+        /// Index of tab (if is drawin or adjustment
+        /// </summary>
+        /// <param name="index">Index of tab</param>
         private void CreateAnalysis(int index)
         {            
-
-            Analysis newAnalysis = new Analysis("Analysis " + (SelectedProjectItem.Tabs[index].Analysis.Count + 1), DateTime.Now.ToString("dd/MM/yyy"), DateTime.Now.ToString("HH:mm:ss.fff"), this.SelectedProjectItem.ModelPath);
+            Analysis newAnalysis = new Analysis("Analysis " + (this.SelectedProjectItem.Tabs[index].Analysis.Count + 1), DateTime.Now.ToString("dd/MM/yyy"), DateTime.Now.ToString("HH:mm:ss.fff"), this.SelectedProjectItem.ModelPath);
+            
             // Set the list sensor of the graph the same as the sensors list tab
-
-            foreach (Sensor s in SelectedTab.Sensors)
+            foreach (Sensor s in this.SelectedTab.Sensors)
             {
                 newAnalysis.ProjectChartContent.OpticalSensorViewModel.AddSensorToGraph(s);
             }
@@ -782,23 +776,10 @@ namespace SensorsViewer.Home
         }
 
         /// <summary>
-        /// Convert timestamp to Datetime
-        /// </summary>
-        /// <param name="unixTimeStamp">timestamp value</param>
-        /// <returns>Date time</returns>
-        private static string UnixTimeStampToDateTime(long unixTimeStamp)
-        {
-            System.DateTime dtDateTime = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
-            dtDateTime = dtDateTime.AddMilliseconds(unixTimeStamp);
-            return dtDateTime.ToString("dd/MM/yyy HH:mm:ss.fff");
-        }
-
-        /// <summary>
         /// Initialize left bar menu
         /// </summary>
         private void InitializeMenu()
         {
-
             ////this.tabCategory = new ObservableCollection<TabCategory>();
             ////ObservableCollection<TabCategory> tabCat2 = new ObservableCollection<TabCategory>();
 
@@ -861,6 +842,18 @@ namespace SensorsViewer.Home
             ////XmlSerialization.WriteToXmlFile<ObservableCollection<ProjectItem>>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", this.ProjectItems);
 
             ////this.ResultContent = new ResultView();
+        }
+
+        /// <summary>
+        /// Convert timestamp to Datetime
+        /// </summary>
+        /// <param name="unixTimeStamp">timestamp value</param>
+        /// <returns>Date time</returns>
+        private string UnixTimeStampToDateTime(long unixTimeStamp)
+        {
+            System.DateTime dateTime = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
+            dateTime = dateTime.AddMilliseconds(unixTimeStamp);
+            return dateTime.ToString("dd/MM/yyy HH:mm:ss.fff");
         }
     }
 }

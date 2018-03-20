@@ -14,8 +14,8 @@ namespace SensorsViewer.Result
 
     public class Interpolation
     {
+        
         private Dictionary<Tuple<int, int>, double> dic = new Dictionary<Tuple<int, int>, double>();
-
 
         private MeshGeometry3D BuildDictionary(MeshGeometry3D mesh)
         {
