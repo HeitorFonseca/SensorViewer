@@ -104,7 +104,7 @@ namespace SensorsViewer.Result
 
                 device.Traverse(nameAction);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 // Handle exception in case can not find the 3D model file
                 throw new Exception("not find 3d model file");

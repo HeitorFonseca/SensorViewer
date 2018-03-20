@@ -62,11 +62,7 @@ namespace SensorsViewer.Home.Commands
             var tab = parameter as TabCategory;
 
             Sensor s = new Sensor();
-            // ((OpticalSensorView)this.viewModel.SelectedProjectChartContent).OpticalSensorViewModel.AddSensorToGraph(s);
-
             this.viewModel.SelectedTab.Sensors.Add(s);
-
-
         }
     }
 }

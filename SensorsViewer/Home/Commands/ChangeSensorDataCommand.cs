@@ -4,8 +4,6 @@
 
 namespace SensorsViewer.Home.Commands
 {
-    using SensorsViewer.ProjectB;
-    using SensorsViewer.SensorOption;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -13,6 +11,8 @@ namespace SensorsViewer.Home.Commands
     using System.Threading.Tasks;
     using System.Windows.Controls;
     using System.Windows.Input;
+    using SensorsViewer.ProjectB;
+    using SensorsViewer.SensorOption;
 
     /// <summary>
     /// Class for when change sensor data command

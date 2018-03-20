@@ -96,32 +96,35 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Time for last message received
         /// </summary>
-        private DateTime LastMessageReceivedTime;
+        private DateTime lastMessageReceivedTime;
 
         /// <summary>
         /// Dialog coordinator for show dialog
         /// </summary>
         private IDialogCoordinator dialogCoordinator;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HomeViewModel"/> class
+        /// </summary>
         public HomeViewModel()
         {
-
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HomeViewModel"/> class
         /// </summary>
+        /// <param name="dialogCoordinator">Dialog coordinator to show dialog</param>
         public HomeViewModel(IDialogCoordinator dialogCoordinator)
         {
             this.dialogCoordinator = dialogCoordinator;
 
             this.proc = new MqttConnection("localhost", 5672, "userTest", "userTest", "hello");
             this.proc.Connect();
-            this.proc.ReadDataEvnt(WhenMessageReceived);
+            this.proc.ReadDataEvnt(this.WhenMessageReceived);
 
             this.ProjectItems = new ObservableCollection<ProjectItem>();
 
-            //this.InitializeMenu();
+            ////this.InitializeMenu();
 
             this.CloseWindowCommand = new RelayCommand(this.WindowClosingAction);
             this.LoadedWindowCommand = new RelayCommand(this.WindowLoadedAction);
@@ -140,7 +143,7 @@ namespace SensorsViewer.Home
 
             this.ClickInAnalysisItem = new RelayCommand(this.ClickInAnalysisAction);
 
-            this.LastMessageReceivedTime = DateTime.Now;
+            this.lastMessageReceivedTime = DateTime.Now;
         }
 
         #region Properties Declarations
@@ -355,7 +358,7 @@ namespace SensorsViewer.Home
             }
         }
 
-        // <summary>
+        /// <summary>
         /// Gets or sets user control content
         /// </summary>
         public Analysis SelectedAnalysis
@@ -401,12 +404,14 @@ namespace SensorsViewer.Home
             }
         }
 
-        #endregion      
+        #endregion
 
         #region Actions
+
         /// <summary>
-        /// Event when close window
+        ///  Event when close window
         /// </summary>
+        /// <param name="parameter">Object parameter</param>
         private void WindowClosingAction(object parameter)
         {
             XmlSerialization.WriteToXmlFile<ObservableCollection<ProjectItem>>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", this.ProjectItems);
@@ -415,8 +420,9 @@ namespace SensorsViewer.Home
         }
 
         /// <summary>
-        /// Event when close window
+        ///  Event when load window
         /// </summary>
+        /// <param name="parameter">Object parameter</param>
         private void WindowLoadedAction(object parameter)
         {
             try
@@ -444,6 +450,7 @@ namespace SensorsViewer.Home
 
                 // Select the tabs as the new selected project tabs
                 this.SelectedTabCategory = this.SelectedProjectItem.Tabs;
+
                 // Select the tab item as Draw-In or Adjustment
                 this.SelectedTab = this.selectedTabCategory[this.tabIndex];
 
@@ -451,23 +458,23 @@ namespace SensorsViewer.Home
 
                 this.SelectedProjectChartContent = this.SelectedAnalysis.ProjectChartContent;
                 this.SelectedProjectResultContent = this.SelectedAnalysis.ProjectResutContent;
-
             }
             catch (Exception e)
             {
-                //throw new Exception("Error when load xml file");
+               //throw new Exception("Error when load xml file");
             }
         }
 
         /// <summary>
-        /// Event to create new project
+        ///  Event to create new project
         /// </summary>
+        /// <param name="parameter">Object parameter</param>
         private void CreateNewProjectAction(object parameter)
         {
             AddProjectDialog addProjectDialog = new AddProjectDialog(this.ProjectItems);
             addProjectDialog.ShowDialog();
 
-            string projectName = "", modelPath = "";
+            string projectName = string.Empty, modelPath = string.Empty;
 
             // User clicked OK
             if (addProjectDialog.DialogResult.HasValue && addProjectDialog.DialogResult.Value)
@@ -478,38 +485,40 @@ namespace SensorsViewer.Home
                 this.ProjectItems.Add(newOpt);
 
                 this.SelectedProjectItem = newOpt;
+
                 // Select the tabs as the new selected project tabs
                 this.SelectedTabCategory = newOpt.Tabs;
+
                 // Select the tab item as Draw-In or Adjustment
                 this.SelectedTab = this.selectedTabCategory[this.tabIndex];
+
                 // Select the project content as the tab index chart graph
                 this.SelectedProjectChartContent = (newOpt.Tabs[this.tabIndex].Analysis.Count > 0 ? newOpt.Tabs[this.tabIndex].Analysis[0].ProjectChartContent : null);
+
                 // Show the slt model when does not have the analysis yet
                 this.SelectedProjectResultContent = (newOpt.Tabs[this.tabIndex].Analysis.Count > 0 ? newOpt.Tabs[this.tabIndex].Analysis[0].ProjectResutContent : new ResultView(modelPath));
-
             }
         }
 
         /// <summary>
         /// Event for when the user click in project item
         /// </summary>
-        /// <param name="parameter">object parameter</param>
+        /// <param name="parameter">Object parameter</param>
         private void SelectProjectAction(object parameter)
         {
             var parent = ((MouseButtonEventArgs)parameter).Source as TextBlock;
             var option = (ProjectItem)parent.DataContext;
 
-            //var option = (OptionVm)parameter;
-
             // Select the tabs as the new selected project tabs
             this.SelectedTabCategory = option.Tabs;
+
             // Select the tab item as Draw-In or Adjustment
             this.SelectedTab = this.selectedTabCategory[this.tabIndex];
-            // Select the project content as the tab index chart graph
-            this.SelectedAnalysis = (this.SelectedTab.Analysis.Count > 0 ? this.SelectedTab.Analysis[0] : null);
-            this.SelectedProjectChartContent = (this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectChartContent : null);
-            this.SelectedProjectResultContent = (this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectResutContent : null);
 
+            // Select the project content as the tab index chart graph
+            this.SelectedAnalysis = this.SelectedTab.Analysis.Count > 0 ? this.SelectedTab.Analysis[0] : null;
+            this.SelectedProjectChartContent = this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectChartContent : null;
+            this.SelectedProjectResultContent = this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectResutContent : null;
         }
 
         /// <summary>
@@ -520,8 +529,11 @@ namespace SensorsViewer.Home
         {
             var result = await this.dialogCoordinator.ShowInputAsync(this,"Rename project", "Enter Project Name");
 
-            if (result == null) //user pressed cancel
+            //user pressed cancel
+            if (result == null)
+            {
                 return;
+            }
 
             ProjectItem currentProject = (ProjectItem)parameter;
             
@@ -563,8 +575,10 @@ namespace SensorsViewer.Home
                 this.SelectedProjectItem = null;
 
                 this.SelectedTabCategory = null;
+
                 // Select the tab item to null
                 this.SelectedTab = null;
+
                 // Select the project content to null
                 this.SelectedProjectChartContent = null;
 
@@ -576,17 +590,11 @@ namespace SensorsViewer.Home
                 i = (i + (this.ProjectItems.Count - 1)) % this.ProjectItems.Count;
 
                 this.SelectedProjectItem = this.ProjectItems[i];
-
-                this.SelectedTabCategory = this.ProjectItems[i].Tabs;
-                // Select the tab item as Draw-In or Adjustment
-                this.SelectedTab = this.SelectedTabCategory[this.tabIndex];
-                // Selected analysis
-                this.SelectedAnalysis = selectedTab.Analysis[0];
-                // Select the project content as the tab index chart graph
-                this.SelectedProjectChartContent = (this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectChartContent : null);
-
-                this.SelectedProjectResultContent = (this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectResutContent : null);
-
+                this.SelectedTabCategory = this.ProjectItems[i].Tabs;               
+                this.SelectedTab = this.SelectedTabCategory[this.tabIndex];  // Select the tab item as Draw-In or Adjustment               
+                this.SelectedAnalysis = selectedTab.Analysis[0];             // Selected analysis               
+                this.SelectedProjectChartContent = this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectChartContent : null;  // Select the project content as the tab index chart graph
+                this.SelectedProjectResultContent = this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectResutContent : null;
             }
         }
 
@@ -599,8 +607,8 @@ namespace SensorsViewer.Home
             var textBlock = ((MouseButtonEventArgs)parameter).Source as TextBlock;
             var dc = (TabCategory)textBlock.DataContext;
 
-            this.SelectedProjectChartContent = (dc.Analysis.Count > 0 ? dc.Analysis[0].ProjectChartContent : null);
-            this.SelectedProjectResultContent = (dc.Analysis.Count > 0 ? dc.Analysis[0].ProjectResutContent : null);//dc.ProjectResutContent;
+            this.SelectedProjectChartContent = dc.Analysis.Count > 0 ? dc.Analysis[0].ProjectChartContent : null;
+            this.SelectedProjectResultContent = dc.Analysis.Count > 0 ? dc.Analysis[0].ProjectResutContent : null;
 
             if (dc.Name == "Draw-In")
             {
@@ -621,25 +629,23 @@ namespace SensorsViewer.Home
             var dialog = new OpenFileDialog();
             dialog.Filter = "Text (*.txt)|*.txt|All Files(*.*)|*.*";
 
-            bool? result = dialog.ShowDialog();         // Show file dialog
+            bool? result = dialog.ShowDialog(); // Show file dialog
 
-            if ((result.HasValue) && (result.Value))    // If user select some file
+            // If user select some file
+            if ((result.HasValue) && (result.Value))    
             {
                 this.fileSensorsPath = dialog.FileName; // Get the path 
-
-                //((OpticalSensorView)this.SelectedProjectChartContent).OpticalSensorViewModel.SensorsFilePath = System.IO.Path.GetFileName(this.fileSensorsPath); // Get the filename of the path
                
                 int counter = 1;
+
                 // For each line in file
                 foreach (string line in System.IO.File.ReadAllLines(this.fileSensorsPath))         
                 {
                     string[] data = line.Split(' ');
+
                     // Create a sensor with file data
                     Sensor sensor = new Sensor("Sensor Name " + counter++, Convert.ToDouble(data[0]), Convert.ToDouble(data[1]), Convert.ToDouble(data[2]));
-                    
-                    // Add the created sensor in graph
-                    // ((OpticalSensorView)this.SelectedProjectChartContent).OpticalSensorViewModel.AddSensorToGraph(sensor);
-                   
+             
                     // Add sensor in sensor list
                     this.SelectedTab.Sensors.Add(sensor);
                 }
@@ -649,7 +655,7 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Delete sensor 
         /// </summary>
-        /// <param name="parameter"></param>
+        /// <param name="parameter">Object Parameter</param>
         private void DeleteSensorAction (object parameter)
         {
             var sensor = parameter as Sensor;
@@ -723,7 +729,7 @@ namespace SensorsViewer.Home
         /// <param name="jsonData">Json data received</param>
         private void UpdateSensorChart(JsonData jsonData)
         {
-            double dif = (DateTime.Now - this.LastMessageReceivedTime).TotalMilliseconds;
+            double dif = (DateTime.Now - this.lastMessageReceivedTime).TotalMilliseconds;
 
             if (dif >= 60)
             {
@@ -755,7 +761,7 @@ namespace SensorsViewer.Home
                 ((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.AddSensorLogData(sensor);
             }
 
-            this.LastMessageReceivedTime = DateTime.Now;
+            this.lastMessageReceivedTime = DateTime.Now;
         }
 
         private void CreateAnalysis(int index)
@@ -793,68 +799,68 @@ namespace SensorsViewer.Home
         private void InitializeMenu()
         {
 
-            //this.tabCategory = new ObservableCollection<TabCategory>();
-            //ObservableCollection<TabCategory> tabCat2 = new ObservableCollection<TabCategory>();
+            ////this.tabCategory = new ObservableCollection<TabCategory>();
+            ////ObservableCollection<TabCategory> tabCat2 = new ObservableCollection<TabCategory>();
 
-            //TabCategory p = new TabCategory { Name = "Draw-In" };
-            //TabCategory p2 = new TabCategory { Name = "Adjustment" };
+            ////TabCategory p = new TabCategory { Name = "Draw-In" };
+            ////TabCategory p2 = new TabCategory { Name = "Adjustment" };
 
-            //TabCategory t = new TabCategory { Name = "Draw-In" };
-            //TabCategory t2 = new TabCategory { Name = "Adjustment" };
+            ////TabCategory t = new TabCategory { Name = "Draw-In" };
+            ////TabCategory t2 = new TabCategory { Name = "Adjustment" };
 
-            //Sensor asd = new Sensor("Sensor 1", 10, 11, 0);
-            //Sensor asd2 = new Sensor("Sensor 2", 5, 24, 0);
-            //Sensor asd3 = new Sensor("Sensor 3", 7, 3, 0);
+            ////Sensor asd = new Sensor("Sensor 1", 10, 11, 0);
+            ////Sensor asd2 = new Sensor("Sensor 2", 5, 24, 0);
+            ////Sensor asd3 = new Sensor("Sensor 3", 7, 3, 0);
 
-            //p.Sensors.Add(asd);
-            //p.Sensors.Add(asd2);
-            //p.Sensors.Add(asd3);
+            ////p.Sensors.Add(asd);
+            ////p.Sensors.Add(asd2);
+            ////p.Sensors.Add(asd3);
 
-            //Analysis an = new Analysis("Analysis 1", "3 FEV 2018", "10:10:01");
-            //Analysis an2 = new Analysis("Analysis 2", "3 FEV 2018", "10:20:47");
+            ////Analysis an = new Analysis("Analysis 1", "3 FEV 2018", "10:10:01");
+            ////Analysis an2 = new Analysis("Analysis 2", "3 FEV 2018", "10:20:47");
 
-            //p.Analysis.Add(an);
-            //p.Analysis.Add(an2);
+            ////p.Analysis.Add(an);
+            ////p.Analysis.Add(an2);
 
-            //p2.Sensors.Add(asd3);
-            //p2.Analysis.Add(an);
+            ////p2.Sensors.Add(asd3);
+            ////p2.Analysis.Add(an);
 
-            //p.ProjectChartContent = new OpticalSensorView();
-            //p2.ProjectChartContent = new OpticalSensorView();
+            ////p.ProjectChartContent = new OpticalSensorView();
+            ////p2.ProjectChartContent = new OpticalSensorView();
 
-            //this.SelectedProjectChartContent = p.ProjectChartContent;
-            //this.SelectedSensorList = ((OpticalSensorView)p.ProjectChartContent).OpticalSensorViewModel.SensorList;
+            ////this.SelectedProjectChartContent = p.ProjectChartContent;
+            ////this.SelectedSensorList = ((OpticalSensorView)p.ProjectChartContent).OpticalSensorViewModel.SensorList;
 
-            //((OpticalSensorView)p.ProjectChartContent).OpticalSensorViewModel.AddSensorToGraph(asd);
-            //((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.AddValue("Sensor 1", 1.0);
+            ////((OpticalSensorView)p.ProjectChartContent).OpticalSensorViewModel.AddSensorToGraph(asd);
+            ////((OpticalSensorView)SelectedProjectChartContent).OpticalSensorViewModel.AddValue("Sensor 1", 1.0);
 
-            //this.TabCategory.Add(p);
-            //this.TabCategory.Add(p2);
+            ////this.TabCategory.Add(p);
+            ////this.TabCategory.Add(p2);
 
-            //tabCat2.Add(t);
-            //tabCat2.Add(t2);
+            ////tabCat2.Add(t);
+            ////tabCat2.Add(t2);
 
-            //ProjectItem opt = new ProjectItem();
-            //ProjectItem opt2 = new ProjectItem();
+            ////ProjectItem opt = new ProjectItem();
+            ////ProjectItem opt2 = new ProjectItem();
 
-            //opt.Name = "Project 1";
-            //opt.Tabs = this.tabCategory;
+            ////opt.Name = "Project 1";
+            ////opt.Tabs = this.tabCategory;
 
-            //this.SelectedTab = opt.Tabs[0];
+            ////this.SelectedTab = opt.Tabs[0];
 
-            //opt2.Name = "Project 2";
-            //opt2.Tabs = tabCat2;
+            ////opt2.Name = "Project 2";
+            ////opt2.Tabs = tabCat2;
 
-            //XmlSerialization.WriteToXmlFile<ProjectItem>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", opt);
+            ////XmlSerialization.WriteToXmlFile<ProjectItem>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", opt);
 
-            //this.SelectedTabCategory = this.tabCategory;
+            ////this.SelectedTabCategory = this.tabCategory;
 
-            //this.ProjectItems.Add(opt);
-            //this.ProjectItems.Add(opt2);
+            ////this.ProjectItems.Add(opt);
+            ////this.ProjectItems.Add(opt2);
 
-            //XmlSerialization.WriteToXmlFile<ObservableCollection<ProjectItem>>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", this.ProjectItems);
+            ////XmlSerialization.WriteToXmlFile<ObservableCollection<ProjectItem>>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", this.ProjectItems);
 
-            //this.ResultContent = new ResultView();
+            ////this.ResultContent = new ResultView();
         }
     }
 }

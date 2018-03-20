@@ -103,6 +103,18 @@ namespace SensorsViewer.Home
         }
 
         /// <summary>
+        /// When changes property
+        /// </summary>
+        /// <param name="propertyName">Property name</param>
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        /// <summary>
         /// Event for when click to create the project
         /// </summary>
         /// <param name="sender">Object Sender</param>
@@ -116,25 +128,29 @@ namespace SensorsViewer.Home
                 DialogMessageFontSize = 17,                
             };
 
-            if (string.IsNullOrEmpty(this.projectName)) // If the user do not enter the project name
+            // Check If the user do not enter the project name
+            // Check If the user do not enter the model path
+            // Check If the user type a project name that already exist
+            // Check If the user enter a model path that not exist
+            if (string.IsNullOrEmpty(this.projectName)) 
             {                
                 MessageDialogResult result = await this.ShowMessageAsync("Error!", "Empty project name", MessageDialogStyle.Affirmative, mySettings);
             }
-            else if (string.IsNullOrEmpty(this.modelPath))  // If the user do not enter the model path
+            else if (string.IsNullOrEmpty(this.modelPath))  
             {
                 MessageDialogResult result = await this.ShowMessageAsync("Error!", "Empty model path", MessageDialogStyle.Affirmative, mySettings);
-            }
-            else if (this.CheckIfProjectNameExists(this.projectName))   // If the user type a project name that already exist
+            }           
+            else if (this.CheckIfProjectNameExists(this.projectName))   
             {
                 MessageDialogResult result = await this.ShowMessageAsync("Error!", "Project already exist", MessageDialogStyle.Affirmative, mySettings);
-            }
-            else if (!File.Exists(this.modelPath))  // If the user enter a model path that not exist
+            }            
+            else if (!File.Exists(this.modelPath))  
             {
                 MessageDialogResult result = await this.ShowMessageAsync("Error!", "Model path does not exist", MessageDialogStyle.Affirmative, mySettings);
             }
             else
             {
-                DialogResult = true;
+                this.DialogResult = true;
             }
         }
 
@@ -145,7 +161,7 @@ namespace SensorsViewer.Home
         /// <param name="e">Event e</param>
         private void CancelBtnClick(object sender, RoutedEventArgs e)
         {
-            DialogResult = false;
+            this.DialogResult = false;
         }
 
         /// <summary>
@@ -169,29 +185,19 @@ namespace SensorsViewer.Home
         /// <summary>
         /// Check if project name already exist
         /// </summary>
-        /// <param name="newName"></param>
+        /// <param name="newName">Project Name</param>
         /// <returns>True if project name exist</returns>
         private bool CheckIfProjectNameExists(string newName)
         {
             foreach (ProjectItem opt in this.projectItems)
             {
                 if (opt.Name == newName)
+                {
                     return true;
+                }
             }
 
             return false;
-        }
-
-        /// <summary>
-        /// When changes property
-        /// </summary>
-        /// <param name="propertyName">Property name</param>
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            }
         }
 
         /// <summary>
@@ -200,7 +206,7 @@ namespace SensorsViewer.Home
         /// <param name="parameter">object parameter</param>
         private void EnterKeyDownAction(object parameter)
         {
-            OkBtnClickAsync(parameter, new RoutedEventArgs());
+            this.OkBtnClickAsync(parameter, new RoutedEventArgs());
         }
     }
 }

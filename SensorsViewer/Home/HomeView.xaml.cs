@@ -22,7 +22,7 @@ namespace SensorsViewer.Home
     public partial class HomeView : MetroWindow
     {
         /// <summary>
-        /// 
+        /// Private home view model
         /// </summary>
         private readonly HomeViewModel homeViewModel;
 
@@ -33,9 +33,9 @@ namespace SensorsViewer.Home
         {           
             this.InitializeComponent();
 
-            homeViewModel = new HomeViewModel(DialogCoordinator.Instance);
+            this.homeViewModel = new HomeViewModel(DialogCoordinator.Instance);
 
-            this.DataContext = homeViewModel;
+            this.DataContext = this.homeViewModel;
         }
 
         /// <summary>
@@ -58,8 +58,6 @@ namespace SensorsViewer.Home
         {
             var sample = (ProjectItem)((Border)sender).DataContext;
             var hvm = (HomeViewModel)DataContext;
-            //hvm.SelectedProjectContent = (UserControl)Activator.CreateInstance(sample.Content);
-            ////hvm.IsMenuOpen = false;
         }        
 
         /// <summary>
@@ -88,12 +86,6 @@ namespace SensorsViewer.Home
             }
 
             return null;
-        }
-
-        private void TextBlock_MouseDown(object sender, RoutedEventArgs e)
-        {
-            //this.TabCategoryTabItems.SelectedIndex = 0;
-            var a = 1;
         }
     }
 }

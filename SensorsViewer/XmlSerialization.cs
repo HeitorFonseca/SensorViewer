@@ -1,4 +1,6 @@
-﻿
+﻿// <copyright file="XmlSerialization.cs" company="GM">
+//     gm.com. All rights reserved.
+// </copyright>
 
 namespace SensorsViewer
 {
@@ -34,7 +36,9 @@ namespace SensorsViewer
             finally
             {
                 if (writer != null)
+                {
                     writer.Close();
+                }
             }
         }
 
@@ -57,7 +61,9 @@ namespace SensorsViewer
             finally
             {
                 if (reader != null)
+                {
                     reader.Close();
+                }
             }
         }
     }
