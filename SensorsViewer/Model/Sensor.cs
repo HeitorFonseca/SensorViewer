@@ -88,6 +88,22 @@ namespace SensorsViewer.SensorOption
         /// </summary>
         public List<SensorValue> Values { get; set; }
 
+        public double Max
+        {
+            get
+            {
+                return this.Values.Max(a => a.Value);
+            }
+        }
+
+        public double Min
+        {
+            get
+            {
+                return this.Values.Min(a => a.Value);
+            }
+        }
+
         /// <summary>
         /// Generate unique Id
         /// </summary>

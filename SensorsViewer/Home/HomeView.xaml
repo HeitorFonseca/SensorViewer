@@ -323,7 +323,7 @@
 
                 <TabControl Background="WhiteSmoke" >
                     <!-- Result -->
-                    <TabItem Header="Result" Style="{StaticResource ContentTabItem}" Margin="30,8,-30,-8" Padding="0,0,30,0">
+                    <TabItem Header="Result" Style="{StaticResource ContentTabItem}" Margin="30,8,-30,-8" Padding="0,0,0,0">
 
                         <Grid>
                             <Grid.RowDefinitions>
@@ -339,7 +339,7 @@
                     </TabItem>
 
                     <!-- Chart -->
-                    <TabItem Header="Chart" Style="{StaticResource ContentTabItem}" Margin="30,8,-30,-8" Padding="0,0,30,0">
+                    <TabItem Header="Chart" Style="{StaticResource ContentTabItem}" Margin="60,8,-60,-8" Padding="0,0,0,0">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"></RowDefinition>
@@ -354,7 +354,7 @@
                     </TabItem>
                     
                     <!-- Sensors Log -->
-                    <TabItem Header="Sensors Log" Style="{StaticResource ContentTabItem}"  Margin="30,8,-30,-8" Padding="0,0,30,0">
+                    <TabItem Header="Sensors Log" Style="{StaticResource ContentTabItem}"  Margin="90,8,-90,-8" Padding="0,0,0,0">
                         <Grid>
                             <Border Grid.Row="2" Margin="25" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
                                 <ListView Margin="1" BorderThickness="1" ItemsSource="{Binding SelectedProjectChartContent.OpticalSensorViewModel.SensorsLog}" 
@@ -365,6 +365,25 @@
                                             <GridViewColumn DisplayMemberBinding="{Binding Values[0].Timestamp}" Header="Timestamp"/>
                                             <GridViewColumn DisplayMemberBinding="{Binding Values[0].Value}" Header="Value" />
                                             <GridViewColumn DisplayMemberBinding="{Binding Values[0].Parameter}" Header="Parameter" />
+                                        </GridView>
+                                    </ListView.View>
+                                </ListView>
+                            </Border>
+                        </Grid>
+                    </TabItem>
+
+                    <!-- Sensors Analysis -->
+                    <TabItem Header="Sensors Analysis" Style="{StaticResource ContentTabItem}"  Margin="120,8,-120,-8" Padding="0,0,0,0">
+                        <Grid>
+                            <Border Grid.Row="2" Margin="25" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
+                                <ListView Margin="1" BorderThickness="1" ItemsSource="{Binding SelectedProjectChartContent.OpticalSensorViewModel.SensorList}" 
+                                          SelectedIndex="0" Style="{StaticResource VirtualisedMetroListView}">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn DisplayMemberBinding="{Binding SensorName}" Header="Sensor Id"/>
+                                            <GridViewColumn DisplayMemberBinding="{Binding Max}" Header="Max Value"/>
+                                            <GridViewColumn DisplayMemberBinding="{Binding Min}" Header="Min Value" />
+                                            <GridViewColumn DisplayMemberBinding="{Binding Values[0].Parameter}" Header="Integral" />
                                         </GridView>
                                     </ListView.View>
                                 </ListView>
