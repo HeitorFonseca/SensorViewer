@@ -52,6 +52,7 @@ namespace SensorsViewer.Home
             this.Id = idCount++;
             this.Name = name;
             this.ModelPath = modelPath;
+            this.AnalysisIndex = 0;
 
             this.Tabs = new ObservableCollection<TabCategory>
             {
@@ -105,6 +106,11 @@ namespace SensorsViewer.Home
         /// Gets or sets ModelPath
         /// </summary>
         public string ModelPath { get; set; }
+
+        /// <summary>
+        /// Selected analysis index
+        /// </summary>
+        public int AnalysisIndex { get; set; }
 
         /// <summary>
         /// Gets or sets projects collection

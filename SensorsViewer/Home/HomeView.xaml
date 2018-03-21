@@ -78,7 +78,7 @@
 
                     <Grid Grid.Row="1">
                         <TextBlock Text="Projects"  Style="{StaticResource H3}" Foreground="#BEC5DB" HorizontalAlignment="Left"  Margin="15,0,0,0" Padding="10"></TextBlock>
-                        <ListBox x:Name="lbProjectItems" ItemsSource="{Binding ProjectItems}" SelectedItem="{Binding SelectedProjectItem}" Margin="0,52,0.333,-52" Background="#37509F">
+                        <ListBox x:Name="lbProjectItems" ItemsSource="{Binding ProjectItems}" SelectedItem="{Binding SelectedProjectItem, Mode=TwoWay}" Margin="0,52,0.333,-52" Background="#37509F">
                             <ListBox.ItemContainerStyle>
                                 <Style TargetType="{x:Type ListBoxItem}">
                                     <Setter Property="Padding" Value="0,0,0,0"/>
