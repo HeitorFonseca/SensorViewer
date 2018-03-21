@@ -766,13 +766,15 @@ namespace SensorsViewer.Home
             // Set the list sensor of the graph the same as the sensors list tab
             foreach (Sensor s in this.SelectedTab.Sensors)
             {
-                newAnalysis.ProjectChartContent.OpticalSensorViewModel.AddSensorToGraph(s);
+                Sensor newSensor = new Sensor(s.SensorName, s.X, s.Y, s.Z);
+                
+                newAnalysis.ProjectChartContent.OpticalSensorViewModel.AddSensorToGraph(newSensor);
             }
 
             this.SelectedAnalysis = newAnalysis;
             this.SelectedProjectItem.Tabs[index].Analysis.Add(newAnalysis);
             this.SelectedProjectChartContent = newAnalysis.ProjectChartContent;
-            this.selectedProjectResultContent = newAnalysis.ProjectResutContent;
+            this.SelectedProjectResultContent = newAnalysis.ProjectResutContent;
         }
 
         /// <summary>

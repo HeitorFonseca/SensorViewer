@@ -92,7 +92,14 @@ namespace SensorsViewer.SensorOption
         {
             get
             {
-                return this.Values.Max(a => a.Value);
+                if (this.Values.Count > 0)
+                {
+                    return this.Values.Max(a => a.Value);
+                }
+                else
+                {
+                    return -1;
+                }
             }
         }
 
@@ -100,7 +107,14 @@ namespace SensorsViewer.SensorOption
         {
             get
             {
-                return this.Values.Min(a => a.Value);
+                if (this.Values.Count > 0)
+                {
+                    return this.Values.Min(a => a.Value);
+                }
+                else
+                {
+                    return -1;
+                }
             }
         }
 

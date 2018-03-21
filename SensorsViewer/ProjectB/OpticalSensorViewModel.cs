@@ -145,7 +145,6 @@ namespace SensorsViewer.ProjectB
             // If exist a line series with sensor with sensorid
             if (this.SeriesCollection.FirstOrDefault(a => a.Title == sensorName) is LineSeries ls)
             {
-                LiveCharts.Defaults.ObservableValue obsValue = new LiveCharts.Defaults.ObservableValue(value);
                 ls.Values.Add(value);
 
                 for (int i = 0; i < this.SensorList.Count; i++)
