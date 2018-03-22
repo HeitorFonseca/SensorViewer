@@ -393,6 +393,11 @@ namespace SensorsViewer.Home
         }
 
         /// <summary>
+        /// Gets or sets subtab index
+        /// </summary>
+        public int SubTabIndex { get; set; }
+
+        /// <summary>
         /// When changes property
         /// </summary>
         /// <param name="propertyName">Property name</param>
@@ -437,13 +442,13 @@ namespace SensorsViewer.Home
                         for (int i = 0; i < tab.Analysis.Count; i++)
                         {
                             tab.Analysis[i].ProjectChartContent.OpticalSensorViewModel.ShowLoadedSensors(tab.Sensors, tab.Analysis[i].Name);
-                           // tab.Analysis[i].ProjectChartContent.OpticalSensorViewModel.ShowSensorsLog(tab.Sensors, tab.Analysis[i].Name);
 
                             tab.Analysis[i].ProjectResutContent = new ResultView(opt.ModelPath);
                         }
                     }
                 }
 
+                this.SubTabIndex = 0;
                 this.tabIndex = 0;
 
                 this.SelectedProjectItem = this.projectItems[0];                
@@ -673,6 +678,22 @@ namespace SensorsViewer.Home
             var analysis = parameter as Analysis;
 
             this.SelectedTab.Analysis.Remove(analysis);
+
+            // If there is no analysis
+            if (this.SelectedTab.Analysis.Count == 0)
+            {
+                this.SelectedProjectItem.AnalysisIndex = 0;
+                this.SelectedAnalysis = null;
+                this.SelectedProjectChartContent = null;
+                this.SelectedProjectResultContent = new ResultView(this.SelectedProjectItem.ModelPath);
+            }
+            else
+            {
+                this.SelectedProjectItem.AnalysisIndex = (this.SelectedProjectItem.AnalysisIndex + (this.SelectedTab.Analysis.Count - 1)) % this.SelectedTab.Analysis.Count;
+                this.SelectedAnalysis = this.SelectedTab.Analysis[this.SelectedProjectItem.AnalysisIndex];
+                this.SelectedProjectChartContent = this.SelectedAnalysis.ProjectChartContent;
+                this.SelectedProjectResultContent = this.SelectedAnalysis.ProjectResutContent;
+            }
         }
 
         /// <summary>

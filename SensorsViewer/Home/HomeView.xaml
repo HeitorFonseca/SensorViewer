@@ -165,12 +165,13 @@
                         </TabControl.ItemTemplate>
                         <TabControl.ContentTemplate>
                             <DataTemplate>
-                                <TabControl FontSize="10">
+                                <TabControl FontSize="10" SelectedIndex="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SubTabIndex}">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="SelectionChanged">
                                             <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.ClickInSubTabCommand}" PassEventArgsToCommand="True" />
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
+                                    <!-- Sensors -->
                                     <TabItem x:Name="tabItemSensor" Header="Sensors" FontSize="5" Margin="25, 0, -25 , 0" Style="{StaticResource MainTabItem}">
                                         <Grid>
                                             <Grid.RowDefinitions>
