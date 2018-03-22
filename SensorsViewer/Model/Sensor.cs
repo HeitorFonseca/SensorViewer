@@ -88,32 +88,49 @@ namespace SensorsViewer.SensorOption
         /// </summary>
         public List<SensorValue> Values { get; set; }
 
-        public double Max
+        /// <summary>
+        /// Gets or sets maximum value
+        /// </summary>
+        public string Max
         {
             get
             {
                 if (this.Values.Count > 0)
                 {
-                    return this.Values.Max(a => a.Value);
+                    return this.Values.Max(a => a.Value).ToString();
                 }
-                else
-                {
-                    return -1;
-                }
+                
+                 return "-";                
             }
         }
 
-        public double Min
+        /// <summary>
+        /// Gets or sets minimum value
+        /// </summary>
+        public string Min
         {
             get
             {
                 if (this.Values.Count > 0)
                 {
-                    return this.Values.Min(a => a.Value);
+                    return this.Values.Min(a => a.Value).ToString();
+                }
+               
+                 return "-";                
+            }
+        }
+
+        public string Integral
+        {
+            get
+            {
+                if (this.Values.Count > 0)
+                {
+                    return CalculateIntegral().ToString();
                 }
                 else
                 {
-                    return -1;
+                    return "-";
                 }
             }
         }
@@ -125,6 +142,27 @@ namespace SensorsViewer.SensorOption
         public string GenerateID()
         {
             return Guid.NewGuid().ToString();
+        }
+
+        public double CalculateIntegral()
+        {
+
+            double sum = 0;
+            for (int i = 0; i < this.Values.Count-1; i++)
+            {
+                DateTime x1 = DateTime.ParseExact(this.Values[i].Timestamp, "yyyy-MM-dd HH:mm:ss.fff",
+                                       System.Globalization.CultureInfo.InvariantCulture);
+
+                DateTime x2 = DateTime.ParseExact(this.Values[i+1].Timestamp, "yyyy-MM-dd HH:mm:ss.fff",
+                                       System.Globalization.CultureInfo.InvariantCulture);
+
+                double dx = (x1 - x2).TotalMilliseconds;
+                double fValue = this.Values[i].Value;
+                double rectangleArea = fValue * dx;
+                sum += rectangleArea;
+            }
+
+            return sum;
         }
     }
 

@@ -5,7 +5,7 @@
     <QtdAnalysis>0</QtdAnalysis>
     <Name>sdasdsad</Name>
     <ModelPath>C:\Users\heitor.araujo\Documents\wokspace\GM\Tests\TestsNx\Die ring.stl</ModelPath>
-    <AnalysisIndex>2</AnalysisIndex>
+    <AnalysisIndex>4</AnalysisIndex>
     <Tabs>
       <TabCategory>
         <Name>Draw-In</Name>
@@ -197,6 +197,126 @@
                 <Parameter>temperature</Parameter>
                 <AnalysisName>Analysis 3</AnalysisName>
               </SensorValue>
+              <SensorValue>
+                <Value>1</Value>
+                <Timestamp>22/03/2018 12:57:03.197</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0</Value>
+                <Timestamp>22/03/2018 12:57:03.242</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>4</Value>
+                <Timestamp>22/03/2018 12:57:03.283</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>1</Value>
+                <Timestamp>22/03/2018 12:57:03.323</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>5</Value>
+                <Timestamp>22/03/2018 12:57:03.364</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>1</Value>
+                <Timestamp>22/03/2018 12:57:03.404</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>7</Value>
+                <Timestamp>22/03/2018 12:57:03.445</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>9</Value>
+                <Timestamp>22/03/2018 12:57:03.485</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>9</Value>
+                <Timestamp>22/03/2018 12:57:03.525</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0</Value>
+                <Timestamp>22/03/2018 12:57:03.566</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0</Value>
+                <Timestamp>22/03/2018 13:24:35.520</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0</Value>
+                <Timestamp>22/03/2018 13:24:35.568</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>2</Value>
+                <Timestamp>22/03/2018 13:24:35.609</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>3</Value>
+                <Timestamp>22/03/2018 13:24:35.649</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>1</Value>
+                <Timestamp>22/03/2018 13:24:35.689</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>1</Value>
+                <Timestamp>22/03/2018 13:24:35.730</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>1</Value>
+                <Timestamp>22/03/2018 13:24:35.771</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0</Value>
+                <Timestamp>22/03/2018 13:24:35.811</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>4</Value>
+                <Timestamp>22/03/2018 13:24:35.852</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>4</Value>
+                <Timestamp>22/03/2018 13:24:35.892</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
             </Values>
           </Sensor>
           <Sensor>
@@ -385,6 +505,126 @@
                 <Timestamp>22/03/2018 12:43:08.673</Timestamp>
                 <Parameter>temperature</Parameter>
                 <AnalysisName>Analysis 3</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>3</Value>
+                <Timestamp>22/03/2018 12:57:03.197</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>2</Value>
+                <Timestamp>22/03/2018 12:57:03.242</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>1</Value>
+                <Timestamp>22/03/2018 12:57:03.283</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>3</Value>
+                <Timestamp>22/03/2018 12:57:03.323</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>3</Value>
+                <Timestamp>22/03/2018 12:57:03.364</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>7</Value>
+                <Timestamp>22/03/2018 12:57:03.404</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>2</Value>
+                <Timestamp>22/03/2018 12:57:03.445</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>7</Value>
+                <Timestamp>22/03/2018 12:57:03.485</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>10</Value>
+                <Timestamp>22/03/2018 12:57:03.525</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>3</Value>
+                <Timestamp>22/03/2018 12:57:03.566</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>1</Value>
+                <Timestamp>22/03/2018 13:24:35.520</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0</Value>
+                <Timestamp>22/03/2018 13:24:35.568</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>5</Value>
+                <Timestamp>22/03/2018 13:24:35.609</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0</Value>
+                <Timestamp>22/03/2018 13:24:35.649</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>4</Value>
+                <Timestamp>22/03/2018 13:24:35.689</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>7</Value>
+                <Timestamp>22/03/2018 13:24:35.730</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>7</Value>
+                <Timestamp>22/03/2018 13:24:35.771</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>1</Value>
+                <Timestamp>22/03/2018 13:24:35.811</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>2</Value>
+                <Timestamp>22/03/2018 13:24:35.852</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>2</Value>
+                <Timestamp>22/03/2018 13:24:35.892</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
               </SensorValue>
             </Values>
           </Sensor>
@@ -575,6 +815,126 @@
                 <Parameter>temperature</Parameter>
                 <AnalysisName>Analysis 3</AnalysisName>
               </SensorValue>
+              <SensorValue>
+                <Value>4</Value>
+                <Timestamp>22/03/2018 12:57:03.197</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0</Value>
+                <Timestamp>22/03/2018 12:57:03.242</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>3</Value>
+                <Timestamp>22/03/2018 12:57:03.283</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>6</Value>
+                <Timestamp>22/03/2018 12:57:03.323</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>4</Value>
+                <Timestamp>22/03/2018 12:57:03.364</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0</Value>
+                <Timestamp>22/03/2018 12:57:03.404</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>2</Value>
+                <Timestamp>22/03/2018 12:57:03.445</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>9</Value>
+                <Timestamp>22/03/2018 12:57:03.485</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>1</Value>
+                <Timestamp>22/03/2018 12:57:03.525</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>3</Value>
+                <Timestamp>22/03/2018 12:57:03.566</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 4</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>2</Value>
+                <Timestamp>22/03/2018 13:24:35.520</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>4</Value>
+                <Timestamp>22/03/2018 13:24:35.568</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>1</Value>
+                <Timestamp>22/03/2018 13:24:35.609</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>7</Value>
+                <Timestamp>22/03/2018 13:24:35.649</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>7</Value>
+                <Timestamp>22/03/2018 13:24:35.689</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0</Value>
+                <Timestamp>22/03/2018 13:24:35.730</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>9</Value>
+                <Timestamp>22/03/2018 13:24:35.771</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>10</Value>
+                <Timestamp>22/03/2018 13:24:35.811</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>2</Value>
+                <Timestamp>22/03/2018 13:24:35.852</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>6</Value>
+                <Timestamp>22/03/2018 13:24:35.892</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 5</AnalysisName>
+              </SensorValue>
             </Values>
           </Sensor>
           <Sensor>
@@ -625,6 +985,16 @@
             <Name>Analysis 3</Name>
             <Date>22/03/2018</Date>
             <Time>09:43:08.311</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis 4</Name>
+            <Date>22/03/2018</Date>
+            <Time>09:57:03.334</Time>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis 5</Name>
+            <Date>22/03/2018</Date>
+            <Time>10:24:35.664</Time>
           </Analysis>
         </Analysis>
       </TabCategory>

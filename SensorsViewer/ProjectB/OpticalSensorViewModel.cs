@@ -193,24 +193,19 @@ namespace SensorsViewer.ProjectB
                 Brush textBrush = newLs.Fill.Clone();
                 textBrush.Opacity = 1d;
 
+                SensorOption.Sensor newSensor = new SensorOption.Sensor(sensor.SensorName, sensor.X, sensor.Y, sensor.Z);
+                newSensor.Id = sensor.Id;
+
+                this.SensorList.Add(newSensor);
+
+                int index = this.SensorList.IndexOf(newSensor);
+                
                 if (sensor.Values != null)
                 {
                     ObservableCollection<SensorOption.Sensor> asd = new ObservableCollection<SensorOption.Sensor>();
 
                     foreach (SensorOption.SensorValue v in sensor.Values)
-                    {
-                        int index = this.CheckSensorAnalysis(sensor.SensorName);
-
-                        if (index == -1)
-                        {
-                            SensorOption.Sensor newSensor = new SensorOption.Sensor(sensor.SensorName, sensor.X, sensor.Y, sensor.Z);
-                            newSensor.Id = sensor.Id;
-
-                            this.SensorList.Add(newSensor);
-
-                            index = this.SensorList.IndexOf(newSensor);
-                        }
-
+                    {                        
                         if (v.AnalysisName == analysisName)
                         {
                             // Chart
@@ -221,11 +216,8 @@ namespace SensorsViewer.ProjectB
                             s.Values.Add(v);
                             list.Add(s);
 
-                            // Sensor List
-                            if (index != -1)
-                            {
-                                this.SensorList.ElementAt(index).Values.Add(v);
-                            }
+                            // Sensor List                           
+                            this.SensorList.ElementAt(index).Values.Add(v);                            
                         }                     
                     }
                 }
@@ -234,20 +226,6 @@ namespace SensorsViewer.ProjectB
                 this.SensorsLog = list;
                 this.SeriesCollection.Add(newLs);                           
             }
-        }
-
-        private int CheckSensorAnalysis(string name)
-        {
-
-            for (int i = 0 ; i < this.SensorList.Count; i++)
-            {
-                if (this.SensorList[i].SensorName == name)
-                {
-                    return i;
-                }
-            }
-
-            return -1;
         }
 
         /// <summary>
