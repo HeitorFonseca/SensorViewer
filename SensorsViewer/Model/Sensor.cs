@@ -6,6 +6,7 @@ namespace SensorsViewer.SensorOption
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -13,8 +14,10 @@ namespace SensorsViewer.SensorOption
     /// <summary>
     /// Class of sensors
     /// </summary>
-    public class Sensor 
+    public class Sensor : INotifyPropertyChanged
     {
+        private bool visibility = false;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Sensor"/> class
         /// </summary>
@@ -22,6 +25,7 @@ namespace SensorsViewer.SensorOption
         {
             this.Values = new List<SensorValue>();
             this.Id = this.GenerateID();
+            this.Visibility = true;
         }
 
         /// <summary>
@@ -40,6 +44,7 @@ namespace SensorsViewer.SensorOption
 
             this.Values = new List<SensorValue>();
             this.Id = this.GenerateID();
+            this.Visibility = true;
         }
 
         /// <summary>
@@ -51,7 +56,13 @@ namespace SensorsViewer.SensorOption
             this.SensorName = sensorName;
             this.Values = new List<SensorValue>();
             this.Id = this.GenerateID();
+            this.Visibility = true;
         }
+
+        /// <summary>
+        /// Event for when change property
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets or sets Id
@@ -139,6 +150,22 @@ namespace SensorsViewer.SensorOption
         }
 
         /// <summary>
+        /// Bool to indicate if sensor was removed
+        /// </summary>
+        public bool Visibility
+        {
+            get
+            {
+                return this.visibility;
+            }
+            set
+            {
+                this.visibility = value;
+                this.OnPropertyChanged("Visibility");
+            }
+        }
+
+        /// <summary>
         /// Generate unique Id
         /// </summary>
         /// <returns>generated id</returns>
@@ -167,6 +194,18 @@ namespace SensorsViewer.SensorOption
             }
 
             return sum;
+        }
+
+        /// <summary>
+        /// When changes property
+        /// </summary>
+        /// <param name="propertyName">Property name</param>
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 

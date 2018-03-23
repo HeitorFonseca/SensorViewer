@@ -6,6 +6,7 @@ namespace SensorsViewer.SensorOption
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Linq;
     using System.Text;
@@ -35,6 +36,7 @@ namespace SensorsViewer.SensorOption
         public Analysis()
         {
             this.ProjectChartContent = new OpticalSensorView();
+            this.SensorsIds = new ObservableCollection<string>();
         }
 
         /// <summary>
@@ -45,6 +47,7 @@ namespace SensorsViewer.SensorOption
         {
             this.ProjectChartContent = new OpticalSensorView();
             this.ProjectResutContent = new ResultView();
+            this.SensorsIds = new ObservableCollection<string>();       
         }
 
         /// <summary>
@@ -62,6 +65,7 @@ namespace SensorsViewer.SensorOption
 
             this.ProjectChartContent = new OpticalSensorView();
             this.ProjectResutContent = new ResultView(path);
+            this.SensorsIds = new ObservableCollection<string>();
         }
 
         /// <summary>
@@ -83,6 +87,8 @@ namespace SensorsViewer.SensorOption
         /// Gets or sets Z position
         /// </summary>
         public string Time { get; set; }
+
+        public ObservableCollection<string> SensorsIds { get; set; }
 
         /// <summary>
         /// Gets or sets project B User control content

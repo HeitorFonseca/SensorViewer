@@ -15,6 +15,7 @@ namespace SensorsViewer.ProjectB
     using System.Windows.Media;
     using LiveCharts;
     using LiveCharts.Wpf;
+    using SensorsViewer.SensorOption;
 
     /// <summary>
     /// Optical Sensor View Model
@@ -174,57 +175,61 @@ namespace SensorsViewer.ProjectB
         /// </summary>
         /// <param name="sensorList">Sensor list</param>
         /// <param name="analysisName">Analysis name</param>
-        public void ShowLoadedSensors(ObservableCollection<SensorOption.Sensor> sensorList, string analysisName)
+        public void ShowLoadedSensors(ObservableCollection<SensorOption.Sensor> sensorList, Analysis analysis)
         {
+            string analysisName = analysis.Name;
             ObservableCollection<SensorOption.Sensor> list = new ObservableCollection<SensorOption.Sensor>();
         
             foreach (SensorOption.Sensor sensor in sensorList)
             {
-                Color nextColor = this.GetNextDefaultColor();
-
-                LineSeries newLs = new LineSeries
+                if (analysis.SensorsIds.Contains(sensor.Id))
                 {
-                    Title = sensor.SensorName,
-                    Values = new ChartValues<double>(),
-                    Tag = sensor.Id,
-                    Fill = new SolidColorBrush(nextColor) { Opacity = 0.15d }
-                };
+                    Color nextColor = this.GetNextDefaultColor();
 
-                Brush textBrush = newLs.Fill.Clone();
-                textBrush.Opacity = 1d;
+                    LineSeries newLs = new LineSeries
+                    {
+                        Title = sensor.SensorName,
+                        Values = new ChartValues<double>(),
+                        Tag = sensor.Id,
+                        Fill = new SolidColorBrush(nextColor) { Opacity = 0.15d }
+                    };
 
-                SensorOption.Sensor newSensor = new SensorOption.Sensor(sensor.SensorName, sensor.X, sensor.Y, sensor.Z);
-                newSensor.Id = sensor.Id;
+                    Brush textBrush = newLs.Fill.Clone();
+                    textBrush.Opacity = 1d;
 
-                this.SensorList.Add(newSensor);
+                    SensorOption.Sensor newSensor = new SensorOption.Sensor(sensor.SensorName, sensor.X, sensor.Y, sensor.Z);
+                    newSensor.Id = sensor.Id;
 
-                int index = this.SensorList.IndexOf(newSensor);
-                
-                if (sensor.Values != null)
-                {
-                    ObservableCollection<SensorOption.Sensor> asd = new ObservableCollection<SensorOption.Sensor>();
+                    this.SensorList.Add(newSensor);
 
-                    foreach (SensorOption.SensorValue v in sensor.Values)
-                    {                        
-                        if (v.AnalysisName == analysisName)
+                    int index = this.SensorList.IndexOf(newSensor);
+
+                    if (sensor.Values != null)
+                    {
+                        ObservableCollection<SensorOption.Sensor> asd = new ObservableCollection<SensorOption.Sensor>();
+
+                        foreach (SensorOption.SensorValue v in sensor.Values)
                         {
-                            // Chart
-                            newLs.Values.Add(v.Value);
+                            if (v.AnalysisName == analysisName)
+                            {
+                                // Chart
+                                newLs.Values.Add(v.Value);
 
-                            // Update Log
-                            SensorOption.Sensor s = new SensorOption.Sensor(sensor.SensorName);
-                            s.Values.Add(v);
-                            list.Add(s);
+                                // Update Log
+                                SensorOption.Sensor s = new SensorOption.Sensor(sensor.SensorName);
+                                s.Values.Add(v);
+                                list.Add(s);
 
-                            // Sensor List                           
-                            this.SensorList.ElementAt(index).Values.Add(v);                            
-                        }                     
+                                // Sensor List                           
+                                this.SensorList.ElementAt(index).Values.Add(v);
+                            }
+                        }
                     }
-                }
 
-                list = new ObservableCollection<SensorOption.Sensor>(list.OrderBy(a => a.Values[0].Timestamp));
-                this.SensorsLog = list;
-                this.SeriesCollection.Add(newLs);                           
+                    list = new ObservableCollection<SensorOption.Sensor>(list.OrderBy(a => a.Values[0].Timestamp));
+                    this.SensorsLog = list;
+                    this.SeriesCollection.Add(newLs);
+                }
             }
         }
 

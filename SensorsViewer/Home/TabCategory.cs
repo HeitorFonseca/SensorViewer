@@ -71,7 +71,6 @@ namespace SensorsViewer.Home
             set
             {
                 this.sensors = value;
-
                 this.OnPropertyChanged("Sensors");             
             }
         }

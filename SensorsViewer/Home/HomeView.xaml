@@ -191,7 +191,7 @@
                                             </TextBox>
 
                                             <ListBox Grid.Row="1" x:Name="SensorListBox" 
-                                                     ItemsSource="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.SelectedTab.Sensors}" 
+                                                     ItemsSource="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.SelectedTab.Sensors, UpdateSourceTrigger=PropertyChanged}" 
                                                      SelectedItem="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectedSensor, Mode=TwoWay}"
                                                      ScrollViewer.HorizontalScrollBarVisibility="Hidden">
 
@@ -215,12 +215,17 @@
                                                                 </ControlTemplate>
                                                             </Setter.Value>
                                                         </Setter>
+                                                        <Style.Triggers>
+                                                            <DataTrigger Binding="{Binding Visibility, UpdateSourceTrigger=PropertyChanged}" Value="false">
+                                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                            </DataTrigger>
+                                                        </Style.Triggers>
                                                     </Style>
                                                 </ListBox.ItemContainerStyle>
 
                                                 <ListBox.ItemTemplate>
                                                     <DataTemplate>
-                                                        <Border BorderThickness="0 0 0 2" BorderBrush="#EBEBEB" >
+                                                        <Border BorderThickness="0 0 0 2" BorderBrush="#EBEBEB">
                                                             <Grid>
                                                                 <Grid.RowDefinitions>
                                                                     <RowDefinition Height="30"></RowDefinition>

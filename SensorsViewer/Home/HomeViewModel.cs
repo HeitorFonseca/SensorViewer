@@ -441,7 +441,7 @@ namespace SensorsViewer.Home
                         // Each Tab has its chart and values
                         for (int i = 0; i < tab.Analysis.Count; i++)
                         {
-                            tab.Analysis[i].ProjectChartContent.OpticalSensorViewModel.ShowLoadedSensors(tab.Sensors, tab.Analysis[i].Name);
+                            tab.Analysis[i].ProjectChartContent.OpticalSensorViewModel.ShowLoadedSensors(tab.Sensors, tab.Analysis[i]);
 
                             tab.Analysis[i].ProjectResutContent = new ResultView(opt.ModelPath);
                         }
@@ -666,7 +666,9 @@ namespace SensorsViewer.Home
             ////}
 
             // Remove from sensors list
-            this.SelectedTab.Sensors.Remove(sensor);
+            // this.SelectedTab.Sensors.Remove(sensor);
+
+            sensor.Visibility = false;
         }
 
         /// <summary>
@@ -792,10 +794,14 @@ namespace SensorsViewer.Home
             // Set the list sensor of the graph the same as the sensors list tab
             foreach (Sensor s in this.SelectedTab.Sensors)
             {
-                Sensor newSensor = new Sensor(s.SensorName, s.X, s.Y, s.Z);
-                newSensor.Id = s.Id;
+                if (s.Visibility == true)
+                {
+                    Sensor newSensor = new Sensor(s.SensorName, s.X, s.Y, s.Z);
+                    newSensor.Id = s.Id;
 
-                newAnalysis.ProjectChartContent.OpticalSensorViewModel.AddSensorToGraph(newSensor);
+                    newAnalysis.ProjectChartContent.OpticalSensorViewModel.AddSensorToGraph(newSensor);
+                    newAnalysis.SensorsIds.Add(newSensor.Id);
+                }
             }
 
             this.SelectedAnalysis = newAnalysis;
