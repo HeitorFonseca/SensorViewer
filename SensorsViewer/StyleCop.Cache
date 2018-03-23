@@ -228,7 +228,7 @@
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
       <settingsFile>2018/02/05 09:39:00.559</settingsFile>
-      <sourceFile>2018/03/09 14:59:39.100</sourceFile>
+      <sourceFile>2018/03/20 10:58:34.377</sourceFile>
       <parser>2018/02/05 09:39:00.579</parser>
       <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -251,7 +251,7 @@
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
       <settingsFile>2018/02/05 09:39:00.559</settingsFile>
-      <sourceFile>2018/03/20 09:19:51.954</sourceFile>
+      <sourceFile>2018/03/20 10:58:34.377</sourceFile>
       <parser>2018/02/05 09:39:00.579</parser>
       <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -274,7 +274,7 @@
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
       <settingsFile>2018/02/05 09:39:00.559</settingsFile>
-      <sourceFile>2018/03/20 09:21:27.510</sourceFile>
+      <sourceFile>2018/03/20 10:58:34.377</sourceFile>
       <parser>2018/02/05 09:39:00.579</parser>
       <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -297,7 +297,7 @@
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
       <settingsFile>2018/02/05 09:39:00.559</settingsFile>
-      <sourceFile>2018/03/20 09:37:14.844</sourceFile>
+      <sourceFile>2018/03/23 07:55:11.657</sourceFile>
       <parser>2018/02/05 09:39:00.579</parser>
       <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -320,7 +320,7 @@
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
       <settingsFile>2018/02/05 09:39:00.559</settingsFile>
-      <sourceFile>2018/03/20 09:39:00.072</sourceFile>
+      <sourceFile>2018/03/23 07:55:11.679</sourceFile>
       <parser>2018/02/05 09:39:00.579</parser>
       <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -343,7 +343,7 @@
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
       <settingsFile>2018/02/05 09:39:00.559</settingsFile>
-      <sourceFile>2018/03/20 09:46:38.246</sourceFile>
+      <sourceFile>2018/03/20 10:58:34.387</sourceFile>
       <parser>2018/02/05 09:39:00.579</parser>
       <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -366,7 +366,7 @@
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
       <settingsFile>2018/02/05 09:39:00.559</settingsFile>
-      <sourceFile>2018/03/20 09:46:05.664</sourceFile>
+      <sourceFile>2018/03/20 10:58:34.387</sourceFile>
       <parser>2018/02/05 09:39:00.579</parser>
       <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -389,7 +389,7 @@
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
       <settingsFile>2018/02/05 09:39:00.559</settingsFile>
-      <sourceFile>2018/03/20 09:51:28.669</sourceFile>
+      <sourceFile>2018/03/23 07:58:46.495</sourceFile>
       <parser>2018/02/05 09:39:00.579</parser>
       <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -409,7 +409,7 @@
     <violations>
       <violation namespace="StyleCop.CSharp.MaintainabilityRules" rule="FileMayOnlyContainASingleClass" ruleCheckId="SA1402">
         <context>A C# document may only contain a single class at the root level unless all of the classes are partial and are of the same type.</context>
-        <line>104</line>
+        <line>176</line>
         <warning>False</warning>
       </violation>
     </violations>
@@ -418,7 +418,7 @@
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
       <settingsFile>2018/02/05 09:39:00.559</settingsFile>
-      <sourceFile>2018/03/20 09:51:23.430</sourceFile>
+      <sourceFile>2018/03/20 10:58:34.387</sourceFile>
       <parser>2018/02/05 09:39:00.579</parser>
       <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -441,7 +441,7 @@
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
       <settingsFile>2018/02/05 09:39:00.559</settingsFile>
-      <sourceFile>2018/02/07 09:12:09.134</sourceFile>
+      <sourceFile>2018/03/20 10:58:34.387</sourceFile>
       <parser>2018/02/05 09:39:00.579</parser>
       <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -475,7 +475,7 @@
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
       <settingsFile>2018/02/05 09:39:00.559</settingsFile>
-      <sourceFile>2018/03/20 09:52:38.160</sourceFile>
+      <sourceFile>2018/03/20 10:58:34.387</sourceFile>
       <parser>2018/02/05 09:39:00.579</parser>
       <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -498,7 +498,7 @@
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
       <settingsFile>2018/02/05 09:39:00.559</settingsFile>
-      <sourceFile>2018/03/20 10:02:36.658</sourceFile>
+      <sourceFile>2018/03/22 10:39:51.664</sourceFile>
       <parser>2018/02/05 09:39:00.579</parser>
       <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -567,7 +567,7 @@
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
       <settingsFile>2018/02/05 09:39:00.559</settingsFile>
-      <sourceFile>2018/03/09 11:26:45.448</sourceFile>
+      <sourceFile>2018/03/20 10:58:34.387</sourceFile>
       <parser>2018/02/05 09:39:00.579</parser>
       <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -590,7 +590,7 @@
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
       <settingsFile>2018/02/05 09:39:00.559</settingsFile>
-      <sourceFile>2018/03/20 10:01:43.666</sourceFile>
+      <sourceFile>2018/03/20 10:58:34.402</sourceFile>
       <parser>2018/02/05 09:39:00.579</parser>
       <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -828,7 +828,7 @@
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
       <settingsFile>2018/02/05 09:39:00.559</settingsFile>
-      <sourceFile>2018/03/20 10:09:17.603</sourceFile>
+      <sourceFile>2018/03/20 10:58:34.402</sourceFile>
       <parser>2018/02/05 09:39:00.579</parser>
       <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -851,7 +851,7 @@
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
       <settingsFile>2018/02/05 09:39:00.559</settingsFile>
-      <sourceFile>2018/03/20 10:05:34.978</sourceFile>
+      <sourceFile>2018/03/20 10:58:34.402</sourceFile>
       <parser>2018/02/05 09:39:00.579</parser>
       <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -897,7 +897,7 @@
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
       <settingsFile>2018/02/05 09:39:00.559</settingsFile>
-      <sourceFile>2018/03/20 09:20:16.988</sourceFile>
+      <sourceFile>2018/03/20 10:58:34.377</sourceFile>
       <parser>2018/02/05 09:39:00.579</parser>
       <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -920,7 +920,7 @@
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
       <settingsFile>2018/02/05 09:39:00.559</settingsFile>
-      <sourceFile>2018/03/20 09:22:05.252</sourceFile>
+      <sourceFile>2018/03/20 10:58:34.387</sourceFile>
       <parser>2018/02/05 09:39:00.579</parser>
       <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -966,7 +966,7 @@
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
       <settingsFile>2018/02/05 09:39:00.559</settingsFile>
-      <sourceFile>2018/03/09 15:01:36.288</sourceFile>
+      <sourceFile>2018/03/20 10:58:34.387</sourceFile>
       <parser>2018/02/05 09:39:00.579</parser>
       <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -1012,7 +1012,7 @@
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
       <settingsFile>2018/02/05 09:39:00.559</settingsFile>
-      <sourceFile>2018/03/20 10:03:21.348</sourceFile>
+      <sourceFile>2018/03/20 10:58:34.402</sourceFile>
       <parser>2018/02/05 09:39:00.579</parser>
       <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>

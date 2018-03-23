@@ -885,21 +885,20 @@ namespace SensorsViewer.Home
             return dateTime.ToString("dd/MM/yyy HH:mm:ss.fff");
         }
 
-        //private string GetNextCheckAnalysisName(int index)
-        //{
-        //    foreach (Analysis analysis in this.SelectedProjectItem.Tabs[index].Analysis)
+        ////private string GetNextCheckAnalysisName(int index)
+        ////{
+        ////    foreach (Analysis analysis in this.SelectedProjectItem.Tabs[index].Analysis)
 
-        //    return "Analysis " + (this.SelectedProjectItem.Tabs[index].Analysis.Count + 1);
-        //}
+        ////    return "Analysis " + (this.SelectedProjectItem.Tabs[index].Analysis.Count + 1);
+        ////}
 
         /// <summary>
         /// Add value in tab sensor list
         /// </summary>
-        /// <param name="sv"></param>
-        /// <param name="sensorName"></param>
+        /// <param name="sv">Sensor value</param>
+        /// <param name="sensorName">Sensor name</param>
         private void AddValueInSensorListTab(SensorValue sv, string sensorName)
         {
-
             for (int i = 0; i < this.SelectedTab.Sensors.Count; i++)
             {
                 if (this.SelectedTab.Sensors[i].SensorName == sensorName)

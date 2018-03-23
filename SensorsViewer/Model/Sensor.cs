@@ -89,7 +89,7 @@ namespace SensorsViewer.SensorOption
         public List<SensorValue> Values { get; set; }
 
         /// <summary>
-        /// Gets or sets maximum value
+        /// Gets maximum value
         /// </summary>
         public string Max
         {
@@ -105,7 +105,7 @@ namespace SensorsViewer.SensorOption
         }
 
         /// <summary>
-        /// Gets or sets minimum value
+        /// Gets minimum value
         /// </summary>
         public string Min
         {
@@ -120,13 +120,16 @@ namespace SensorsViewer.SensorOption
             }
         }
 
+        /// <summary>
+        /// Gets Integral of values
+        /// </summary>
         public string Integral
         {
             get
             {
                 if (this.Values.Count > 0)
                 {
-                    return CalculateIntegral().ToString();
+                    return this.CalculateIntegral().ToString();
                 }
                 else
                 {
@@ -144,21 +147,22 @@ namespace SensorsViewer.SensorOption
             return Guid.NewGuid().ToString();
         }
 
+        /// <summary>
+        /// Calculate Integral of values
+        /// </summary>
+        /// <returns>Returns the integral of value</returns>
         public double CalculateIntegral()
         {
-
             double sum = 0;
-            for (int i = 0; i < this.Values.Count-1; i++)
+            for (int i = 0; i < this.Values.Count - 1; i++)
             {
-                DateTime x1 = DateTime.ParseExact(this.Values[i].Timestamp, "dd/MM/yyyy HH:mm:ss.fff",
-                                       System.Globalization.CultureInfo.InvariantCulture);
+                DateTime x1 = DateTime.ParseExact(this.Values[i].Timestamp, "dd/MM/yyyy HH:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture);
 
-                DateTime x2 = DateTime.ParseExact(this.Values[i+1].Timestamp, "dd/MM/yyyy HH:mm:ss.fff",
-                                       System.Globalization.CultureInfo.InvariantCulture);
+                DateTime x2 = DateTime.ParseExact(this.Values[i + 1].Timestamp, "dd/MM/yyyy HH:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture);
 
                 double dx = (x2 - x1).TotalMilliseconds;
-                double fValue = this.Values[i].Value;
-                double rectangleArea = fValue * dx;
+                double funcValue = this.Values[i].Value;
+                double rectangleArea = funcValue * dx;
                 sum += rectangleArea;
             }
 

@@ -108,7 +108,7 @@ namespace SensorsViewer.Home
         public string ModelPath { get; set; }
 
         /// <summary>
-        /// Selected analysis index
+        /// Gets or sets Selected analysis index
         /// </summary>
         public int AnalysisIndex { get; set; }
 
