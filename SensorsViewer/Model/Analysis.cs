@@ -42,30 +42,18 @@ namespace SensorsViewer.SensorOption
         /// <summary>
         /// Initializes a new instance of the <see cref="Analysis"/> class
         /// </summary>
-        /// <param name="path">Model path</param>
-        public Analysis(string path)
-        {
-            this.ProjectChartContent = new OpticalSensorView();
-            this.ProjectResutContent = new ResultView();
-            this.SensorsIds = new ObservableCollection<string>();       
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Analysis"/> class
-        /// </summary>
         /// <param name="name">Analysis name</param>
         /// <param name="date">Analysis date</param>
         /// <param name="time">Analysis time</param>
         /// <param name="path">Analysis Model path</param>
-        public Analysis(string name, string date, string time, string path)
+        public Analysis(string name, string date, string time, string path, ObservableCollection<Sensor> sensors)
         {
             this.Name = name;
             this.Date = date;
             this.Time = time;
-
-            this.ProjectChartContent = new OpticalSensorView();
-            this.ProjectResutContent = new ResultView(path);
             this.SensorsIds = new ObservableCollection<string>();
+            this.ProjectChartContent = new OpticalSensorView();
+            this.ProjectResutContent = new ResultView(sensors, path);
         }
 
         /// <summary>

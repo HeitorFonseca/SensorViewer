@@ -12,6 +12,7 @@ namespace SensorsViewer.Home.Commands
     using System.Windows.Controls;
     using System.Windows.Input;
     using SensorsViewer.ProjectB;
+    using SensorsViewer.Result;
     using SensorsViewer.SensorOption;
 
     /// <summary>
@@ -78,7 +79,9 @@ namespace SensorsViewer.Home.Commands
                         ls.Title = sensor.SensorName;
                     }
                 }
-            } 
+            }
+
+            ((ResultView)this.viewModel.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.viewModel.SelectedTab.Sensors);
         }
     }
 }

@@ -441,9 +441,10 @@ namespace SensorsViewer.Home
                         // Each Tab has its chart and values
                         for (int i = 0; i < tab.Analysis.Count; i++)
                         {
-                            tab.Analysis[i].ProjectChartContent.OpticalSensorViewModel.ShowLoadedSensors(tab.Sensors, tab.Analysis[i]);
+                            ObservableCollection<Sensor> analysisSensors = this.GetSensorsFromAnalysis(tab.Sensors, tab.Analysis[i].SensorsIds);
 
-                            tab.Analysis[i].ProjectResutContent = new ResultView(opt.ModelPath);
+                            tab.Analysis[i].ProjectChartContent.OpticalSensorViewModel.ShowLoadedSensors(analysisSensors, tab.Analysis[i].Name);
+                            tab.Analysis[i].ProjectResutContent = new ResultView(analysisSensors, opt.ModelPath);
                         }
                     }
                 }
@@ -462,6 +463,21 @@ namespace SensorsViewer.Home
             {
                ////throw new Exception("Error when load xml file");
             }
+        }
+
+        private ObservableCollection<Sensor> GetSensorsFromAnalysis(ObservableCollection<Sensor> tabSensor, ObservableCollection<string> sensorsId)
+        {
+            ObservableCollection<Sensor> analysisSensors = new ObservableCollection<Sensor>();
+
+            foreach (Sensor s in  tabSensor)
+            {
+                if (sensorsId.Contains(s.Id))
+                {
+                    analysisSensors.Add(s);
+                }
+            }
+
+            return analysisSensors;
         }
 
         /// <summary>
@@ -496,7 +512,7 @@ namespace SensorsViewer.Home
                 this.SelectedProjectChartContent = newOpt.Tabs[this.tabIndex].Analysis.Count > 0 ? newOpt.Tabs[this.tabIndex].Analysis[0].ProjectChartContent : null;
 
                 // Show the slt model when does not have the analysis yet
-                this.SelectedProjectResultContent = newOpt.Tabs[this.tabIndex].Analysis.Count > 0 ? newOpt.Tabs[this.tabIndex].Analysis[0].ProjectResutContent : new ResultView(modelPath);
+                this.SelectedProjectResultContent = newOpt.Tabs[this.tabIndex].Analysis.Count > 0 ? newOpt.Tabs[this.tabIndex].Analysis[0].ProjectResutContent : new ResultView(this.SelectedTab.Sensors, modelPath);
             }
         }
 
@@ -518,7 +534,7 @@ namespace SensorsViewer.Home
             // Select the project content as the tab index chart graph
             this.SelectedAnalysis = this.SelectedTab.Analysis.Count > 0 ? this.SelectedTab.Analysis[option.AnalysisIndex] : null;
             this.SelectedProjectChartContent = this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectChartContent : null;
-            this.SelectedProjectResultContent = this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectResutContent : new ResultView(option.ModelPath);
+            this.SelectedProjectResultContent = this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectResutContent : new ResultView(this.SelectedTab.Sensors, option.ModelPath);
         }
 
         /// <summary>
@@ -591,9 +607,9 @@ namespace SensorsViewer.Home
                 this.SelectedProjectItem = this.ProjectItems[i];
                 this.SelectedTabCategory = this.ProjectItems[i].Tabs;               
                 this.SelectedTab = this.SelectedTabCategory[this.tabIndex];  // Select the tab item as Draw-In or Adjustment               
-                this.SelectedAnalysis = this.SelectedTab.Analysis[0];             // Selected analysis               
+                this.SelectedAnalysis = this.SelectedTab.Analysis.Count > 0 ? this.SelectedTab.Analysis[0] : null;             // Selected analysis               
                 this.SelectedProjectChartContent = this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectChartContent : null;  // Select the project content as the tab index chart graph
-                this.SelectedProjectResultContent = this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectResutContent : new ResultView(this.SelectedProjectItem.ModelPath);
+                this.SelectedProjectResultContent = this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectResutContent : new ResultView(this.SelectedTab.Sensors, this.SelectedProjectItem.ModelPath);
             }
         }
 
@@ -607,7 +623,7 @@ namespace SensorsViewer.Home
             var dc = (TabCategory)textBlock.DataContext;
 
             this.SelectedProjectChartContent = dc.Analysis.Count > 0 ? dc.Analysis[0].ProjectChartContent : null;
-            this.SelectedProjectResultContent = dc.Analysis.Count > 0 ? dc.Analysis[0].ProjectResutContent : new ResultView(this.SelectedProjectItem.ModelPath);
+            this.SelectedProjectResultContent = dc.Analysis.Count > 0 ? dc.Analysis[0].ProjectResutContent : new ResultView(this.SelectedTab.Sensors, this.SelectedProjectItem.ModelPath);
 
             if (dc.Name == "Draw-In")
             {
@@ -648,6 +664,8 @@ namespace SensorsViewer.Home
                     // Add sensor in sensor list
                     this.SelectedTab.Sensors.Add(sensor);
                 }
+
+                ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors);
             }
         }
 
@@ -687,7 +705,7 @@ namespace SensorsViewer.Home
                 this.SelectedProjectItem.AnalysisIndex = 0;
                 this.SelectedAnalysis = null;
                 this.SelectedProjectChartContent = null;
-                this.SelectedProjectResultContent = new ResultView(this.SelectedProjectItem.ModelPath);
+                this.SelectedProjectResultContent = new ResultView(this.SelectedTab.Sensors, this.SelectedProjectItem.ModelPath);
             }
             else
             {
@@ -789,7 +807,9 @@ namespace SensorsViewer.Home
         /// <param name="index">Index of tab</param>
         private void CreateAnalysis(int index)
         {            
-            Analysis newAnalysis = new Analysis("Analysis " + (this.SelectedProjectItem.Tabs[index].Analysis.Count + 1), DateTime.Now.ToString("dd/MM/yyy"), DateTime.Now.ToString("HH:mm:ss.fff"), this.SelectedProjectItem.ModelPath);
+            Analysis newAnalysis = new Analysis("Analysis " + (this.SelectedProjectItem.Tabs[index].Analysis.Count + 1), 
+                                                DateTime.Now.ToString("dd/MM/yyy"), DateTime.Now.ToString("HH:mm:ss.fff"), 
+                                                this.SelectedProjectItem.ModelPath, this.SelectedTab.Sensors);
             
             // Set the list sensor of the graph the same as the sensors list tab
             foreach (Sensor s in this.SelectedTab.Sensors)

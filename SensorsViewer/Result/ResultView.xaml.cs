@@ -4,8 +4,10 @@
 
 namespace SensorsViewer.Result
 {
+    using SensorsViewer.SensorOption;
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -40,11 +42,11 @@ namespace SensorsViewer.Result
         /// Initializes a new instance of the <see cref="ResultView"/> class
         /// </summary>
         /// <param name="path">Model path</param>
-        public ResultView(string path)
+        public ResultView(ObservableCollection<Sensor> sensors, string path)
         {
             this.InitializeComponent();
 
-            this.ResultViewModel = new ResultViewModel();
+            this.ResultViewModel = new ResultViewModel(sensors);
 
             if (!string.IsNullOrEmpty(path))
             {
@@ -59,20 +61,6 @@ namespace SensorsViewer.Result
         /// <summary>
         /// Gets or sets optical sensor view model
         /// </summary>
-        public ResultViewModel ResultViewModel { get; set; }
-
-        /// <summary>
-        /// Load model
-        /// </summary>
-        /// <param name="path">Model path</param>
-        public void LoadContent(string path)
-        {
-            if (!string.IsNullOrEmpty(path) && this.ResultViewModel != null)
-            {
-                this.ResultViewModel.LoadStlModel(path);
-                this.viewPort3d.ZoomExtents();
-                this.viewPort3d.ZoomExtentsWhenLoaded = true;
-            }
-        }        
+        public ResultViewModel ResultViewModel { get; set; }        
     }
 }

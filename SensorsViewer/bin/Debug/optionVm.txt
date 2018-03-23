@@ -1531,4 +1531,87 @@
       </TabCategory>
     </Tabs>
   </ProjectItem>
+  <ProjectItem>
+    <Id>7</Id>
+    <QtdAnalysis>0</QtdAnalysis>
+    <Name>daw</Name>
+    <ModelPath>C:\Users\heitor.araujo\Documents\wokspace\GM\Tests\TestsNx\Die ring.stl</ModelPath>
+    <AnalysisIndex>0</AnalysisIndex>
+    <Tabs>
+      <TabCategory>
+        <Name>Draw-In</Name>
+        <Sensors>
+          <Sensor>
+            <Id>97486777-837a-45b6-9d7e-6b6e0a81fe68</Id>
+            <X>572.5</X>
+            <Y>124.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 1</SensorName>
+            <Values />
+            <Visibility>true</Visibility>
+          </Sensor>
+          <Sensor>
+            <Id>5b3ca4d1-7bbe-47d6-a1a0-d3ffa7fb0ca6</Id>
+            <X>537.5</X>
+            <Y>-155.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 2</SensorName>
+            <Values />
+            <Visibility>true</Visibility>
+          </Sensor>
+          <Sensor>
+            <Id>59f2b06a-677c-4c8a-bc06-32b8dbbd2a80</Id>
+            <X>100</X>
+            <Y>-175.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 3</SensorName>
+            <Values />
+            <Visibility>true</Visibility>
+          </Sensor>
+          <Sensor>
+            <Id>46abd27f-d564-4e0c-ac81-cbf3cb6cebb6</Id>
+            <X>-100</X>
+            <Y>-175.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 4</SensorName>
+            <Values />
+            <Visibility>true</Visibility>
+          </Sensor>
+          <Sensor>
+            <Id>f1591f87-4b71-46fb-b4d4-dfb32ff6faca</Id>
+            <X>-552.5</X>
+            <Y>-155.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 5</SensorName>
+            <Values />
+            <Visibility>true</Visibility>
+          </Sensor>
+          <Sensor>
+            <Id>6c29d3c6-11e4-42e5-8bf1-deecb81fec25</Id>
+            <X>-572.5</X>
+            <Y>124.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 6</SensorName>
+            <Values />
+            <Visibility>true</Visibility>
+          </Sensor>
+          <Sensor>
+            <Id>f5174e12-44b3-4ba3-a758-9a2b07f59c7a</Id>
+            <X>0</X>
+            <Y>124.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 7</SensorName>
+            <Values />
+            <Visibility>true</Visibility>
+          </Sensor>
+        </Sensors>
+        <Analysis />
+      </TabCategory>
+      <TabCategory>
+        <Name>Adjustment</Name>
+        <Sensors />
+        <Analysis />
+      </TabCategory>
+    </Tabs>
+  </ProjectItem>
 </ArrayOfProjectItem>

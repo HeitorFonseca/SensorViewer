@@ -244,17 +244,32 @@
 
                                                                 <StackPanel Grid.Row="1" Orientation="Horizontal">
                                                                     <Label x:Name="lbX" Content="X:" Margin="0,0,0,-0.2" FontSize="12"></Label>
-                                                                    <TextBox x:Name="tbX"
-                                                                             controls:TextBoxHelper.SelectAllOnFocus="True" controls:TextBoxHelper.Watermark="X"
-                                                                             Text="{Binding X, Mode=TwoWay}" Style="{StaticResource sensorDataText}" Margin="-5,1,0,0"/>
+                                                                    <TextBox x:Name="tbX" controls:TextBoxHelper.SelectAllOnFocus="True" controls:TextBoxHelper.Watermark="X" 
+                                                                             Text="{Binding X, Mode=TwoWay}" Style="{StaticResource sensorDataText}" Margin="-5,1,0,0">
+                                                                        <i:Interaction.Triggers>
+                                                                            <i:EventTrigger EventName="LostFocus">
+                                                                                <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.EditSensorDataCommand}" PassEventArgsToCommand="True" />
+                                                                            </i:EventTrigger>
+                                                                        </i:Interaction.Triggers>
+                                                                    </TextBox>
                                                                     <Label x:Name="lbY" Content="Y:" Margin="0,0,0,-0.2" FontSize="12"></Label>
-                                                                    <TextBox x:Name="tbY"
-                                                                             controls:TextBoxHelper.SelectAllOnFocus="True" controls:TextBoxHelper.Watermark="Y"
-                                                                             Text="{Binding Y, Mode=TwoWay}" Style="{StaticResource sensorDataText}" Margin="-5,1,0,0"/>
+                                                                    <TextBox x:Name="tbY" controls:TextBoxHelper.SelectAllOnFocus="True" controls:TextBoxHelper.Watermark="Y"
+                                                                             Text="{Binding Y, Mode=TwoWay}" Style="{StaticResource sensorDataText}" Margin="-5,1,0,0">
+                                                                        <i:Interaction.Triggers>
+                                                                            <i:EventTrigger EventName="LostFocus">
+                                                                                <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.EditSensorDataCommand}" PassEventArgsToCommand="True" />
+                                                                            </i:EventTrigger>
+                                                                        </i:Interaction.Triggers>
+                                                                    </TextBox>
                                                                     <Label x:Name="lbZ" Content="Z:" Margin="0,0,0,-0.2" FontSize="12"></Label>
-                                                                    <TextBox x:Name="tbZ"
-                                                                             controls:TextBoxHelper.SelectAllOnFocus="True" controls:TextBoxHelper.Watermark="Z"
-                                                                             Text="{Binding Z, Mode=TwoWay}" Style="{StaticResource sensorDataText}" Margin="-5,1,0,0"/>
+                                                                    <TextBox x:Name="tbZ" controls:TextBoxHelper.SelectAllOnFocus="True" controls:TextBoxHelper.Watermark="Z"
+                                                                             Text="{Binding Z, Mode=TwoWay}" Style="{StaticResource sensorDataText}" Margin="-5,1,0,0">
+                                                                        <i:Interaction.Triggers>
+                                                                            <i:EventTrigger EventName="LostFocus">
+                                                                                <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.EditSensorDataCommand}" PassEventArgsToCommand="True" />
+                                                                            </i:EventTrigger>
+                                                                        </i:Interaction.Triggers>
+                                                                    </TextBox>
 
                                                                 </StackPanel>
 
