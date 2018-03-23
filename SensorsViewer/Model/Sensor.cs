@@ -150,13 +150,13 @@ namespace SensorsViewer.SensorOption
             double sum = 0;
             for (int i = 0; i < this.Values.Count-1; i++)
             {
-                DateTime x1 = DateTime.ParseExact(this.Values[i].Timestamp, "yyyy-MM-dd HH:mm:ss.fff",
+                DateTime x1 = DateTime.ParseExact(this.Values[i].Timestamp, "dd/MM/yyyy HH:mm:ss.fff",
                                        System.Globalization.CultureInfo.InvariantCulture);
 
-                DateTime x2 = DateTime.ParseExact(this.Values[i+1].Timestamp, "yyyy-MM-dd HH:mm:ss.fff",
+                DateTime x2 = DateTime.ParseExact(this.Values[i+1].Timestamp, "dd/MM/yyyy HH:mm:ss.fff",
                                        System.Globalization.CultureInfo.InvariantCulture);
 
-                double dx = (x1 - x2).TotalMilliseconds;
+                double dx = (x2 - x1).TotalMilliseconds;
                 double fValue = this.Values[i].Value;
                 double rectangleArea = fValue * dx;
                 sum += rectangleArea;

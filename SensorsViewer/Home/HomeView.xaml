@@ -384,6 +384,7 @@
                                             <GridViewColumn DisplayMemberBinding="{Binding SensorName}" Header="Sensor Id"/>
                                             <GridViewColumn DisplayMemberBinding="{Binding Max}" Header="Max Value"/>
                                             <GridViewColumn DisplayMemberBinding="{Binding Min}" Header="Min Value" />
+                                            <GridViewColumn DisplayMemberBinding="{Binding Integral}" Header="Integral" />
                                         </GridView>
                                     </ListView.View>
                                 </ListView>
