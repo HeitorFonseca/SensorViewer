@@ -24,11 +24,6 @@ namespace SensorsViewer.Home
         private string name;
 
         /// <summary>
-        /// Gets os sets modelPath
-        /// </summary>
-        private string modelPath;
-
-        /// <summary>
         /// Gets os sets projects
         /// </summary>
         private ObservableCollection<TabCategory> tabs;

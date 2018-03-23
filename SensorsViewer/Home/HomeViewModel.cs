@@ -660,10 +660,10 @@ namespace SensorsViewer.Home
             var sensor = parameter as Sensor;
 
             // Remove sensors from chart
-            if (this.SelectedProjectChartContent != null)
-            {
-                ((OpticalSensorView)this.SelectedProjectChartContent).OpticalSensorViewModel.RemoveSensorFromGraph(sensor);
-            }
+            ////if (this.SelectedProjectChartContent != null)
+            ////{
+            ////    ((OpticalSensorView)this.SelectedProjectChartContent).OpticalSensorViewModel.RemoveSensorFromGraph(sensor);
+            ////}
 
             // Remove from sensors list
             this.SelectedTab.Sensors.Remove(sensor);
