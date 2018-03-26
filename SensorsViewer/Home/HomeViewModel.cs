@@ -445,7 +445,9 @@ namespace SensorsViewer.Home
 
                             tab.Analysis[i].ProjectChartContent.OpticalSensorViewModel.ShowLoadedSensors(analysisSensors, tab.Analysis[i].Name);
                             tab.Analysis[i].ProjectResutContent = new ResultView(analysisSensors, opt.ModelPath);
+                            tab.Analysis[i].ProjectResutContent.ResultViewModel.LoadSensorsInModel(analysisSensors);
                         }
+                        //((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(tab)
                     }
                 }
 

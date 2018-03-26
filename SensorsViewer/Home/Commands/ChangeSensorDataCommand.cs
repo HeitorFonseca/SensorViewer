@@ -6,6 +6,7 @@ namespace SensorsViewer.Home.Commands
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -81,7 +82,13 @@ namespace SensorsViewer.Home.Commands
                 }
             }
 
-            ((ResultView)this.viewModel.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.viewModel.SelectedTab.Sensors);
+            if (this.viewModel.SelectedAnalysis == this.viewModel.SelectedTab.Analysis[this.viewModel.SelectedTab.Analysis.Count - 1])
+            {
+                var visibleSensors = this.viewModel.SelectedTab.Sensors.Where(a => a.Visibility == true);
+                var obsCol = new ObservableCollection<Sensor>(visibleSensors);
+
+                ((ResultView)this.viewModel.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(obsCol);
+            }
         }
     }
 }

@@ -5,7 +5,7 @@
     <QtdAnalysis>0</QtdAnalysis>
     <Name>asdasda</Name>
     <ModelPath>C:\Users\heitor.araujo\Documents\wokspace\GM\Tests\TestsNx\Die ring.stl</ModelPath>
-    <AnalysisIndex>1</AnalysisIndex>
+    <AnalysisIndex>2</AnalysisIndex>
     <Tabs>
       <TabCategory>
         <Name>Draw-In</Name>
@@ -13,7 +13,7 @@
           <Sensor>
             <Id>7676966d-a47f-457f-b1c2-a76db1439e07</Id>
             <X>572.5</X>
-            <Y>124.5</Y>
+            <Y>124</Y>
             <Z>0</Z>
             <SensorName>Sensor Name 1</SensorName>
             <Values>
@@ -613,6 +613,23 @@
             <Y>129.5</Y>
             <Z>0</Z>
             <SensorName>Sensor Name 7</SensorName>
+            <Values />
+            <Visibility>false</Visibility>
+          </Sensor>
+          <Sensor>
+            <Id>ac54396d-3963-4f1a-acce-e944a9497c9f</Id>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 7</SensorName>
+            <Values />
+            <Visibility>false</Visibility>
+          </Sensor>
+          <Sensor>
+            <Id>108119cb-6ff2-4cb1-8d20-136c90432f9e</Id>
+            <X>0</X>
+            <Y>0</Y>
+            <Z>0</Z>
             <Values />
             <Visibility>false</Visibility>
           </Sensor>
@@ -1599,6 +1616,89 @@
             <Id>f5174e12-44b3-4ba3-a758-9a2b07f59c7a</Id>
             <X>0</X>
             <Y>124.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 7</SensorName>
+            <Values />
+            <Visibility>true</Visibility>
+          </Sensor>
+        </Sensors>
+        <Analysis />
+      </TabCategory>
+      <TabCategory>
+        <Name>Adjustment</Name>
+        <Sensors />
+        <Analysis />
+      </TabCategory>
+    </Tabs>
+  </ProjectItem>
+  <ProjectItem>
+    <Id>3</Id>
+    <QtdAnalysis>0</QtdAnalysis>
+    <Name>asdas</Name>
+    <ModelPath>C:\Users\heitor.araujo\Documents\wokspace\GM\Tests\TestsNx\Die ring.stl</ModelPath>
+    <AnalysisIndex>0</AnalysisIndex>
+    <Tabs>
+      <TabCategory>
+        <Name>Draw-In</Name>
+        <Sensors>
+          <Sensor>
+            <Id>9188fe9f-7044-4a0a-8db7-345cc9dc58fc</Id>
+            <X>572.5</X>
+            <Y>124.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 1</SensorName>
+            <Values />
+            <Visibility>true</Visibility>
+          </Sensor>
+          <Sensor>
+            <Id>0bc5f70d-18b7-4ae5-956a-cdba1ee3402c</Id>
+            <X>537.5</X>
+            <Y>-155.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 2</SensorName>
+            <Values />
+            <Visibility>true</Visibility>
+          </Sensor>
+          <Sensor>
+            <Id>a8537606-2433-498a-9a64-2135ae2913e0</Id>
+            <X>100</X>
+            <Y>-175.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 3</SensorName>
+            <Values />
+            <Visibility>true</Visibility>
+          </Sensor>
+          <Sensor>
+            <Id>325679b9-b4e3-4586-856f-7fa14ae94227</Id>
+            <X>-100</X>
+            <Y>-175.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 4</SensorName>
+            <Values />
+            <Visibility>true</Visibility>
+          </Sensor>
+          <Sensor>
+            <Id>149c74a6-db73-48f1-8fe5-6618e3c233f5</Id>
+            <X>-552.5</X>
+            <Y>-155.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 5</SensorName>
+            <Values />
+            <Visibility>true</Visibility>
+          </Sensor>
+          <Sensor>
+            <Id>3616a575-f677-4628-8493-e742321a3244</Id>
+            <X>-572.5</X>
+            <Y>124.5</Y>
+            <Z>0</Z>
+            <SensorName>Sensor Name 6</SensorName>
+            <Values />
+            <Visibility>true</Visibility>
+          </Sensor>
+          <Sensor>
+            <Id>7f63196f-7f38-4818-b11e-66ce74503621</Id>
+            <X>0</X>
+            <Y>129.5</Y>
             <Z>0</Z>
             <SensorName>Sensor Name 7</SensorName>
             <Values />
