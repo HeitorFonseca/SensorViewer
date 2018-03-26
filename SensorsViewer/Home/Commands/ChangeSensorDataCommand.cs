@@ -72,7 +72,7 @@ namespace SensorsViewer.Home.Commands
             {
                 var seriesCollection = this.viewModel.SelectedAnalysis.ProjectChartContent.OpticalSensorViewModel.SeriesCollection;
 
-                // Search in graph sensor and change its name
+                // Search in graph sensor and change its name/localization
                 foreach (LiveCharts.Wpf.LineSeries ls in seriesCollection)
                 {
                     if (ls.Tag.ToString() == sensor.Id)

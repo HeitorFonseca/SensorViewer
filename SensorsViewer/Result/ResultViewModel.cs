@@ -187,7 +187,7 @@ namespace SensorsViewer.Result
                 
                 meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sizeX, sizeY, sizeZ);
 
-                GeometryModel3D sensorModel = new GeometryModel3D(meshBuilder.ToMesh(), MaterialHelper.CreateMaterial(Brushes.DarkOrange));
+                GeometryModel3D sensorModel = new GeometryModel3D(meshBuilder.ToMesh(), MaterialHelper.CreateMaterial(Brushes.Yellow));
 
                 this.sensorModelList.Add(sensorModel);
                 this.groupModel.Children.Add(sensorModel);

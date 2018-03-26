@@ -8,6 +8,7 @@ namespace SensorsViewer.Home
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
+    using System.Linq;
     using System.Text;
     using System.Windows;
     using System.Windows.Controls;
@@ -809,7 +810,7 @@ namespace SensorsViewer.Home
         /// <param name="index">Index of tab</param>
         private void CreateAnalysis(int index)
         {            
-            Analysis newAnalysis = new Analysis("Analysis " + (this.SelectedProjectItem.Tabs[index].Analysis.Count + 1), 
+            Analysis newAnalysis = new Analysis("Analysis " + DateTime.Now.ToString("HH:mm:ss.fff"), 
                                                 DateTime.Now.ToString("dd/MM/yyy"), DateTime.Now.ToString("HH:mm:ss.fff"), 
                                                 this.SelectedProjectItem.ModelPath, this.SelectedTab.Sensors);
             
@@ -825,6 +826,11 @@ namespace SensorsViewer.Home
                     newAnalysis.SensorsIds.Add(newSensor.Id);
                 }
             }
+
+            var visibleSensors = this.SelectedTab.Sensors.Where(a => a.Visibility == true);
+            var obsCol = new ObservableCollection<Sensor>(visibleSensors);
+            
+            newAnalysis.ProjectResutContent.ResultViewModel.LoadSensorsInModel(obsCol);
 
             this.SelectedAnalysis = newAnalysis;
             this.SelectedProjectItem.Tabs[index].Analysis.Add(newAnalysis);
