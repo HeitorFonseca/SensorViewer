@@ -11,6 +11,7 @@ namespace SensorsViewer.Home.Commands
     using System.Threading.Tasks;
     using System.Windows.Input;
     using SensorsViewer.ProjectB;
+    using SensorsViewer.Result;
     using SensorsViewer.SensorOption;
 
     /// <summary>
@@ -63,6 +64,8 @@ namespace SensorsViewer.Home.Commands
 
             Sensor s = new Sensor();
             this.viewModel.SelectedTab.Sensors.Add(s);
+
+            ((ResultView)this.viewModel.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.viewModel.SelectedTab.Sensors.Where(a => a.Visibility == true));
         }
     }
 }

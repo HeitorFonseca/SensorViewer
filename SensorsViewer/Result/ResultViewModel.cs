@@ -170,7 +170,7 @@ namespace SensorsViewer.Result
         /// Load sensors in model
         /// </summary>
         /// <param name="Sensors">List of sensors</param>
-        public void LoadSensorsInModel(ObservableCollection<Sensor> sensors)
+        public void LoadSensorsInModel(IEnumerable<Sensor> sensors)
         {
             this.ViewPort3d.Children.Remove(this.device3D);
 

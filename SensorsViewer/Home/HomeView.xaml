@@ -409,6 +409,7 @@
                                     </ListView.View>
                                 </ListView>
                             </Border>
+                            <Label Content="- No data received" HorizontalAlignment="Left" Margin="34,563,0,0" VerticalAlignment="Top"/>
                         </Grid>
                     </TabItem>
                 </TabControl>

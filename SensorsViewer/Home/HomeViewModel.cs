@@ -446,9 +446,7 @@ namespace SensorsViewer.Home
 
                             tab.Analysis[i].ProjectChartContent.OpticalSensorViewModel.ShowLoadedSensors(analysisSensors, tab.Analysis[i].Name);
                             tab.Analysis[i].ProjectResutContent = new ResultView(analysisSensors, opt.ModelPath);
-                            tab.Analysis[i].ProjectResutContent.ResultViewModel.LoadSensorsInModel(analysisSensors);
                         }
-                        //((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(tab)
                     }
                 }
 
@@ -458,9 +456,14 @@ namespace SensorsViewer.Home
                 this.SelectedProjectItem = this.projectItems[0];                
                 this.SelectedTabCategory = this.SelectedProjectItem.Tabs;   // Select the tabs as the new selected project tabs         
                 this.SelectedTab = this.selectedTabCategory[this.tabIndex]; // Select the tab item as Draw-In or Adjustment
-                this.SelectedAnalysis = this.SelectedTab.Analysis[this.SelectedProjectItem.AnalysisIndex];
-                this.SelectedProjectChartContent = this.SelectedAnalysis.ProjectChartContent;
-                this.SelectedProjectResultContent = this.SelectedAnalysis.ProjectResutContent;
+                this.SelectedAnalysis = this.SelectedTab.Analysis.Count > 0 ? this.SelectedTab.Analysis[this.SelectedProjectItem.AnalysisIndex] : null;
+                this.SelectedProjectChartContent = this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectChartContent : null;
+                this.SelectedProjectResultContent = this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectResutContent : new ResultView(this.SelectedTab.Sensors, this.SelectedProjectItem.ModelPath);
+
+                if (this.SelectedTab.Analysis.Count == 0)
+                {
+                    ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true));
+                }
             }
             catch (Exception e)
             {
@@ -667,8 +670,8 @@ namespace SensorsViewer.Home
                     // Add sensor in sensor list
                     this.SelectedTab.Sensors.Add(sensor);
                 }
-
-                ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors);
+              
+                ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true));
             }
         }
 
@@ -678,18 +681,13 @@ namespace SensorsViewer.Home
         /// <param name="parameter">Object Parameter</param>
         private void DeleteSensorAction(object parameter)
         {
-            var sensor = parameter as Sensor;
-
-            // Remove sensors from chart
-            ////if (this.SelectedProjectChartContent != null)
-            ////{
-            ////    ((OpticalSensorView)this.SelectedProjectChartContent).OpticalSensorViewModel.RemoveSensorFromGraph(sensor);
-            ////}
-
-            // Remove from sensors list
-            // this.SelectedTab.Sensors.Remove(sensor);
+            var sensor = parameter as Sensor;           
 
             sensor.Visibility = false;
+
+            //TODO: OPTMIZE
+
+            ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true));
         }
 
         /// <summary>
@@ -827,10 +825,7 @@ namespace SensorsViewer.Home
                 }
             }
 
-            var visibleSensors = this.SelectedTab.Sensors.Where(a => a.Visibility == true);
-            var obsCol = new ObservableCollection<Sensor>(visibleSensors);
-            
-            newAnalysis.ProjectResutContent.ResultViewModel.LoadSensorsInModel(obsCol);
+            newAnalysis.ProjectResutContent.ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true));
 
             this.SelectedAnalysis = newAnalysis;
             this.SelectedProjectItem.Tabs[index].Analysis.Add(newAnalysis);
