@@ -54,15 +54,6 @@ namespace SensorsViewer.Home
                  new TabCategory(modelPath) { Name = "Draw-In" },
                  new TabCategory(modelPath) { Name = "Adjustment" }
             };
-
-            ////Tabs[0].Analysis.Add(new SensorOption.Analysis("Analysis", "", ""));
-            ////Tabs[1].Analysis.Add(new SensorOption.Analysis("Analysis", "", ""));
-
-            ////Tabs[0].ProjectChartContent = new OpticalSensorView();
-            ////Tabs[1].ProjectChartContent = new OpticalSensorView();
-
-            ////Tabs[0].ProjectResutContent = new Result.ResultView(ModelPath);
-            ////Tabs[1].ProjectResutContent = new Result.ResultView(ModelPath);
         }
 
         /// <summary>
@@ -74,11 +65,6 @@ namespace SensorsViewer.Home
         /// Gets or sets Id
         /// </summary>
         public int Id { get; set; }
-
-        /// <summary>
-        /// Gets or sets Id
-        /// </summary>
-        public int QtdAnalysis { get; set; }
 
         /// <summary>
         /// Gets or sets Name

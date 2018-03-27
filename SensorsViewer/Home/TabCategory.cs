@@ -88,8 +88,20 @@ namespace SensorsViewer.Home
             set
             {
                 this.analysis = value;
+                this.OnPropertyChanged("Analysis");
             }
-        }                
+        }
+
+        /// <summary>
+        /// Gets If Enable Sensors
+        /// </summary>
+        public bool EnableSensors
+        {
+            get
+            {
+                return this.Analysis.Count == 0 ? true : false;
+            }
+        }
 
         /// <summary>
         /// When changes property

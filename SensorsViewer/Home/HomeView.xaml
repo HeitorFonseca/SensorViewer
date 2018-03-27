@@ -64,7 +64,7 @@
                     <Border Grid.Row="0" Style="{StaticResource MenuItem}" Margin="0,0,0.333,0" Background="#1BB9F0">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseDown">
-                                <cmd:EventToCommand Command="{Binding Path=CreateNewProjectCommand}" PassEventArgsToCommand="True" />
+                                <cmd:EventToCommand Command="{Binding Path=CreateProjectCommand}" PassEventArgsToCommand="True" />
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                         
@@ -151,7 +151,7 @@
             <!-- Second Grid -->
             <Border Grid.Column="1" Effect="{StaticResource CardShadow}" Background="White" Height="Auto" BorderThickness="2 1 0 0">
                 <Grid>
-                    <TabControl  x:Name="TabCategoryTabItems" ItemsSource="{Binding SelectedTabCategory}" SelectedIndex="0" SelectedItem="{Binding SelectedTab}" >
+                    <TabControl  x:Name="TabCategoryTabItems" ItemsSource="{Binding SelectedTabCategory}" SelectedIndex="0" SelectedItem="{Binding SelectedTab, UpdateSourceTrigger=PropertyChanged}" >
                         <TabControl.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock x:Name="tbTabCategory" MinWidth="110" FontSize="16"  HorizontalAlignment="Center" TextAlignment="Center" Text="{Binding Name}">                                    
@@ -184,7 +184,10 @@
                                                      controls:TextBoxHelper.Watermark="Upload sensor file" 
                                                      Style="{DynamicResource ButtonCommandMetroTextBox}" IsReadOnly="True"
                                                      Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.SelectedProjectChartContent.OpticalSensorViewModel.SensorsFilePath}"
-                                                     controls:TextBoxHelper.ButtonCommand="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.BrowseFileCommand}">
+                                                     controls:TextBoxHelper.ButtonCommand="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.BrowseFileCommand}"
+                                                     IsEnabled="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.SelectedTab.EnableSensors, Mode=OneWay}"
+                                                     >
+
                                                 <controls:TextBoxHelper.ButtonContent>
                                                     <Image Source="../Resources/open-in-browser2.png" />
                                                 </controls:TextBoxHelper.ButtonContent>
@@ -193,6 +196,7 @@
                                             <ListBox Grid.Row="1" x:Name="SensorListBox" 
                                                      ItemsSource="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.SelectedTab.Sensors, UpdateSourceTrigger=PropertyChanged}" 
                                                      SelectedItem="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectedSensor, Mode=TwoWay}"
+                                                     IsEnabled="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.SelectedTab.EnableSensors, Mode=OneWay}"
                                                      ScrollViewer.HorizontalScrollBarVisibility="Hidden">
 
                                                 <ListBox.ItemContainerStyle>
@@ -288,7 +292,8 @@
                                             <Button x:Name="btnAddSensor"
                                                     Grid.Row="2"  Padding="0,0,0,0" BorderThickness="0" Width="124" Style="{StaticResource AddSensorButton}"
                                                     Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.AddNewSensorCommand}"
-                                                    CommandParameter="{Binding}">
+                                                    CommandParameter="{Binding}"
+                                                    IsEnabled="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.SelectedTab.EnableSensors}">
 
                                                 <Image Source="../Resources/AddSensorBtn.png" Stretch="None" />
                                             </Button>

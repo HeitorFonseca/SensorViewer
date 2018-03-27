@@ -132,7 +132,7 @@ namespace SensorsViewer.Home
             this.ClickInRenameContextMenu = new RelayCommand(this.ClickInRenameActionAsync);
             this.ClickInDeleteContextMenu = new RelayCommand(this.ClickInDeleteAction);
 
-            this.CreateNewProjectCommand = new RelayCommand(this.CreateNewProjectAction);
+            this.CreateProjectCommand = new RelayCommand(this.CreateProjectAction);
             this.SelectProjectCommand = new RelayCommand(this.SelectProjectAction);
             this.DeleteSensorCommand = new RelayCommand(this.DeleteSensorAction);
             this.DeleteAnalysisCommand = new RelayCommand(this.DeleteAnalysisAction);
@@ -176,7 +176,7 @@ namespace SensorsViewer.Home
         /// <summary>
         ///  Gets or sets Create new project command
         /// </summary>
-        public ICommand CreateNewProjectCommand { get; set; }
+        public ICommand CreateProjectCommand { get; set; }
 
         /// <summary>
         ///  Gets or sets Select project command
@@ -373,6 +373,7 @@ namespace SensorsViewer.Home
             {
                 this.selectedAnalysis = value;
                 this.OnPropertyChanged("SelectedAnalysis");
+                this.OnPropertyChanged("SelectedTab");
             }
         }
 
@@ -487,10 +488,10 @@ namespace SensorsViewer.Home
         }
 
         /// <summary>
-        ///  Event to create new project
+        ///  Event to create project
         /// </summary>
         /// <param name="parameter">Object parameter</param>
-        private void CreateNewProjectAction(object parameter)
+        private void CreateProjectAction(object parameter)
         {
             AddProjectDialog addProjectDialog = new AddProjectDialog(this.ProjectItems);
             addProjectDialog.ShowDialog();
@@ -535,7 +536,7 @@ namespace SensorsViewer.Home
             this.SelectedTabCategory = option.Tabs;
 
             // Select the tab item as Draw-In or Adjustment
-            this.SelectedTab = this.selectedTabCategory[this.tabIndex];
+            this.SelectedTab = this.SelectedTabCategory[this.tabIndex];
 
             // Select the project content as the tab index chart graph
             this.SelectedAnalysis = this.SelectedTab.Analysis.Count > 0 ? this.SelectedTab.Analysis[option.AnalysisIndex] : null;
@@ -803,7 +804,7 @@ namespace SensorsViewer.Home
         }
 
         /// <summary>
-        /// Index of tab (if is drawin or adjustment
+        /// Index of tab (if is drawin or adjustment)
         /// </summary>
         /// <param name="index">Index of tab</param>
         private void CreateAnalysis(int index)
@@ -825,10 +826,12 @@ namespace SensorsViewer.Home
                 }
             }
 
-            newAnalysis.ProjectResutContent.ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true));
+            //newAnalysis.ProjectResutContent.ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true));
 
+            // Select the tab item as Draw-In or Adjustment
             this.SelectedAnalysis = newAnalysis;
             this.SelectedProjectItem.Tabs[index].Analysis.Add(newAnalysis);
+            this.SelectedTab = this.SelectedProjectItem.Tabs[index];
             this.SelectedProjectChartContent = newAnalysis.ProjectChartContent;
             this.SelectedProjectResultContent = newAnalysis.ProjectResutContent;
         }
