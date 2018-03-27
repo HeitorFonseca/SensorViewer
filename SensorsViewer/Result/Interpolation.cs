@@ -10,14 +10,14 @@ namespace SensorsViewer.Result
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using System.Windows.Media;
     using System.Windows.Media.Media3D;
 
-    public class Interpolation
-    {
-        
-        private Dictionary<Tuple<int, int>, double> dic = new Dictionary<Tuple<int, int>, double>();
+    static public class Interpolation
+    {        
+        static private Dictionary<Tuple<int, int>, double> dic = new Dictionary<Tuple<int, int>, double>();
 
-        private MeshGeometry3D BuildDictionary(MeshGeometry3D mesh)
+        static private MeshGeometry3D BuildDictionary(MeshGeometry3D mesh)
         {
             //Create the mesh to hold the new surface
             MeshGeometry3D newMesh = mesh.Clone();
@@ -54,7 +54,7 @@ namespace SensorsViewer.Result
             return newMesh;
         }
 
-        public Dictionary<Tuple<int, int>, double> FillSensorDataDictionary(List<Sensor> sensorsDataList)
+        static public Dictionary<Tuple<int, int>, double> FillSensorDataDictionary(List<Sensor> sensorsDataList)
         {
             Dictionary<Tuple<int, int>, double> newDictionary = new Dictionary<Tuple<int, int>, double>();
 
@@ -71,7 +71,7 @@ namespace SensorsViewer.Result
             return newDictionary;
         }
 
-        public Dictionary<Tuple<int, int>, double> PreProcessing(Dictionary<Tuple<int, int>, double> sensorDictionary)
+        static public Dictionary<Tuple<int, int>, double> PreProcessing(Dictionary<Tuple<int, int>, double> sensorDictionary)
         {
 
             Dictionary<Tuple<int, int>, double> ndic = new Dictionary<Tuple<int, int>, double>();
@@ -102,7 +102,7 @@ namespace SensorsViewer.Result
             return ndic;
         }
 
-        private List<Tuple<int, int>> GetNeighboringPoints(int x, int y, Dictionary<Tuple<int, int>, double> newDictionary, out double mCoord1, out double mCoord2)
+        static private List<Tuple<int, int>> GetNeighboringPoints(int x, int y, Dictionary<Tuple<int, int>, double> newDictionary, out double mCoord1, out double mCoord2)
         {
 
             List<Tuple<int, int>> ret = new List<Tuple<int, int>>();
@@ -144,7 +144,7 @@ namespace SensorsViewer.Result
             return ret;
         }
 
-        private Tuple<int, int> GetNeighboringPoints2(int x, int y, Dictionary<Tuple<int, int>, double> newDictionary)
+        static private Tuple<int, int> GetNeighboringPoints2(int x, int y, Dictionary<Tuple<int, int>, double> newDictionary)
         {
 
             Tuple<int, int> coord;
@@ -169,9 +169,47 @@ namespace SensorsViewer.Result
             return coord;
         }
 
-        private double CrossProduct(Point3D p1, Point3D p2)
+        static private double CrossProduct(Point3D p1, Point3D p2)
         {
             return p1.X * p2.Y - p1.Y * p2.X;
+        }
+
+        static public Color GetHeatMapColor(double value, double min_value, double max_value)
+        {
+            if (value > 0.011 && value < 0.013)
+            {
+                var a = 123;
+            }
+
+            double rValue = (value - min_value) / (max_value - min_value);
+
+            const int NUM_COLORS = 3;
+
+            double[,] color = new double[NUM_COLORS, 3] { { 255, 0, 0 }, { 0, 0, 0 }, { 0, 255, 0 } };
+
+            int idx1;
+            int idx2;
+
+            double fractBetween = 0;  // Fraction between "idx1" and "idx2" where our value is.
+
+            if (rValue <= 0) { idx1 = idx2 = 0; }    // accounts for an input <=0
+            else if (rValue >= 1) { idx1 = idx2 = NUM_COLORS - 1; }    // accounts for an input >=0
+            else
+            {
+                rValue = rValue * (NUM_COLORS - 1);        // Will multiply value by 2.
+                idx1 = Convert.ToInt32(Math.Floor(rValue));                  // Our desired color will be after this index.
+                idx2 = idx1 + 1;                        // ... and before this index (inclusive).
+                fractBetween = rValue - (float)(idx1);    // Distance between the two indexes (0-1).
+            }
+
+            double red = (color[idx2, 0] - color[idx1, 0]) * fractBetween + color[idx1, 0];
+            double green = (color[idx2, 1] - color[idx1, 1]) * fractBetween + color[idx1, 1];
+            double blue = (color[idx2, 2] - color[idx1, 2]) * fractBetween + color[idx1, 2];
+
+            //Color asd = new Color(Convert.ToInt32(red), Convert.ToInt32(green), Convert.ToInt32(blue));
+            Color asd = new Color() { R = Convert.ToByte(red), G = Convert.ToByte(green), B = Convert.ToByte(blue), A = 255 } ;
+
+            return asd;
         }
     }    
 }

@@ -48,7 +48,7 @@ namespace SensorsViewer.Result
         /// <summary>
         /// Sensors from analysis
         /// </summary>
-        private ObservableCollection<Sensor> Sensors;
+        private IEnumerable<Sensor> Sensors;
 
         /// <summary>
         /// Sensor geometry model
@@ -72,7 +72,7 @@ namespace SensorsViewer.Result
         /// <summary>
         /// Initializes a new instance of the <see cref="ResultViewModel"/> class
         /// </summary>
-        public ResultViewModel(ObservableCollection<Sensor> sensors)
+        public ResultViewModel(IEnumerable<Sensor> sensors)
         {
             this.ViewMode = false;
             this.Sensors = sensors;
@@ -81,8 +81,11 @@ namespace SensorsViewer.Result
             this.device3D = new ModelVisual3D();
             this.OnCheckedModeViewButtonCommand = new RelayCommand(this.OnCheckedModeViewButtonAction);
             this.OnUnCheckedModeViewButtonCommand = new RelayCommand(this.OnUnCheckedModeViewButtonAction);
+
+            this.LoadSensorsInModel(sensors);
         }
 
+        #region PropertyDeclaration
         /// <summary>
         ///  Gets or sets click mode view command
         /// </summary>
@@ -118,6 +121,7 @@ namespace SensorsViewer.Result
         /// Gets or sets View Mode
         /// </summary>
         public bool ViewMode { get; set; }
+        #endregion
 
         ///  Event when checked toggle button
         /// </summary>
@@ -187,9 +191,40 @@ namespace SensorsViewer.Result
                 
                 meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sizeX, sizeY, sizeZ);
 
-                Color yellowCollor = new Color() { R = 255, G = 255, B = 0, A = 255 };
+                GeometryModel3D sensorModel = new GeometryModel3D(meshBuilder.ToMesh(), MaterialHelper.CreateMaterial(Brushes.Yellow));
+                
+                this.sensorModelList.Add(sensorModel);
+                this.groupModel.Children.Add(sensorModel);
+            }
 
-                GeometryModel3D sensorModel = new GeometryModel3D(meshBuilder.ToMesh(), MaterialHelper.CreateMaterial(yellowCollor));
+            this.device3D.Content = groupModel;
+            this.ViewPort3d.Children.Add(this.device3D);
+        }
+
+        /// <summary>
+        /// Load sensors in model
+        /// </summary>
+        /// <param name="Sensors">List of sensors</param>
+        public void LoadSensorsValuesInModel(IEnumerable<Sensor> sensors)
+        {
+            this.ViewPort3d.Children.Remove(this.device3D);
+
+            foreach (GeometryModel3D model in this.sensorModelList)
+            {
+                this.groupModel.Children.Remove(model);
+            }
+
+            this.sensorModelList.Clear();
+
+            foreach (Sensor sensor in sensors)
+            {
+                MeshBuilder meshBuilder = new MeshBuilder();
+
+                meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sizeX, sizeY, sizeZ);
+
+                Color color = Interpolation.GetHeatMapColor(sensor.Values.Last().Value, -1, 1);
+
+                GeometryModel3D sensorModel = new GeometryModel3D(meshBuilder.ToMesh(), MaterialHelper.CreateMaterial(color));
 
                 this.sensorModelList.Add(sensorModel);
                 this.groupModel.Children.Add(sensorModel);

@@ -46,7 +46,7 @@ namespace SensorsViewer.SensorOption
         /// <param name="date">Analysis date</param>
         /// <param name="time">Analysis time</param>
         /// <param name="path">Analysis Model path</param>
-        public Analysis(string name, string date, string time, string path, ObservableCollection<Sensor> sensors)
+        public Analysis(string name, string date, string time, string path, IEnumerable<Sensor> sensors)
         {
             this.Name = name;
             this.Date = date;

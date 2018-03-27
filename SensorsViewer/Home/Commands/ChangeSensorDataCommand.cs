@@ -60,35 +60,34 @@ namespace SensorsViewer.Home.Commands
         /// <param name="parameter">object parameter</param>
         public void Execute(object parameter)
         {
-            if (this.viewModel.SelectedTab.Analysis.Count > 0 && this.viewModel.SelectedAnalysis == this.viewModel.SelectedTab.Analysis[this.viewModel.SelectedTab.Analysis.Count - 1])
+            
+            var source = ((System.Windows.RoutedEventArgs)parameter).Source;
+
+            Sensor sensor = ((TextBox)source).DataContext as Sensor;
+
+            // Change in tab sensor list
+            var element = this.viewModel.SelectedTab.Sensors.FirstOrDefault(a => a.Id == sensor.Id);
+            element.SensorName = sensor.SensorName;
+
+            if (this.viewModel.SelectedAnalysis != null && this.viewModel.SelectedAnalysis.ProjectChartContent != null)
             {
-                var source = ((System.Windows.RoutedEventArgs)parameter).Source;
+                var seriesCollection = this.viewModel.SelectedAnalysis.ProjectChartContent.OpticalSensorViewModel.SeriesCollection;
 
-                Sensor sensor = ((TextBox)source).DataContext as Sensor;
-
-                // Change in tab sensor list
-                var element = this.viewModel.SelectedTab.Sensors.FirstOrDefault(a => a.Id == sensor.Id);
-                element.SensorName = sensor.SensorName;
-
-                if (this.viewModel.SelectedAnalysis != null && this.viewModel.SelectedAnalysis.ProjectChartContent != null)
+                // Search in graph sensor and change its name/localization
+                foreach (LiveCharts.Wpf.LineSeries ls in seriesCollection)
                 {
-                    var seriesCollection = this.viewModel.SelectedAnalysis.ProjectChartContent.OpticalSensorViewModel.SeriesCollection;
-
-                    // Search in graph sensor and change its name/localization
-                    foreach (LiveCharts.Wpf.LineSeries ls in seriesCollection)
+                    if (ls.Tag.ToString() == sensor.Id)
                     {
-                        if (ls.Tag.ToString() == sensor.Id)
-                        {
-                            ls.Title = sensor.SensorName;
-                        }
+                        ls.Title = sensor.SensorName;
                     }
                 }
-            
-                var visibleSensors = this.viewModel.SelectedTab.Sensors.Where(a => a.Visibility == true);
-                var obsCol = new ObservableCollection<Sensor>(visibleSensors);
-
-                ((ResultView)this.viewModel.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(obsCol);
             }
+            
+            var visibleSensors = this.viewModel.SelectedTab.Sensors.Where(a => a.Visibility == true);
+            var obsCol = new ObservableCollection<Sensor>(visibleSensors);
+
+            ((ResultView)this.viewModel.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(obsCol);
+            
         }
     }
 }

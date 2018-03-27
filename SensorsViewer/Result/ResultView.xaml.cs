@@ -42,7 +42,7 @@ namespace SensorsViewer.Result
         /// Initializes a new instance of the <see cref="ResultView"/> class
         /// </summary>
         /// <param name="path">Model path</param>
-        public ResultView(ObservableCollection<Sensor> sensors, string path)
+        public ResultView(IEnumerable<Sensor> sensors, string path)
         {
             this.InitializeComponent();
 
