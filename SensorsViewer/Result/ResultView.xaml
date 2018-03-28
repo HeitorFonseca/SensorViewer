@@ -17,7 +17,7 @@
                 <PerspectiveCamera LookDirection="0,0,-1" >
                 </PerspectiveCamera>
             </helix:HelixViewport3D.Camera>
-               
+
             <helix:HelixViewport3D.Children>
                 <!-- Remember to add light to the scene -->
                 <helix:DefaultLights/>
@@ -29,15 +29,27 @@
                                IsChecked="{Binding ViewMode}"
                                Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}" VerticalAlignment="Top" HorizontalAlignment="Right" >
 
-                    <i:Interaction.Triggers>
-                        <i:EventTrigger EventName="Checked">
-                            <cmd:EventToCommand Command="{Binding OnCheckedModeViewButtonCommand}" PassEventArgsToCommand="True" />
-                        </i:EventTrigger>
-                         <i:EventTrigger EventName="Unchecked">
-                            <cmd:EventToCommand Command="{Binding OnUnCheckedModeViewButtonCommand}" PassEventArgsToCommand="True" />
-                        </i:EventTrigger>   
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Checked">
+                    <cmd:EventToCommand Command="{Binding OnCheckedModeViewButtonCommand}" PassEventArgsToCommand="True" />
+                </i:EventTrigger>
+                <i:EventTrigger EventName="Unchecked">
+                    <cmd:EventToCommand Command="{Binding OnUnCheckedModeViewButtonCommand}" PassEventArgsToCommand="True" />
+                </i:EventTrigger>
             </i:Interaction.Triggers>
         </controls:ToggleSwitch>
+
+        <Label Content="Model Dimensions" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+        <StackPanel Orientation="Horizontal">
+            <Label Content="X" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,26,0,0"/>
+            <Label Content="{Binding ModelXSize}" Margin="0,27,0,251" Width="44" Background="Transparent"/>
+            <Label Content="Y" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,26,0,0"/>
+            <Label Content="{Binding ModelYSize}" Margin="0,27,0,251" Width="45"/>
+            <Label Content="Z" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,26,0,0"/>
+            <Label Content="{Binding ModelZSize}" Margin="0,27,0,251" Width="44"/>
+        </StackPanel>
+
 
     </Grid>
 </UserControl>

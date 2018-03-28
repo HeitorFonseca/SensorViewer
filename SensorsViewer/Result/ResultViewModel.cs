@@ -137,6 +137,22 @@ namespace SensorsViewer.Result
         /// Gets or sets View Mode
         /// </summary>
         public bool ViewMode { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Model X dimension
+        /// </summary>
+        public string ModelXSize { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Model Y dimension
+        /// </summary>
+        public string ModelYSize { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Model Z dimension
+        /// </summary>
+        public string ModelZSize { get; set; }
+
         #endregion
 
         ///  Event when checked toggle button
@@ -181,6 +197,10 @@ namespace SensorsViewer.Result
         {
             this.stlFilePath = stlFile;
             Model3D stlModel = this.Display3d(this.stlFilePath);
+
+            this.ModelXSize = stlModel.Bounds.SizeX.ToString();
+            this.ModelYSize = stlModel.Bounds.SizeY.ToString();
+            this.ModelZSize = stlModel.Bounds.SizeZ.ToString();
 
             this.groupModel.Children.Add(stlModel);
             this.device3D.Content = this.groupModel;           
