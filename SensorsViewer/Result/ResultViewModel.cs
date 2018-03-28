@@ -82,7 +82,23 @@ namespace SensorsViewer.Result
             this.OnCheckedModeViewButtonCommand = new RelayCommand(this.OnCheckedModeViewButtonAction);
             this.OnUnCheckedModeViewButtonCommand = new RelayCommand(this.OnUnCheckedModeViewButtonAction);
 
-            this.LoadSensorsInModel(sensors);
+            this.LoadSensorsInModel(sensors, "");
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ResultViewModel"/> class
+        /// </summary>
+        public ResultViewModel(IEnumerable<Sensor> sensors, string analysisName)
+        {
+            this.ViewMode = false;
+            this.Sensors = sensors;
+
+            this.ViewPort3d = new HelixViewport3D();
+            this.device3D = new ModelVisual3D();
+            this.OnCheckedModeViewButtonCommand = new RelayCommand(this.OnCheckedModeViewButtonAction);
+            this.OnUnCheckedModeViewButtonCommand = new RelayCommand(this.OnUnCheckedModeViewButtonAction);
+
+            this.LoadSensorsInModel(sensors, analysisName);
         }
 
         #region PropertyDeclaration
@@ -174,7 +190,7 @@ namespace SensorsViewer.Result
         /// Load sensors in model
         /// </summary>
         /// <param name="Sensors">List of sensors</param>
-        public void LoadSensorsInModel(IEnumerable<Sensor> sensors)
+        public void LoadSensorsInModel(IEnumerable<Sensor> sensors, string analysisName)
         {
             this.ViewPort3d.Children.Remove(this.device3D);
 
@@ -187,12 +203,24 @@ namespace SensorsViewer.Result
 
             foreach (Sensor sensor in sensors)
             {
+                Color color;
+
+                if (sensor.Values.Count != 0)
+                {
+                    IEnumerable<SensorValue> svc = from values in sensor.Values where values.AnalysisName == analysisName select values;
+                    color = Interpolation.GetHeatMapColor(svc.Last().Value, -1, 1);
+                }
+                else
+                {
+                    color = new Color() { A = 255, R = 255, G = 255, B = 0 };
+                }
+
                 MeshBuilder meshBuilder = new MeshBuilder();
                 
-                meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sizeX, sizeY, sizeZ);
+                meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sizeX, sizeY, sizeZ);               
 
-                GeometryModel3D sensorModel = new GeometryModel3D(meshBuilder.ToMesh(), MaterialHelper.CreateMaterial(Brushes.Yellow));
-                
+                GeometryModel3D sensorModel = new GeometryModel3D(meshBuilder.ToMesh(), MaterialHelper.CreateMaterial(color));
+
                 this.sensorModelList.Add(sensorModel);
                 this.groupModel.Children.Add(sensorModel);
             }
@@ -222,7 +250,15 @@ namespace SensorsViewer.Result
 
                 meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sizeX, sizeY, sizeZ);
 
-                Color color = Interpolation.GetHeatMapColor(sensor.Values.Last().Value, -1, 1);
+                Color color;
+                if (sensor.Values.Count != 0)
+                {
+                    color = Interpolation.GetHeatMapColor(sensor.Values.Last().Value, -1, 1);
+                }
+                else
+                {
+                    color = new Color() { A = 255, R = 255, G = 255, B = 0 };
+                }
 
                 GeometryModel3D sensorModel = new GeometryModel3D(meshBuilder.ToMesh(), MaterialHelper.CreateMaterial(color));
 

@@ -94,6 +94,9 @@ namespace SensorsViewer.Home
         /// </summary>
         private int tabIndex = 0;
 
+        /// <summary>
+        /// Time difference to create analysis
+        /// </summary>
         private int difTimeToCreateAnalysisInMs = 3000;
 
         /// <summary>
@@ -445,10 +448,9 @@ namespace SensorsViewer.Home
                         // Each Tab has its chart and values
                         for (int i = 0; i < tab.Analysis.Count; i++)
                         {
-                            ObservableCollection<Sensor> analysisSensors = this.GetSensorsFromAnalysis(tab.Sensors, tab.Analysis[i].SensorsIds);
-
+                            ObservableCollection<Sensor> analysisSensors = this.GetSensorsFromAnalysis(tab.Sensors, tab.Analysis[i].SensorsIds);                        
                             tab.Analysis[i].ProjectChartContent.OpticalSensorViewModel.ShowLoadedSensors(analysisSensors, tab.Analysis[i].Name);
-                            tab.Analysis[i].ProjectResutContent = new ResultView(analysisSensors, opt.ModelPath);
+                            tab.Analysis[i].ProjectResutContent = new ResultView(analysisSensors, opt.ModelPath, tab.Analysis[i].Name);
                         }
                     }
                 }
@@ -465,7 +467,7 @@ namespace SensorsViewer.Home
 
                 if (this.SelectedTab.Analysis.Count == 0)
                 {
-                    ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true));
+                    ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true), "");
                 }
             }
             catch (Exception e)
@@ -674,7 +676,7 @@ namespace SensorsViewer.Home
                     this.SelectedTab.Sensors.Add(sensor);
                 }
               
-                ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true));
+                ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true), "");
             }
         }
 
@@ -690,7 +692,7 @@ namespace SensorsViewer.Home
 
             //TODO: OPTMIZE
 
-            ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true));
+            ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true), "");
         }
 
         /// <summary>

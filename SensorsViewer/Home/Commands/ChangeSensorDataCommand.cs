@@ -86,7 +86,7 @@ namespace SensorsViewer.Home.Commands
             var visibleSensors = this.viewModel.SelectedTab.Sensors.Where(a => a.Visibility == true);
             var obsCol = new ObservableCollection<Sensor>(visibleSensors);
 
-            ((ResultView)this.viewModel.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(obsCol);
+            ((ResultView)this.viewModel.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(obsCol, "");
             
         }
     }

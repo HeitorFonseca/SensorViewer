@@ -59,6 +59,26 @@ namespace SensorsViewer.Result
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="ResultView"/> class
+        /// </summary>
+        /// <param name="path">Model path</param>
+        public ResultView(IEnumerable<Sensor> sensors, string path, string analysisName)
+        {
+            this.InitializeComponent();
+
+            this.ResultViewModel = new ResultViewModel(sensors, analysisName);
+
+            if (!string.IsNullOrEmpty(path))
+            {
+                this.ResultViewModel.LoadStlModel(path);
+                this.viewPort3d.ZoomExtents();
+                this.viewPort3d.ZoomExtentsWhenLoaded = true;
+            }
+
+            this.DataContext = this.ResultViewModel;
+        }
+
+        /// <summary>
         /// Gets or sets optical sensor view model
         /// </summary>
         public ResultViewModel ResultViewModel { get; set; }        
