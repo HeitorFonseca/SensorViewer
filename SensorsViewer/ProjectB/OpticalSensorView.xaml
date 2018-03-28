@@ -24,10 +24,8 @@
                              Panel.ZIndex="1" Canvas.Left="60" Canvas.Top="20" BorderThickness="0" Background="Transparent">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Title}" 
-                                           Foreground="{Binding Fill, Converter={StaticResource FillConverter}}"
-                                           Opacity="{Binding Visibility, Converter={StaticResource OpacityConverter}}"
-                                           FontSize="14"/>
+                        <TextBlock Text="{Binding Title}"  Foreground="{Binding Fill, Converter={StaticResource FillConverter}}" 
+                                   Opacity="{Binding Visibility, Converter={StaticResource OpacityConverter}}" FontSize="14"/>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
                 <ListBox.ItemContainerStyle>
@@ -45,9 +43,20 @@
             </ListBox>
 
             <lvc:CartesianChart Series="{Binding SeriesCollection}" Height="{Binding ElementName=Canvas, Path=ActualHeight}" Width="{Binding ElementName=Canvas, Path=ActualWidth}"
-                                Hoverable="False" DataTooltip="{x:Null}" >
-                <lvc:CartesianChart.AxisX>
-                    <lvc:Axis Title="Sales" ></lvc:Axis>
+                                Hoverable="False">
+                <lvc:CartesianChart.AxisY>
+                    <lvc:Axis LabelFormatter="{Binding YFormatter}"></lvc:Axis>
+                </lvc:CartesianChart.AxisY>
+                <lvc:CartesianChart.AxisX >
+                    <lvc:Axis LabelFormatter="{Binding XFormatter}"
+                              MaxValue="{Binding AxisMax}" 
+                              MinValue="{Binding AxisMin}"
+                              Unit="{Binding AxisUnit}">
+
+                        <lvc:Axis.Separator>
+                            <lvc:Separator Step="{Binding AxisStep}" />
+                        </lvc:Axis.Separator>
+                    </lvc:Axis>
                 </lvc:CartesianChart.AxisX>
             </lvc:CartesianChart>
         </Canvas>

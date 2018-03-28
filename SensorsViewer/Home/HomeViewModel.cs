@@ -794,7 +794,7 @@ namespace SensorsViewer.Home
 
                 Sensor sensor = new Sensor(sensorName);             // Create the sensor with name and parameter
 
-                string dateTime = this.UnixTimeStampToDateTime(timestamp);
+                DateTime dateTime = this.UnixTimeStampToDateTime(timestamp);
 
                 SensorValue sv = new SensorValue(value, dateTime, parameter, this.SelectedAnalysis.Name);
 
@@ -915,11 +915,11 @@ namespace SensorsViewer.Home
         /// </summary>
         /// <param name="unixTimeStamp">timestamp value</param>
         /// <returns>Date time</returns>
-        private string UnixTimeStampToDateTime(long unixTimeStamp)
+        private DateTime UnixTimeStampToDateTime(long unixTimeStamp)
         {
             System.DateTime dateTime = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
             dateTime = dateTime.AddMilliseconds(unixTimeStamp);
-            return dateTime.ToString("dd/MM/yyy HH:mm:ss.fff");
+            return dateTime;
         }
 
         /// <summary>

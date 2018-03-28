@@ -183,9 +183,9 @@ namespace SensorsViewer.SensorOption
             double sum = 0;
             for (int i = 0; i < this.Values.Count - 1; i++)
             {
-                DateTime x1 = DateTime.ParseExact(this.Values[i].Timestamp, "dd/MM/yyyy HH:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture);
+                DateTime x1 = this.Values[i].Timestamp; ////DateTime.ParseExact(this.Values[i].Timestamp, "dd/MM/yyyy HH:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture);
 
-                DateTime x2 = DateTime.ParseExact(this.Values[i + 1].Timestamp, "dd/MM/yyyy HH:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture);
+                DateTime x2 = this.Values[i + 1].Timestamp; ////DateTime.ParseExact(this.Values[i + 1].Timestamp, "dd/MM/yyyy HH:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture);
 
                 double dx = (x2 - x1).TotalMilliseconds;
                 double funcValue = this.Values[i].Value;
@@ -228,7 +228,7 @@ namespace SensorsViewer.SensorOption
         /// <param name="timestamp">Value timestamp</param>
         /// <param name="parameter">Value parameter</param>
         /// <param name="analysis">Value Analysis</param>
-        public SensorValue(double value, string timestamp, string parameter, string analysis)
+        public SensorValue(double value, DateTime timestamp, string parameter, string analysis)
         {
             this.Value = value;
             this.Timestamp = timestamp;
@@ -244,7 +244,7 @@ namespace SensorsViewer.SensorOption
         /// <summary>
         /// Gets or sets Double value of the sensor
         /// </summary>
-        public string Timestamp { get; set; }
+        public DateTime Timestamp { get; set; }
 
         /// <summary>
         /// Gets or sets Parameter

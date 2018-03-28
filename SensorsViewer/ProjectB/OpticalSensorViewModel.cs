@@ -14,6 +14,7 @@ namespace SensorsViewer.ProjectB
     using System.Windows.Input;
     using System.Windows.Media;
     using LiveCharts;
+    using LiveCharts.Configurations;
     using LiveCharts.Wpf;
     using SensorsViewer.SensorOption;
 
@@ -37,21 +38,87 @@ namespace SensorsViewer.ProjectB
         /// </summary>
         private string sensorsFilePath;
 
+        private double _axisMax;
+        private double _axisMin;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="OpticalSensorViewModel"/> class
         /// </summary>
         public OpticalSensorViewModel()
         {
+            var dayConfig = Mappers.Xy<DateModel>()
+                .X(dayModel => (double)dayModel.DateTime.Ticks)
+                .Y(dayModel => dayModel.Value);
+
+            //lets save the mapper globally.
+            Charting.For<DateModel>(dayConfig);
+
             this.InitializeSeriesColors();
-            this.SeriesCollection = new SeriesCollection();
+            this.SeriesCollection = new SeriesCollection(dayConfig);
             this.SensorList = new ObservableCollection<SensorOption.Sensor>();
             this.SensorsLog = new ObservableCollection<SensorOption.Sensor>();
+
+            XFormatter = this.EOQ;//val => new DateTime((long)val).ToString("HH: mm:ss.fff");
+            YFormatter = this.YUKE;//val => val.ToString("N");
+
+            //AxisStep forces the distance between each separator in the X axis
+            AxisStep = TimeSpan.FromSeconds(1).Ticks;
+
+            //AxisUnit forces lets the axis know that we are plotting seconds
+            //this is not always necessary, but it can prevent wrong labeling
+            AxisUnit = TimeSpan.TicksPerSecond;
         }
 
+        private void SetAxisLimits(DateTime now)
+        {
+            AxisMax = now.Ticks; // + TimeSpan.FromSeconds(1).Ticks; // lets force the axis to be 1 second ahead
+            AxisMin = now.Ticks - TimeSpan.FromSeconds(10).Ticks; // and 8 seconds behind
+        }
+
+        public double AxisStep { get; set; }
+        public double AxisUnit { get; set; }
+
+        public double AxisMax
+        {
+            get { return _axisMax; }
+            set
+            {
+                _axisMax = value;
+                OnPropertyChanged("AxisMax");
+            }
+        }
+        public double AxisMin
+        {
+            get { return _axisMin; }
+            set
+            {
+                _axisMin = value;
+                OnPropertyChanged("AxisMin");
+            }
+        }
         /// <summary>
         /// Event for when change property
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public Func<double, string> XFormatter { get; set; }
+        public Func<double, string> YFormatter { get; set; }
+
+        public string EOQ(double val)
+        {            
+             string asd = new DateTime((long)val).ToString("mm:ss.fff");
+
+            return asd;
+        }
+
+        public string YUKE(double val)
+        {
+            string asd = val.ToString("N");
+
+            return asd;
+        }
+
+        public long MinValue { get; set; }
 
         /// <summary>
         /// Gets or sets sensor list
@@ -96,7 +163,7 @@ namespace SensorsViewer.ProjectB
             LineSeries newLs = new LineSeries
             {
                 Title = sensor.SensorName,
-                Values = new ChartValues<double>(),
+                Values = new ChartValues<DateModel>(),
                 Tag = sensor.Id,
                 Fill = new SolidColorBrush(nextColor) { Opacity = 0.15d }
             };
@@ -146,13 +213,15 @@ namespace SensorsViewer.ProjectB
             // If exist a line series with sensor with sensorid
             if (this.SeriesCollection.FirstOrDefault(a => a.Title == sensorName) is LineSeries ls)
             {
-                ls.Values.Add(value);
+                DateModel dm = new DateModel() { DateTime = sv.Timestamp, Value = value };  
+                ls.Values.Add(dm);
 
                 for (int i = 0; i < this.SensorList.Count; i++)
                 {
                     if (this.SensorList[i].SensorName == sensorName)
                     {
                         this.SensorList[i].Values.Add(sv);
+                        SetAxisLimits(sv.Timestamp);
                     }
                 }
             }
@@ -186,7 +255,7 @@ namespace SensorsViewer.ProjectB
                 LineSeries newLs = new LineSeries
                 {
                     Title = sensor.SensorName,
-                    Values = new ChartValues<double>(),
+                    Values = new ChartValues<DateModel>(),
                     Tag = sensor.Id,
                     Fill = new SolidColorBrush(nextColor) { Opacity = 0.15d }
                 };
@@ -209,8 +278,9 @@ namespace SensorsViewer.ProjectB
                     {
                         if (v.AnalysisName == analysisName)
                         {
+                            DateModel dm = new DateModel() { DateTime = v.Timestamp, Value = v.Value };
                             // Chart
-                            newLs.Values.Add(v.Value);
+                            newLs.Values.Add(dm);
 
                             // Update Log
                             SensorOption.Sensor s = new SensorOption.Sensor(sensor.SensorName);
@@ -221,6 +291,12 @@ namespace SensorsViewer.ProjectB
                             this.SensorList.ElementAt(index).Values.Add(v);
                         }
                     }
+                }
+
+                if (newLs.Values.Count > 0)
+                {
+                    AxisMin = ((DateModel)newLs.Values[0]).DateTime.Ticks;
+                    AxisMax = ((DateModel)newLs.Values[newLs.Values.Count - 1]).DateTime.Ticks;
                 }
 
                 list = new ObservableCollection<SensorOption.Sensor>(list.OrderBy(a => a.Values[0].Timestamp));

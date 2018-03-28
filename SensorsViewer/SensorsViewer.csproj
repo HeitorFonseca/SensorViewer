@@ -119,6 +119,7 @@
     </Compile>
     <Compile Include="Home\Commands\AddSensorCommand.cs" />
     <Compile Include="Home\Commands\ChangeSensorDataCommand.cs" />
+    <Compile Include="ProjectB\DateModel.cs" />
     <Compile Include="ProjectB\FillConverter.cs" />
     <Compile Include="ProjectB\OpacityConverter.cs" />
     <Compile Include="Result\Interpolation.cs" />

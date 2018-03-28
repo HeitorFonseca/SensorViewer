@@ -205,7 +205,7 @@ namespace SensorsViewer.Result
             {
                 Color color;
 
-                if (sensor.Values.Count != 0)
+                if (sensor.Values.Count != 0 && !string.IsNullOrEmpty(analysisName))
                 {
                     IEnumerable<SensorValue> svc = from values in sensor.Values where values.AnalysisName == analysisName select values;
                     color = Interpolation.GetHeatMapColor(svc.Last().Value, -1, 1);
