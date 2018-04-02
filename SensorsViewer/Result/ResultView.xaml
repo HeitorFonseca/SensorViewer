@@ -39,15 +39,15 @@
             </i:Interaction.Triggers>
         </controls:ToggleSwitch>
 
-        <Label Content="Model Dimensions" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Label Content="Model Dimensions" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,-3,0,0"/>
 
         <StackPanel Orientation="Horizontal">
-            <Label Content="X" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,26,0,0"/>
-            <Label Content="{Binding ModelXSize}" Margin="0,27,0,251" Width="44" Background="Transparent"/>
-            <Label Content="Y" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,26,0,0"/>
-            <Label Content="{Binding ModelYSize}" Margin="0,27,0,251" Width="45"/>
-            <Label Content="Z" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="5,26,0,0"/>
-            <Label Content="{Binding ModelZSize}" Margin="0,27,0,251" Width="44"/>
+            <Label Content="X:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,17,0,0"/>
+            <Label Content="{Binding ModelXSize}" Margin="0,18,0,260" Width="44"/>
+            <Label Content="Y:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,17,0,0"/>
+            <Label Content="{Binding ModelYSize}" Margin="0,18,0,260" Width="44"/>
+            <Label Content="Z:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,17,0,0"/>
+            <Label Content="{Binding ModelZSize}" Margin="0,17,0,261" Width="44"/>
         </StackPanel>
 
 

@@ -274,6 +274,15 @@
                                                                             </i:EventTrigger>
                                                                         </i:Interaction.Triggers>
                                                                     </TextBox>
+                                                                    <Label x:Name="lbSensorSize" Content="Size:" Margin="0,0,0,-0.2" FontSize="12"></Label>
+                                                                    <TextBox x:Name="tbSensorSize" controls:TextBoxHelper.SelectAllOnFocus="True" controls:TextBoxHelper.Watermark="10"
+                                                                             Text="{Binding Size, Mode=TwoWay}" Style="{StaticResource sensorDataText}" Margin="-5,1,0,0">
+                                                                        <i:Interaction.Triggers>
+                                                                            <i:EventTrigger EventName="LostFocus">
+                                                                                <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.EditSensorDataCommand}" PassEventArgsToCommand="True" />
+                                                                            </i:EventTrigger>
+                                                                        </i:Interaction.Triggers>
+                                                                    </TextBox>
 
                                                                 </StackPanel>
 
@@ -301,8 +310,22 @@
                                     </TabItem>
                                     <!-- Analysis -->
                                     <TabItem x:Name="tabItemAnalysis" Header="Analysis" Margin="80,0,-80,0" Style="{StaticResource MainTabItem}">
-                                        <ListBox ItemsSource="{Binding Analysis}" 
-                                                 SelectedItem="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectedAnalysis}">
+                                        <ListBox x:Name="lbAnalysis" ItemsSource="{Binding Analysis}" 
+                                                 SelectedItem="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.SelectedAnalysis}"
+                                                 Tag="{Binding DataContext, ElementName=Window}">
+
+                                            <ListBox.ContextMenu>
+                                                <ContextMenu>
+                                                    <MenuItem Header="Export to CSV" Command="{Binding PlacementTarget.Tag.ClickInExportToTxtCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" 
+                                                              CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}},
+                                                              Path=PlacementTarget.SelectedItem}"/>
+
+                                                    <MenuItem Header="Export to TXT" Command="{Binding ClickInExportToTxtCommand}"
+                                                              CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}},
+                                                              Path=PlacementTarget.SelectedItem}"/>
+                                                </ContextMenu>
+                                            </ListBox.ContextMenu>
+
                                             <ListBox.ItemTemplate>
                                                 <DataTemplate>
                                                     <Border BorderThickness="0 0 0 2" BorderBrush="#EBEBEB">

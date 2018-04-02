@@ -26,6 +26,7 @@ namespace SensorsViewer.SensorOption
             this.Values = new List<SensorValue>();
             this.Id = this.GenerateID();
             this.Visibility = true;
+            this.Size = 10.0;
         }
 
         /// <summary>
@@ -42,6 +43,7 @@ namespace SensorsViewer.SensorOption
             this.Y = y;
             this.Z = z;
 
+            this.Size = 10.0;
             this.Values = new List<SensorValue>();
             this.Id = this.GenerateID();
             this.Visibility = true;
@@ -57,6 +59,7 @@ namespace SensorsViewer.SensorOption
             this.Values = new List<SensorValue>();
             this.Id = this.GenerateID();
             this.Visibility = true;
+            this.Size = 10.0;
         }
 
         /// <summary>
@@ -93,6 +96,11 @@ namespace SensorsViewer.SensorOption
         /// Gets or sets Sensor Name
         /// </summary>
         public string SensorName { get; set; }
+
+        /// <summary>
+        /// Gets or sets Sensor Size
+        /// </summary>
+        public double Size { get; set; }
 
         /// <summary>
         /// Gets or sets Values

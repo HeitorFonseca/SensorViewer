@@ -8,12 +8,13 @@ namespace SensorsViewer.Home
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
-    using System.Windows.Media;
+    using Winforms = System.Windows.Forms;
     using MahApps.Metro.Controls.Dialogs;
     using Microsoft.Win32;
     using Newtonsoft.Json;
@@ -148,6 +149,7 @@ namespace SensorsViewer.Home
             this.BrowseFileCommand = new RelayCommand(this.BrowseFileAction);
 
             this.ClickInAnalysisItem = new RelayCommand(this.ClickInAnalysisAction);
+            this.ClickInExportToTxtCommand = new RelayCommand(this.ClickInExportToTxtAction);
 
             this.lastMessageReceivedTime = DateTime.Now;
         }
@@ -227,6 +229,16 @@ namespace SensorsViewer.Home
         ///  Gets or sets sub tab item command
         /// </summary>
         public ICommand ClickInAnalysisItem { get; set; }
+
+        /// <summary>
+        ///  Gets or sets export to csv command
+        /// </summary>
+        public ICommand ClickInExportToCsvCommand { get; set; }
+
+        /// <summary>
+        ///  Gets or sets export to txt command
+        /// </summary>
+        public ICommand ClickInExportToTxtCommand { get; set; }
 
         /// <summary>
         /// Gets or sets selected sensor
@@ -723,7 +735,7 @@ namespace SensorsViewer.Home
         }
 
         /// <summary>
-        /// DClick in analysis list item
+        /// Click in analysis list item
         /// </summary>
         /// <param name="parameter">Object parameter</param>
         private void ClickInAnalysisAction(object parameter)
@@ -747,6 +759,67 @@ namespace SensorsViewer.Home
             this.SelectedProjectResultContent = this.SelectedAnalysis.ProjectResutContent;
         }
 
+        /// <summary>
+        /// Click to export to Txt
+        /// </summary>
+        /// <param name="parameter">Object parameter</param>
+        private void ClickInExportToTxtAction(object parameter)
+        {
+
+            var analysis = parameter as Analysis;
+
+            Winforms.FolderBrowserDialog folderDialog = new Winforms.FolderBrowserDialog();
+            folderDialog.ShowNewFolderButton = false;
+            folderDialog.SelectedPath = System.AppDomain.CurrentDomain.BaseDirectory;
+
+            Winforms.DialogResult result = folderDialog.ShowDialog();
+                  
+            // If user select some file
+            if (result == Winforms.DialogResult.OK)
+            {
+                string sensorLogPath = folderDialog.SelectedPath  + "\\" + analysis.Name.Replace(':', '-') + ".txt";
+                string resultAnalysisPath = folderDialog.SelectedPath + "\\" + "Result " + analysis.Name.Replace(':', '-') + ".txt";
+
+                string sensorLog = analysis.Name + "\n";           
+                string resultAnalysisLog = analysis.Name + "\n";
+
+                foreach (Sensor sensor in analysis.ProjectChartContent.OpticalSensorViewModel.SensorsLog)
+                {
+                    sensorLog += sensor.SensorName + " " + sensor.X + " " + sensor.Y + " " + sensor.Z + " " + sensor.Values[0].Value + " " + sensor.Values[0].Timestamp + "\n";
+                }
+
+                foreach (Sensor sensor in analysis.ProjectChartContent.OpticalSensorViewModel.SensorList)
+                {
+                    resultAnalysisLog += sensor.SensorName + " " + sensor.Min + " " + sensor.Max + " " + sensor.Integral + "\n";
+                }
+
+                if (File.Exists(sensorLogPath))
+                {
+                    File.Delete(sensorLogPath);
+                }
+
+                File.Create(sensorLogPath).Dispose();
+
+                using (StreamWriter tw = new StreamWriter(sensorLogPath, true))
+                {
+                    tw.WriteLine(sensorLog);
+                }
+
+                if (File.Exists(resultAnalysisPath))
+                {
+                    File.Delete(resultAnalysisPath);
+                }
+
+                File.Create(resultAnalysisPath).Dispose();
+
+                using (StreamWriter tw = new StreamWriter(resultAnalysisPath))
+                {
+                    tw.WriteLine(resultAnalysisLog);
+                }
+
+            }
+        }
+        
         #endregion
 
         /// <summary>

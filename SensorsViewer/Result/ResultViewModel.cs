@@ -21,8 +21,6 @@ namespace SensorsViewer.Result
     /// </summary>
     public class ResultViewModel
     {
-        private double sizeX = 10;
-        private double sizeY = 10;
         private double sizeZ = 0.005;
 
         /// <summary>
@@ -237,7 +235,7 @@ namespace SensorsViewer.Result
 
                 MeshBuilder meshBuilder = new MeshBuilder();
                 
-                meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sizeX, sizeY, sizeZ);               
+                meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sensor.Size, sensor.Size, sizeZ);               
 
                 GeometryModel3D sensorModel = new GeometryModel3D(meshBuilder.ToMesh(), MaterialHelper.CreateMaterial(color));
 
@@ -268,7 +266,7 @@ namespace SensorsViewer.Result
             {
                 MeshBuilder meshBuilder = new MeshBuilder();
 
-                meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sizeX, sizeY, sizeZ);
+                meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sensor.Size, sensor.Size, sizeZ);
 
                 Color color;
                 if (sensor.Values.Count != 0)
