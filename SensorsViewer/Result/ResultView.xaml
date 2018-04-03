@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SensorsViewer.Result"
              xmlns:helix="http://helix-toolkit.org/wpf"
+             xmlns:hx="http://helix-toolkit.org/wpf/SharpDX"
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
@@ -12,7 +13,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
-        <helix:HelixViewport3D x:Name="viewPort3d" >
+        <helix:HelixViewport3D x:Name="viewPort3d" Visibility="{Binding SensorsVisibility}">
             <helix:HelixViewport3D.Camera>
                 <PerspectiveCamera LookDirection="0,0,-1" >
                 </PerspectiveCamera>
@@ -25,6 +26,15 @@
                 <ModelVisual3D Content="{Binding GroupModel}" ></ModelVisual3D>
             </helix:HelixViewport3D.Children>
         </helix:HelixViewport3D>
+
+        <hx:Viewport3DX  x:Name="viewport3D" ZoomExtentsWhenLoaded="True" Visibility="{Binding InterpVisibility}">
+            <hx:AmbientLight3D Color="{Binding AmbientLightColor}"/>
+
+            <hx:GroupModel3D x:Name="loadedModels" BindingGroup="{Binding InterpGroupModel}">
+                
+            </hx:GroupModel3D>
+        </hx:Viewport3DX>
+        
         <controls:ToggleSwitch x:Name="enabledSwitch" Margin="201,0,0,275"  OffLabel="Sensors" OnLabel="Ramp"
                                IsChecked="{Binding ViewMode}"
                                Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}" VerticalAlignment="Top" HorizontalAlignment="Right" >

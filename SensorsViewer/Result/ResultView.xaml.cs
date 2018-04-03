@@ -46,14 +46,11 @@ namespace SensorsViewer.Result
         {
             this.InitializeComponent();
 
-            this.ResultViewModel = new ResultViewModel(sensors);
-
-            if (!string.IsNullOrEmpty(path))
-            {
-                this.ResultViewModel.LoadStlModel(path);
-                this.viewPort3d.ZoomExtents();
-                this.viewPort3d.ZoomExtentsWhenLoaded = true;
-            }
+            this.ResultViewModel = new ResultViewModel(sensors, path);        
+           
+            this.viewPort3d.ZoomExtents();
+            this.viewPort3d.ZoomExtentsWhenLoaded = true;
+           
 
             this.DataContext = this.ResultViewModel;
         }
@@ -66,15 +63,11 @@ namespace SensorsViewer.Result
         {
             this.InitializeComponent();
 
-            this.ResultViewModel = new ResultViewModel(sensors, analysisName);
-
-            if (!string.IsNullOrEmpty(path))
-            {
-                this.ResultViewModel.LoadStlModel(path);
-                this.viewPort3d.ZoomExtents();
-                this.viewPort3d.ZoomExtentsWhenLoaded = true;
-            }
-
+            this.ResultViewModel = new ResultViewModel(sensors, path, analysisName);
+                 
+            this.viewPort3d.ZoomExtents();
+            this.viewPort3d.ZoomExtentsWhenLoaded = true;
+            
             this.DataContext = this.ResultViewModel;
         }
 

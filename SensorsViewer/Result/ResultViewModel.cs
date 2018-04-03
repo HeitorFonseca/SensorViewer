@@ -11,11 +11,14 @@ namespace SensorsViewer.Result
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using System.Windows;
     using System.Windows.Input;
     using System.Windows.Media;
     using System.Windows.Media.Media3D;
     using HelixToolkit.Wpf;
     using SensorsViewer.SensorOption;
+
+    using SharpDx = HelixToolkit.Wpf.SharpDX;
 
     /// <summary>
     /// Class for result view model
@@ -37,6 +40,11 @@ namespace SensorsViewer.Result
         /// <summary>
         /// Group Model
         /// </summary>
+        private SharpDx.GroupModel3D interpolGroupModel = new SharpDx.GroupModel3D();
+
+        /// <summary>
+        /// Group Model
+        /// </summary>
         private Model3DGroup sensorGroupModel = new Model3DGroup();
 
         /// <summary>
@@ -47,7 +55,10 @@ namespace SensorsViewer.Result
         /// <summary>
         /// Stl model mesh
         /// </summary>
-        private MeshGeometry3D modelMesh = new MeshGeometry3D();
+        private MeshGeometry3D modelMesh = null;
+
+        private Visibility sensorsVibility;
+        private Visibility interpVibility;
 
         /// <summary>
         /// Stl file path
@@ -75,13 +86,16 @@ namespace SensorsViewer.Result
             this.device3D = new ModelVisual3D();
             this.OnCheckedModeViewButtonCommand = new RelayCommand(this.OnCheckedModeViewButtonAction);
             this.OnUnCheckedModeViewButtonCommand = new RelayCommand(this.OnUnCheckedModeViewButtonAction);
+
+            this.SensorsVisibility = Visibility.Visible;
+            this.InterpVisibility = Visibility.Collapsed;
         }
 
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ResultViewModel"/> class
         /// </summary>
-        public ResultViewModel(IEnumerable<Sensor> sensors)
+        public ResultViewModel(IEnumerable<Sensor> sensors, string path)
         {
             this.ViewMode = false;
             this.Sensors = sensors;
@@ -91,13 +105,17 @@ namespace SensorsViewer.Result
             this.OnCheckedModeViewButtonCommand = new RelayCommand(this.OnCheckedModeViewButtonAction);
             this.OnUnCheckedModeViewButtonCommand = new RelayCommand(this.OnUnCheckedModeViewButtonAction);
 
+            this.LoadStlModel(path);
             this.LoadSensorsInModel(sensors, "");
+
+            this.SensorsVisibility = Visibility.Visible;
+            this.InterpVisibility = Visibility.Collapsed;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ResultViewModel"/> class
         /// </summary>
-        public ResultViewModel(IEnumerable<Sensor> sensors, string analysisName)
+        public ResultViewModel(IEnumerable<Sensor> sensors, string path, string analysisName)
         {
             this.ViewMode = false;
             this.Sensors = sensors;
@@ -107,7 +125,11 @@ namespace SensorsViewer.Result
             this.OnCheckedModeViewButtonCommand = new RelayCommand(this.OnCheckedModeViewButtonAction);
             this.OnUnCheckedModeViewButtonCommand = new RelayCommand(this.OnUnCheckedModeViewButtonAction);
 
+            this.LoadStlModel(path);
             this.LoadSensorsInModel(sensors, analysisName);
+
+            this.SensorsVisibility = Visibility.Visible;
+            this.InterpVisibility = Visibility.Collapsed;
         }
 
         #region PropertyDeclaration
@@ -135,6 +157,40 @@ namespace SensorsViewer.Result
         /// <summary>
         /// Gets or sets group model
         /// </summary>
+        public Visibility SensorsVisibility
+        {
+            get
+            {
+                return this.sensorsVibility;
+            }
+
+            set
+            {
+                this.sensorsVibility = value;
+                this.OnPropertyChanged("SensorsVisibility");
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets group model
+        /// </summary>
+        public Visibility InterpVisibility
+        {
+            get
+            {
+                return this.interpVibility;
+            }
+
+            set
+            {
+                this.interpVibility = value;
+                this.OnPropertyChanged("InterpVisibility");
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets group model
+        /// </summary>
         public Model3DGroup GroupModel
         {
             get
@@ -146,6 +202,23 @@ namespace SensorsViewer.Result
             {
                 this.groupModel = value;
                 this.OnPropertyChanged("GroupModel");
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets sahrp dx group model
+        /// </summary>
+        public SharpDx.GroupModel3D InterpGroupModel
+        {
+            get
+            {
+                return this.interpolGroupModel;
+            }
+
+            set
+            {
+                this.interpolGroupModel = value;
+                this.OnPropertyChanged("InterpGroupModel");
             }
         }
 
@@ -211,11 +284,7 @@ namespace SensorsViewer.Result
         {
             this.ViewPort3d.Children.Remove(this.device3D);
 
-            foreach (GeometryModel3D model in this.sensorModelList)
-            {
-                this.groupModel.Children.Remove(model);
-            }
-
+            List<Sensor> currentSensors = new List<Sensor>();
             this.sensorModelList.Clear();
 
             foreach (Sensor sensor in sensors)
@@ -225,7 +294,13 @@ namespace SensorsViewer.Result
                 if (sensor.Values.Count != 0 && !string.IsNullOrEmpty(analysisName))
                 {
                     IEnumerable<SensorValue> svc = from values in sensor.Values where values.AnalysisName == analysisName select values;
-                    color = Interpolation.GetHeatMapColor(svc.Last().Value, -1, 1);
+                    SensorValue last = svc.Last();
+
+                    color = Interpolation.GetHeatMapColor(last.Value, -1, 1);
+                    Sensor s = new Sensor(sensor.SensorName, sensor.X, sensor.Y, sensor.Z);
+                    s.Values.Add(last);
+
+                    currentSensors.Add(s);
                 }
                 else
                 {
@@ -240,6 +315,11 @@ namespace SensorsViewer.Result
 
                 this.sensorModelList.Add(sensorModel);
                 this.sensorGroupModel.Children.Add(sensorModel);
+
+                if (modelMesh != null)
+                {
+                    Interpolation.Interpolate(modelMesh, currentSensors);
+                }
             }
 
             this.GroupModel = sensorGroupModel;
@@ -254,11 +334,6 @@ namespace SensorsViewer.Result
         public void LoadSensorsValuesInModel(IEnumerable<Sensor> sensors)
         {
             this.ViewPort3d.Children.Remove(this.device3D);
-
-            //foreach (GeometryModel3D model in this.sensorModelList)
-            //{
-            //    this.groupModel.Children.Remove(model);
-            //}
 
             this.sensorModelList.Clear();
 
@@ -296,18 +371,13 @@ namespace SensorsViewer.Result
         /// <param name="parameter">Object parameter</param>
         private void OnCheckedModeViewButtonAction(object parameter)
         {
-            this.ViewPort3d.Children.Remove(this.device3D);
-            //this.groupModel.Children.Clear();
+            this.SensorsVisibility = Visibility.Collapsed;
+            this.InterpVisibility = Visibility.Visible;
 
-            this.GroupModel = this.interpGroupModel;
-            //foreach (GeometryModel3D model in this.sensorModelList)
-            //{
-            //    this.groupModel.Children.Remove(model);
-
-            //}
-
-            this.device3D.Content = this.groupModel;
-            this.ViewPort3d.Children.Add(this.device3D);
+            //this.ViewPort3d.Children.Remove(this.device3D);
+            //this.GroupModel = this.interpGroupModel;
+            //this.device3D.Content = this.groupModel;
+            //this.ViewPort3d.Children.Add(this.device3D);
         }
 
         ///  Event when close window
@@ -315,18 +385,13 @@ namespace SensorsViewer.Result
         /// <param name="parameter">Object parameter</param>
         private void OnUnCheckedModeViewButtonAction(object parameter)
         {
-            this.ViewPort3d.Children.Remove(this.device3D);
-            //this.groupModel.Children.Clear();
+            this.SensorsVisibility = Visibility.Visible;
+            this.InterpVisibility = Visibility.Collapsed;
 
-            this.GroupModel = this.sensorGroupModel;
-            //foreach (GeometryModel3D model in this.sensorModelList)
-            //{
-            //    this.groupModel.Children.Add(model);
-
-            //}
-
-            this.device3D.Content = this.groupModel;
-            this.ViewPort3d.Children.Add(this.device3D);
+            //this.ViewPort3d.Children.Remove(this.device3D);
+            //this.GroupModel = this.sensorGroupModel;
+            //this.device3D.Content = this.groupModel;
+            //this.ViewPort3d.Children.Add(this.device3D);
         }
 
         /// <summary>
