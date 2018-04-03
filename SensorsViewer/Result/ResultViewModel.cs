@@ -7,6 +7,7 @@ namespace SensorsViewer.Result
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.ComponentModel;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -19,7 +20,7 @@ namespace SensorsViewer.Result
     /// <summary>
     /// Class for result view model
     /// </summary>
-    public class ResultViewModel
+    public class ResultViewModel : INotifyPropertyChanged
     {
         private double sizeZ = 0.005;
 
@@ -32,6 +33,16 @@ namespace SensorsViewer.Result
         /// Group Model
         /// </summary>
         private Model3DGroup groupModel = new Model3DGroup();
+
+        /// <summary>
+        /// Group Model
+        /// </summary>
+        private Model3DGroup sensorGroupModel = new Model3DGroup();
+
+        /// <summary>
+        /// Group Model
+        /// </summary>
+        private Model3DGroup interpGroupModel = new Model3DGroup();
 
         /// <summary>
         /// Stl model mesh
@@ -100,6 +111,12 @@ namespace SensorsViewer.Result
         }
 
         #region PropertyDeclaration
+
+        /// <summary>
+        /// Event for when change property
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         ///  Gets or sets click mode view command
         /// </summary>
@@ -128,6 +145,7 @@ namespace SensorsViewer.Result
             set
             {
                 this.groupModel = value;
+                this.OnPropertyChanged("GroupModel");
             }
         }
 
@@ -153,38 +171,16 @@ namespace SensorsViewer.Result
 
         #endregion
 
-        ///  Event when checked toggle button
+        /// <summary>
+        /// When changes property
         /// </summary>
-        /// <param name="parameter">Object parameter</param>
-        private void OnCheckedModeViewButtonAction(object parameter)
+        /// <param name="propertyName">Property name</param>
+        protected virtual void OnPropertyChanged(string propertyName)
         {
-            this.ViewPort3d.Children.Remove(this.device3D);
-
-            foreach (GeometryModel3D model in this.sensorModelList)
+            if (this.PropertyChanged != null)
             {
-                this.groupModel.Children.Remove(model);
-
+                this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
-
-            this.device3D.Content = this.groupModel;
-            this.ViewPort3d.Children.Add(this.device3D);
-        }
-
-        ///  Event when close window
-        /// </summary>
-        /// <param name="parameter">Object parameter</param>
-        private void OnUnCheckedModeViewButtonAction(object parameter)
-        {
-            this.ViewPort3d.Children.Remove(this.device3D);
-
-            foreach (GeometryModel3D model in this.sensorModelList)
-            {
-                this.groupModel.Children.Add(model);
-
-            }
-
-            this.device3D.Content = this.groupModel;
-            this.ViewPort3d.Children.Add(this.device3D);
         }
 
         /// <summary>
@@ -200,7 +196,10 @@ namespace SensorsViewer.Result
             this.ModelYSize = stlModel.Bounds.SizeY.ToString();
             this.ModelZSize = stlModel.Bounds.SizeZ.ToString();
 
-            this.groupModel.Children.Add(stlModel);
+            //this.groupModel.Children.Add(stlModel);
+            this.sensorGroupModel.Children.Add(stlModel); // Add in sensor group model
+            this.interpGroupModel.Children.Add(stlModel); // Add in interpolation group model
+
             this.device3D.Content = this.groupModel;           
         }
 
@@ -240,9 +239,10 @@ namespace SensorsViewer.Result
                 GeometryModel3D sensorModel = new GeometryModel3D(meshBuilder.ToMesh(), MaterialHelper.CreateMaterial(color));
 
                 this.sensorModelList.Add(sensorModel);
-                this.groupModel.Children.Add(sensorModel);
+                this.sensorGroupModel.Children.Add(sensorModel);
             }
 
+            this.GroupModel = sensorGroupModel;
             this.device3D.Content = groupModel;
             this.ViewPort3d.Children.Add(this.device3D);
         }
@@ -255,10 +255,10 @@ namespace SensorsViewer.Result
         {
             this.ViewPort3d.Children.Remove(this.device3D);
 
-            foreach (GeometryModel3D model in this.sensorModelList)
-            {
-                this.groupModel.Children.Remove(model);
-            }
+            //foreach (GeometryModel3D model in this.sensorModelList)
+            //{
+            //    this.groupModel.Children.Remove(model);
+            //}
 
             this.sensorModelList.Clear();
 
@@ -269,6 +269,8 @@ namespace SensorsViewer.Result
                 meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sensor.Size, sensor.Size, sizeZ);
 
                 Color color;
+
+                // If sensor does not receive any value, receives yellow as collor
                 if (sensor.Values.Count != 0)
                 {
                     color = Interpolation.GetHeatMapColor(sensor.Values.Last().Value, -1, 1);
@@ -281,10 +283,49 @@ namespace SensorsViewer.Result
                 GeometryModel3D sensorModel = new GeometryModel3D(meshBuilder.ToMesh(), MaterialHelper.CreateMaterial(color));
 
                 this.sensorModelList.Add(sensorModel);
-                this.groupModel.Children.Add(sensorModel);
+                this.sensorGroupModel.Children.Add(sensorModel);
             }
 
+            this.GroupModel = this.sensorGroupModel;
             this.device3D.Content = groupModel;
+            this.ViewPort3d.Children.Add(this.device3D);
+        }
+
+        ///  Event when checked toggle button
+        /// </summary>
+        /// <param name="parameter">Object parameter</param>
+        private void OnCheckedModeViewButtonAction(object parameter)
+        {
+            this.ViewPort3d.Children.Remove(this.device3D);
+            //this.groupModel.Children.Clear();
+
+            this.GroupModel = this.interpGroupModel;
+            //foreach (GeometryModel3D model in this.sensorModelList)
+            //{
+            //    this.groupModel.Children.Remove(model);
+
+            //}
+
+            this.device3D.Content = this.groupModel;
+            this.ViewPort3d.Children.Add(this.device3D);
+        }
+
+        ///  Event when close window
+        /// </summary>
+        /// <param name="parameter">Object parameter</param>
+        private void OnUnCheckedModeViewButtonAction(object parameter)
+        {
+            this.ViewPort3d.Children.Remove(this.device3D);
+            //this.groupModel.Children.Clear();
+
+            this.GroupModel = this.sensorGroupModel;
+            //foreach (GeometryModel3D model in this.sensorModelList)
+            //{
+            //    this.groupModel.Children.Add(model);
+
+            //}
+
+            this.device3D.Content = this.groupModel;
             this.ViewPort3d.Children.Add(this.device3D);
         }
 
@@ -304,7 +345,7 @@ namespace SensorsViewer.Result
                 // Import 3D model file
                 ModelImporter import = new ModelImporter();
 
-                Material material = new DiffuseMaterial(new SolidColorBrush(Colors.Black));
+                Material material = new DiffuseMaterial(new SolidColorBrush(Colors.DarkSlateGray));
                 import.DefaultMaterial = material;
 
                 // Load the 3D model file
