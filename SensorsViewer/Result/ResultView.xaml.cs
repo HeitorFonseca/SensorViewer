@@ -18,8 +18,11 @@ namespace SensorsViewer.Result
     using System.Windows.Input;
     using System.Windows.Media;
     using System.Windows.Media.Imaging;
+    using System.Windows.Media.Media3D;
     using System.Windows.Navigation;
     using System.Windows.Shapes;
+
+    using SharpDx = HelixToolkit.Wpf.SharpDX;
 
     /// <summary>
     /// Interaction logic for ResultView.xaml
@@ -36,6 +39,16 @@ namespace SensorsViewer.Result
             this.ResultViewModel = new ResultViewModel();           
 
             this.DataContext = this.ResultViewModel;
+
+            this.ViewPort3DX.Camera = new SharpDx.PerspectiveCamera
+            {
+                Position = new Point3D(0, 0, 0),
+                LookDirection = new Vector3D(0, 0, -1),
+                //UpDirection = new Vector3D(0, 1, 0),
+                FarPlaneDistance = 1000
+            };
+
+            func();
         }
 
         /// <summary>
@@ -53,6 +66,16 @@ namespace SensorsViewer.Result
            
 
             this.DataContext = this.ResultViewModel;
+
+            this.ViewPort3DX.Camera = new SharpDx.PerspectiveCamera
+            {
+                Position = new Point3D(0, 0, 0),
+                LookDirection = new Vector3D(0, 0, -1),
+                //UpDirection = new Vector3D(0, 1, 0),
+                FarPlaneDistance = 1000
+            };
+
+            func();
         }
 
         /// <summary>
@@ -67,10 +90,55 @@ namespace SensorsViewer.Result
                  
             this.viewPort3d.ZoomExtents();
             this.viewPort3d.ZoomExtentsWhenLoaded = true;
-            
+
+            this.ViewPort3DX.ZoomExtents();
+            this.ViewPort3DX.ZoomExtentsWhenLoaded = true;
+
             this.DataContext = this.ResultViewModel;
+
+            this.ViewPort3DX.Camera = new SharpDx.PerspectiveCamera
+            {
+                Position = new Point3D(0, 0, 0),
+                LookDirection = new Vector3D(0, 0, -1),
+                //UpDirection = new Vector3D(0, 1, 0),
+                FarPlaneDistance = 1000
+            };
+
+            func();
         }
 
+
+        public void func()
+        {
+            SharpDx.PointGeometryModel3D PointModel = new SharpDx.PointGeometryModel3D();
+
+            SharpDx.PointGeometry3D Points = new SharpDx.PointGeometry3D();
+            var ptPos = new SharpDx.Core.Vector3Collection();
+            var ptIdx = new SharpDx.Core.IntCollection();
+            var colr = new SharpDx.Core.Color4Collection();
+
+            for (int x = 0; x < 10; x++)
+            {
+                for (int y = 0; y < 10; y++)
+                {
+                    for (int z = 0; z < 10; z++)
+                    {
+                        ptIdx.Add(ptPos.Count);
+                        ptPos.Add(new SharpDX.Vector3(x, y, z));
+                        colr.Add(new SharpDX.Color4(100, 255, 10, 1));
+                    }
+                }
+            }
+            Points.Positions = ptPos;
+            Points.Indices = ptIdx;
+            Points.Colors = colr;
+
+            PointModel.Geometry = Points;
+            PointModel.Size = new System.Windows.Size(10, 10);
+            PointModel.Color = new SharpDX.Color(0, 0, 0);
+
+           // this.pegaCarai.Children.Add(PointModel);
+        }
         /// <summary>
         /// Gets or sets optical sensor view model
         /// </summary>

@@ -57,7 +57,16 @@ namespace SensorsViewer.Result
         /// </summary>
         private MeshGeometry3D modelMesh = null;
 
+        private Model3D stlModel;
+
+        /// <summary>
+        /// Bool to display sensors
+        /// </summary>
         private Visibility sensorsVibility;
+
+        /// <summary>
+        /// Bool to display interpolation
+        /// </summary>
         private Visibility interpVibility;
 
         /// <summary>
@@ -154,6 +163,7 @@ namespace SensorsViewer.Result
         /// </summary>
         public HelixViewport3D ViewPort3d { get; set; }
 
+        public SharpDx.Viewport3DX ViewPort3DX { get; set; }
         /// <summary>
         /// Gets or sets group model
         /// </summary>
@@ -222,6 +232,8 @@ namespace SensorsViewer.Result
             }
         }
 
+        public SharpDx.PointGeometry3D Points { get; set; }
+
         /// <summary>
         /// Gets or sets View Mode
         /// </summary>
@@ -263,7 +275,7 @@ namespace SensorsViewer.Result
         public void LoadStlModel(string stlFile)
         {
             this.stlFilePath = stlFile;
-            Model3D stlModel = this.Display3d(this.stlFilePath);
+            this.stlModel = this.Display3d(this.stlFilePath);
 
             this.ModelXSize = stlModel.Bounds.SizeX.ToString();
             this.ModelYSize = stlModel.Bounds.SizeY.ToString();
@@ -286,6 +298,8 @@ namespace SensorsViewer.Result
 
             List<Sensor> currentSensors = new List<Sensor>();
             this.sensorModelList.Clear();
+            this.sensorGroupModel.Children.Clear();
+            this.sensorGroupModel.Children.Add(this.stlModel);
 
             foreach (Sensor sensor in sensors)
             {
@@ -318,7 +332,7 @@ namespace SensorsViewer.Result
 
                 if (modelMesh != null)
                 {
-                    Interpolation.Interpolate(modelMesh, currentSensors);
+                   // Interpolation.Interpolate(modelMesh, currentSensors);
                 }
             }
 
@@ -359,6 +373,32 @@ namespace SensorsViewer.Result
 
                 this.sensorModelList.Add(sensorModel);
                 this.sensorGroupModel.Children.Add(sensorModel);
+            }
+
+            if (modelMesh != null)
+            {
+                //Interpolation.Interpolate(modelMesh, sensors);       
+
+                Points = new SharpDx.PointGeometry3D();
+                var ptPos = new SharpDx.Core.Vector3Collection();
+                var ptIdx = new SharpDx.Core.IntCollection();
+                var colr = new SharpDx.Core.Color4Collection();
+
+                for (int x = 0; x < 10; x++)
+                {
+                    for (int y = 0; y < 10; y++)
+                    {
+                        for (int z = 0; z < 10; z++)
+                        {
+                            ptIdx.Add(ptPos.Count);
+                            ptPos.Add(new SharpDX.Vector3(x, y, z));
+                            colr.Add(new SharpDX.Color4(100, 255, 10, 1));
+                        }
+                    }
+                }
+                Points.Positions = ptPos;
+                Points.Indices = ptIdx;
+                Points.Colors = colr;
             }
 
             this.GroupModel = this.sensorGroupModel;

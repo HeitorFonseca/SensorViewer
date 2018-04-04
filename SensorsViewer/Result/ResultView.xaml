@@ -27,12 +27,12 @@
             </helix:HelixViewport3D.Children>
         </helix:HelixViewport3D>
 
-        <hx:Viewport3DX  x:Name="viewport3D" ZoomExtentsWhenLoaded="True" Visibility="{Binding InterpVisibility}">
+        <hx:Viewport3DX  x:Name="ViewPort3DX" ZoomExtentsWhenLoaded="True" Visibility="{Binding InterpVisibility}">
             <hx:AmbientLight3D Color="{Binding AmbientLightColor}"/>
 
-            <hx:GroupModel3D x:Name="loadedModels" BindingGroup="{Binding InterpGroupModel}">
-                
-            </hx:GroupModel3D>
+            <!--<hx:GroupModel3D x:Name="pegaCarai" BindingGroup="{Binding InterpGroupModel}">-->
+            <hx:PointGeometryModel3D x:Name="points" IsRendering="True" Geometry="{Binding Points}" Size="10 10"/>
+            <!--</hx:GroupModel3D>-->
         </hx:Viewport3DX>
         
         <controls:ToggleSwitch x:Name="enabledSwitch" Margin="201,0,0,275"  OffLabel="Sensors" OnLabel="Ramp"

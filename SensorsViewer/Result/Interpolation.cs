@@ -23,9 +23,10 @@ namespace SensorsViewer.Result
         static private Dictionary<Tuple<int, int>, double> trianglePointsDictionary = new Dictionary<Tuple<int, int>, double>();
         static private double averageValue;
 
-        static public SharpDx.GroupModel3D Interpolate(MeshGeometry3D modelMesh, IEnumerable<Sensor> sensorsDataList)
+        static public SharpDx.PointGeometryModel3D Interpolate(MeshGeometry3D modelMesh, IEnumerable<Sensor> sensorsDataList)
         {
             SharpDx.GroupModel3D interpGroupModel = null;
+            SharpDx.PointGeometryModel3D PointModel = null;
 
             if (sensorsDataList.Count() > 1)
             {
@@ -37,7 +38,7 @@ namespace SensorsViewer.Result
                 Dictionary<Tuple<int, int>, double> ppDictionary = PreProcessing(sensorDictionary);
                 SharpDx.Core.Vector3Collection pointsCollection = StartInterpolation2(ppDictionary, sensorDictionary);
 
-                SharpDx.PointGeometryModel3D PointModel = new SharpDx.PointGeometryModel3D();
+                PointModel = new SharpDx.PointGeometryModel3D();
                 SharpDx.Core.Vector3Collection ppp = new HelixToolkit.Wpf.SharpDX.Core.Vector3Collection();
                 SharpDx.Core.IntCollection indexs = new SharpDx.Core.IntCollection();
                 SharpDx.Core.Color4Collection colors = new SharpDx.Core.Color4Collection();
@@ -58,16 +59,16 @@ namespace SensorsViewer.Result
 
                     PointModel.Geometry = Points;
 
-                    Color asd = GetHeatMapColor(pointsCollection[i].Z, -0.200f, 0.200f);
+                    Color asd = GetHeatMapColor(pointsCollection[i].Z, -1.0f, 1.0f);
 
                     PointModel.Color = new SharpDX.Color(asd.R, asd.G, asd.B);
-                    PointModel.Size = new System.Windows.Size(1, 1);
+                    PointModel.Size = new System.Windows.Size(100, 100);
 
                     interpGroupModel.Children.Add(PointModel);
                 }
             }
 
-            return interpGroupModel;
+            return PointModel;
         }
 
         static private void BuildDictionary(MeshGeometry3D mesh)
