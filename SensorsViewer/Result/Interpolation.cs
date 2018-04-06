@@ -5,6 +5,7 @@
 namespace SensorsViewer.Result
 {
     using SensorsViewer.SensorOption;
+    
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -15,6 +16,7 @@ namespace SensorsViewer.Result
 
     using SharpDx = HelixToolkit.Wpf.SharpDX;
 
+    using SharpGL.SceneGraph;
 
     static public class Interpolation
     {
@@ -23,12 +25,17 @@ namespace SensorsViewer.Result
         static private Dictionary<Tuple<int, int>, double> trianglePointsDictionary = new Dictionary<Tuple<int, int>, double>();
         static private double averageValue;
 
-        static public SharpDx.Core.Vector3Collection Interpolate(MeshGeometry3D modelMesh, IEnumerable<Sensor> sensorsDataList)
+        static private int c = 0;
+
+        static public Vertex[] Interpolate(MeshGeometry3D modelMesh, IEnumerable<Sensor> sensorsDataList)
         {
+
+            c = 0;
             SharpDx.GroupModel3D interpGroupModel = null;
             SharpDx.PointGeometryModel3D PointModel = null;
             SharpDx.PointGeometry3D Points = null;
             SharpDx.Core.Vector3Collection pointsCollection = null;
+            Vertex[] vertices = null;
 
             if (sensorsDataList.Count() > 1)
             {
@@ -38,7 +45,8 @@ namespace SensorsViewer.Result
 
                 Dictionary<Tuple<int, int>, double> sensorDictionary = FillSensorDataDictionary(sensorsDataList);
                 Dictionary<Tuple<int, int>, double> ppDictionary = PreProcessing(sensorDictionary);
-                pointsCollection = StartInterpolation2(ppDictionary, sensorDictionary);
+
+                vertices = StartInterpolation2(ppDictionary, sensorDictionary);
 
                 PointModel = new SharpDx.PointGeometryModel3D();
                 SharpDx.Core.Vector3Collection ppp = new HelixToolkit.Wpf.SharpDX.Core.Vector3Collection();
@@ -46,31 +54,31 @@ namespace SensorsViewer.Result
                 SharpDx.Core.Color4Collection colors = new SharpDx.Core.Color4Collection();
                 Points = new SharpDx.PointGeometry3D();
 
-                for (int i = 0; i < pointsCollection.Count; i++)
-                {
-                    PointModel = new SharpDx.PointGeometryModel3D();
-                    Points = new SharpDx.PointGeometry3D();
-                    ppp = new SharpDx.Core.Vector3Collection();
-                    indexs = new SharpDx.Core.IntCollection();
+                //for (int i = 0; i < pointsCollection.Count; i++)
+                //{
+                //    PointModel = new SharpDx.PointGeometryModel3D();
+                //    Points = new SharpDx.PointGeometry3D();
+                //    ppp = new SharpDx.Core.Vector3Collection();
+                //    indexs = new SharpDx.Core.IntCollection();
 
-                    ppp.Add(pointsCollection[i]);
-                    indexs.Add(0);
+                //    ppp.Add(pointsCollection[i]);
+                //    indexs.Add(0);
 
-                    Points.Positions = ppp;
-                    Points.Indices = indexs;
+                //    Points.Positions = ppp;
+                //    Points.Indices = indexs;
 
-                    PointModel.Geometry = Points;
+                //    PointModel.Geometry = Points;
 
-                    Color asd = GetHeatMapColor(pointsCollection[i].Z, -1.0f, 1.0f);
+                //    Color asd = GetHeatMapColor(pointsCollection[i].Z, -1.0f, 1.0f);
 
-                    PointModel.Color = new SharpDX.Color(asd.R, asd.G, asd.B);
-                    PointModel.Size = new System.Windows.Size(100, 100);
+                //    PointModel.Color = new SharpDX.Color(asd.R, asd.G, asd.B);
+                //    PointModel.Size = new System.Windows.Size(100, 100);
 
-                    interpGroupModel.Children.Add(PointModel);
-                }
+                //    interpGroupModel.Children.Add(PointModel);
+                //}
             }
 
-            return pointsCollection;
+            return vertices;
         }
 
         static private void BuildDictionary(MeshGeometry3D mesh)
@@ -192,13 +200,13 @@ namespace SensorsViewer.Result
         }
 
         // using one sensor
-        static private SharpDx.Core.Vector3Collection StartInterpolation2(Dictionary<Tuple<int, int>, double> ppDictionary, Dictionary<Tuple<int, int>, double> sensorDictionary)
+        static private Vertex[] StartInterpolation2(Dictionary<Tuple<int, int>, double> ppDictionary, Dictionary<Tuple<int, int>, double> sensorDictionary)
         {
             Dictionary<Tuple<int, int>, double> resultDic = new Dictionary<Tuple<int, int>, double>();
 
             averageValue = -0.01957;
 
-            SharpDx.Core.Vector3Collection vecCol = new SharpDx.Core.Vector3Collection();
+            var vertices = new  Vertex[ppDictionary.Count];
 
             foreach (KeyValuePair<Tuple<int, int>, double> item in ppDictionary)
             {
@@ -208,7 +216,9 @@ namespace SensorsViewer.Result
                 if (sensorDictionary.ContainsKey(item.Key))
                 {
                     resultDic.Add(item.Key, sensorDictionary[item.Key]);
-                    vecCol.Add(new SharpDX.Vector3(item.Key.Item1, item.Key.Item2, DoubleToFloat(sensorDictionary[item.Key]))); // (x, y, value)
+                    vertices[c].X = item.Key.Item1;
+                    vertices[c].Y = item.Key.Item2;
+                    vertices[c++].Z = DoubleToFloat(sensorDictionary[item.Key]); // (x, y, value)
 
                     continue;
                 }
@@ -289,12 +299,15 @@ namespace SensorsViewer.Result
 
                 double ret = BilinearInterpolation(q11Value, q12Value, q21Value, q22Value, q11.Item1, q22.Item1, q11.Item2, q22.Item2, x, y);
 
-                vecCol.Add(new SharpDX.Vector3(item.Key.Item1, item.Key.Item2, DoubleToFloat(ret)));
+                vertices[c].X = item.Key.Item1;
+                vertices[c].Y = item.Key.Item2;
+                vertices[c++].Z = DoubleToFloat(ret);
 
                 resultDic.Add(item.Key, ret);
                 //ndic[item.Key] = ret;                   
             }
-            return vecCol;
+
+            return vertices;
         }
 
         static private List<Tuple<int, int>> GetNeighboringPoints(int x, int y, Dictionary<Tuple<int, int>, double> newDictionary, out double mCoord1, out double mCoord2)

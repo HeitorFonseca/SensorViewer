@@ -204,3 +204,12 @@ C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpDX
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpDX.DXGI.xml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpDX.Mathematics.xml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer_Content.g.cs
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.WPF.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.SceneGraph.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.pdb
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.SceneGraph.pdb
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.SceneGraph.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.WPF.pdb
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.WPF.xml
