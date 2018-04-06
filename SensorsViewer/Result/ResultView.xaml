@@ -9,7 +9,8 @@
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
-
+             xmlns:sdx="clr-namespace:SharpDX;assembly=SharpDX.Mathematics"
+             
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
@@ -31,7 +32,7 @@
             <hx:AmbientLight3D Color="{Binding AmbientLightColor}"/>
 
             <!--<hx:GroupModel3D x:Name="pegaCarai" BindingGroup="{Binding InterpGroupModel}">-->
-            <hx:PointGeometryModel3D x:Name="points" IsRendering="True" Geometry="{Binding Points}" Size="10 10"/>
+            <hx:PointGeometryModel3D x:Name="points" Geometry="{Binding Points}" Size="10 10"  Color="{Binding Colorir}"/>
             <!--</hx:GroupModel3D>-->
         </hx:Viewport3DX>
         

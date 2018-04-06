@@ -234,6 +234,8 @@ namespace SensorsViewer.Result
 
         public SharpDx.PointGeometry3D Points { get; set; }
 
+        public SharpDx.Core.Color4Collection Colorir { get; set; }
+
         /// <summary>
         /// Gets or sets View Mode
         /// </summary>
@@ -377,28 +379,50 @@ namespace SensorsViewer.Result
 
             if (modelMesh != null)
             {
-                //Interpolation.Interpolate(modelMesh, sensors);       
-
-                Points = new SharpDx.PointGeometry3D();
+                SharpDx.Core.Vector3Collection col = Interpolation.Interpolate(modelMesh, sensors);
+                var points = new SharpDx.PointGeometry3D();
                 var ptPos = new SharpDx.Core.Vector3Collection();
                 var ptIdx = new SharpDx.Core.IntCollection();
                 var colr = new SharpDx.Core.Color4Collection();
+                Random rnd = new Random();
 
-                for (int x = 0; x < 10; x++)
+                for (int i = 0; i < col.Count; i++)
                 {
-                    for (int y = 0; y < 10; y++)
-                    {
-                        for (int z = 0; z < 10; z++)
-                        {
-                            ptIdx.Add(ptPos.Count);
-                            ptPos.Add(new SharpDX.Vector3(x, y, z));
-                            colr.Add(new SharpDX.Color4(100, 255, 10, 1));
-                        }
-                    }
+                    ptIdx.Add(ptPos.Count);
+                    ptPos.Add(col[i]);
+                    //colr.Add(new SharpDX.Color4(Interpolation.DoubleToFloat(rnd.NextDouble()),
+                    //                            Interpolation.DoubleToFloat(rnd.NextDouble()),
+                    //                            Interpolation.DoubleToFloat(rnd.NextDouble()), 1));
+
+                    colr.Add(new SharpDX.Color4(1.0f, 1.0f, 1.0f, 1.0f));
                 }
-                Points.Positions = ptPos;
-                Points.Indices = ptIdx;
-                Points.Colors = colr;
+                //var points = Interpolation.Interpolate(modelMesh, sensors);       
+
+                //var points = new SharpDx.PointGeometry3D();
+                //var ptPos = new SharpDx.Core.Vector3Collection();
+                //var ptIdx = new SharpDx.Core.IntCollection();
+                //var colr = new SharpDx.Core.Color4Collection();
+
+                //Random rnd = new Random();
+
+                //for (int x = 0; x < 10; x++)
+                //{
+                //    for (int y = 0; y < 10; y++)
+                //    {
+                //        for (int z = 0; z < 10; z++)
+                //        {
+                //            ptIdx.Add(ptPos.Count);
+                //            ptPos.Add(new SharpDX.Vector3(x, y, z));
+                //            colr.Add(new SharpDX.Color4(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255), 255));
+                //        }
+                //    }
+                //}
+                points.Positions = ptPos;
+                points.Indices = ptIdx;
+                points.Colors = colr;
+
+                Colorir = colr;
+                this.Points = points;
             }
 
             this.GroupModel = this.sensorGroupModel;

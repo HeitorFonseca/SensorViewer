@@ -23,10 +23,12 @@ namespace SensorsViewer.Result
         static private Dictionary<Tuple<int, int>, double> trianglePointsDictionary = new Dictionary<Tuple<int, int>, double>();
         static private double averageValue;
 
-        static public SharpDx.PointGeometryModel3D Interpolate(MeshGeometry3D modelMesh, IEnumerable<Sensor> sensorsDataList)
+        static public SharpDx.Core.Vector3Collection Interpolate(MeshGeometry3D modelMesh, IEnumerable<Sensor> sensorsDataList)
         {
             SharpDx.GroupModel3D interpGroupModel = null;
             SharpDx.PointGeometryModel3D PointModel = null;
+            SharpDx.PointGeometry3D Points = null;
+            SharpDx.Core.Vector3Collection pointsCollection = null;
 
             if (sensorsDataList.Count() > 1)
             {
@@ -36,13 +38,13 @@ namespace SensorsViewer.Result
 
                 Dictionary<Tuple<int, int>, double> sensorDictionary = FillSensorDataDictionary(sensorsDataList);
                 Dictionary<Tuple<int, int>, double> ppDictionary = PreProcessing(sensorDictionary);
-                SharpDx.Core.Vector3Collection pointsCollection = StartInterpolation2(ppDictionary, sensorDictionary);
+                pointsCollection = StartInterpolation2(ppDictionary, sensorDictionary);
 
                 PointModel = new SharpDx.PointGeometryModel3D();
                 SharpDx.Core.Vector3Collection ppp = new HelixToolkit.Wpf.SharpDX.Core.Vector3Collection();
                 SharpDx.Core.IntCollection indexs = new SharpDx.Core.IntCollection();
                 SharpDx.Core.Color4Collection colors = new SharpDx.Core.Color4Collection();
-                SharpDx.PointGeometry3D Points = new SharpDx.PointGeometry3D();
+                Points = new SharpDx.PointGeometry3D();
 
                 for (int i = 0; i < pointsCollection.Count; i++)
                 {
@@ -68,7 +70,7 @@ namespace SensorsViewer.Result
                 }
             }
 
-            return PointModel;
+            return pointsCollection;
         }
 
         static private void BuildDictionary(MeshGeometry3D mesh)
