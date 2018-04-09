@@ -45,60 +45,6 @@ C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj
 C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\SensorsViewer.exe
 C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\SensorsViewer.pdb
 C:\Users\Heitor Araujo\Documents\workspace\senai\SensorsViewer\SensorsViewer\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SensorsViewer.exe.config
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SensorsViewer.exe
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SensorsViewer.pdb
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\MahApps.Metro.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\System.Windows.Interactivity.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\MahApps.Metro.pdb
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\MahApps.Metro.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Home\HomeView.g.cs
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\MainWindow.g.cs
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\App.g.cs
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\GeneratedInternalTypeHelper.g.cs
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer_MarkupCompile.cache
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer_MarkupCompile.lref
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\App.baml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Home\HomeView.baml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\MainWindow.baml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Resources\AppDictionary.baml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer.g.resources
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer.Properties.Resources.resources
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer.csproj.GenerateResource.Cache
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer.csproj.CoreCompileInputs.cache
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer.exe
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer.pdb
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\RabbitMQ.Client.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\RabbitMQ.Client.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\LiveCharts.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\LiveCharts.Wpf.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\LiveCharts.pdb
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\LiveCharts.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\LiveCharts.Wpf.pdb
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\LiveCharts.Wpf.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\ProjectB\OpticalSensorView.g.cs
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\ProjectB\OpticalSensorView.baml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.Extras.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.Platform.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Microsoft.Practices.ServiceLocation.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.pdb
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.Extras.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.Platform.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Microsoft.Practices.ServiceLocation.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\EntityFramework.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\System.Data.SQLite.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\System.Data.SQLite.EF6.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\System.Data.SQLite.Linq.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\EntityFramework.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\System.Data.SQLite.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\SensorsViewer.exe.config
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\SensorsViewer.exe
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\SensorsViewer.pdb
@@ -154,18 +100,8 @@ C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\obj\Debug\SensorsViewer.csproj.CoreCompileInputs.cache
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\obj\Debug\SensorsViewer.exe
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\obj\Debug\SensorsViewer.pdb
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Newtonsoft.Json.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\Newtonsoft.Json.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Result\ResultView.g.cs
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\HelixToolkit.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\HelixToolkit.Wpf.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\HelixToolkit.pdb
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\HelixToolkit.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\HelixToolkit.Wpf.pdb
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\HelixToolkit.Wpf.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Result\ResultView.baml
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\HelixToolkit.dll
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\HelixToolkit.Wpf.dll
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\HelixToolkit.pdb
@@ -174,16 +110,28 @@ C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\HelixToolkit.Wpf.xml
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\obj\Debug\Result\ResultView.g.cs
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\obj\Debug\Result\ResultView.baml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Home\AddProjectDialog.g.cs
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Home\AddProjectDialog.baml
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\obj\Debug\Home\AddProjectDialog.g.cs
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\obj\Debug\Home\AddProjectDialog.baml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SensorsViewer.exe.config
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SensorsViewer.exe
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SensorsViewer.pdb
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\AttachedCommandBehavior.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\FontAwesome.WPF.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\FontAwesome.WPF.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer.csprojResolveAssemblyReference.cache
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Cyotek.Drawing.BitmapFont.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\EntityFramework.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\FontAwesome.WPF.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\HelixToolkit.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\HelixToolkit.Wpf.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\HelixToolkit.Wpf.SharpDX.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\LiveCharts.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\MahApps.Metro.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\RabbitMQ.Client.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpDX.D3DCompiler.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpDX.Direct2D1.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpDX.Direct3D11.dll
@@ -192,9 +140,39 @@ C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpDX
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpDX.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpDX.DXGI.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpDX.Mathematics.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.SceneGraph.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.WPF.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\System.Data.SQLite.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\System.Windows.Interactivity.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Cyotek.Drawing.BitmapFont.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\EntityFramework.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\FontAwesome.WPF.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.pdb
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.Extras.pdb
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.Extras.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\GalaSoft.MvvmLight.Platform.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\HelixToolkit.pdb
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\HelixToolkit.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\HelixToolkit.Wpf.pdb
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\HelixToolkit.Wpf.xml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\HelixToolkit.Wpf.SharpDX.pdb
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\HelixToolkit.Wpf.SharpDX.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\LiveCharts.pdb
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\LiveCharts.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\MahApps.Metro.pdb
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\MahApps.Metro.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Microsoft.Practices.ServiceLocation.pdb
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Microsoft.Practices.ServiceLocation.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\RabbitMQ.Client.xml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpDX.xml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpDX.D3DCompiler.xml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpDX.Direct2D1.xml
@@ -203,13 +181,35 @@ C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpDX
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpDX.Direct3D9.xml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpDX.DXGI.xml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpDX.Mathematics.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer_Content.g.cs
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.WPF.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.SceneGraph.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.pdb
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.xml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.SceneGraph.pdb
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.SceneGraph.xml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.WPF.pdb
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\SharpGL.WPF.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\System.Data.SQLite.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Home\AddProjectDialog.g.cs
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Home\HomeView.g.cs
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\MainWindow.g.cs
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\ProjectB\OpticalSensorView.g.cs
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Result\ResultView.g.cs
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\App.g.cs
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer_Content.g.cs
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer_MarkupCompile.cache
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer_MarkupCompile.lref
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\App.baml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Home\AddProjectDialog.baml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Home\HomeView.baml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\MainWindow.baml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\ProjectB\OpticalSensorView.baml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Resources\AppDictionary.baml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Result\ResultView.baml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer.g.resources
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer.Properties.Resources.resources
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer.csproj.GenerateResource.Cache
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer.csproj.CoreCompileInputs.cache
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer.exe
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer.pdb
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer.csprojResolveAssemblyReference.cache

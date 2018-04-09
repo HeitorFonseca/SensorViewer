@@ -34,7 +34,7 @@ namespace SensorsViewer.Result
             SharpDx.GroupModel3D interpGroupModel = null;
             SharpDx.PointGeometryModel3D PointModel = null;
             SharpDx.PointGeometry3D Points = null;
-            SharpDx.Core.Vector3Collection pointsCollection = null;
+
             Vertex[] vertices = null;
 
             if (sensorsDataList.Count() > 1)

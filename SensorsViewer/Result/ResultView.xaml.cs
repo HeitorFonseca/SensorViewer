@@ -5,6 +5,8 @@
 namespace SensorsViewer.Result
 {
     using SensorsViewer.SensorOption;
+    using SharpGL;
+    using SharpGL.SceneGraph;
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
@@ -142,6 +144,15 @@ namespace SensorsViewer.Result
         /// <summary>
         /// Gets or sets optical sensor view model
         /// </summary>
-        public ResultViewModel ResultViewModel { get; set; }        
+        public ResultViewModel ResultViewModel { get; set; }
+
+        private void OpenGLControl_OpenGLInitialized(object sender, OpenGLEventArgs args)
+        {
+            //  Get the OpenGL instance that's been passed to us.
+            OpenGL gl = args.OpenGL;
+
+            gl.ClearColor(255, 255, 255, 255);
+
+        }
     }
 }

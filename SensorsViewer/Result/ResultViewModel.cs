@@ -58,6 +58,9 @@ namespace SensorsViewer.Result
         /// </summary>
         private MeshGeometry3D modelMesh = null;
 
+        /// <summary>
+        /// STL model 3D
+        /// </summary>
         private Model3D stlModel;
 
         /// <summary>
@@ -85,6 +88,9 @@ namespace SensorsViewer.Result
         /// </summary>
         private List<GeometryModel3D> sensorModelList = new List<GeometryModel3D>();
 
+
+        private Vertex[] vertices;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ResultViewModel"/> class
         /// </summary>
@@ -96,6 +102,9 @@ namespace SensorsViewer.Result
             this.device3D = new ModelVisual3D();
             this.OnCheckedModeViewButtonCommand = new RelayCommand(this.OnCheckedModeViewButtonAction);
             this.OnUnCheckedModeViewButtonCommand = new RelayCommand(this.OnUnCheckedModeViewButtonAction);
+            this.OpenGLInitializedCommand = new RelayCommand(this.OpenGLControl_OpenGLInitialized);
+            this.OpenGLDraw = new RelayCommand(this.OpenGLControl_OpenGLDraw);
+            this.OpenGLResized = new RelayCommand(this.OpenGLControl_Resized);
 
             this.SensorsVisibility = Visibility.Visible;
             this.InterpVisibility = Visibility.Collapsed;
@@ -114,12 +123,15 @@ namespace SensorsViewer.Result
             this.device3D = new ModelVisual3D();
             this.OnCheckedModeViewButtonCommand = new RelayCommand(this.OnCheckedModeViewButtonAction);
             this.OnUnCheckedModeViewButtonCommand = new RelayCommand(this.OnUnCheckedModeViewButtonAction);
+            this.OpenGLInitializedCommand = new RelayCommand(this.OpenGLControl_OpenGLInitialized);
+            this.OpenGLDraw = new RelayCommand(this.OpenGLControl_OpenGLDraw);
+            this.OpenGLResized = new RelayCommand(this.OpenGLControl_Resized);
 
             this.LoadStlModel(path);
             this.LoadSensorsInModel(sensors, "");
 
             this.SensorsVisibility = Visibility.Visible;
-            this.InterpVisibility = Visibility.Collapsed;
+            this.InterpVisibility = Visibility.Hidden;
         }
 
         /// <summary>
@@ -134,12 +146,15 @@ namespace SensorsViewer.Result
             this.device3D = new ModelVisual3D();
             this.OnCheckedModeViewButtonCommand = new RelayCommand(this.OnCheckedModeViewButtonAction);
             this.OnUnCheckedModeViewButtonCommand = new RelayCommand(this.OnUnCheckedModeViewButtonAction);
+            this.OpenGLInitializedCommand = new RelayCommand(this.OpenGLControl_OpenGLInitialized);
+            this.OpenGLDraw = new RelayCommand(this.OpenGLControl_OpenGLDraw);
+            this.OpenGLResized = new RelayCommand(this.OpenGLControl_Resized);
 
             this.LoadStlModel(path);
             this.LoadSensorsInModel(sensors, analysisName);
 
             this.SensorsVisibility = Visibility.Visible;
-            this.InterpVisibility = Visibility.Collapsed;
+            this.InterpVisibility = Visibility.Hidden;
         }
 
         #region PropertyDeclaration
@@ -158,6 +173,21 @@ namespace SensorsViewer.Result
         ///  Gets or sets click mode view command
         /// </summary>
         public ICommand OnUnCheckedModeViewButtonCommand { get; set; }
+
+        /// <summary>
+        ///  Gets or sets Loaded window command
+        /// </summary>
+        public ICommand OpenGLInitializedCommand { get; set; }
+
+        /// <summary>
+        ///  Gets or sets Loaded window command
+        /// </summary>
+        public ICommand OpenGLDraw { get; set; }
+
+        /// <summary>
+        ///  Gets or sets Loaded window command
+        /// </summary>
+        public ICommand OpenGLResized { get; set; }
 
         /// <summary>
         /// Gets or sets Hellix view port 3d
@@ -333,7 +363,7 @@ namespace SensorsViewer.Result
 
                 if (modelMesh != null)
                 {
-                   // Interpolation.Interpolate(modelMesh, currentSensors);
+                    this.vertices = Interpolation.Interpolate(modelMesh, currentSensors);
                 }
             }
 
@@ -378,7 +408,7 @@ namespace SensorsViewer.Result
 
             if (modelMesh != null)
             {
-                Vertex[] vertices = Interpolation.Interpolate(modelMesh, sensors);               
+                this.vertices = Interpolation.Interpolate(modelMesh, sensors);               
             }
 
             this.GroupModel = this.sensorGroupModel;
@@ -386,14 +416,82 @@ namespace SensorsViewer.Result
             this.ViewPort3d.Children.Add(this.device3D);
         }
 
+        private void OpenGLControl_OpenGLInitialized(object parameter)
+        {
+            OpenGL gl = ((OpenGLEventArgs)parameter).OpenGL;
+
+            gl.ClearColor(255, 255, 255, 255);
+
+        }
+
+        private void OpenGLControl_OpenGLDraw(object parameter)
+        {
+            if (this.vertices == null)
+            {
+                return;
+            }
+
+            OpenGL gl = ((OpenGLEventArgs)parameter).OpenGL;
+
+            //  Clear the color and depth buffers.
+            gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
+
+            //  Reset the modelview matrix.
+            gl.LoadIdentity();
+
+            //  Move the geometry into a fairly central position.
+            gl.Translate(5.0f, 0.0f, -50.0f);
+
+            //  Draw a pyramid. First, rotate the modelview matrix.
+            //gl.Rotate(rotatePyramid, 0.0f, 1.0f, 0.0f);
+
+            gl.PointSize(15.0f);
+
+            gl.Begin(OpenGL.GL_POINTS);
+
+            for(int i = 0; i < this.vertices.Count(); i++)
+            {
+                Color asd = Interpolation.GetHeatMapColor(this.vertices[i].Z, -1, +1);
+
+                gl.Color(asd.R / (float)255, asd.G / (float)255, asd.B / (float)255);
+                //gl.Color(0.5f, 0.5f, 0.5f);
+                gl.Vertex(this.vertices[i].X, this.vertices[i].Y, 0.0f);
+
+            }
+
+            gl.End();
+
+
+            //  Flush OpenGL.
+            gl.Flush();
+        }
+
+        private void OpenGLControl_Resized(object parameter)
+        {
+            //  Get the OpenGL instance.
+            OpenGL gl = ((OpenGLEventArgs)parameter).OpenGL;
+
+            //  Load and clear the projection matrix.
+            gl.MatrixMode(OpenGL.GL_PROJECTION);
+            gl.LoadIdentity();
+
+            // Calculate The Aspect Ratio Of The Window
+            gl.Perspective(45.0f, (float)gl.RenderContextProvider.Width / (float)gl.RenderContextProvider.Height,
+                0.1f, 100.0f);
+
+            //  Load the modelview.
+            gl.MatrixMode(OpenGL.GL_MODELVIEW);
+        }
+
         ///  Event when checked toggle button
         /// </summary>
         /// <param name="parameter">Object parameter</param>
         private void OnCheckedModeViewButtonAction(object parameter)
         {
-            this.SensorsVisibility = Visibility.Collapsed;
+            this.SensorsVisibility = Visibility.Hidden;
             this.InterpVisibility = Visibility.Visible;
 
+            this.ViewMode = true;
             //this.ViewPort3d.Children.Remove(this.device3D);
             //this.GroupModel = this.interpGroupModel;
             //this.device3D.Content = this.groupModel;
@@ -406,7 +504,9 @@ namespace SensorsViewer.Result
         private void OnUnCheckedModeViewButtonAction(object parameter)
         {
             this.SensorsVisibility = Visibility.Visible;
-            this.InterpVisibility = Visibility.Collapsed;
+            this.InterpVisibility = Visibility.Hidden;
+
+            this.ViewMode = true;
 
             //this.ViewPort3d.Children.Remove(this.device3D);
             //this.GroupModel = this.sensorGroupModel;

@@ -10,7 +10,8 @@
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
              xmlns:sdx="clr-namespace:SharpDX;assembly=SharpDX.Mathematics"
-             
+             xmlns:sharpGL="clr-namespace:SharpGL.WPF;assembly=SharpGL.WPF"
+
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
@@ -28,14 +29,31 @@
             </helix:HelixViewport3D.Children>
         </helix:HelixViewport3D>
 
-        <hx:Viewport3DX  x:Name="ViewPort3DX" ZoomExtentsWhenLoaded="True" Visibility="{Binding InterpVisibility}">
+        <!--<sharpGL:OpenGLControl Visibility="{Binding InterpVisibility}" OpenGLDraw="OpenGLControl_OpenGLDraw"  OpenGLInitialized="OpenGLControl_OpenGLInitialized"
+                               Resized="OpenGLControl_Resized" >-->
+
+        <sharpGL:OpenGLControl OpenGLInitialized="OpenGLControl_OpenGLInitialized" Visibility="{Binding InterpVisibility}" >
+                            
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="OpenGLInitialized">
+                    <cmd:EventToCommand Command="{Binding OpenGLInitializedCommand}" PassEventArgsToCommand="True" />
+                </i:EventTrigger>
+                <i:EventTrigger EventName="OpenGLDraw">
+                    <cmd:EventToCommand Command="{Binding OpenGLDraw}" PassEventArgsToCommand="True" />
+                </i:EventTrigger>
+                <i:EventTrigger EventName="Resized">
+                    <cmd:EventToCommand Command="{Binding OpenGLResized}" PassEventArgsToCommand="True" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            
+        </sharpGL:OpenGLControl>
+
+        <hx:Viewport3DX  x:Name="ViewPort3DX" ZoomExtentsWhenLoaded="True" Visibility="Collapsed">
             <hx:AmbientLight3D Color="{Binding AmbientLightColor}"/>
 
-            <!--<hx:GroupModel3D x:Name="pegaCarai" BindingGroup="{Binding InterpGroupModel}">-->
             <hx:PointGeometryModel3D x:Name="points" Geometry="{Binding Points}" Size="10 10"  Color="{Binding Colorir}"/>
-            <!--</hx:GroupModel3D>-->
         </hx:Viewport3DX>
-        
+
         <controls:ToggleSwitch x:Name="enabledSwitch" Margin="201,0,0,275"  OffLabel="Sensors" OnLabel="Ramp"
                                IsChecked="{Binding ViewMode}"
                                Style="{StaticResource MahApps.Metro.Styles.ToggleSwitch.Win10}" VerticalAlignment="Top" HorizontalAlignment="Right" >
