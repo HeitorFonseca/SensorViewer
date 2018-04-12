@@ -41,6 +41,7 @@ namespace SensorsViewer.ProjectB
         private double _axisMax;
         private double _axisMin;
 
+        private bool firstValue;
         /// <summary>
         /// Initializes a new instance of the <see cref="OpticalSensorViewModel"/> class
         /// </summary>
@@ -67,12 +68,24 @@ namespace SensorsViewer.ProjectB
             //AxisUnit forces lets the axis know that we are plotting seconds
             //this is not always necessary, but it can prevent wrong labeling
             AxisUnit = TimeSpan.TicksPerSecond;
+
+            firstValue = true;
         }
 
         private void SetAxisLimits(DateTime now)
         {
-            AxisMax = now.Ticks; // + TimeSpan.FromSeconds(1).Ticks; // lets force the axis to be 1 second ahead
-            AxisMin = now.Ticks - TimeSpan.FromSeconds(10).Ticks; // and 8 seconds behind
+            if (firstValue)
+            {
+                firstValue = false;
+
+                AxisMax = now.Ticks + TimeSpan.FromSeconds(5).Ticks;
+                AxisMin = now.Ticks;
+            }
+            else
+            {
+                AxisMax = now.Ticks; // + TimeSpan.FromSeconds(1).Ticks; // lets force the axis to be 1 second ahead
+                //AxisMin = now.Ticks - TimeSpan.FromSeconds(10).Ticks; // and 8 seconds behind
+            }
         }
 
         public double AxisStep { get; set; }
