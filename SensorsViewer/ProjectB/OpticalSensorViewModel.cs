@@ -38,20 +38,8 @@ namespace SensorsViewer.ProjectB
         /// </summary>
         private string sensorsFilePath;
 
-        /// <summary>
-        /// X axis max 
-        /// </summary>
-        private double axisMax;
-
-        /// <summary>
-        /// X axis min
-        /// </summary>
-        private double axisMin;
-
-        /// <summary>
-        /// Indicate if is the first value of the chart
-        /// </summary>
-        private bool firstValue;
+        private double _axisMax;
+        private double _axisMin;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OpticalSensorViewModel"/> class
@@ -62,7 +50,7 @@ namespace SensorsViewer.ProjectB
                 .X(dayModel => (double)dayModel.DateTime.Ticks)
                 .Y(dayModel => dayModel.Value);
 
-            // Save the mapper globally.
+            //lets save the mapper globally.
             Charting.For<DateModel>(dayConfig);
 
             this.InitializeSeriesColors();
@@ -70,78 +58,67 @@ namespace SensorsViewer.ProjectB
             this.SensorList = new ObservableCollection<SensorOption.Sensor>();
             this.SensorsLog = new ObservableCollection<SensorOption.Sensor>();
 
-            this.XFormatter = this.XFormaterStr;
-            this.YFormatter = this.YFormaterStr;
+            XFormatter = this.EOQ;//val => new DateTime((long)val).ToString("HH: mm:ss.fff");
+            YFormatter = this.YUKE;//val => val.ToString("N");
 
-            // AxisStep forces the distance between each separator in the X axis
-            this.AxisStep = TimeSpan.FromSeconds(1).Ticks;
+            //AxisStep forces the distance between each separator in the X axis
+            AxisStep = TimeSpan.FromSeconds(1).Ticks;
 
-            // AxisUnit forces lets the axis know that we are plotting seconds
-            this.AxisUnit = TimeSpan.TicksPerSecond;
-
-            this.firstValue = true;
+            //AxisUnit forces lets the axis know that we are plotting seconds
+            //this is not always necessary, but it can prevent wrong labeling
+            AxisUnit = TimeSpan.TicksPerSecond;
         }
 
-        #region Properties Declarations
+        private void SetAxisLimits(DateTime now)
+        {
+            AxisMax = now.Ticks; // + TimeSpan.FromSeconds(1).Ticks; // lets force the axis to be 1 second ahead
+            AxisMin = now.Ticks - TimeSpan.FromSeconds(10).Ticks; // and 8 seconds behind
+        }
 
+        public double AxisStep { get; set; }
+        public double AxisUnit { get; set; }
+
+        public double AxisMax
+        {
+            get { return _axisMax; }
+            set
+            {
+                _axisMax = value;
+                OnPropertyChanged("AxisMax");
+            }
+        }
+        public double AxisMin
+        {
+            get { return _axisMin; }
+            set
+            {
+                _axisMin = value;
+                OnPropertyChanged("AxisMin");
+            }
+        }
         /// <summary>
         /// Event for when change property
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
-        /// <summary>
-        /// Gets or sets Axis step
-        /// </summary>
-        public double AxisStep { get; set; }
-
-        /// <summary>
-        /// Gets or sets Axis unit
-        /// </summary>
-        public double AxisUnit { get; set; }
-
-        /// <summary>
-        /// Gets or sets max axis value
-        /// </summary>
-        public double AxisMax
-        {
-            get
-            {
-                return this.axisMax;
-            }
-
-            set
-            {
-                this.axisMax = value;
-                this.OnPropertyChanged("AxisMax");
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets max axis value
-        /// </summary>
-        public double AxisMin
-        {
-            get
-            {
-                return this.axisMin;
-            }
-
-            set
-            {
-                this.axisMin = value;
-                this.OnPropertyChanged("AxisMin");
-            }
-        }
-
-        /// <summary>
-        /// Gets or sets X axis formatter
-        /// </summary>
         public Func<double, string> XFormatter { get; set; }
-
-        /// <summary>
-        /// Gets or sets Y axis formatter
-        /// </summary>
         public Func<double, string> YFormatter { get; set; }
+
+        public string EOQ(double val)
+        {
+            string asd = new DateTime((long)val).ToString("mm:ss.fff");
+
+            return asd;
+        }
+
+        public string YUKE(double val)
+        {
+            string asd = val.ToString("N");
+
+            return asd;
+        }
+
+        public long MinValue { get; set; }
 
         /// <summary>
         /// Gets or sets sensor list
@@ -152,7 +129,7 @@ namespace SensorsViewer.ProjectB
         /// Gets or sets series collection
         /// </summary>
         public SeriesCollection SeriesCollection { get; set; }
- 
+
         /// <summary>
         /// Gets or sets series sensor log list
         /// </summary>
@@ -175,10 +152,6 @@ namespace SensorsViewer.ProjectB
             }
         }
 
-        #endregion
-
-        #region Public Methods
-
         /// <summary>
         /// Add sensor in linesgraph
         /// </summary>
@@ -196,8 +169,8 @@ namespace SensorsViewer.ProjectB
             };
 
             Brush textBrush = newLs.Fill.Clone();
-            textBrush.Opacity = 1d;            
-            
+            textBrush.Opacity = 1d;
+
             this.SensorList.Add(sensor);
             this.SeriesCollection.Add(newLs);
         }
@@ -236,11 +209,11 @@ namespace SensorsViewer.ProjectB
         /// <param name="value">Value to add</param>
         /// <param name="sv">Sensor value</param>
         public void AddValue(string sensorName, double value, SensorOption.SensorValue sv)
-        {            
+        {
             // If exist a line series with sensor with sensorid
             if (this.SeriesCollection.FirstOrDefault(a => a.Title == sensorName) is LineSeries ls)
             {
-                DateModel dm = new DateModel() { DateTime = sv.Timestamp, Value = value };  
+                DateModel dm = new DateModel() { DateTime = sv.Timestamp, Value = value };
                 ls.Values.Add(dm);
 
                 for (int i = 0; i < this.SensorList.Count; i++)
@@ -248,7 +221,7 @@ namespace SensorsViewer.ProjectB
                     if (this.SensorList[i].SensorName == sensorName)
                     {
                         this.SensorList[i].Values.Add(sv);
-                        this.SetAxisLimits(sv.Timestamp);
+                        SetAxisLimits(sv.Timestamp);
                     }
                 }
             }
@@ -274,9 +247,9 @@ namespace SensorsViewer.ProjectB
         public void ShowLoadedSensors(ObservableCollection<SensorOption.Sensor> sensorList, string analysisName)
         {
             ObservableCollection<SensorOption.Sensor> list = new ObservableCollection<SensorOption.Sensor>();
-        
+
             foreach (SensorOption.Sensor sensor in sensorList)
-            {               
+            {
                 Color nextColor = this.GetNextDefaultColor();
 
                 LineSeries newLs = new LineSeries
@@ -306,7 +279,6 @@ namespace SensorsViewer.ProjectB
                         if (v.AnalysisName == analysisName)
                         {
                             DateModel dm = new DateModel() { DateTime = v.Timestamp, Value = v.Value };
-
                             // Chart
                             newLs.Values.Add(dm);
 
@@ -323,19 +295,15 @@ namespace SensorsViewer.ProjectB
 
                 if (newLs.Values.Count > 0)
                 {
-                    this.AxisMin = ((DateModel)newLs.Values[0]).DateTime.Ticks;
-                    this.AxisMax = ((DateModel)newLs.Values[newLs.Values.Count - 1]).DateTime.Ticks;
+                    AxisMin = ((DateModel)newLs.Values[0]).DateTime.Ticks;
+                    AxisMax = ((DateModel)newLs.Values[newLs.Values.Count - 1]).DateTime.Ticks;
                 }
 
                 list = new ObservableCollection<SensorOption.Sensor>(list.OrderBy(a => a.Values[0].Timestamp));
                 this.SensorsLog = list;
-                this.SeriesCollection.Add(newLs);                
+                this.SeriesCollection.Add(newLs);
             }
         }
-
-        #endregion
-
-        #region Private Methods
 
         /// <summary>
         /// When changes property
@@ -367,68 +335,23 @@ namespace SensorsViewer.ProjectB
         }
 
         /// <summary>
-        /// Set axis limits
-        /// </summary>
-        /// <param name="now">Value datetime</param>
-        private void SetAxisLimits(DateTime now)
-        {
-            if (this.firstValue)
-            {
-                this.firstValue = false;
-
-                this.AxisMax = now.Ticks + TimeSpan.FromSeconds(5).Ticks;
-                this.AxisMin = now.Ticks;
-            }
-            else
-            {
-                this.AxisMax = now.Ticks; 
-            }
-        }
-
-        /// <summary>
-        /// X formatter function
-        /// </summary>
-        /// <param name="val">Datetime value</param>
-        /// <returns>Datetime in string format</returns>
-        private string XFormaterStr(double val)
-        {
-            string asd = new DateTime((long)val).ToString("mm:ss.fff");
-
-            return asd;
-        }
-
-        /// <summary>
-        /// Y formatter function
-        /// </summary>
-        /// <param name="val">Double value</param>
-        /// <returns>Value converted to string</returns>
-        private string YFormaterStr(double val)
-        {
-            string asd = val.ToString("N");
-
-            return asd;
-        }
-
-        /// <summary>
         /// Initialize defaults color
         /// </summary>
         private void InitializeSeriesColors()
         {
-           this.seriesColors.Add(new Color() { A = 255, R = 45, G = 137, B = 239 }); // blue
-           this.seriesColors.Add(new Color() { A = 255, R = 238, G = 17, B = 17 });  // red
-           this.seriesColors.Add(new Color() { A = 255, R = 255, G = 196, B = 13 }); // yellow
-           this.seriesColors.Add(new Color() { A = 255, R = 0, G = 171, B = 169 });  // green blue
-           this.seriesColors.Add(new Color() { A = 255, R = 255, G = 0, B = 151 });  // pink
-           this.seriesColors.Add(new Color() { A = 255, R = 0, G = 163, B = 0 });    // green
-           this.seriesColors.Add(new Color() { A = 255, R = 218, G = 83, B = 44 });  // orange
-           this.seriesColors.Add(new Color() { A = 255, R = 43, G = 87, B = 151 });  // blue
-           this.seriesColors.Add(new Color() { A = 255, R = 109, G = 0, B = 172 });   // purple
-           this.seriesColors.Add(new Color() { A = 255, R = 118, G = 59, B = 29 });  // brown
-           this.seriesColors.Add(new Color() { A = 255, R = 33, G = 53, B = 23 });   // dark green
-           this.seriesColors.Add(new Color() { A = 255, R = 26, G = 31, B = 55 });   // dark blue
-           this.seriesColors.Add(new Color() { A = 255, R = 98, G = 98, B = 98 });   // gray
+            this.seriesColors.Add(new Color() { A = 255, R = 45, G = 137, B = 239 }); // blue
+            this.seriesColors.Add(new Color() { A = 255, R = 238, G = 17, B = 17 });  // red
+            this.seriesColors.Add(new Color() { A = 255, R = 255, G = 196, B = 13 }); // yellow
+            this.seriesColors.Add(new Color() { A = 255, R = 0, G = 171, B = 169 });  // green blue
+            this.seriesColors.Add(new Color() { A = 255, R = 255, G = 0, B = 151 });  // pink
+            this.seriesColors.Add(new Color() { A = 255, R = 0, G = 163, B = 0 });    // green
+            this.seriesColors.Add(new Color() { A = 255, R = 218, G = 83, B = 44 });  // orange
+            this.seriesColors.Add(new Color() { A = 255, R = 43, G = 87, B = 151 });  // blue
+            this.seriesColors.Add(new Color() { A = 255, R = 109, G = 0, B = 172 });   // purple
+            this.seriesColors.Add(new Color() { A = 255, R = 118, G = 59, B = 29 });  // brown
+            this.seriesColors.Add(new Color() { A = 255, R = 33, G = 53, B = 23 });   // dark green
+            this.seriesColors.Add(new Color() { A = 255, R = 26, G = 31, B = 55 });   // dark blue
+            this.seriesColors.Add(new Color() { A = 255, R = 98, G = 98, B = 98 });   // gray
         }
-
-        #endregion
     }
 }

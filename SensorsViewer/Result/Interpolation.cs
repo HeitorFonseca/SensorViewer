@@ -265,7 +265,6 @@ namespace SensorsViewer.Result
                 vertices[c++].Z = DoubleToFloat(ret);
 
                 resultDic.Add(item.Key, ret);
-                //ndic[item.Key] = ret;                   
             }
 
             return vertices;
@@ -456,11 +455,6 @@ namespace SensorsViewer.Result
             return Convert.ToSingle(dValue);
         }
 
-        static private double CrossProduct(Point3D p1, Point3D p2)
-        {
-            return p1.X * p2.Y - p1.Y * p2.X;
-        }
-
         static public Color GetHeatMapColor(double value, double min_value, double max_value)
         {
             double rValue = (value - min_value) / (max_value - min_value);
@@ -493,6 +487,30 @@ namespace SensorsViewer.Result
 
             return asd;
         }
-    }    
+
+        static private void CreateFakeSensors(IEnumerable<Sensor> sensorsDataList)
+        {
+
+            for (int i = 0; i < sensorsDataList.Count(); i++)
+            {
+                for (int j = i; j < sensorsDataList.Count(); j++)
+                {
+                        double x1 = sensorsDataList.ElementAt(i).X;
+                        double y1 = sensorsDataList.ElementAt(i).Y;
+
+                        double x2 = sensorsDataList.ElementAt(j).X;
+                        double y2 = sensorsDataList.ElementAt(j).Y;
+
+
+                    }
+            }
+        }
+
+        static private double CrossProduct(Point3D p1, Point3D p2)
+        {
+            return p1.X * p2.Y - p1.Y * p2.X;
+        }
+
+    }
 }
 

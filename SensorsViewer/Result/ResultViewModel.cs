@@ -377,7 +377,7 @@ namespace SensorsViewer.Result
 
             if (this.modelMesh != null)
             {
-                //this.vertices = Interpolation.Interpolate(modelMesh, sensors);               
+                this.vertices = Interpolation.Interpolate(modelMesh, sensors);               
             }
 
             this.GroupModel = this.sensorGroupModel;
