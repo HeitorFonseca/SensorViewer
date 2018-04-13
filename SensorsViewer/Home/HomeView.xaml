@@ -316,11 +316,7 @@
 
                                             <ListBox.ContextMenu>
                                                 <ContextMenu>
-                                                    <MenuItem Header="Export to CSV" Command="{Binding PlacementTarget.Tag.ClickInExportToTxtCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" 
-                                                              CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}},
-                                                              Path=PlacementTarget.SelectedItem}"/>
-
-                                                    <MenuItem Header="Export to TXT" Command="{Binding ClickInExportToTxtCommand}"
+                                                    <MenuItem Header="Export to TXT" Command="{Binding PlacementTarget.Tag.ClickInExportToTxtCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" 
                                                               CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}},
                                                               Path=PlacementTarget.SelectedItem}"/>
                                                 </ContextMenu>

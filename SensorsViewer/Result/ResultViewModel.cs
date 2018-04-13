@@ -19,13 +19,15 @@ namespace SensorsViewer.Result
     using SensorsViewer.SensorOption;
     using SharpGL;
     using SharpGL.SceneGraph;
-    using SharpDx = HelixToolkit.Wpf.SharpDX;
 
     /// <summary>
     /// Class for result view model
     /// </summary>
     public class ResultViewModel : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Sensor size in z dimension
+        /// </summary>
         private double sizeZ = 0.005;
 
         /// <summary>
@@ -41,17 +43,7 @@ namespace SensorsViewer.Result
         /// <summary>
         /// Group Model
         /// </summary>
-        private SharpDx.GroupModel3D interpolGroupModel = new SharpDx.GroupModel3D();
-
-        /// <summary>
-        /// Group Model
-        /// </summary>
         private Model3DGroup sensorGroupModel = new Model3DGroup();
-
-        /// <summary>
-        /// Group Model
-        /// </summary>
-        private Model3DGroup interpGroupModel = new Model3DGroup();
 
         /// <summary>
         /// Stl model mesh
@@ -79,7 +71,7 @@ namespace SensorsViewer.Result
         private string stlFilePath;
 
         /// <summary>
-        /// Sensors from analysis
+        /// sensors from analysis
         /// </summary>
         private IEnumerable<Sensor> Sensors;
 
@@ -88,7 +80,9 @@ namespace SensorsViewer.Result
         /// </summary>
         private List<GeometryModel3D> sensorModelList = new List<GeometryModel3D>();
 
-
+        /// <summary>
+        /// Interpolation vertex
+        /// </summary>
         private Vertex[] vertices;
 
         /// <summary>
@@ -105,20 +99,19 @@ namespace SensorsViewer.Result
             this.OpenGLInitializedCommand = new RelayCommand(this.OpenGLControl_OpenGLInitialized);
             this.OpenGLDraw = new RelayCommand(this.OpenGLControl_OpenGLDraw);
             this.OpenGLResized = new RelayCommand(this.OpenGLControl_Resized);
-
             this.SensorsVisibility = Visibility.Visible;
             this.InterpVisibility = Visibility.Collapsed;
         }
 
-
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResultViewModel"/> class
+        ///  Initializes a new instance of the <see cref="ResultViewModel"/> class
         /// </summary>
+        /// <param name="sensors">Model sensors</param>
+        /// <param name="path">Model path</param>
         public ResultViewModel(IEnumerable<Sensor> sensors, string path)
         {
             this.ViewMode = false;
             this.Sensors = sensors;
-
             this.ViewPort3d = new HelixViewport3D();
             this.device3D = new ModelVisual3D();
             this.OnCheckedModeViewButtonCommand = new RelayCommand(this.OnCheckedModeViewButtonAction);
@@ -128,15 +121,18 @@ namespace SensorsViewer.Result
             this.OpenGLResized = new RelayCommand(this.OpenGLControl_Resized);
 
             this.LoadStlModel(path);
-            this.LoadSensorsInModel(sensors, "");
+            this.LoadSensorsInModel(sensors, string.Empty);
 
             this.SensorsVisibility = Visibility.Visible;
             this.InterpVisibility = Visibility.Hidden;
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ResultViewModel"/> class
+        ///  Initializes a new instance of the <see cref="ResultViewModel"/> class
         /// </summary>
+        /// <param name="sensors">Model sensors</param>
+        /// <param name="path">Model path</param>
+        /// <param name="analysisName">Analysis name</param>
         public ResultViewModel(IEnumerable<Sensor> sensors, string path, string analysisName)
         {
             this.ViewMode = false;
@@ -194,7 +190,6 @@ namespace SensorsViewer.Result
         /// </summary>
         public HelixViewport3D ViewPort3d { get; set; }
 
-        public SharpDx.Viewport3DX ViewPort3DX { get; set; }
         /// <summary>
         /// Gets or sets group model
         /// </summary>
@@ -247,57 +242,26 @@ namespace SensorsViewer.Result
         }
 
         /// <summary>
-        /// Gets or sets sahrp dx group model
-        /// </summary>
-        public SharpDx.GroupModel3D InterpGroupModel
-        {
-            get
-            {
-                return this.interpolGroupModel;
-            }
-
-            set
-            {
-                this.interpolGroupModel = value;
-                this.OnPropertyChanged("InterpGroupModel");
-            }
-        }
-
-        public SharpDx.PointGeometry3D Points { get; set; }
-
-        /// <summary>
-        /// Gets or sets View Mode
+        /// Gets or sets a value indicating whether View Mode
         /// </summary>
         public bool ViewMode { get; set; }
 
         /// <summary>
-        /// Gets or Sets Model X dimension
+        /// Gets or sets Model X dimension
         /// </summary>
         public string ModelXSize { get; set; }
 
         /// <summary>
-        /// Gets or Sets Model Y dimension
+        /// Gets or setsModel Y dimension
         /// </summary>
         public string ModelYSize { get; set; }
 
         /// <summary>
-        /// Gets or Sets Model Z dimension
+        /// Gets or sets Model Z dimension
         /// </summary>
         public string ModelZSize { get; set; }
 
         #endregion
-
-        /// <summary>
-        /// When changes property
-        /// </summary>
-        /// <param name="propertyName">Property name</param>
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (this.PropertyChanged != null)
-            {
-                this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
 
         /// <summary>
         /// Load stl model
@@ -308,13 +272,12 @@ namespace SensorsViewer.Result
             this.stlFilePath = stlFile;
             this.stlModel = this.Display3d(this.stlFilePath);
 
-            this.ModelXSize = stlModel.Bounds.SizeX.ToString();
-            this.ModelYSize = stlModel.Bounds.SizeY.ToString();
-            this.ModelZSize = stlModel.Bounds.SizeZ.ToString();
+            this.ModelXSize = this.stlModel.Bounds.SizeX.ToString();
+            this.ModelYSize = this.stlModel.Bounds.SizeY.ToString();
+            this.ModelZSize = this.stlModel.Bounds.SizeZ.ToString();
 
-            //this.groupModel.Children.Add(stlModel);
-            this.sensorGroupModel.Children.Add(stlModel); // Add in sensor group model
-            this.interpGroupModel.Children.Add(stlModel); // Add in interpolation group model
+            ////this.groupModel.Children.Add(stlModel);
+            this.sensorGroupModel.Children.Add(this.stlModel); // Add in sensor group model
 
             this.device3D.Content = this.groupModel;           
         }
@@ -322,7 +285,8 @@ namespace SensorsViewer.Result
         /// <summary>
         /// Load sensors in model
         /// </summary>
-        /// <param name="Sensors">List of sensors</param>
+        /// <param name="sensors">List of sensors</param>
+        /// <param name="analysisName">Analysis name</param>
         public void LoadSensorsInModel(IEnumerable<Sensor> sensors, string analysisName)
         {
             this.ViewPort3d.Children.Remove(this.device3D);
@@ -339,13 +303,21 @@ namespace SensorsViewer.Result
                 if (sensor.Values.Count != 0 && !string.IsNullOrEmpty(analysisName))
                 {
                     IEnumerable<SensorValue> svc = from values in sensor.Values where values.AnalysisName == analysisName select values;
-                    SensorValue last = svc.Last();
 
-                    color = Interpolation.GetHeatMapColor(last.Value, -1, 1);
-                    Sensor s = new Sensor(sensor.SensorName, sensor.X, sensor.Y, sensor.Z);
-                    s.Values.Add(last);
+                    if (svc.Count() > 0)
+                    {
+                        SensorValue last = svc.Last();
 
-                    currentSensors.Add(s);
+                        color = Interpolation.GetHeatMapColor(last.Value, -1, 1);
+                        Sensor s = new Sensor(sensor.SensorName, sensor.X, sensor.Y, sensor.Z);
+                        s.Values.Add(last);
+
+                        currentSensors.Add(s);
+                    }
+                    else
+                    {
+                        color = new Color() { A = 255, R = 255, G = 255, B = 0 };
+                    }
                 }
                 else
                 {
@@ -354,28 +326,28 @@ namespace SensorsViewer.Result
 
                 MeshBuilder meshBuilder = new MeshBuilder();
                 
-                meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sensor.Size, sensor.Size, sizeZ);               
+                meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sensor.Size, sensor.Size, this.sizeZ);               
 
                 GeometryModel3D sensorModel = new GeometryModel3D(meshBuilder.ToMesh(), MaterialHelper.CreateMaterial(color));
 
                 this.sensorModelList.Add(sensorModel);
                 this.sensorGroupModel.Children.Add(sensorModel);
 
-                if (modelMesh != null)
+                if (this.modelMesh != null)
                 {
-                    this.vertices = Interpolation.Interpolate(modelMesh, currentSensors);
+                    ////this.vertices = Interpolation.Interpolate(modelMesh, currentSensors);
                 }
             }
 
-            this.GroupModel = sensorGroupModel;
-            this.device3D.Content = groupModel;
+            this.GroupModel = this.sensorGroupModel;
+            this.device3D.Content = this.groupModel;
             this.ViewPort3d.Children.Add(this.device3D);
         }
 
         /// <summary>
         /// Load sensors in model
         /// </summary>
-        /// <param name="Sensors">List of sensors</param>
+        /// <param name="sensors">List of sensors</param>
         public void LoadSensorsValuesInModel(IEnumerable<Sensor> sensors)
         {
             this.ViewPort3d.Children.Remove(this.device3D);
@@ -386,7 +358,7 @@ namespace SensorsViewer.Result
             {
                 MeshBuilder meshBuilder = new MeshBuilder();
 
-                meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sensor.Size, sensor.Size, sizeZ);
+                meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sensor.Size, sensor.Size, this.sizeZ);
 
                 Color color;
 
@@ -406,24 +378,43 @@ namespace SensorsViewer.Result
                 this.sensorGroupModel.Children.Add(sensorModel);
             }
 
-            if (modelMesh != null)
+            if (this.modelMesh != null)
             {
-                this.vertices = Interpolation.Interpolate(modelMesh, sensors);               
+                ////this.vertices = Interpolation.Interpolate(modelMesh, sensors);               
             }
 
             this.GroupModel = this.sensorGroupModel;
-            this.device3D.Content = groupModel;
+            this.device3D.Content = this.groupModel;
             this.ViewPort3d.Children.Add(this.device3D);
         }
 
+        /// <summary>
+        /// When changes property
+        /// </summary>
+        /// <param name="propertyName">Property name</param>
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
+        /// <summary>
+        /// Event when sharpgl initialize
+        /// </summary>
+        /// <param name="parameter">object parameter</param>
         private void OpenGLControl_OpenGLInitialized(object parameter)
         {
             OpenGL gl = ((OpenGLEventArgs)parameter).OpenGL;
 
             gl.ClearColor(255, 255, 255, 255);
-
         }
 
+        /// <summary>
+        /// Event to sharpgl draw
+        /// </summary>
+        /// <param name="parameter">object parameter</param>
         private void OpenGLControl_OpenGLDraw(object parameter)
         {
             if (this.vertices == null)
@@ -433,57 +424,59 @@ namespace SensorsViewer.Result
 
             OpenGL gl = ((OpenGLEventArgs)parameter).OpenGL;
 
-            //  Clear the color and depth buffers.
+            // Clear the color and depth buffers.
             gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
 
-            //  Reset the modelview matrix.
+            // Reset the modelview matrix.
             gl.LoadIdentity();
 
-            //  Move the geometry into a fairly central position.
+            // Move the geometry into a fairly central position.
             gl.Translate(5.0f, 0.0f, -50.0f);
 
-            //  Draw a pyramid. First, rotate the modelview matrix.
-            //gl.Rotate(rotatePyramid, 0.0f, 1.0f, 0.0f);
+            // Draw a pyramid. First, rotate the modelview matrix.
+            ////gl.Rotate(rotatePyramid, 0.0f, 1.0f, 0.0f);
 
             gl.PointSize(15.0f);
 
             gl.Begin(OpenGL.GL_POINTS);
 
-            for(int i = 0; i < this.vertices.Count(); i++)
+            for (int i = 0; i < this.vertices.Count(); i++)
             {
                 Color asd = Interpolation.GetHeatMapColor(this.vertices[i].Z, -1, +1);
 
                 gl.Color(asd.R / (float)255, asd.G / (float)255, asd.B / (float)255);
-                //gl.Color(0.5f, 0.5f, 0.5f);
+                ////gl.Color(0.5f, 0.5f, 0.5f);
                 gl.Vertex(this.vertices[i].X, this.vertices[i].Y, 0.0f);
-
             }
 
             gl.End();
 
-
-            //  Flush OpenGL.
+            // Flush OpenGL.
             gl.Flush();
         }
 
+        /// <summary>
+        /// When window resize
+        /// </summary>
+        /// <param name="parameter">Object parameter</param>
         private void OpenGLControl_Resized(object parameter)
         {
-            //  Get the OpenGL instance.
+            // Get the OpenGL instance.
             OpenGL gl = ((OpenGLEventArgs)parameter).OpenGL;
 
-            //  Load and clear the projection matrix.
+            // Load and clear the projection matrix.
             gl.MatrixMode(OpenGL.GL_PROJECTION);
             gl.LoadIdentity();
 
             // Calculate The Aspect Ratio Of The Window
-            gl.Perspective(45.0f, (float)gl.RenderContextProvider.Width / (float)gl.RenderContextProvider.Height,
-                0.1f, 100.0f);
+            gl.Perspective(45.0f, (float)gl.RenderContextProvider.Width / (float)gl.RenderContextProvider.Height, 0.1f, 100.0f);
 
-            //  Load the modelview.
+            // Load the modelview.
             gl.MatrixMode(OpenGL.GL_MODELVIEW);
         }
 
-        ///  Event when checked toggle button
+        /// <summary>
+        /// Event when checked toggle button
         /// </summary>
         /// <param name="parameter">Object parameter</param>
         private void OnCheckedModeViewButtonAction(object parameter)
@@ -491,14 +484,11 @@ namespace SensorsViewer.Result
             this.SensorsVisibility = Visibility.Hidden;
             this.InterpVisibility = Visibility.Visible;
 
-            this.ViewMode = true;
-            //this.ViewPort3d.Children.Remove(this.device3D);
-            //this.GroupModel = this.interpGroupModel;
-            //this.device3D.Content = this.groupModel;
-            //this.ViewPort3d.Children.Add(this.device3D);
+            this.ViewMode = true;          
         }
 
-        ///  Event when close window
+        /// <summary>
+        /// Event when close window
         /// </summary>
         /// <param name="parameter">Object parameter</param>
         private void OnUnCheckedModeViewButtonAction(object parameter)
@@ -506,12 +496,7 @@ namespace SensorsViewer.Result
             this.SensorsVisibility = Visibility.Visible;
             this.InterpVisibility = Visibility.Hidden;
 
-            this.ViewMode = true;
-
-            //this.ViewPort3d.Children.Remove(this.device3D);
-            //this.GroupModel = this.sensorGroupModel;
-            //this.device3D.Content = this.groupModel;
-            //this.ViewPort3d.Children.Add(this.device3D);
+            this.ViewMode = true;        
         }
 
         /// <summary>

@@ -65,7 +65,7 @@ namespace SensorsViewer.Home.Commands
             Sensor s = new Sensor();
             this.viewModel.SelectedTab.Sensors.Add(s);
 
-            ((ResultView)this.viewModel.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.viewModel.SelectedTab.Sensors.Where(a => a.Visibility == true), "");
+            ((ResultView)this.viewModel.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.viewModel.SelectedTab.Sensors.Where(a => a.Visibility == true), string.Empty);
         }
     }
 }

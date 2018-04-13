@@ -9,7 +9,6 @@
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
-             xmlns:sdx="clr-namespace:SharpDX;assembly=SharpDX.Mathematics"
              xmlns:sharpGL="clr-namespace:SharpGL.WPF;assembly=SharpGL.WPF"
 
              mc:Ignorable="d" 

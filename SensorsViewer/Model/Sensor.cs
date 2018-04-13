@@ -16,6 +16,9 @@ namespace SensorsViewer.SensorOption
     /// </summary>
     public class Sensor : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Sensor visibility
+        /// </summary>
         private bool visibility = false;
 
         /// <summary>
@@ -158,7 +161,7 @@ namespace SensorsViewer.SensorOption
         }
 
         /// <summary>
-        /// Bool to indicate if sensor was removed
+        /// Gets or sets a value indicating whether sensor was removed
         /// </summary>
         public bool Visibility
         {
@@ -166,6 +169,7 @@ namespace SensorsViewer.SensorOption
             {
                 return this.visibility;
             }
+
             set
             {
                 this.visibility = value;

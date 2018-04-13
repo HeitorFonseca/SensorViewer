@@ -93,7 +93,7 @@ namespace SensorsViewer.Home
         }
 
         /// <summary>
-        /// Gets If Enable Sensors
+        /// Gets a value indicating whether to enable Sensors
         /// </summary>
         public bool EnableSensors
         {

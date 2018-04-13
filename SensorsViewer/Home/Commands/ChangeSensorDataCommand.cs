@@ -59,8 +59,7 @@ namespace SensorsViewer.Home.Commands
         /// </summary>
         /// <param name="parameter">object parameter</param>
         public void Execute(object parameter)
-        {
-            
+        {            
             var source = ((System.Windows.RoutedEventArgs)parameter).Source;
 
             Sensor sensor = ((TextBox)source).DataContext as Sensor;
@@ -86,8 +85,7 @@ namespace SensorsViewer.Home.Commands
             var visibleSensors = this.viewModel.SelectedTab.Sensors.Where(a => a.Visibility == true);
             var obsCol = new ObservableCollection<Sensor>(visibleSensors);
 
-            ((ResultView)this.viewModel.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(obsCol, "");
-            
+            ((ResultView)this.viewModel.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(obsCol, string.Empty);            
         }
     }
 }

@@ -14,7 +14,6 @@ namespace SensorsViewer.Home
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
-    using Winforms = System.Windows.Forms;
     using MahApps.Metro.Controls.Dialogs;
     using Microsoft.Win32;
     using Newtonsoft.Json;
@@ -24,6 +23,7 @@ namespace SensorsViewer.Home
     using SensorsViewer.ProjectB;
     using SensorsViewer.Result;
     using SensorsViewer.SensorOption;
+    using Winforms = System.Windows.Forms;
 
     /// <summary>
     /// Home view model class
@@ -110,6 +110,8 @@ namespace SensorsViewer.Home
         /// </summary>
         private IDialogCoordinator dialogCoordinator;
 
+        private string currentDirectory;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="HomeViewModel"/> class
         /// </summary>
@@ -150,6 +152,8 @@ namespace SensorsViewer.Home
 
             this.ClickInAnalysisItem = new RelayCommand(this.ClickInAnalysisAction);
             this.ClickInExportToTxtCommand = new RelayCommand(this.ClickInExportToTxtAction);
+
+            this.currentDirectory = System.IO.Directory.GetCurrentDirectory();
 
             this.lastMessageReceivedTime = DateTime.Now;
         }
@@ -229,11 +233,6 @@ namespace SensorsViewer.Home
         ///  Gets or sets sub tab item command
         /// </summary>
         public ICommand ClickInAnalysisItem { get; set; }
-
-        /// <summary>
-        ///  Gets or sets export to csv command
-        /// </summary>
-        public ICommand ClickInExportToCsvCommand { get; set; }
 
         /// <summary>
         ///  Gets or sets export to txt command
@@ -438,7 +437,7 @@ namespace SensorsViewer.Home
         /// <param name="parameter">Object parameter</param>
         private void WindowClosingAction(object parameter)
         {
-            XmlSerialization.WriteToXmlFile<ObservableCollection<ProjectItem>>(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt", this.ProjectItems);
+            XmlSerialization.WriteToXmlFile<ObservableCollection<ProjectItem>>(this.currentDirectory + @"\..\..\Resources\META-INF\persistence.txt", this.ProjectItems);
         
             this.proc.Disconnect();
         }
@@ -451,7 +450,7 @@ namespace SensorsViewer.Home
         {
             try
             {
-                this.ProjectItems = XmlSerialization.ReadFromXmlFile<ObservableCollection<ProjectItem>>(@"C: \Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\bin\Debug\optionVm.txt");
+                this.ProjectItems = XmlSerialization.ReadFromXmlFile<ObservableCollection<ProjectItem>>(this.currentDirectory + @"\..\..\Resources\META-INF\persistence.txt");
 
                 foreach (ProjectItem opt in this.ProjectItems)
                 {
@@ -479,7 +478,7 @@ namespace SensorsViewer.Home
 
                 if (this.SelectedTab.Analysis.Count == 0)
                 {
-                    ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true), "");
+                    ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true), string.Empty);
                 }
             }
             catch (Exception e)
@@ -488,11 +487,17 @@ namespace SensorsViewer.Home
             }
         }
 
+        /// <summary>
+        /// Get sensors from analysis name
+        /// </summary>
+        /// <param name="tabSensor">Sensors from tab</param>
+        /// <param name="sensorsId">Sensors Ids</param>
+        /// <returns>Sensors from analysis</returns>
         private ObservableCollection<Sensor> GetSensorsFromAnalysis(ObservableCollection<Sensor> tabSensor, ObservableCollection<string> sensorsId)
         {
             ObservableCollection<Sensor> analysisSensors = new ObservableCollection<Sensor>();
 
-            foreach (Sensor s in  tabSensor)
+            foreach (Sensor s in tabSensor)
             {
                 if (sensorsId.Contains(s.Id))
                 {
@@ -632,7 +637,7 @@ namespace SensorsViewer.Home
                 this.SelectedTab = this.SelectedTabCategory[this.tabIndex];  // Select the tab item as Draw-In or Adjustment               
                 this.SelectedAnalysis = this.SelectedTab.Analysis.Count > 0 ? this.SelectedTab.Analysis[0] : null;             // Selected analysis               
                 this.SelectedProjectChartContent = this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectChartContent : null;  // Select the project content as the tab index chart graph
-                this.SelectedProjectResultContent = this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectResutContent : new ResultView(this.SelectedTab.Sensors.Where(a=>a.Visibility == true), this.SelectedProjectItem.ModelPath);
+                this.SelectedProjectResultContent = this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectResutContent : new ResultView(this.SelectedTab.Sensors.Where(a => a.Visibility == true), this.SelectedProjectItem.ModelPath);
             }
         }
 
@@ -688,7 +693,7 @@ namespace SensorsViewer.Home
                     this.SelectedTab.Sensors.Add(sensor);
                 }
               
-                ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true), "");
+                ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true), string.Empty);
             }
         }
 
@@ -702,9 +707,8 @@ namespace SensorsViewer.Home
 
             sensor.Visibility = false;
 
-            //TODO: OPTMIZE
-
-            ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true), "");
+            // TODO: OPTMIZE
+            ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true), string.Empty);
         }
 
         /// <summary>
@@ -765,7 +769,6 @@ namespace SensorsViewer.Home
         /// <param name="parameter">Object parameter</param>
         private void ClickInExportToTxtAction(object parameter)
         {
-
             var analysis = parameter as Analysis;
 
             Winforms.FolderBrowserDialog folderDialog = new Winforms.FolderBrowserDialog();
@@ -816,7 +819,6 @@ namespace SensorsViewer.Home
                 {
                     tw.WriteLine(resultAnalysisLog);
                 }
-
             }
         }
         
@@ -837,7 +839,6 @@ namespace SensorsViewer.Home
             System.Windows.Application.Current.Dispatcher.Invoke((Action)(() =>
             {
                 UpdateSensorChart(jsonData);
-
             }));
         }
 
@@ -889,9 +890,12 @@ namespace SensorsViewer.Home
         /// <param name="index">Index of tab</param>
         private void CreateAnalysis(int index)
         {            
-            Analysis newAnalysis = new Analysis("Analysis " + DateTime.Now.ToString("HH:mm:ss.fff"), 
-                                                DateTime.Now.ToString("dd/MM/yyy"), DateTime.Now.ToString("HH:mm:ss.fff"), 
-                                                this.SelectedProjectItem.ModelPath, this.SelectedTab.Sensors.Where(a=> a.Visibility == true));
+            Analysis newAnalysis = new Analysis(
+                                                "Analysis " + DateTime.Now.ToString("HH:mm:ss.fff"), 
+                                                DateTime.Now.ToString("dd/MM/yyy"), 
+                                                DateTime.Now.ToString("HH:mm:ss.fff"), 
+                                                this.SelectedProjectItem.ModelPath, 
+                                                this.SelectedTab.Sensors.Where(a => a.Visibility == true));
             
             // Set the list sensor of the graph the same as the sensors list tab
             foreach (Sensor s in this.SelectedTab.Sensors)
