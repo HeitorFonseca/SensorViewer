@@ -82,6 +82,8 @@ namespace SensorsViewer.ProjectB
             this.firstValue = true;
         }
 
+        #region Properties Declarations
+
         /// <summary>
         /// Event for when change property
         /// </summary>
@@ -172,6 +174,10 @@ namespace SensorsViewer.ProjectB
                 this.OnPropertyChanged("SensorsFilePath");
             }
         }
+
+        #endregion
+
+        #region Public Methods
 
         /// <summary>
         /// Add sensor in linesgraph
@@ -327,6 +333,10 @@ namespace SensorsViewer.ProjectB
             }
         }
 
+        #endregion
+
+        #region Private Methods
+
         /// <summary>
         /// When changes property
         /// </summary>
@@ -417,6 +427,8 @@ namespace SensorsViewer.ProjectB
            this.seriesColors.Add(new Color() { A = 255, R = 33, G = 53, B = 23 });   // dark green
            this.seriesColors.Add(new Color() { A = 255, R = 26, G = 31, B = 55 });   // dark blue
            this.seriesColors.Add(new Color() { A = 255, R = 98, G = 98, B = 98 });   // gray
-        }        
+        }
+
+        #endregion
     }
 }

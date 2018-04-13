@@ -263,6 +263,8 @@ namespace SensorsViewer.Result
 
         #endregion
 
+        #region Public Methods
+
         /// <summary>
         /// Load stl model
         /// </summary>
@@ -332,11 +334,6 @@ namespace SensorsViewer.Result
 
                 this.sensorModelList.Add(sensorModel);
                 this.sensorGroupModel.Children.Add(sensorModel);
-
-                if (this.modelMesh != null)
-                {
-                    ////this.vertices = Interpolation.Interpolate(modelMesh, currentSensors);
-                }
             }
 
             this.GroupModel = this.sensorGroupModel;
@@ -380,13 +377,15 @@ namespace SensorsViewer.Result
 
             if (this.modelMesh != null)
             {
-                ////this.vertices = Interpolation.Interpolate(modelMesh, sensors);               
+                //this.vertices = Interpolation.Interpolate(modelMesh, sensors);               
             }
 
             this.GroupModel = this.sensorGroupModel;
             this.device3D.Content = this.groupModel;
             this.ViewPort3d.Children.Add(this.device3D);
         }
+
+        #endregion
 
         /// <summary>
         /// When changes property
@@ -431,12 +430,12 @@ namespace SensorsViewer.Result
             gl.LoadIdentity();
 
             // Move the geometry into a fairly central position.
-            gl.Translate(5.0f, 0.0f, -50.0f);
+            gl.Translate(0.0f, 0.0f, -20.0f);
 
             // Draw a pyramid. First, rotate the modelview matrix.
             ////gl.Rotate(rotatePyramid, 0.0f, 1.0f, 0.0f);
 
-            gl.PointSize(15.0f);
+            gl.PointSize(1.0f);
 
             gl.Begin(OpenGL.GL_POINTS);
 
@@ -446,7 +445,7 @@ namespace SensorsViewer.Result
 
                 gl.Color(asd.R / (float)255, asd.G / (float)255, asd.B / (float)255);
                 ////gl.Color(0.5f, 0.5f, 0.5f);
-                gl.Vertex(this.vertices[i].X, this.vertices[i].Y, 0.0f);
+                gl.Vertex(this.vertices[i].X/100, this.vertices[i].Y/100, 0.0f);
             }
 
             gl.End();
@@ -515,7 +514,7 @@ namespace SensorsViewer.Result
                 // Import 3D model file
                 ModelImporter import = new ModelImporter();
 
-                Material material = new DiffuseMaterial(new SolidColorBrush(Colors.DarkSlateGray));
+                Material material = new DiffuseMaterial(new SolidColorBrush(Colors.LightSlateGray));
                 import.DefaultMaterial = material;
 
                 // Load the 3D model file

@@ -57,6 +57,8 @@ namespace SensorsViewer.SensorOption
             this.ProjectResutContent = new ResultView(sensors, path);
         }
 
+        #region Properties Declarations
+
         /// <summary>
         /// Event for when change property
         /// </summary>
@@ -117,6 +119,8 @@ namespace SensorsViewer.SensorOption
                 this.OnPropertyChanged("ProjectResutContent");
             }
         }
+
+        #endregion
 
         /// <summary>
         /// When changes property

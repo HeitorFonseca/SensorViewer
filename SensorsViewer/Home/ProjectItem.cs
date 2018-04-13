@@ -61,6 +61,7 @@ namespace SensorsViewer.Home
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        #region Properties Declarations
         /// <summary>
         /// Gets or sets Id
         /// </summary>
@@ -109,6 +110,8 @@ namespace SensorsViewer.Home
                 this.OnPropertyChanged("Tabs");
             }
         }
+
+        #endregion
 
         /// <summary>
         /// When changes property

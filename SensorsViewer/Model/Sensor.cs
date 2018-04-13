@@ -70,6 +70,8 @@ namespace SensorsViewer.SensorOption
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        #region Properties Declarations
+
         /// <summary>
         /// Gets or sets Id
         /// </summary>
@@ -208,6 +210,8 @@ namespace SensorsViewer.SensorOption
             return sum;
         }
 
+        #endregion
+
         /// <summary>
         /// When changes property
         /// </summary>
@@ -247,7 +251,9 @@ namespace SensorsViewer.SensorOption
             this.AnalysisName = analysis;
             this.Parameter = parameter;
         }
-        
+
+        #region Properties Declarations
+
         /// <summary>
         /// Gets or sets double value of the sensor
         /// </summary>
@@ -267,5 +273,7 @@ namespace SensorsViewer.SensorOption
         /// Gets or sets which analysis the value belongs to
         /// </summary>
         public string AnalysisName { get; set; }
+
+        #endregion
     }
 }

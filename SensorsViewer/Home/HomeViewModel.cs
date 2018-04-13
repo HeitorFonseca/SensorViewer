@@ -133,8 +133,6 @@ namespace SensorsViewer.Home
 
             this.ProjectItems = new ObservableCollection<ProjectItem>();
 
-            ////this.InitializeMenu();
-
             this.CloseWindowCommand = new RelayCommand(this.WindowClosingAction);
             this.LoadedWindowCommand = new RelayCommand(this.WindowLoadedAction);
             this.ClickInRenameContextMenu = new RelayCommand(this.ClickInRenameActionAsync);

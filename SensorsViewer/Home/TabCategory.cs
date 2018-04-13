@@ -48,10 +48,13 @@ namespace SensorsViewer.Home
             this.Sensors = new ObservableCollection<Sensor>();
         }
 
+
         /// <summary>
         /// Event for when change property
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
+
+        #region Properties Declarations
 
         /// <summary>
         /// Gets or sets name
@@ -102,6 +105,8 @@ namespace SensorsViewer.Home
                 return this.Analysis.Count == 0 ? true : false;
             }
         }
+
+        #endregion
 
         /// <summary>
         /// When changes property
