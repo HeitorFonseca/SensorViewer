@@ -34,6 +34,7 @@ namespace SensorsViewer.Result
                 BuildDictionary(modelMesh);
 
                 Dictionary<Tuple<int, int>, double> sensorDictionary = FillSensorDataDictionary(sensorsDataList);
+                CreateFakeSensors(sensorsDataList, sensorDictionary);
                 Dictionary<Tuple<int, int>, double> ppDictionary = PreProcessing(sensorDictionary);
 
                 vertices = StartInterpolation2(ppDictionary, sensorDictionary);
@@ -153,7 +154,7 @@ namespace SensorsViewer.Result
 
                         if (!trianglePointsDictionary.ContainsKey(key))
                         {
-                            trianglePointsDictionary.Add(key, Math.Floor(q.Z));
+                            trianglePointsDictionary.Add(key, q.Z);
                         }
                     }
                 }
@@ -270,23 +271,23 @@ namespace SensorsViewer.Result
             return vertices;
         }
 
-        static private List<Tuple<int, int>> GetNeighboringPoints(int x, int y, Dictionary<Tuple<int, int>, double> newDictionary, out double mCoord1, out double mCoord2)
+        static private List<Tuple<int, int>> GetNeighboringPoints(int x, int y, Dictionary<Tuple<int, int>, double> sensorDictionary, out double mCoord1, out double mCoord2)
         {
 
             List<Tuple<int, int>> ret = new List<Tuple<int, int>>();
 
             double min1 = double.MaxValue, min2 = double.MaxValue;
-            ret.Add(newDictionary.ElementAt(0).Key);
-            ret.Add(newDictionary.ElementAt(1).Key);
+            ret.Add(sensorDictionary.ElementAt(0).Key);
+            ret.Add(sensorDictionary.ElementAt(1).Key);
 
-            foreach (KeyValuePair<Tuple<int, int>, double> v in newDictionary)
+            foreach (KeyValuePair<Tuple<int, int>, double> v in sensorDictionary)
             {
                 int nx = v.Key.Item1;
                 int ny = v.Key.Item2;
 
-                // HERE
-                if (y * ny < 0)
-                    continue;
+                ////// HERE
+                ////if (y * ny < 0)
+                ////    continue;
 
                 double euclideanDistance = Math.Sqrt(Math.Pow(nx - x, 2) + Math.Pow(ny - y, 2));
 
@@ -488,21 +489,50 @@ namespace SensorsViewer.Result
             return asd;
         }
 
-        static private void CreateFakeSensors(IEnumerable<Sensor> sensorsDataList)
+        static private void CreateFakeSensors(IEnumerable<Sensor> sensorsDataList, Dictionary<Tuple<int, int>, double> sensorDictionary)
         {
+
+            List<Sensor> fakeSensors = new List<Sensor>();
 
             for (int i = 0; i < sensorsDataList.Count(); i++)
             {
-                for (int j = i; j < sensorsDataList.Count(); j++)
+                for (int j = i + 1; j < sensorsDataList.Count(); j++)
                 {
-                        double x1 = sensorsDataList.ElementAt(i).X;
-                        double y1 = sensorsDataList.ElementAt(i).Y;
+                    // TODO: ElementAt is slow
+                    double x1 = sensorsDataList.ElementAt(i).X;
+                    double y1 = sensorsDataList.ElementAt(i).Y;
 
-                        double x2 = sensorsDataList.ElementAt(j).X;
-                        double y2 = sensorsDataList.ElementAt(j).Y;
+                    double x2 = sensorsDataList.ElementAt(j).X;
+                    double y2 = sensorsDataList.ElementAt(j).Y;
 
+                    int newX = (int) (x1 + x2) / 2;
+                    int newY = (int) (y1 + y2) / 2;
+
+                    Tuple<int, int> key = new Tuple<int, int>(newX, newY);
+
+                    if (trianglePointsDictionary.ContainsKey(key))
+                    {
+                        double d1, d2;
+                        List<Tuple<int, int>> neighbors = GetNeighboringPoints(newX, newX, sensorDictionary, out d1, out d2);
+
+                        d1 = 1 / d1;
+                        d2 = 1 / d2;
+
+                        double value = ((d1 * (sensorDictionary[neighbors.ElementAt(0)]) + d2 * (sensorDictionary[neighbors.ElementAt(1)])) / (d1 + d2));
+
+                        trianglePointsDictionary[key] = value;
+
+                        fakeSensors.Add(new Sensor("FakeSensor", newX, newY, value));
 
                     }
+                }
+            }
+
+            foreach (Sensor s in fakeSensors)
+            {
+                Tuple<int, int> key = new Tuple<int, int>(Convert.ToInt32(Math.Round(s.X)), Convert.ToInt32(Math.Round(s.Y)));
+
+                sensorDictionary.Add(key, s.Z);
             }
         }
 
