@@ -241,6 +241,15 @@ namespace SensorsViewer.SensorOption
         /// Initializes a new instance of the <see cref="SensorValue"/> class
         /// </summary>
         /// <param name="value">Sensor value</param>
+        public SensorValue(double value)
+        {
+            this.Value = value;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SensorValue"/> class
+        /// </summary>
+        /// <param name="value">Sensor value</param>
         /// <param name="timestamp">Value timestamp</param>
         /// <param name="parameter">Value parameter</param>
         /// <param name="analysis">Value Analysis</param>

@@ -310,7 +310,7 @@ namespace SensorsViewer.Result
                     {
                         SensorValue last = svc.Last();
 
-                        color = Interpolation.GetHeatMapColor(last.Value, -1, 1);
+                        color = Interpolation.GetHeatMapColor(last.Value, -0.2, +0.2);
                         Sensor s = new Sensor(sensor.SensorName, sensor.X, sensor.Y, sensor.Z);
                         s.Values.Add(last);
 
@@ -362,7 +362,7 @@ namespace SensorsViewer.Result
                 // If sensor does not receive any value, receives yellow as collor
                 if (sensor.Values.Count != 0)
                 {
-                    color = Interpolation.GetHeatMapColor(sensor.Values.Last().Value, -1, 1);
+                    color = Interpolation.GetHeatMapColor(sensor.Values.Last().Value, -0.2, +0.2);
                 }
                 else
                 {
@@ -441,7 +441,7 @@ namespace SensorsViewer.Result
 
             for (int i = 0; i < this.vertices.Count(); i++)
             {
-                Color asd = Interpolation.GetHeatMapColor(this.vertices[i].Z, -1, +1);
+                Color asd = Interpolation.GetHeatMapColor(this.vertices[i].Z, -0.2, +0.2);
 
                 gl.Color(asd.R / (float)255, asd.G / (float)255, asd.B / (float)255);
                 ////gl.Color(0.5f, 0.5f, 0.5f);
@@ -532,7 +532,7 @@ namespace SensorsViewer.Result
                 // Handle exception in case can not find the 3D model file
                 throw new Exception("not find 3d model file");
             }
-
+            
             return device;
         }        
     }
