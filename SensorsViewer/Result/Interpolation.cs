@@ -20,8 +20,12 @@ namespace SensorsViewer.Result
     static public class Interpolation
     {
         static private Dictionary<Tuple<int, int>, double> trianglePointsDictionary = new Dictionary<Tuple<int, int>, double>();
+        static private Dictionary<Tuple<int, int>, double> dividedDic = new Dictionary<Tuple<int, int>, double>();
+
         static private double averageValue;
         static private MyPathNode[,] grid;
+        static private MyPathNode[,] grid2;
+
         static private int offsetX;
         static private int offsetY;
         static private int c = 0;
@@ -31,6 +35,8 @@ namespace SensorsViewer.Result
 
             c = 0;
             grid = new MyPathNode[Convert.ToInt32(modelMesh.Bounds.SizeX), Convert.ToInt32(modelMesh.Bounds.SizeY)];
+            grid2 = new MyPathNode[Convert.ToInt32(modelMesh.Bounds.SizeX/10), Convert.ToInt32(modelMesh.Bounds.SizeY/10)];
+
             offsetX = Convert.ToInt32(modelMesh.Bounds.X);
             offsetY = Convert.ToInt32(modelMesh.Bounds.Y);
 
@@ -45,8 +51,12 @@ namespace SensorsViewer.Result
 
                 //Dictionary<Tuple<int, int>, double> sensorDictionary = FillSensorDataDictionary(sensorsDataList);
 
-                CreateFakeSensors(sensorsDataList, sensorDictionary);
+               
+                CreateRandomSensors2(sensorsDataList, sensorDictionary);
+
+                //CreateRandomSensors(sensorsDataList, sensorDictionary);
                 Dictionary<Tuple<int, int>, double> ppDictionary = PreProcessing(sensorDictionary);
+                //Dictionary<Tuple<int, int>, double> ppDictionary2 = FindBug(ppDictionary);
                 vertices = StartInterpolation2(ppDictionary, sensorDictionary);
             }
 
@@ -77,16 +87,26 @@ namespace SensorsViewer.Result
                     ppDictionary.ContainsKey(p4) && ppDictionary.ContainsKey(p5) && ppDictionary.ContainsKey(p6) &&
                     ppDictionary.ContainsKey(p7) && ppDictionary.ContainsKey(p8))
                 {
-                    double min = Math.Min(ppDictionary[p1], Math.Min(ppDictionary[p2], Math.Min(ppDictionary[p3],
-                        Math.Min(ppDictionary[p4], Math.Min(ppDictionary[p5], Math.Min(ppDictionary[p6],
-                        Math.Min(ppDictionary[p7], ppDictionary[p8])))))));
+                    //double min = Math.Min(ppDictionary[p1], Math.Min(ppDictionary[p2], Math.Min(ppDictionary[p3],
+                    //    Math.Min(ppDictionary[p4], Math.Min(ppDictionary[p5], Math.Min(ppDictionary[p6],
+                    //    Math.Min(ppDictionary[p7], ppDictionary[p8])))))));
 
-                    double max = Math.Max(ppDictionary[p1], Math.Max(ppDictionary[p2], Math.Max(ppDictionary[p3],
-                        Math.Max(ppDictionary[p4], Math.Max(ppDictionary[p5], Math.Max(ppDictionary[p6],
-                        Math.Max(ppDictionary[p7], ppDictionary[p8])))))));
+                    //double max = Math.Max(ppDictionary[p1], Math.Max(ppDictionary[p2], Math.Max(ppDictionary[p3],
+                    //    Math.Max(ppDictionary[p4], Math.Max(ppDictionary[p5], Math.Max(ppDictionary[p6],
+                    //    Math.Max(ppDictionary[p7], ppDictionary[p8])))))));
 
-                    ppDictionary2[kvp.Key] = (ppDictionary[p1] + ppDictionary[p2] + ppDictionary[p3] + ppDictionary[p4]
-                        + ppDictionary[p5] + ppDictionary[p6] + ppDictionary[p7] + ppDictionary[p8]) / 8;
+                    double avg = (ppDictionary[kvp.Key] + ppDictionary[p1] + ppDictionary[p2] + ppDictionary[p3] + ppDictionary[p4]
+                        + ppDictionary[p5] + ppDictionary[p6] + ppDictionary[p7] + ppDictionary[p8]) / 9;
+
+                    ppDictionary2[kvp.Key] = avg;
+                    ppDictionary2[p1] = avg;
+                    ppDictionary2[p2] = avg;
+                    ppDictionary2[p3] = avg;
+                    ppDictionary2[p4] = avg;
+                    ppDictionary2[p5] = avg;
+                    ppDictionary2[p6] = avg;
+                    ppDictionary2[p7] = avg;
+                    ppDictionary2[p8] = avg;
                 }
 
             }
@@ -177,6 +197,7 @@ namespace SensorsViewer.Result
 
                     double s = (double)CrossProduct(q, vs2) / CrossProduct(vs1, vs2);
                     double t = (double)CrossProduct(vs1, q) / CrossProduct(vs1, vs2);
+
                     if ((s >= 0) && (t >= 0) && (s + t <= 1))
                     {
                         Tuple<int, int> key = new Tuple<int, int>(x, y);
@@ -191,6 +212,13 @@ namespace SensorsViewer.Result
                             double value = ((d1 * (sensorDictionary[neighbors.ElementAt(0)]) + d2 * (sensorDictionary[neighbors.ElementAt(1)])) / (d1 + d2));
 
                             trianglePointsDictionary.Add(key, value);
+
+                            Tuple<int, int> key2 = new Tuple<int, int>(x/10, y/10);
+
+                            if (!dividedDic.ContainsKey(key2))
+                            {
+                                dividedDic.Add(key2, value);
+                            }
                         }
                     }
                 }
@@ -248,15 +276,15 @@ namespace SensorsViewer.Result
                 int x = item.Key.Item1;
                 int y = item.Key.Item2;
 
-                if (sensorDictionary.ContainsKey(item.Key))
-                {
-                    resultDic.Add(item.Key, sensorDictionary[item.Key]);
-                    vertices[c].X = item.Key.Item1;
-                    vertices[c].Y = item.Key.Item2;
-                    vertices[c++].Z = DoubleToFloat(sensorDictionary[item.Key]); // (x, y, value)
+                //if (sensorDictionary.ContainsKey(item.Key))
+                //{
+                //    resultDic.Add(item.Key, sensorDictionary[item.Key]);
+                //    vertices[c].X = item.Key.Item1;
+                //    vertices[c].Y = item.Key.Item2;
+                //    vertices[c++].Z = DoubleToFloat(sensorDictionary[item.Key]); // (x, y, value)
 
-                    continue;
-                }
+                //    continue;
+                //}
 
                 //// Returns the closest point
                 //Tuple<int, int> neighbor = GetNeighboringPoints2(x, y, sensorDictionary);
@@ -650,7 +678,7 @@ namespace SensorsViewer.Result
             Random rand = new Random();
             Sensor closestSensor = new Sensor(); Sensor sndClosestSensor = new Sensor();
 
-            for (int i = 0; i < 30; i++)
+            for (int i = 0; i < 40; i++)
             {
                 int min1 = int.MaxValue;
                 int min2 = int.MaxValue;
@@ -706,6 +734,86 @@ namespace SensorsViewer.Result
             }
         }
 
+        static private void CreateRandomSensors2(IEnumerable<Sensor> sensorsDataList, Dictionary<Tuple<int, int>, double> sensorDictionary)
+        {
+
+            List<Tuple<int, int>> keyList = new List<Tuple<int, int>>(dividedDic.Keys);
+
+            List<Sensor> fakeSensors = new List<Sensor>();
+            Random rand = new Random();
+            Sensor closestSensor = new Sensor(); Sensor sndClosestSensor = new Sensor();
+
+            for (int i = 0; i < 100; i++)
+            {
+                int min1 = int.MaxValue;
+                int min2 = int.MaxValue;
+
+                Tuple<int, int> randomKey = keyList[rand.Next(keyList.Count)];
+                
+                Point rndSensorPnt = new Point(randomKey.Item1 - offsetX/10, randomKey.Item2 - offsetY/10);
+
+                if (rndSensorPnt.X > 117 || rndSensorPnt.Y > 41)
+                {
+                    i = i - 1;
+                    continue;
+                }
+
+                foreach (Sensor sensor in sensorsDataList)
+                {
+                    //Get the distance between randomKey and 7 sensors and return the minumum
+                    Point sensorPnt = new Point(Convert.ToInt32(sensor.X/10) - offsetX/10, Convert.ToInt32(sensor.Y/10) - offsetY/10);
+                    int pathLen = 0;
+                    try
+                    {
+                        MySolver<MyPathNode, Object> aStar = new MySolver<MyPathNode, Object>(grid2);
+                        IEnumerable<MyPathNode> path = aStar.Search(rndSensorPnt, sensorPnt, null);
+                        pathLen = path.Count();
+                    }
+                    catch (Exception e)
+                    {
+                        var a = 1;
+                    }                    
+
+                    if (pathLen < min1)
+                    {
+                        min2 = min1;
+                        min1 = pathLen;
+
+                        sndClosestSensor = closestSensor;
+                        closestSensor = sensor;
+                    }
+                    else if (pathLen < min2)
+                    {
+                        min2 = pathLen;
+                        sndClosestSensor = sensor;
+                    }
+                }
+
+                Sensor rstSensor = new Sensor("Fake Sensor", rndSensorPnt.X*10 + offsetX, rndSensorPnt.Y*10 + offsetY, 0);
+
+                double d1 = Math.Sqrt(Math.Pow(rstSensor.X - closestSensor.X, 2) + Math.Pow(rstSensor.Y - closestSensor.Y, 2));
+                double d2 = Math.Sqrt(Math.Pow(rstSensor.X - sndClosestSensor.X, 2) + Math.Pow(rstSensor.Y - sndClosestSensor.Y, 2));
+
+                d1 = 1 / d1;
+                d2 = 1 / d2;
+
+                double value = ((d1 * closestSensor.Values.Last().Value) + d2 * sndClosestSensor.Values.Last().Value) / (d1 + d2);
+
+                rstSensor.Values.Add(new SensorValue(value));
+
+                fakeSensors.Add(rstSensor);
+
+                keyList.Remove(randomKey);
+            }
+
+            foreach (Sensor s in fakeSensors)
+            {
+                Tuple<int, int> key = new Tuple<int, int>(Convert.ToInt32(Math.Round(s.X)), Convert.ToInt32(Math.Round(s.Y)));
+
+                sensorDictionary.Add(key, s.Values[0].Value);
+            }
+        }
+
         static void BuildGrid(int width, int height)
         {
             for (int x = 0; x < width; x++)
@@ -722,6 +830,28 @@ namespace SensorsViewer.Result
                     }
 
                     grid[x, y] = new MyPathNode()
+                    {
+                        IsWall = isWall,
+                        X = x,
+                        Y = y,
+                    };
+                }
+            }
+
+            for (int x = 0; x < width/10; x++)
+            {
+                for (int y = 0; y < height/10; y++)
+                {
+                    Boolean isWall = false;
+
+                    Tuple<int, int> tuple = new Tuple<int, int>(x - 592/10, y - 210/10);
+                    if (!dividedDic.ContainsKey(tuple))
+                    {
+                        isWall = true;
+
+                    }
+
+                    grid2[x, y] = new MyPathNode()
                     {
                         IsWall = isWall,
                         X = x,
