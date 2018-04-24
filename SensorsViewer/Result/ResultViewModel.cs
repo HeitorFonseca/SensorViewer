@@ -377,7 +377,7 @@ namespace SensorsViewer.Result
 
             if (this.modelMesh != null)
             {
-                this.vertices = Interpolation.Interpolate(modelMesh, sensors);               
+                this.vertices = Interpolation.Interpolate2(modelMesh, sensors);               
             }
 
             this.GroupModel = this.sensorGroupModel;
@@ -523,11 +523,12 @@ namespace SensorsViewer.Result
                 Action<GeometryModel3D, Transform3D> nameAction = (geometryModel, transform) =>
                 {
                     modelMesh = (MeshGeometry3D)geometryModel.Geometry;
-                };
+                };               
 
-                device.Traverse(nameAction);
+                device.Traverse(nameAction);             
+
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 // Handle exception in case can not find the 3D model file
                 throw new Exception("not find 3d model file");
