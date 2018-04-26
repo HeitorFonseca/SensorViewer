@@ -983,9 +983,7 @@ namespace SensorsViewer.Result
         {
             var vertices = new Vertex[listPoint3d.Count];
             int counter = 0;
-
-            //using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\heitor.araujo\Desktop\modelTrianglePoints.txt"))
-            //{
+          
             foreach (Point3D point in listPoint3d)
                 {
                     int nx = (int)point.X;
@@ -1014,11 +1012,7 @@ namespace SensorsViewer.Result
                     vertices[counter].Y = ny;
                     vertices[counter++].Z = DoubleToFloat(var);
 
-                // string line = "" + (int)point.X + " " + (int)point.Y + " " + var;
-                //file.WriteLine(line);
-
             }
-            //}
            
             return vertices;
         }
