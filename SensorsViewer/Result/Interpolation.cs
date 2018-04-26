@@ -91,9 +91,9 @@ namespace SensorsViewer.Result
 
                 BuildDictionary2(modelMesh, sensorDictionary);
                 BuildGrid2(Convert.ToInt32(modelMesh.Bounds.SizeX/10), Convert.ToInt32(modelMesh.Bounds.SizeY/10));
-               // CreateRandomSensors3(sensorsDataList, sensorDictionary);
+                // CreateRandomSensors3(sensorsDataList, sensorDictionary);
 
-                List<Point3D> ppList = PreProcessing2(sensorDictionary);                
+                vertices = PreProcessing2(sensorDictionary);                
             }
 
             TimeSpan asd = DateTime.Now.Subtract(lastMeasureTime);
@@ -991,14 +991,17 @@ namespace SensorsViewer.Result
             }
         }
 
-        static public List<Point3D> PreProcessing2(Dictionary<Tuple<int, int>, double> sensorDictionary)
+        static public Vertex[] PreProcessing2(Dictionary<Tuple<int, int>, double> sensorDictionary)
         {
 
             List<Point3D> rstList = new List<Point3D>();
 
+            var vertices = new Vertex[listPoint3d.Count];
+            int counter = 0;
+
             //using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\heitor.araujo\Desktop\modelTrianglePoints.txt"))
             //{
-                foreach (Point3D point in listPoint3d)
+            foreach (Point3D point in listPoint3d)
                 {
                     int nx = (int)point.X;
                     int ny = (int)point.Y;
@@ -1008,9 +1011,11 @@ namespace SensorsViewer.Result
                     if (sensorDictionary.ContainsKey(tuple))
                     {
                         rstList.Add(new Point3D(nx, ny, sensorDictionary[tuple]));
-                        //file.WriteLine("" + (int)point.X + " " + (int)point.Y + " " + sensorDictionary[tuple]);
-
-                        continue;
+                    //file.WriteLine("" + (int)point.X + " " + (int)point.Y + " " + sensorDictionary[tuple]);
+                    vertices[counter].X = nx;
+                    vertices[counter].Y = ny;
+                    vertices[counter++].Z = DoubleToFloat(sensorDictionary[tuple]);
+                    continue;
                     }
 
                     double d1, d2;
@@ -1022,15 +1027,18 @@ namespace SensorsViewer.Result
                     double var = ((d1 * (sensorDictionary[neighbors.ElementAt(0)]) + d2 * (sensorDictionary[neighbors.ElementAt(1)])) / (d1 + d2)); //(newDictionary[neighbors.ElementAt(0)] + newDictionary[neighbors.ElementAt(1)]) / 2;
 
                     rstList.Add(new Point3D(nx, ny, var));
+                    vertices[counter].X = nx;
+                    vertices[counter].Y = ny;
+                    vertices[counter++].Z = DoubleToFloat(var);
 
-                   // string line = "" + (int)point.X + " " + (int)point.Y + " " + var;
-                    //file.WriteLine(line);
+                // string line = "" + (int)point.X + " " + (int)point.Y + " " + var;
+                //file.WriteLine(line);
 
 
-                }
+            }
             //}
            
-            return rstList;
+            return vertices;
         }
 
         static private void Test(MeshGeometry3D mesh, Dictionary<Tuple<int, int>, double> sensorDictionary)
@@ -1077,12 +1085,6 @@ namespace SensorsViewer.Result
                 Tuple<int, int> randomKey = keyList[rand.Next(keyList.Count)];
 
                 Point rndSensorPnt = new Point(randomKey.Item1 - offsetX / 10, randomKey.Item2 - offsetY / 10);
-
-                //if (rndSensorPnt.X > 117 || rndSensorPnt.Y > 41)
-                //{
-                //    i = i - 1;
-                //    continue;
-                //}
 
                 foreach (Sensor sensor in sensorsDataList)
                 {

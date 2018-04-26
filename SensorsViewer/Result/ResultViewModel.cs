@@ -437,7 +437,7 @@ namespace SensorsViewer.Result
 
             gl.PointSize(1.0f);
 
-            gl.Begin(OpenGL.GL_POINTS);
+            gl.Begin(OpenGL.GL_TRIANGLES);
 
             for (int i = 0; i < this.vertices.Count(); i++)
             {
