@@ -17,25 +17,42 @@ namespace SensorsViewer.Result
 
     using SharpGL.SceneGraph;
 
-    static public class Interpolation
+    public class Interpolation
     {
-        static private Dictionary<Tuple<int, int>, double> trianglePointsDictionary = new Dictionary<Tuple<int, int>, double>();
-        static private Dictionary<Tuple<int, int>, double> dividedDic = new Dictionary<Tuple<int, int>, double>();
-        static private Dictionary<Tuple<int, int>, double> modelTrianglePoints = new Dictionary<Tuple<int, int>, double>();
+        Dictionary<Tuple<int, int>, double> sensorDictionary;
 
-        static private List<Point3D> listPoint3d = new List<Point3D>();
+        private Dictionary<Tuple<int, int>, double> trianglePointsDictionary = new Dictionary<Tuple<int, int>, double>();
+        private Dictionary<Tuple<int, int>, double> dividedDic = new Dictionary<Tuple<int, int>, double>();
+        private Dictionary<Tuple<int, int>, double> modelTrianglePoints = new Dictionary<Tuple<int, int>, double>();
 
-        static private double averageValue;
-        static private MyPathNode[,] grid;
-        static private MyPathNode[,] grid2;
-        static private MyPathNode[,] grid3;
+        private List<Point3D> listPoint3d = new List<Point3D>();
 
+        private MyPathNode[,] grid;
+        private MyPathNode[,] grid2;
+        private MyPathNode[,] grid3;
+        private double averageValue;
 
-        static private int offsetX;
-        static private int offsetY;
-        static private int c = 0;
+        private int offsetX;
+        private int offsetY;
+        private int c;
 
-        static public Vertex[] Interpolate(MeshGeometry3D modelMesh, IEnumerable<Sensor> sensorsDataList)
+        public Interpolation(MeshGeometry3D modelMesh, IEnumerable<Sensor> sensorsDataList)
+        {
+            c = 0;
+
+            grid3 = new MyPathNode[Convert.ToInt32(modelMesh.Bounds.SizeX / 10), Convert.ToInt32(modelMesh.Bounds.SizeY / 10)];
+
+            offsetX = Convert.ToInt32(modelMesh.Bounds.X);
+            offsetY = Convert.ToInt32(modelMesh.Bounds.Y);
+
+            if (sensorsDataList.Count() > 1)
+            {
+                sensorDictionary = FillSensorDataDictionary2(sensorsDataList);
+                BuildDictionary2(modelMesh, sensorDictionary);
+            }
+        }
+
+        public Vertex[] Interpolate(MeshGeometry3D modelMesh, IEnumerable<Sensor> sensorsDataList)
         {
 
             c = 0;
@@ -69,29 +86,16 @@ namespace SensorsViewer.Result
         }
 
 
-        static public Vertex[] Interpolate2(MeshGeometry3D modelMesh, IEnumerable<Sensor> sensorsDataList)
+        public Vertex[] Interpolate2(MeshGeometry3D modelMesh, IEnumerable<Sensor> sensorsDataList)
         {
-
-            c = 0;
-            grid = new MyPathNode[Convert.ToInt32(modelMesh.Bounds.SizeX), Convert.ToInt32(modelMesh.Bounds.SizeY)];
-            grid2 = new MyPathNode[Convert.ToInt32(modelMesh.Bounds.SizeX / 10), Convert.ToInt32(modelMesh.Bounds.SizeY / 10)];
-            grid3 = new MyPathNode[Convert.ToInt32(modelMesh.Bounds.SizeX / 10), Convert.ToInt32(modelMesh.Bounds.SizeY / 10)];
-
-            offsetX = Convert.ToInt32(modelMesh.Bounds.X);
-            offsetY = Convert.ToInt32(modelMesh.Bounds.Y);
-
+          
             Vertex[] vertices = null;
 
             DateTime lastMeasureTime = DateTime.Now;
 
-
             if (sensorsDataList.Count() > 1)
             {
-                Dictionary<Tuple<int, int>, double> sensorDictionary = FillSensorDataDictionary2(sensorsDataList);
-
-                BuildDictionary2(modelMesh, sensorDictionary);
-                BuildGrid2(Convert.ToInt32(modelMesh.Bounds.SizeX/10), Convert.ToInt32(modelMesh.Bounds.SizeY/10));
-                // CreateRandomSensors3(sensorsDataList, sensorDictionary);
+                sensorDictionary = FillSensorDataDictionary2(sensorsDataList);
 
                 vertices = PreProcessing2(sensorDictionary);                
             }
@@ -101,7 +105,7 @@ namespace SensorsViewer.Result
             return vertices;
         }        
 
-        static private void BuildDictionary(MeshGeometry3D mesh, Dictionary<Tuple<int, int>, double> sensorDictionary)
+        private void BuildDictionary(MeshGeometry3D mesh, Dictionary<Tuple<int, int>, double> sensorDictionary)
         {
             //Create the mesh to hold the new surface
             MeshGeometry3D newMesh = mesh.Clone();
@@ -149,7 +153,7 @@ namespace SensorsViewer.Result
             }
         }
 
-        private static void PointsOfTriangle(Point3D p0, Point3D p1, Point3D p2, Dictionary<Tuple<int, int>, double> sensorDictionary)
+        void PointsOfTriangle(Point3D p0, Point3D p1, Point3D p2, Dictionary<Tuple<int, int>, double> sensorDictionary)
         {
             int maxX = Convert.ToInt32(Math.Max(p0.X, Math.Max(p1.X, p2.X)));
             int minX = Convert.ToInt32(Math.Min(p0.X, Math.Min(p1.X, p2.X)));
@@ -176,10 +180,10 @@ namespace SensorsViewer.Result
                         {
 
                             double d1, d2;
-                            List<Tuple<int, int>> neighbors = GetNeighboringPoints(x, y, sensorDictionary, out d1, out d2);
+                            Tuple<int, int>[] neighbors = GetNeighboringPoints(x, y, sensorDictionary, out d1, out d2);
                             d1 = 1 / d1;
                             d2 = 1 / d2;
-                            double value = ((d1 * (sensorDictionary[neighbors.ElementAt(0)]) + d2 * (sensorDictionary[neighbors.ElementAt(1)])) / (d1 + d2));
+                            double value = ((d1 * (sensorDictionary[neighbors[0]]) + d2 * (sensorDictionary[neighbors[1]])) / (d1 + d2));
 
                             trianglePointsDictionary.Add(key, value);
 
@@ -195,7 +199,7 @@ namespace SensorsViewer.Result
             }
         }        
 
-        static public Dictionary<Tuple<int, int>, double> FillSensorDataDictionary(IEnumerable<Sensor> sensorsDataList)
+        public Dictionary<Tuple<int, int>, double> FillSensorDataDictionary(IEnumerable<Sensor> sensorsDataList)
         {
             Dictionary<Tuple<int, int>, double> sensorDictionary = new Dictionary<Tuple<int, int>, double>();
 
@@ -214,7 +218,7 @@ namespace SensorsViewer.Result
             return sensorDictionary;
         }       
 
-        static public Dictionary<Tuple<int, int>, double> PreProcessing(Dictionary<Tuple<int, int>, double> sensorDictionary)
+        public Dictionary<Tuple<int, int>, double> PreProcessing(Dictionary<Tuple<int, int>, double> sensorDictionary)
         {
 
             Dictionary<Tuple<int, int>, double> ndic = new Dictionary<Tuple<int, int>, double>();
@@ -231,7 +235,7 @@ namespace SensorsViewer.Result
                 }
 
                 double d1, d2;
-                List<Tuple<int, int>> neighbors = GetNeighboringPoints(nx, ny, sensorDictionary, out d1, out d2);
+                Tuple<int, int>[] neighbors = GetNeighboringPoints(nx, ny, sensorDictionary, out d1, out d2);
 
                 d1 = 1 / d1;
                 d2 = 1 / d2;
@@ -252,7 +256,7 @@ namespace SensorsViewer.Result
         }        
 
         // Using one sensor
-        static private Vertex[] StartInterpolation(Dictionary<Tuple<int, int>, double> ppDictionary, Dictionary<Tuple<int, int>, double> sensorDictionary)
+        private Vertex[] StartInterpolation(Dictionary<Tuple<int, int>, double> ppDictionary, Dictionary<Tuple<int, int>, double> sensorDictionary)
         {
             Dictionary<Tuple<int, int>, double> resultDic = new Dictionary<Tuple<int, int>, double>();
 
@@ -361,14 +365,15 @@ namespace SensorsViewer.Result
             return vertices;
         }
 
-        static private List<Tuple<int, int>> GetNeighboringPoints(int x, int y, Dictionary<Tuple<int, int>, double> sensorDictionary, out double mCoord1, out double mCoord2)
+        private Tuple<int, int>[] GetNeighboringPoints(int x, int y, Dictionary<Tuple<int, int>, double> sensorDictionary, out double mCoord1, out double mCoord2)
         {
 
-            List<Tuple<int, int>> ret = new List<Tuple<int, int>>();
+            Tuple<int, int>[] ret = new Tuple<int, int>[2];
 
             double min1 = double.MaxValue, min2 = double.MaxValue;
-            ret.Add(sensorDictionary.ElementAt(0).Key);
-            ret.Add(sensorDictionary.ElementAt(1).Key);
+
+            ret[0] = sensorDictionary.ElementAt(0).Key;
+            ret[1] = sensorDictionary.ElementAt(1).Key;
 
             foreach (KeyValuePair<Tuple<int, int>, double> v in sensorDictionary)
             {
@@ -403,7 +408,7 @@ namespace SensorsViewer.Result
             return ret;
         }
 
-        static private Tuple<int, int> GetNeighboringPoints2(int x, int y, Dictionary<Tuple<int, int>, double> newDictionary)
+        private Tuple<int, int> GetNeighboringPoints2(int x, int y, Dictionary<Tuple<int, int>, double> newDictionary)
         {
 
             Tuple<int, int> coord;
@@ -428,7 +433,7 @@ namespace SensorsViewer.Result
             return coord;
         }
 
-        private static List<Tuple<int, int>> CheckPoints(int x, int y, int qx, int qy)
+        private List<Tuple<int, int>> CheckPoints(int x, int y, int qx, int qy)
         {
             List<Tuple<int, int>> ret = new List<Tuple<int, int>>();
 
@@ -521,7 +526,7 @@ namespace SensorsViewer.Result
             return ret;
         }
 
-        public static double BilinearInterpolation(double q11, double q12, double q21, double q22, float x1, float x2, float y1, float y2, float x, float y)
+        public double BilinearInterpolation(double q11, double q12, double q21, double q22, float x1, float x2, float y1, float y2, float x, float y)
         {
             float x2x1, y2y1, x2x, y2y, yy1, xx1;
             x2x1 = x2 - x1;
@@ -533,7 +538,7 @@ namespace SensorsViewer.Result
             return 1.0 / (x2x1 * y2y1) * (q11 * x2x * y2y + q21 * xx1 * y2y + q12 * x2x * yy1 + q22 * xx1 * yy1);
         }
 
-        public static float DoubleToFloat(double dValue)
+        public float DoubleToFloat(double dValue)
         {
             if (float.IsPositiveInfinity(Convert.ToSingle(dValue)))
             {
@@ -579,7 +584,7 @@ namespace SensorsViewer.Result
             return asd;
         }
 
-        static private void CreateFakeSensors(IEnumerable<Sensor> sensorsDataList, Dictionary<Tuple<int, int>, double> sensorDictionary)
+        private void CreateFakeSensors(IEnumerable<Sensor> sensorsDataList, Dictionary<Tuple<int, int>, double> sensorDictionary)
         {
 
             List<Sensor> fakeSensors = new List<Sensor>();
@@ -658,7 +663,7 @@ namespace SensorsViewer.Result
             }
         }
 
-        static private void CreateRandomSensors(IEnumerable<Sensor> sensorsDataList, Dictionary<Tuple<int, int>, double> sensorDictionary)
+        private void CreateRandomSensors(IEnumerable<Sensor> sensorsDataList, Dictionary<Tuple<int, int>, double> sensorDictionary)
         {
 
             List<Tuple<int, int>> keyList = new List<Tuple<int, int>>(trianglePointsDictionary.Keys);
@@ -723,7 +728,7 @@ namespace SensorsViewer.Result
             }
         }
 
-        static private void CreateRandomSensors2(IEnumerable<Sensor> sensorsDataList, Dictionary<Tuple<int, int>, double> sensorDictionary)
+        private void CreateRandomSensors2(IEnumerable<Sensor> sensorsDataList, Dictionary<Tuple<int, int>, double> sensorDictionary)
         {
 
             List<Tuple<int, int>> keyList = new List<Tuple<int, int>>(dividedDic.Keys);
@@ -803,7 +808,7 @@ namespace SensorsViewer.Result
             }
         }       
 
-        static void BuildGrid(int width, int height)
+        private void BuildGrid(int width, int height)
         {
             for (int x = 0; x < width; x++)
             {
@@ -850,14 +855,14 @@ namespace SensorsViewer.Result
             }
         }
 
-        static private double CrossProduct(Point3D p1, Point3D p2)
+        private double CrossProduct(Point3D p1, Point3D p2)
         {
             return p1.X * p2.Y - p1.Y * p2.X;
         }
 
         //******************************************************************************************************
 
-        static public Dictionary<Tuple<int, int>, double> FillSensorDataDictionary2(IEnumerable<Sensor> sensorsDataList)
+        public Dictionary<Tuple<int, int>, double> FillSensorDataDictionary2(IEnumerable<Sensor> sensorsDataList)
         {
             Dictionary<Tuple<int, int>, double> sensorDictionary = new Dictionary<Tuple<int, int>, double>();
 
@@ -877,49 +882,39 @@ namespace SensorsViewer.Result
             return sensorDictionary;
         }
 
-        static private void BuildDictionary2(MeshGeometry3D mesh, Dictionary<Tuple<int, int>, double> sensorDictionary)
+        private void BuildDictionary2(MeshGeometry3D mesh, Dictionary<Tuple<int, int>, double> sensorDictionary)
         {
-            //Create the mesh to hold the new surface
-            MeshGeometry3D newMesh = mesh.Clone();
-
             for (int i = 0; i < mesh.TriangleIndices.Count; i += 3)
             {
-                int index0 = newMesh.TriangleIndices[i];
-                int index1 = newMesh.TriangleIndices[i + 1];
-                int index2 = newMesh.TriangleIndices[i + 2];
+                int index0 = mesh.TriangleIndices[i];
+                int index1 = mesh.TriangleIndices[i + 1];
+                int index2 = mesh.TriangleIndices[i + 2];
 
-                Point3D p0 = newMesh.Positions[index0];
-                Point3D p1 = newMesh.Positions[index1];
-                Point3D p2 = newMesh.Positions[index2];
+                Point3D p0 = mesh.Positions[index0];
+                Point3D p1 = mesh.Positions[index1];
+                Point3D p2 = mesh.Positions[index2];
 
                 p0.X = Math.Round(p0.X);
                 p0.Y = Math.Round(p0.Y);
                 p0.Z = Math.Round(p0.Z);
 
-                newMesh.Positions[index0] = p0;
-
                 p1.X = Math.Round(p1.X);
                 p1.Y = Math.Round(p1.Y);
                 p1.Z = Math.Round(p1.Z);
 
-                newMesh.Positions[index1] = p1;
-
                 p2.X = Math.Round(p2.X);
                 p2.Y = Math.Round(p2.Y);
                 p2.Z = Math.Round(p2.Z);
-
-                newMesh.Positions[index2] = p2;
 
                 PointsOfTriangle2(p0, p1, p2, sensorDictionary);
 
                 listPoint3d.Add(new Point3D((int)p0.X, (int)p0.Y, 0));
                 listPoint3d.Add(new Point3D((int)p1.X, (int)p1.Y, 0));
                 listPoint3d.Add(new Point3D((int)p2.X, (int)p2.Y, 0));
-
             }
         }
 
-        private static void PointsOfTriangle2(Point3D p0, Point3D p1, Point3D p2, Dictionary<Tuple<int, int>, double> sensorDictionary)
+        private void PointsOfTriangle2(Point3D p0, Point3D p1, Point3D p2, Dictionary<Tuple<int, int>, double> sensorDictionary)
         {
             p0.X = p0.X / 10;
             p0.Y = p0.Y / 10;
@@ -952,21 +947,15 @@ namespace SensorsViewer.Result
                         Tuple<int, int> key = new Tuple<int, int>(x, y);
 
                         if (!modelTrianglePoints.ContainsKey(key))
-                        {
-                            double d1, d2;
-                            List<Tuple<int, int>> neighbors = GetNeighboringPoints(x, y, sensorDictionary, out d1, out d2);
-                            d1 = 1 / d1;
-                            d2 = 1 / d2;
-                            double value = ((d1 * (sensorDictionary[neighbors.ElementAt(0)]) + d2 * (sensorDictionary[neighbors.ElementAt(1)])) / (d1 + d2));
-
-                            modelTrianglePoints.Add(key, value);
+                        {                           
+                              modelTrianglePoints.Add(key, 0);                            
                         }
                     }
                 }
             }
         }
 
-        static void BuildGrid2(int width, int height)
+        void BuildGrid2(int width, int height)
         {
             for (int x = 0; x < width; x++)
             {
@@ -978,7 +967,6 @@ namespace SensorsViewer.Result
                     if (!modelTrianglePoints.ContainsKey(tuple))
                     {
                         isWall = true;
-
                     }
 
                     grid3[x, y] = new MyPathNode()
@@ -991,11 +979,8 @@ namespace SensorsViewer.Result
             }
         }
 
-        static public Vertex[] PreProcessing2(Dictionary<Tuple<int, int>, double> sensorDictionary)
+        public Vertex[] PreProcessing2(Dictionary<Tuple<int, int>, double> sensorDictionary)
         {
-
-            List<Point3D> rstList = new List<Point3D>();
-
             var vertices = new Vertex[listPoint3d.Count];
             int counter = 0;
 
@@ -1010,23 +995,21 @@ namespace SensorsViewer.Result
 
                     if (sensorDictionary.ContainsKey(tuple))
                     {
-                        rstList.Add(new Point3D(nx, ny, sensorDictionary[tuple]));
                     //file.WriteLine("" + (int)point.X + " " + (int)point.Y + " " + sensorDictionary[tuple]);
-                    vertices[counter].X = nx;
-                    vertices[counter].Y = ny;
-                    vertices[counter++].Z = DoubleToFloat(sensorDictionary[tuple]);
-                    continue;
+                        vertices[counter].X = nx;
+                        vertices[counter].Y = ny;
+                        vertices[counter++].Z = DoubleToFloat(sensorDictionary[tuple]);
+                        continue;
                     }
 
                     double d1, d2;
-                    List<Tuple<int, int>> neighbors = GetNeighboringPoints(nx, ny, sensorDictionary, out d1, out d2);
+                    Tuple<int, int>[] neighbors = GetNeighboringPoints(nx, ny, sensorDictionary, out d1, out d2);
 
                     d1 = 1 / d1;
                     d2 = 1 / d2;
 
-                    double var = ((d1 * (sensorDictionary[neighbors.ElementAt(0)]) + d2 * (sensorDictionary[neighbors.ElementAt(1)])) / (d1 + d2)); //(newDictionary[neighbors.ElementAt(0)] + newDictionary[neighbors.ElementAt(1)]) / 2;
+                    double var = ((d1 * (sensorDictionary[neighbors[0]]) + d2 * (sensorDictionary[neighbors[1]])) / (d1 + d2)); //(newDictionary[neighbors.ElementAt(0)] + newDictionary[neighbors.ElementAt(1)]) / 2;
 
-                    rstList.Add(new Point3D(nx, ny, var));
                     vertices[counter].X = nx;
                     vertices[counter].Y = ny;
                     vertices[counter++].Z = DoubleToFloat(var);
@@ -1034,14 +1017,13 @@ namespace SensorsViewer.Result
                 // string line = "" + (int)point.X + " " + (int)point.Y + " " + var;
                 //file.WriteLine(line);
 
-
             }
             //}
            
             return vertices;
         }
 
-        static private void Test(MeshGeometry3D mesh, Dictionary<Tuple<int, int>, double> sensorDictionary)
+        private void Test(MeshGeometry3D mesh, Dictionary<Tuple<int, int>, double> sensorDictionary)
         {
             
             Point3DCollection p = mesh.Positions;
@@ -1056,24 +1038,22 @@ namespace SensorsViewer.Result
                 }
 
                 double d1, d2;
-                List<Tuple<int, int>> neighbors = GetNeighboringPoints((int)point.X, (int)point.Y, sensorDictionary, out d1, out d2);
+                Tuple<int, int>[] neighbors = GetNeighboringPoints((int)point.X, (int)point.Y, sensorDictionary, out d1, out d2);
 
                 d1 = 1 / d1;
                 d2 = 1 / d2;
 
-                var ret = ((d1 * (sensorDictionary[neighbors.ElementAt(0)]) + d2 * (sensorDictionary[neighbors.ElementAt(1)])) / (d1 + d2));
+                var ret = ((d1 * sensorDictionary[neighbors[0]] + d2 * sensorDictionary[neighbors[1]]) / (d1 + d2));
 
                 listPoint3d.Add(new Point3D((int)point.X, (int)point.Y, ret));
-            }
-            
+            }            
         }
 
-        static private void CreateRandomSensors3(IEnumerable<Sensor> sensorsDataList, Dictionary<Tuple<int, int>, double> sensorDictionary)
+        private void CreateRandomSensors3(IEnumerable<Sensor> sensorsDataList, Dictionary<Tuple<int, int>, double> sensorDictionary)
         {
 
             List<Tuple<int, int>> keyList = new List<Tuple<int, int>>(modelTrianglePoints.Keys);
 
-            List<Sensor> fakeSensors = new List<Sensor>();
             Random rand = new Random();
             Sensor closestSensor = new Sensor(); Sensor sndClosestSensor = new Sensor();
 
@@ -1091,16 +1071,10 @@ namespace SensorsViewer.Result
                     //Get the distance between randomKey and 7 sensors and return the minumum
                     Point sensorPnt = new Point(Convert.ToInt32(sensor.X / 10 - offsetX / 10), Convert.ToInt32(sensor.Y / 10 - offsetY / 10));
                     int pathLen = 0;
-                    try
-                    {
-                        MySolver<MyPathNode, Object> aStar = new MySolver<MyPathNode, Object>(grid3);
-                        IEnumerable<MyPathNode> path = aStar.Search(rndSensorPnt, sensorPnt, null);
-                        pathLen = path.Count();
-                    }
-                    catch (Exception e)
-                    {
-                        var a = 1;
-                    }
+               
+                    MySolver<MyPathNode, Object> aStar = new MySolver<MyPathNode, Object>(grid3);
+                    IEnumerable<MyPathNode> path = aStar.Search(rndSensorPnt, sensorPnt, null);
+                    pathLen = path.Count();
 
                     if (pathLen < min1)
                     {
@@ -1125,15 +1099,13 @@ namespace SensorsViewer.Result
                 d1 = 1 / d1;
                 d2 = 1 / d2;
 
-                double value = ((d1 * closestSensor.Values.Last().Value) + d2 * sndClosestSensor.Values.Last().Value) / (d1 + d2);
+                double value = (d1 * closestSensor.Values.Last().Value + d2 * sndClosestSensor.Values.Last().Value) / (d1 + d2);
 
                 rstSensor.Values.Add(new SensorValue(value));
 
-                fakeSensors.Add(rstSensor);
-
                 Tuple<int, int> key = new Tuple<int, int>(Convert.ToInt32(rstSensor.X), Convert.ToInt32(rstSensor.Y));
 
-                sensorDictionary.Add(key, rstSensor.Values[0].Value);
+                sensorDictionary.Add(key, value);
 
                 keyList.Remove(randomKey);
             }          

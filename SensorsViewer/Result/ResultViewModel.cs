@@ -85,6 +85,8 @@ namespace SensorsViewer.Result
         /// </summary>
         private Vertex[] vertices;
 
+        private Interpolation interpolation;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ResultViewModel"/> class
         /// </summary>
@@ -101,6 +103,7 @@ namespace SensorsViewer.Result
             this.OpenGLResized = new RelayCommand(this.OpenGLControl_Resized);
             this.SensorsVisibility = Visibility.Visible;
             this.InterpVisibility = Visibility.Collapsed;
+
         }
 
         /// <summary>
@@ -125,6 +128,8 @@ namespace SensorsViewer.Result
 
             this.SensorsVisibility = Visibility.Visible;
             this.InterpVisibility = Visibility.Hidden;
+
+            this.interpolation = new Interpolation(modelMesh, sensors);
         }
 
         /// <summary>
@@ -151,6 +156,9 @@ namespace SensorsViewer.Result
 
             this.SensorsVisibility = Visibility.Visible;
             this.InterpVisibility = Visibility.Hidden;
+
+            this.interpolation = new Interpolation(modelMesh, sensors);
+
         }
 
         #region PropertyDeclaration
@@ -281,7 +289,8 @@ namespace SensorsViewer.Result
             ////this.groupModel.Children.Add(stlModel);
             this.sensorGroupModel.Children.Add(this.stlModel); // Add in sensor group model
 
-            this.device3D.Content = this.groupModel;           
+            this.device3D.Content = this.groupModel; 
+            
         }
 
         /// <summary>
@@ -310,7 +319,7 @@ namespace SensorsViewer.Result
                     {
                         SensorValue last = svc.Last();
 
-                        color = Interpolation.GetHeatMapColor(last.Value, -0.2, +0.2);
+                        color = Interpolation.GetHeatMapColor(last.Value, -1, +1);
                         Sensor s = new Sensor(sensor.SensorName, sensor.X, sensor.Y, sensor.Z);
                         s.Values.Add(last);
 
@@ -341,6 +350,8 @@ namespace SensorsViewer.Result
             this.ViewPort3d.Children.Add(this.device3D);
         }
 
+
+
         /// <summary>
         /// Load sensors in model
         /// </summary>
@@ -362,7 +373,7 @@ namespace SensorsViewer.Result
                 // If sensor does not receive any value, receives yellow as collor
                 if (sensor.Values.Count != 0)
                 {
-                    color = Interpolation.GetHeatMapColor(sensor.Values.Last().Value, -0.2, +0.2);
+                    color = Interpolation.GetHeatMapColor(sensor.Values.Last().Value, -1, +1);
                 }
                 else
                 {
@@ -377,7 +388,7 @@ namespace SensorsViewer.Result
 
             if (this.modelMesh != null)
             {
-                this.vertices = Interpolation.Interpolate2(modelMesh, sensors);               
+                this.vertices = this.interpolation.Interpolate2(modelMesh, sensors);               
             }
 
             this.GroupModel = this.sensorGroupModel;
@@ -441,7 +452,7 @@ namespace SensorsViewer.Result
 
             for (int i = 0; i < this.vertices.Count(); i++)
             {
-                Color asd = Interpolation.GetHeatMapColor(this.vertices[i].Z, -0.2, +0.2);
+                Color asd = Interpolation.GetHeatMapColor(this.vertices[i].Z, -1, +1);
 
                 gl.Color(asd.R / (float)255, asd.G / (float)255, asd.B / (float)255);
                 ////gl.Color(0.5f, 0.5f, 0.5f);
@@ -535,6 +546,27 @@ namespace SensorsViewer.Result
             }
             
             return device;
-        }        
+        }
+
+        /// <summary>
+        /// Get sensors from analysis name
+        /// </summary>
+        /// <param name="tabSensor">Sensors from tab</param>
+        /// <param name="sensorsId">Sensors Ids</param>
+        /// <returns>Sensors from analysis</returns>
+        private ObservableCollection<Sensor> GetSensorsFromAnalysis(IEnumerable<Sensor> tabSensor, ObservableCollection<string> sensorsId)
+        {
+            ObservableCollection<Sensor> analysisSensors = new ObservableCollection<Sensor>();
+
+            foreach (Sensor s in tabSensor)
+            {
+                if (sensorsId.Contains(s.Id))
+                {
+                    analysisSensors.Add(s);
+                }
+            }
+
+            return analysisSensors;
+        }
     }
 }
