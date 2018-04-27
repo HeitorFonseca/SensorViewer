@@ -25,6 +25,8 @@ namespace SensorsViewer.Result
     /// </summary>
     public class ResultViewModel : INotifyPropertyChanged
     {
+        private string parameterString = "direction";
+
         /// <summary>
         /// Sensor size in z dimension
         /// </summary>
@@ -98,7 +100,7 @@ namespace SensorsViewer.Result
         /// </summary>
         public ResultViewModel()
         {
-            this.ViewMode = false;
+            this.ViewMode = true;
             this.slider = 0;
             this.dataCounter = 0;
             this.maxSlider = 0;
@@ -125,7 +127,7 @@ namespace SensorsViewer.Result
         /// <param name="path">Model path</param>
         public ResultViewModel(IEnumerable<Sensor> sensors, string path)
         {
-            this.ViewMode = false;
+            this.ViewMode = true;
             this.slider = 0;
             this.dataCounter = 0;
             this.maxSlider = 0;
@@ -162,7 +164,7 @@ namespace SensorsViewer.Result
         /// <param name="analysisName">Analysis name</param>
         public ResultViewModel(IEnumerable<Sensor> sensors, string path, string analysisName)
         {
-            this.ViewMode = false;
+            this.ViewMode = true;
             this.slider = 0;
             this.dataCounter = 0;
             this.maxSlider = 0;
@@ -358,7 +360,6 @@ namespace SensorsViewer.Result
             this.ModelYSize = this.stlModel.Bounds.SizeY.ToString();
             this.ModelZSize = this.stlModel.Bounds.SizeZ.ToString();
 
-            ////this.groupModel.Children.Add(stlModel);
             this.sensorGroupModel.Children.Add(this.stlModel); // Add in sensor group model
 
             this.device3D.Content = this.groupModel; 
@@ -419,8 +420,6 @@ namespace SensorsViewer.Result
             this.ViewPort3d.Children.Add(this.device3D);
         }
 
-
-
         /// <summary>
         /// Load sensors in model
         /// </summary>
@@ -428,6 +427,8 @@ namespace SensorsViewer.Result
         public void LoadSensorsValuesInModel(IEnumerable<Sensor> sensors)
         {
             this.ViewPort3d.Children.Remove(this.device3D);
+            this.sensorGroupModel.Children.Clear();
+            this.sensorGroupModel.Children.Add(this.stlModel);
 
             this.sensorModelArray[dataCounter] = new List<GeometryModel3D>();
 
@@ -435,7 +436,16 @@ namespace SensorsViewer.Result
             {
                 MeshBuilder meshBuilder = new MeshBuilder();
 
-                meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sensor.Size, sensor.Size, this.sizeZ);
+                if (sensor.Values.Last().Parameter == parameterString)
+                {
+                    meshBuilder.AddTriangle(new Point3D(sensor.X - 1, sensor.Y, sensor.Z),
+                                            new Point3D(sensor.X + 1, sensor.Y, sensor.Z),
+                                            new Point3D(sensor.X, sensor.Y + 20, sensor.Z));
+                }
+                else
+                {
+                    meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sensor.Size, sensor.Size, this.sizeZ);
+                }
 
                 Color color;
 
@@ -457,7 +467,8 @@ namespace SensorsViewer.Result
 
             if (this.modelMesh != null)
             {
-                this.vertices[this.dataCounter++] = this.interpolation.Interpolate2(modelMesh, sensors);
+
+                this.vertices[this.dataCounter++] = this.interpolation.Interpolate2(modelMesh, SensorsNotParameter(sensors));
                 this.MaxSlider = dataCounter - 1;
                 this.Slider = this.MaxSlider;
             }
@@ -465,6 +476,25 @@ namespace SensorsViewer.Result
             this.GroupModel = this.sensorGroupModel;
             this.device3D.Content = this.groupModel;
             this.ViewPort3d.Children.Add(this.device3D);
+        }
+
+        private List<Sensor> SensorsNotParameter(IEnumerable<Sensor> sensors)
+        {
+            List<Sensor> asd = new List<Sensor>();
+
+            foreach (Sensor sensor in sensors)
+            {
+                //List<Sensor> s = sensors.Where(a => a.Values.Where(b => b.Parameter != parameterString));
+
+                Sensor dsa = new Sensor(sensor.SensorName, sensor.X, sensor.Y, sensor.Z);
+
+                dsa.Values = sensor.Values.Where(a => a.Parameter != parameterString).ToList();
+
+                asd.Add(dsa);
+
+            }
+
+            return asd;
         }
 
         #endregion
