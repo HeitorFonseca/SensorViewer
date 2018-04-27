@@ -78,7 +78,7 @@ namespace SensorsViewer.Result
         /// <summary>
         /// Sensor geometry model
         /// </summary>
-        private List<GeometryModel3D> sensorModelList = new List<GeometryModel3D>();
+        private List<GeometryModel3D>[] sensorModelArray;
 
         /// <summary>
         /// Interpolation vertex
@@ -103,18 +103,19 @@ namespace SensorsViewer.Result
             this.dataCounter = 0;
             this.maxSlider = 0;
 
+            this.vertices = new Vertex[10][];
+            this.sensorModelArray = new List<GeometryModel3D>[10];
+
             this.ViewPort3d = new HelixViewport3D();
             this.device3D = new ModelVisual3D();
             this.OnCheckedModeViewButtonCommand = new RelayCommand(this.OnCheckedModeViewButtonAction);
             this.OnUnCheckedModeViewButtonCommand = new RelayCommand(this.OnUnCheckedModeViewButtonAction);
+            this.OnSliderValueChanged = new RelayCommand(this.OnUnSliderValueChangedAction);
             this.OpenGLInitializedCommand = new RelayCommand(this.OpenGLControl_OpenGLInitialized);
             this.OpenGLDraw = new RelayCommand(this.OpenGLControl_OpenGLDraw);
             this.OpenGLResized = new RelayCommand(this.OpenGLControl_Resized);
             this.SensorsVisibility = Visibility.Visible;
-            this.InterpVisibility = Visibility.Collapsed;
-
-            this.vertices = new Vertex[10][];
-
+            this.InterpVisibility = Visibility.Collapsed;            
         }
 
         /// <summary>
@@ -129,11 +130,15 @@ namespace SensorsViewer.Result
             this.dataCounter = 0;
             this.maxSlider = 0;
 
+            this.vertices = new Vertex[10][];
+            this.sensorModelArray = new List<GeometryModel3D>[10];
+
             this.Sensors = sensors;
             this.ViewPort3d = new HelixViewport3D();
             this.device3D = new ModelVisual3D();
             this.OnCheckedModeViewButtonCommand = new RelayCommand(this.OnCheckedModeViewButtonAction);
             this.OnUnCheckedModeViewButtonCommand = new RelayCommand(this.OnUnCheckedModeViewButtonAction);
+            this.OnSliderValueChanged = new RelayCommand(this.OnUnSliderValueChangedAction);
             this.OpenGLInitializedCommand = new RelayCommand(this.OpenGLControl_OpenGLInitialized);
             this.OpenGLDraw = new RelayCommand(this.OpenGLControl_OpenGLDraw);
             this.OpenGLResized = new RelayCommand(this.OpenGLControl_Resized);
@@ -146,7 +151,6 @@ namespace SensorsViewer.Result
 
             this.interpolation = new Interpolation(modelMesh, sensors);
 
-            this.vertices = new Vertex[10][];
 
         }
 
@@ -165,10 +169,14 @@ namespace SensorsViewer.Result
 
             this.Sensors = sensors;
 
+            this.sensorModelArray = new List<GeometryModel3D>[10];
+            this.vertices = new Vertex[10][];
+
             this.ViewPort3d = new HelixViewport3D();
             this.device3D = new ModelVisual3D();
             this.OnCheckedModeViewButtonCommand = new RelayCommand(this.OnCheckedModeViewButtonAction);
             this.OnUnCheckedModeViewButtonCommand = new RelayCommand(this.OnUnCheckedModeViewButtonAction);
+            this.OnSliderValueChanged = new RelayCommand(this.OnUnSliderValueChangedAction);
             this.OpenGLInitializedCommand = new RelayCommand(this.OpenGLControl_OpenGLInitialized);
             this.OpenGLDraw = new RelayCommand(this.OpenGLControl_OpenGLDraw);
             this.OpenGLResized = new RelayCommand(this.OpenGLControl_Resized);
@@ -181,7 +189,6 @@ namespace SensorsViewer.Result
 
             this.interpolation = new Interpolation(modelMesh, sensors);
 
-            this.vertices = new Vertex[10][];
 
         }
 
@@ -201,6 +208,11 @@ namespace SensorsViewer.Result
         ///  Gets or sets click mode view command
         /// </summary>
         public ICommand OnUnCheckedModeViewButtonCommand { get; set; }
+
+        /// <summary>
+        ///  Gets or sets click mode view command
+        /// </summary>
+        public ICommand OnSliderValueChanged { get; set; }
 
         /// <summary>
         ///  Gets or sets Loaded window command
@@ -362,9 +374,11 @@ namespace SensorsViewer.Result
         {
             this.ViewPort3d.Children.Remove(this.device3D);
 
-            this.sensorModelList.Clear();
+            //this.sensorModelList.Clear();
             this.sensorGroupModel.Children.Clear();
             this.sensorGroupModel.Children.Add(this.stlModel);
+
+            this.sensorModelArray[dataCounter] = new List<GeometryModel3D>();
 
             foreach (Sensor sensor in sensors)
             {
@@ -395,7 +409,8 @@ namespace SensorsViewer.Result
 
                 GeometryModel3D sensorModel = new GeometryModel3D(meshBuilder.ToMesh(), MaterialHelper.CreateMaterial(color));
 
-                this.sensorModelList.Add(sensorModel);
+                this.sensorModelArray[dataCounter].Add(sensorModel);
+
                 this.sensorGroupModel.Children.Add(sensorModel);
             }
 
@@ -414,7 +429,7 @@ namespace SensorsViewer.Result
         {
             this.ViewPort3d.Children.Remove(this.device3D);
 
-            this.sensorModelList.Clear();
+            this.sensorModelArray[dataCounter] = new List<GeometryModel3D>();
 
             foreach (Sensor sensor in sensors)
             {
@@ -436,7 +451,7 @@ namespace SensorsViewer.Result
 
                 GeometryModel3D sensorModel = new GeometryModel3D(meshBuilder.ToMesh(), MaterialHelper.CreateMaterial(color));
 
-                this.sensorModelList.Add(sensorModel);
+                this.sensorModelArray[dataCounter].Add(sensorModel);
                 this.sensorGroupModel.Children.Add(sensorModel);
             }
 
@@ -563,6 +578,27 @@ namespace SensorsViewer.Result
             this.InterpVisibility = Visibility.Hidden;
 
             this.ViewMode = true;        
+        }
+
+        /// <summary>
+        /// Event when close window
+        /// </summary>
+        /// <param name="parameter">Object parameter</param>
+        private void OnUnSliderValueChangedAction(object parameter)
+        {
+           
+            int newValue = Convert.ToInt32(((RoutedPropertyChangedEventArgs<double>)parameter).NewValue);
+
+            this.ViewPort3d.Children.Remove(this.device3D);
+
+            foreach (var model3d in this.sensorModelArray[newValue])
+            {
+                this.sensorGroupModel.Children.Add(model3d);
+            }
+
+            this.GroupModel = this.sensorGroupModel;
+            this.device3D.Content = this.groupModel;
+            this.ViewPort3d.Children.Add(this.device3D);
         }
 
         /// <summary>

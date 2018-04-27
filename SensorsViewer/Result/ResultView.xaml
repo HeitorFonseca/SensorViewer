@@ -75,11 +75,19 @@
             <Label Content="{Binding ModelZSize}" Margin="0,17,0,261" Width="44"/>
         </StackPanel>
 
-            <Slider AutoToolTipPlacement="BottomRight"
+        <Slider AutoToolTipPlacement="BottomRight"
                     Maximum="{Binding MaxSlider}"
                     Minimum="0"
                     Value="{Binding Slider, Mode=TwoWay}" 
-                    VerticalAlignment="Bottom"/>
+                    VerticalAlignment="Bottom">
+
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="ValueChanged">
+                    <cmd:EventToCommand Command="{Binding OnSliderValueChanged}" PassEventArgsToCommand="True" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+
+        </Slider>
 
     </Grid>
 </UserControl>

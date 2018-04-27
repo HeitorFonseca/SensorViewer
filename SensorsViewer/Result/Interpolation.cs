@@ -1005,7 +1005,6 @@ namespace SensorsViewer.Result
 
                     if (sensorDictionary.ContainsKey(tuple))
                     {
-                    //file.WriteLine("" + (int)point.X + " " + (int)point.Y + " " + sensorDictionary[tuple]);
                         vertices[counter].X = nx;
                         vertices[counter].Y = ny;
                         vertices[counter++].Z = DoubleToFloat(sensorDictionary[tuple]);
@@ -1018,7 +1017,7 @@ namespace SensorsViewer.Result
                     d1 = 1 / d1;
                     d2 = 1 / d2;
 
-                    double var = ((d1 * (sensorDictionary[neighbors[0]]) + d2 * (sensorDictionary[neighbors[1]])) / (d1 + d2)); //(newDictionary[neighbors.ElementAt(0)] + newDictionary[neighbors.ElementAt(1)]) / 2;
+                    double var = ((d1 * (sensorDictionary[neighbors[0]]) + d2 * (sensorDictionary[neighbors[1]])) / (d1 + d2)); 
 
                     vertices[counter].X = nx;
                     vertices[counter].Y = ny;
