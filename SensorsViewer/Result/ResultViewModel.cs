@@ -91,6 +91,7 @@ namespace SensorsViewer.Result
 
         private int maxSlider;
 
+        private int slider;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ResultViewModel"/> class
@@ -98,7 +99,7 @@ namespace SensorsViewer.Result
         public ResultViewModel()
         {
             this.ViewMode = false;
-            this.Slider = 0;
+            this.slider = 0;
             this.dataCounter = 0;
             this.maxSlider = 0;
 
@@ -124,7 +125,7 @@ namespace SensorsViewer.Result
         public ResultViewModel(IEnumerable<Sensor> sensors, string path)
         {
             this.ViewMode = false;
-            this.Slider = 0;
+            this.slider = 0;
             this.dataCounter = 0;
             this.maxSlider = 0;
 
@@ -158,7 +159,7 @@ namespace SensorsViewer.Result
         public ResultViewModel(IEnumerable<Sensor> sensors, string path, string analysisName)
         {
             this.ViewMode = false;
-            this.Slider = 0;
+            this.slider = 0;
             this.dataCounter = 0;
             this.maxSlider = 0;
 
@@ -280,7 +281,20 @@ namespace SensorsViewer.Result
         /// <summary>
         /// Gets or sets a slider value
         /// </summary>
-        public int Slider { get; set; }
+        public int Slider
+        {
+            get
+            {
+                return this.slider;
+            }
+
+            set
+            {
+                this.slider = value;
+                this.OnPropertyChanged("Slider");
+            }
+
+        }
 
         /// <summary>
         /// Gets or sets a slider value
@@ -348,7 +362,6 @@ namespace SensorsViewer.Result
         {
             this.ViewPort3d.Children.Remove(this.device3D);
 
-            List<Sensor> currentSensors = new List<Sensor>();
             this.sensorModelList.Clear();
             this.sensorGroupModel.Children.Clear();
             this.sensorGroupModel.Children.Add(this.stlModel);
@@ -364,12 +377,7 @@ namespace SensorsViewer.Result
                     if (svc.Count() > 0)
                     {
                         SensorValue last = svc.Last();
-
                         color = Interpolation.GetHeatMapColor(last.Value, -1, +1);
-                        Sensor s = new Sensor(sensor.SensorName, sensor.X, sensor.Y, sensor.Z);
-                        s.Values.Add(last);
-
-                        currentSensors.Add(s);
                     }
                     else
                     {

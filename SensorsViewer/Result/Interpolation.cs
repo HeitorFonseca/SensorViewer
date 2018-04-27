@@ -19,6 +19,7 @@ namespace SensorsViewer.Result
 
     public class Interpolation
     {
+        private List<Tuple<Sensor, Sensor, Sensor>> fakeSensors;
         Dictionary<Tuple<int, int>, double> sensorDictionary;
 
         private Dictionary<Tuple<int, int>, double> trianglePointsDictionary = new Dictionary<Tuple<int, int>, double>();
@@ -40,7 +41,7 @@ namespace SensorsViewer.Result
         {
             c = 0;
 
-            grid3 = new MyPathNode[Convert.ToInt32(modelMesh.Bounds.SizeX / 10), Convert.ToInt32(modelMesh.Bounds.SizeY / 10)];
+            grid3 = new MyPathNode[Convert.ToInt32(modelMesh.Bounds.SizeX / 10)+1, Convert.ToInt32(modelMesh.Bounds.SizeY / 10)+1];
 
             offsetX = Convert.ToInt32(modelMesh.Bounds.X);
             offsetY = Convert.ToInt32(modelMesh.Bounds.Y);
@@ -49,6 +50,8 @@ namespace SensorsViewer.Result
             {
                 sensorDictionary = FillSensorDataDictionary2(sensorsDataList);
                 BuildDictionary2(modelMesh, sensorDictionary);
+                BuildGrid2(Convert.ToInt32(modelMesh.Bounds.SizeX / 10), Convert.ToInt32(modelMesh.Bounds.SizeY / 10));
+                fakeSensors = CreateRandomSensors4(sensorsDataList);
             }
         }
 
@@ -68,7 +71,7 @@ namespace SensorsViewer.Result
             {
                 Dictionary<Tuple<int, int>, double> sensorDictionary = FillSensorDataDictionary(sensorsDataList);
 
-                Test(modelMesh, sensorDictionary);
+                //Test(modelMesh, sensorDictionary);
 
                 BuildDictionary(modelMesh, sensorDictionary);
                 BuildGrid(Convert.ToInt32(modelMesh.Bounds.SizeX), Convert.ToInt32(modelMesh.Bounds.SizeY));
@@ -96,7 +99,7 @@ namespace SensorsViewer.Result
             if (sensorsDataList.Count() > 1)
             {
                 sensorDictionary = FillSensorDataDictionary2(sensorsDataList);
-
+                ReCalculateFakeSensors(fakeSensors, sensorDictionary);
                 vertices = PreProcessing2(sensorDictionary);                
             }
 
@@ -966,9 +969,9 @@ namespace SensorsViewer.Result
 
         void BuildGrid2(int width, int height)
         {
-            for (int x = 0; x < width; x++)
+            for (int x = 0; x <= width; x++)
             {
-                for (int y = 0; y < height; y++)
+                for (int y = 0; y <= height; y++)
                 {
                     Boolean isWall = false;
 
@@ -1024,33 +1027,7 @@ namespace SensorsViewer.Result
             }
            
             return vertices;
-        }
-
-        private void Test(MeshGeometry3D mesh, Dictionary<Tuple<int, int>, double> sensorDictionary)
-        {
-            
-            Point3DCollection p = mesh.Positions;
-            foreach (var point in p)
-            {
-                Tuple<int, int> tuple = new Tuple<int, int>((int)point.X, (int)point.Y);
-
-                if (sensorDictionary.ContainsKey(tuple))
-                {
-                    listPoint3d.Add(new Point3D((int)point.X, (int)point.Y, sensorDictionary[tuple]));
-                    continue;
-                }
-
-                double d1, d2;
-                Tuple<int, int>[] neighbors = GetNeighboringPoints((int)point.X, (int)point.Y, sensorDictionary, out d1, out d2);
-
-                d1 = 1 / d1;
-                d2 = 1 / d2;
-
-                var ret = ((d1 * sensorDictionary[neighbors[0]] + d2 * sensorDictionary[neighbors[1]]) / (d1 + d2));
-
-                listPoint3d.Add(new Point3D((int)point.X, (int)point.Y, ret));
-            }            
-        }
+        }        
 
         private void CreateRandomSensors3(IEnumerable<Sensor> sensorsDataList, Dictionary<Tuple<int, int>, double> sensorDictionary)
         {
@@ -1112,6 +1089,98 @@ namespace SensorsViewer.Result
 
                 keyList.Remove(randomKey);
             }          
+        }
+
+        private List<Tuple<Sensor, Sensor, Sensor>> CreateRandomSensors4(IEnumerable<Sensor> sensorsDataList)
+        {
+
+            List<Tuple<Sensor, Sensor, Sensor>> fakeSensors = new List<Tuple<Sensor, Sensor, Sensor>>();
+
+            List<Tuple<int, int>> keyList = new List<Tuple<int, int>>(modelTrianglePoints.Keys);
+
+            Random rand = new Random();
+            Sensor closestSensor = new Sensor(); Sensor sndClosestSensor = new Sensor();
+
+            for (int i = 0; i < 90; i++)
+            {
+                int min1 = int.MaxValue;
+                int min2 = int.MaxValue;
+
+                Tuple<int, int> randomKey = keyList[rand.Next(keyList.Count)];
+
+                Point rndSensorPnt = new Point(randomKey.Item1 - offsetX / 10, randomKey.Item2 - offsetY / 10);
+
+                foreach (Sensor sensor in sensorsDataList)
+                {
+                    //Get the distance between randomKey and 7 sensors and return the minumum
+                    Point sensorPnt = new Point(Convert.ToInt32((sensor.X - offsetX) / 10), Convert.ToInt32((sensor.Y - offsetY) / 10));
+
+                    int pathLen = 0;
+
+                    try
+                    {
+                        MySolver<MyPathNode, Object> aStar = new MySolver<MyPathNode, Object>(grid3);
+                        IEnumerable<MyPathNode> path = aStar.Search(rndSensorPnt, sensorPnt, null);
+                        pathLen = path.Count();
+                    }
+                    catch (Exception e)
+                    {
+                        var a = 1;
+                    }
+
+                    if (pathLen < min1)
+                    {
+                        min2 = min1;
+                        min1 = pathLen;
+
+                        sndClosestSensor = closestSensor;
+                        closestSensor = sensor;
+                    }
+                    else if (pathLen < min2)
+                    {
+                        min2 = pathLen;
+                        sndClosestSensor = sensor;
+                    }
+                }
+
+                Sensor rstSensor = new Sensor("Fake Sensor", rndSensorPnt.X * 10 + offsetX, rndSensorPnt.Y * 10 + offsetY, 0);               
+
+                Tuple<int, int> key = new Tuple<int, int>(Convert.ToInt32(rstSensor.X), Convert.ToInt32(rstSensor.Y));
+
+                Tuple<Sensor, Sensor, Sensor> fk = new Tuple<Sensor, Sensor, Sensor>(rstSensor, closestSensor, sndClosestSensor);
+
+                fakeSensors.Add(fk);
+
+                keyList.Remove(randomKey);
+            }
+
+            return fakeSensors;
+        }
+
+        private void ReCalculateFakeSensors(List<Tuple<Sensor, Sensor, Sensor>> fakeSensors, Dictionary<Tuple<int, int>, double> sensorDictionary)
+        {
+
+            foreach (Tuple<Sensor, Sensor, Sensor> tp in fakeSensors)
+            {
+                Tuple<int, int> clstSensorTp = new Tuple<int, int>(Convert.ToInt32(tp.Item2.X), Convert.ToInt32(tp.Item2.Y));
+                Tuple<int, int> sndClstSensorTp = new Tuple<int, int>(Convert.ToInt32(tp.Item3.X), Convert.ToInt32(tp.Item3.Y));
+
+                Sensor rstSensor = tp.Item1;
+                double closestSensorValue = sensorDictionary[clstSensorTp];
+                double sndClosestSensorValue = sensorDictionary[sndClstSensorTp];
+
+                double d1 = Math.Sqrt(Math.Pow(rstSensor.X - tp.Item2.X, 2) + Math.Pow(rstSensor.Y - tp.Item2.Y, 2));
+                double d2 = Math.Sqrt(Math.Pow(rstSensor.X - tp.Item3.X, 2) + Math.Pow(rstSensor.Y - tp.Item3.Y, 2));
+
+                d1 = 1 / d1;
+                d2 = 1 / d2;
+
+                double value = (d1 * closestSensorValue + d2 * sndClosestSensorValue) / (d1 + d2);
+
+                Tuple<int, int> key = new Tuple<int, int>(Convert.ToInt32(rstSensor.X), Convert.ToInt32(rstSensor.Y));
+
+                sensorDictionary.Add(key, value);
+            }
         }
     }
 }

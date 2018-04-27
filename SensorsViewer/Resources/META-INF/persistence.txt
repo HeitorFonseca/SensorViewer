@@ -3,14 +3,14 @@
   <ProjectItem>
     <Id>0</Id>
     <Name>Model</Name>
-    <ModelPath>C:\Users\Heitor Araujo\Downloads\Die ring.stl</ModelPath>
+    <ModelPath>C:\Users\heitor.araujo\Documents\wokspace\GM\Tests\TestsNx\Die ring.stl</ModelPath>
     <AnalysisIndex>0</AnalysisIndex>
     <Tabs>
       <TabCategory>
         <Name>Draw-In</Name>
         <Sensors>
           <Sensor>
-            <Id>58b4bf84-6796-417e-af67-3f5a04b5023f</Id>
+            <Id>d65250c1-09bb-4695-9aa8-5c24bf804a85</Id>
             <X>572.5</X>
             <Y>124.5</Y>
             <Z>0</Z>
@@ -18,64 +18,190 @@
             <Size>10</Size>
             <Values>
               <SensorValue>
-                <Value>-0.344952590458539</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.316586437316885</Value>
+                <Timestamp>2018-04-27T13:03:44.038</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.338648663525772</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.109283398422079</Value>
+                <Timestamp>2018-04-27T13:03:45.042</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.0222722734428348</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.271526248786378</Value>
+                <Timestamp>2018-04-27T13:03:46.043</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.403037283291592</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.150630865781862</Value>
+                <Timestamp>2018-04-27T13:03:47.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.375145550526281</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.799565097223765</Value>
+                <Timestamp>2018-04-27T13:03:48.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.934211169338883</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.488250296324608</Value>
+                <Timestamp>2018-04-27T13:03:49.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.17731003518091</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.389365669055546</Value>
+                <Timestamp>2018-04-27T13:03:50.045</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.610825051372324</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.399651999305772</Value>
+                <Timestamp>2018-04-27T13:03:51.047</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.653874049733334</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.717449787872587</Value>
+                <Timestamp>2018-04-27T13:03:52.047</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.358021392188045</Value>
+                <Timestamp>2018-04-27T13:03:53.047</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.856226464666532</Value>
+                <Timestamp>2018-04-27T13:05:52.51</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.198579017631048</Value>
+                <Timestamp>2018-04-27T13:05:53.516</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.195623182317067</Value>
+                <Timestamp>2018-04-27T13:05:54.516</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.604909635896287</Value>
+                <Timestamp>2018-04-27T13:05:55.517</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.89387314575439</Value>
+                <Timestamp>2018-04-27T13:05:56.519</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.289614478726692</Value>
+                <Timestamp>2018-04-27T13:05:57.52</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.987026226700761</Value>
+                <Timestamp>2018-04-27T13:05:58.521</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.704636670511512</Value>
+                <Timestamp>2018-04-27T13:05:59.521</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.724633789493066</Value>
+                <Timestamp>2018-04-27T13:06:00.522</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.931554911626296</Value>
+                <Timestamp>2018-04-27T13:06:01.523</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.220092331627427</Value>
+                <Timestamp>2018-04-27T13:29:22.418</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.709589744782816</Value>
+                <Timestamp>2018-04-27T13:29:23.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.205743349718742</Value>
+                <Timestamp>2018-04-27T13:29:24.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.109757675374745</Value>
+                <Timestamp>2018-04-27T13:29:25.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.539685556450712</Value>
+                <Timestamp>2018-04-27T13:29:26.424</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.28828322947411</Value>
+                <Timestamp>2018-04-27T13:29:27.424</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.847922524366492</Value>
+                <Timestamp>2018-04-27T13:29:28.425</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.911220797296251</Value>
+                <Timestamp>2018-04-27T13:29:29.427</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.494434628400223</Value>
+                <Timestamp>2018-04-27T13:29:30.427</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.246523226260451</Value>
+                <Timestamp>2018-04-27T13:29:31.428</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
               </SensorValue>
             </Values>
             <Visibility>true</Visibility>
           </Sensor>
           <Sensor>
-            <Id>6336e888-4dde-48c0-967d-b82b6efb569c</Id>
+            <Id>815f27cc-1c0f-4b3b-8703-cf136c130250</Id>
             <X>537.5</X>
             <Y>-155.5</Y>
             <Z>0</Z>
@@ -83,64 +209,190 @@
             <Size>10</Size>
             <Values>
               <SensorValue>
-                <Value>-0.233763157033251</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.492035607570799</Value>
+                <Timestamp>2018-04-27T13:03:44.038</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.257683144536653</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.708952387659323</Value>
+                <Timestamp>2018-04-27T13:03:45.042</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.303030488688047</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.307614401591762</Value>
+                <Timestamp>2018-04-27T13:03:46.043</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.728284286208583</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.512324709218147</Value>
+                <Timestamp>2018-04-27T13:03:47.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.507171664157497</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.783988887343551</Value>
+                <Timestamp>2018-04-27T13:03:48.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.595970105191679</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.855029937743689</Value>
+                <Timestamp>2018-04-27T13:03:49.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.946780178671135</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.227391859156728</Value>
+                <Timestamp>2018-04-27T13:03:50.045</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.288237043324968</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.780448627555952</Value>
+                <Timestamp>2018-04-27T13:03:51.047</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.650743266404953</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.837854502647116</Value>
+                <Timestamp>2018-04-27T13:03:52.047</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.855912577293773</Value>
+                <Timestamp>2018-04-27T13:03:53.047</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.447996767912058</Value>
+                <Timestamp>2018-04-27T13:05:52.51</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.680243765786404</Value>
+                <Timestamp>2018-04-27T13:05:53.516</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.888382995449185</Value>
+                <Timestamp>2018-04-27T13:05:54.516</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.0465010465339297</Value>
+                <Timestamp>2018-04-27T13:05:55.517</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.880848978590616</Value>
+                <Timestamp>2018-04-27T13:05:56.519</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.646329808815536</Value>
+                <Timestamp>2018-04-27T13:05:57.52</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.152406921215545</Value>
+                <Timestamp>2018-04-27T13:05:58.521</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.632256822489322</Value>
+                <Timestamp>2018-04-27T13:05:59.521</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.047903019491538</Value>
+                <Timestamp>2018-04-27T13:06:00.522</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.959767659176033</Value>
+                <Timestamp>2018-04-27T13:06:01.523</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.257787738581089</Value>
+                <Timestamp>2018-04-27T13:29:22.418</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.853184690630615</Value>
+                <Timestamp>2018-04-27T13:29:23.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.771319618342127</Value>
+                <Timestamp>2018-04-27T13:29:24.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.817746374671229</Value>
+                <Timestamp>2018-04-27T13:29:25.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.510083232778163</Value>
+                <Timestamp>2018-04-27T13:29:26.424</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.239304169658247</Value>
+                <Timestamp>2018-04-27T13:29:27.424</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.904300103850803</Value>
+                <Timestamp>2018-04-27T13:29:28.425</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.659075236720534</Value>
+                <Timestamp>2018-04-27T13:29:29.427</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.0922244512905481</Value>
+                <Timestamp>2018-04-27T13:29:30.427</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.0417825761445716</Value>
+                <Timestamp>2018-04-27T13:29:31.428</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
               </SensorValue>
             </Values>
             <Visibility>true</Visibility>
           </Sensor>
           <Sensor>
-            <Id>2c68d1da-5aea-441f-a0a7-3033624de611</Id>
+            <Id>9aa0919a-9242-4c06-bfb2-754df948df99</Id>
             <X>100</X>
             <Y>-175.5</Y>
             <Z>0</Z>
@@ -148,64 +400,190 @@
             <Size>10</Size>
             <Values>
               <SensorValue>
-                <Value>0.494726180794987</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.759601686969214</Value>
+                <Timestamp>2018-04-27T13:03:44.038</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.884165666943493</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.0913075986743475</Value>
+                <Timestamp>2018-04-27T13:03:45.042</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.297174895786296</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.386125516791886</Value>
+                <Timestamp>2018-04-27T13:03:46.043</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.786735121992759</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.347200844132901</Value>
+                <Timestamp>2018-04-27T13:03:47.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.97329906838634</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.850040617329087</Value>
+                <Timestamp>2018-04-27T13:03:48.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.0017772750005951</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.748026935266343</Value>
+                <Timestamp>2018-04-27T13:03:49.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.12320311792344</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.963314490375721</Value>
+                <Timestamp>2018-04-27T13:03:50.045</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.948762980265898</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.236769398318962</Value>
+                <Timestamp>2018-04-27T13:03:51.047</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.52404503129611</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.00452768756287525</Value>
+                <Timestamp>2018-04-27T13:03:52.047</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.365855969193325</Value>
+                <Timestamp>2018-04-27T13:03:53.047</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.566459481402514</Value>
+                <Timestamp>2018-04-27T13:05:52.51</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.00768234348282326</Value>
+                <Timestamp>2018-04-27T13:05:53.516</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.743897865407121</Value>
+                <Timestamp>2018-04-27T13:05:54.516</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.749439243110567</Value>
+                <Timestamp>2018-04-27T13:05:55.517</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.747379329869235</Value>
+                <Timestamp>2018-04-27T13:05:56.519</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.788831441564873</Value>
+                <Timestamp>2018-04-27T13:05:57.52</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.936365765489808</Value>
+                <Timestamp>2018-04-27T13:05:58.521</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.0423007724072322</Value>
+                <Timestamp>2018-04-27T13:05:59.521</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.124192230926916</Value>
+                <Timestamp>2018-04-27T13:06:00.522</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.786410455492516</Value>
+                <Timestamp>2018-04-27T13:06:01.523</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.163687696290988</Value>
+                <Timestamp>2018-04-27T13:29:22.418</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.758978518545152</Value>
+                <Timestamp>2018-04-27T13:29:23.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.286428898240639</Value>
+                <Timestamp>2018-04-27T13:29:24.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.104543573737398</Value>
+                <Timestamp>2018-04-27T13:29:25.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.0738280355342795</Value>
+                <Timestamp>2018-04-27T13:29:26.424</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.850732036796739</Value>
+                <Timestamp>2018-04-27T13:29:27.424</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.251412587823073</Value>
+                <Timestamp>2018-04-27T13:29:28.425</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.699359239870384</Value>
+                <Timestamp>2018-04-27T13:29:29.427</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.989720359439831</Value>
+                <Timestamp>2018-04-27T13:29:30.427</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.787890539405816</Value>
+                <Timestamp>2018-04-27T13:29:31.428</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
               </SensorValue>
             </Values>
             <Visibility>true</Visibility>
           </Sensor>
           <Sensor>
-            <Id>7a44a0b2-0576-40ab-9939-aa4ac309c539</Id>
+            <Id>5afd2f23-eff5-49a5-9836-21a4935f4650</Id>
             <X>-100</X>
             <Y>-175.5</Y>
             <Z>0</Z>
@@ -213,64 +591,190 @@
             <Size>10</Size>
             <Values>
               <SensorValue>
-                <Value>0.842110318058222</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.44339676641086</Value>
+                <Timestamp>2018-04-27T13:03:44.038</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.816284400325401</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.916884837633411</Value>
+                <Timestamp>2018-04-27T13:03:45.042</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.144691520903582</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.512058068770942</Value>
+                <Timestamp>2018-04-27T13:03:46.043</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.454585114239987</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.380045191096163</Value>
+                <Timestamp>2018-04-27T13:03:47.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.237466308864516</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.97381933684173</Value>
+                <Timestamp>2018-04-27T13:03:48.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.312263703584794</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.530256996643849</Value>
+                <Timestamp>2018-04-27T13:03:49.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.860961017134116</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.955001726725605</Value>
+                <Timestamp>2018-04-27T13:03:50.045</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.721051628571493</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.47493043238061</Value>
+                <Timestamp>2018-04-27T13:03:51.047</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.834784530026272</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.308295490829412</Value>
+                <Timestamp>2018-04-27T13:03:52.047</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.57365784029181</Value>
+                <Timestamp>2018-04-27T13:03:53.047</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.54774518289964</Value>
+                <Timestamp>2018-04-27T13:05:52.51</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.461161390627344</Value>
+                <Timestamp>2018-04-27T13:05:53.516</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.0586779597488596</Value>
+                <Timestamp>2018-04-27T13:05:54.516</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.86262518254231</Value>
+                <Timestamp>2018-04-27T13:05:55.517</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.134957915700487</Value>
+                <Timestamp>2018-04-27T13:05:56.519</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.864845355909711</Value>
+                <Timestamp>2018-04-27T13:05:57.52</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.478246782663393</Value>
+                <Timestamp>2018-04-27T13:05:58.521</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.27063152066927</Value>
+                <Timestamp>2018-04-27T13:05:59.521</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.214583370468851</Value>
+                <Timestamp>2018-04-27T13:06:00.522</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.202184966393833</Value>
+                <Timestamp>2018-04-27T13:06:01.523</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.000908467453396122</Value>
+                <Timestamp>2018-04-27T13:29:22.418</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.852177324635991</Value>
+                <Timestamp>2018-04-27T13:29:23.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.659720871439074</Value>
+                <Timestamp>2018-04-27T13:29:24.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.107798192234616</Value>
+                <Timestamp>2018-04-27T13:29:25.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.983181956216312</Value>
+                <Timestamp>2018-04-27T13:29:26.424</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.0963152149209359</Value>
+                <Timestamp>2018-04-27T13:29:27.424</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.789540782472836</Value>
+                <Timestamp>2018-04-27T13:29:28.425</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.854240018806532</Value>
+                <Timestamp>2018-04-27T13:29:29.427</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.594469726828146</Value>
+                <Timestamp>2018-04-27T13:29:30.427</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.0849122140020655</Value>
+                <Timestamp>2018-04-27T13:29:31.428</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
               </SensorValue>
             </Values>
             <Visibility>true</Visibility>
           </Sensor>
           <Sensor>
-            <Id>8deaad3e-48c9-4e01-a21f-78e8f04862e7</Id>
+            <Id>e1393383-6592-4283-9bf4-b2b5b54a5cf9</Id>
             <X>-552.5</X>
             <Y>-155.5</Y>
             <Z>0</Z>
@@ -278,64 +782,190 @@
             <Size>10</Size>
             <Values>
               <SensorValue>
-                <Value>-0.413624135504302</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.318635896462312</Value>
+                <Timestamp>2018-04-27T13:03:44.038</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.646512108690344</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.361308886372163</Value>
+                <Timestamp>2018-04-27T13:03:45.042</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.288986385468853</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.892815313252069</Value>
+                <Timestamp>2018-04-27T13:03:46.043</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.0429794262363479</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.282477182002029</Value>
+                <Timestamp>2018-04-27T13:03:47.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.153309787229313</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.558764610234073</Value>
+                <Timestamp>2018-04-27T13:03:48.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.062551257695328</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.267314120785945</Value>
+                <Timestamp>2018-04-27T13:03:49.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.418717155893667</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.695278421833775</Value>
+                <Timestamp>2018-04-27T13:03:50.045</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.00447012344583408</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.514150729176658</Value>
+                <Timestamp>2018-04-27T13:03:51.047</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.832738290462987</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.335502043057001</Value>
+                <Timestamp>2018-04-27T13:03:52.047</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.00182414660315222</Value>
+                <Timestamp>2018-04-27T13:03:53.047</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.465085757647215</Value>
+                <Timestamp>2018-04-27T13:05:52.51</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.508404896365667</Value>
+                <Timestamp>2018-04-27T13:05:53.516</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.483547980656637</Value>
+                <Timestamp>2018-04-27T13:05:54.516</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.702188076312741</Value>
+                <Timestamp>2018-04-27T13:05:55.517</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.308876916444337</Value>
+                <Timestamp>2018-04-27T13:05:56.519</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.621843335973957</Value>
+                <Timestamp>2018-04-27T13:05:57.52</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.684257842453317</Value>
+                <Timestamp>2018-04-27T13:05:58.521</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.948501920303564</Value>
+                <Timestamp>2018-04-27T13:05:59.521</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.31892110655034</Value>
+                <Timestamp>2018-04-27T13:06:00.522</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.320003549251707</Value>
+                <Timestamp>2018-04-27T13:06:01.523</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.832275093454996</Value>
+                <Timestamp>2018-04-27T13:29:22.418</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.709176959334489</Value>
+                <Timestamp>2018-04-27T13:29:23.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.31718743281308</Value>
+                <Timestamp>2018-04-27T13:29:24.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.794345873312254</Value>
+                <Timestamp>2018-04-27T13:29:25.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.600735756382689</Value>
+                <Timestamp>2018-04-27T13:29:26.424</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.901829319960358</Value>
+                <Timestamp>2018-04-27T13:29:27.424</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.309174853986676</Value>
+                <Timestamp>2018-04-27T13:29:28.425</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.312210615404048</Value>
+                <Timestamp>2018-04-27T13:29:29.427</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.472717548475004</Value>
+                <Timestamp>2018-04-27T13:29:30.427</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.884092404453127</Value>
+                <Timestamp>2018-04-27T13:29:31.428</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
               </SensorValue>
             </Values>
             <Visibility>true</Visibility>
           </Sensor>
           <Sensor>
-            <Id>e0c3c9b2-634a-4938-b57e-950614681df7</Id>
+            <Id>80b57555-58a8-4321-ba41-7e57713c4094</Id>
             <X>-572.5</X>
             <Y>124.5</Y>
             <Z>0</Z>
@@ -343,64 +973,190 @@
             <Size>10</Size>
             <Values>
               <SensorValue>
-                <Value>0.928443982232569</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.236224425600946</Value>
+                <Timestamp>2018-04-27T13:03:44.038</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.406577728412383</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.184600822247845</Value>
+                <Timestamp>2018-04-27T13:03:45.042</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.194128992592045</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.0902052992443578</Value>
+                <Timestamp>2018-04-27T13:03:46.043</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.883718276342246</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.52013973217464</Value>
+                <Timestamp>2018-04-27T13:03:47.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.0188853866508628</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.372968070848364</Value>
+                <Timestamp>2018-04-27T13:03:48.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.550071742176112</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.991027964274878</Value>
+                <Timestamp>2018-04-27T13:03:49.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.935392480313495</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.596958689203932</Value>
+                <Timestamp>2018-04-27T13:03:50.045</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.0998282363171821</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.0555151361299284</Value>
+                <Timestamp>2018-04-27T13:03:51.047</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.00177726475604678</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.295600928038173</Value>
+                <Timestamp>2018-04-27T13:03:52.047</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.427826761932963</Value>
+                <Timestamp>2018-04-27T13:03:53.047</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.489637986519205</Value>
+                <Timestamp>2018-04-27T13:05:52.51</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.8278141486588</Value>
+                <Timestamp>2018-04-27T13:05:53.516</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.847454310323789</Value>
+                <Timestamp>2018-04-27T13:05:54.516</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.260339721692884</Value>
+                <Timestamp>2018-04-27T13:05:55.517</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.596155558524726</Value>
+                <Timestamp>2018-04-27T13:05:56.519</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.967843469217347</Value>
+                <Timestamp>2018-04-27T13:05:57.52</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.847922028902882</Value>
+                <Timestamp>2018-04-27T13:05:58.521</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.314774203726451</Value>
+                <Timestamp>2018-04-27T13:05:59.521</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.958579827080751</Value>
+                <Timestamp>2018-04-27T13:06:00.522</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.0462800669699349</Value>
+                <Timestamp>2018-04-27T13:06:01.523</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.405776603802003</Value>
+                <Timestamp>2018-04-27T13:29:22.418</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.626594953996406</Value>
+                <Timestamp>2018-04-27T13:29:23.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.42564990903514</Value>
+                <Timestamp>2018-04-27T13:29:24.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.79073986308218</Value>
+                <Timestamp>2018-04-27T13:29:25.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.507138752149017</Value>
+                <Timestamp>2018-04-27T13:29:26.424</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.448772713285299</Value>
+                <Timestamp>2018-04-27T13:29:27.424</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.527336119454045</Value>
+                <Timestamp>2018-04-27T13:29:28.425</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.695660116940579</Value>
+                <Timestamp>2018-04-27T13:29:29.427</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.870453505716498</Value>
+                <Timestamp>2018-04-27T13:29:30.427</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.443985660301515</Value>
+                <Timestamp>2018-04-27T13:29:31.428</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
               </SensorValue>
             </Values>
             <Visibility>true</Visibility>
           </Sensor>
           <Sensor>
-            <Id>1cc3f7bf-d210-44e6-9c7d-6c45f470fd06</Id>
+            <Id>7f8e1bb9-d272-49b8-b782-92fb11bcc6a4</Id>
             <X>0</X>
             <Y>129.5</Y>
             <Z>0</Z>
@@ -408,58 +1164,184 @@
             <Size>10</Size>
             <Values>
               <SensorValue>
-                <Value>-0.140696368711393</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.565734246543485</Value>
+                <Timestamp>2018-04-27T13:03:44.038</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.458594193429963</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.750804738025556</Value>
+                <Timestamp>2018-04-27T13:03:45.042</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.44293482855099</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.374409905343507</Value>
+                <Timestamp>2018-04-27T13:03:46.043</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:34:00.916</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.319470482561491</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.415747178446384</Value>
+                <Timestamp>2018-04-27T13:03:47.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.883353039567989</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.192344912883055</Value>
+                <Timestamp>2018-04-27T13:03:48.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.95481344589722</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.121838875637315</Value>
+                <Timestamp>2018-04-27T13:03:49.044</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 23:39:33.772</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.763947764301648</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>0.0561532317922233</Value>
+                <Timestamp>2018-04-27T13:03:50.045</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.252843426192572</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.457573784262675</Value>
+                <Timestamp>2018-04-27T13:03:51.047</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.714528949798331</Value>
-                <Timestamp>2011-08-02T19:25:23.123</Timestamp>
+                <Value>-0.26035164448449</Value>
+                <Timestamp>2018-04-27T13:03:52.047</Timestamp>
                 <Parameter>temperature</Parameter>
-                <AnalysisName>Analysis 01:07:53.495</AnalysisName>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.820674396967829</Value>
+                <Timestamp>2018-04-27T13:03:53.047</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:03:44.270</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.866289556895518</Value>
+                <Timestamp>2018-04-27T13:05:52.51</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.122860469446918</Value>
+                <Timestamp>2018-04-27T13:05:53.516</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.502611759818444</Value>
+                <Timestamp>2018-04-27T13:05:54.516</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.532450819170312</Value>
+                <Timestamp>2018-04-27T13:05:55.517</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.877179479169277</Value>
+                <Timestamp>2018-04-27T13:05:56.519</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.19189463331918</Value>
+                <Timestamp>2018-04-27T13:05:57.52</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.930804522675837</Value>
+                <Timestamp>2018-04-27T13:05:58.521</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.635762325318419</Value>
+                <Timestamp>2018-04-27T13:05:59.521</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.257669604969057</Value>
+                <Timestamp>2018-04-27T13:06:00.522</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.817214744080424</Value>
+                <Timestamp>2018-04-27T13:06:01.523</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:05:52.741</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.373936500108771</Value>
+                <Timestamp>2018-04-27T13:29:22.418</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.128869875859874</Value>
+                <Timestamp>2018-04-27T13:29:23.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.253699128168495</Value>
+                <Timestamp>2018-04-27T13:29:24.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.537815751292657</Value>
+                <Timestamp>2018-04-27T13:29:25.423</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.0799154625646377</Value>
+                <Timestamp>2018-04-27T13:29:26.424</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.455783363178272</Value>
+                <Timestamp>2018-04-27T13:29:27.424</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.251358883106783</Value>
+                <Timestamp>2018-04-27T13:29:28.425</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.302508417192152</Value>
+                <Timestamp>2018-04-27T13:29:29.427</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.668478411467969</Value>
+                <Timestamp>2018-04-27T13:29:30.427</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.238504179398764</Value>
+                <Timestamp>2018-04-27T13:29:31.428</Timestamp>
+                <Parameter>temperature</Parameter>
+                <AnalysisName>Analysis 10:29:22.655</AnalysisName>
               </SensorValue>
             </Values>
             <Visibility>true</Visibility>
@@ -467,31 +1349,31 @@
         </Sensors>
         <Analysis>
           <Analysis>
-            <Name>Analysis 23:39:33.772</Name>
-            <Date>26/04/2018</Date>
-            <Time>23:39:33.772</Time>
+            <Name>Analysis 10:03:44.270</Name>
+            <Date>27/04/2018</Date>
+            <Time>10:03:44.270</Time>
             <SensorsIds>
-              <string>58b4bf84-6796-417e-af67-3f5a04b5023f</string>
-              <string>6336e888-4dde-48c0-967d-b82b6efb569c</string>
-              <string>2c68d1da-5aea-441f-a0a7-3033624de611</string>
-              <string>7a44a0b2-0576-40ab-9939-aa4ac309c539</string>
-              <string>8deaad3e-48c9-4e01-a21f-78e8f04862e7</string>
-              <string>e0c3c9b2-634a-4938-b57e-950614681df7</string>
-              <string>1cc3f7bf-d210-44e6-9c7d-6c45f470fd06</string>
+              <string>d65250c1-09bb-4695-9aa8-5c24bf804a85</string>
+              <string>815f27cc-1c0f-4b3b-8703-cf136c130250</string>
+              <string>9aa0919a-9242-4c06-bfb2-754df948df99</string>
+              <string>5afd2f23-eff5-49a5-9836-21a4935f4650</string>
+              <string>e1393383-6592-4283-9bf4-b2b5b54a5cf9</string>
+              <string>80b57555-58a8-4321-ba41-7e57713c4094</string>
+              <string>7f8e1bb9-d272-49b8-b782-92fb11bcc6a4</string>
             </SensorsIds>
           </Analysis>
           <Analysis>
-            <Name>Analysis 01:07:53.495</Name>
+            <Name>Analysis 10:29:22.655</Name>
             <Date>27/04/2018</Date>
-            <Time>01:07:53.495</Time>
+            <Time>10:29:22.655</Time>
             <SensorsIds>
-              <string>58b4bf84-6796-417e-af67-3f5a04b5023f</string>
-              <string>6336e888-4dde-48c0-967d-b82b6efb569c</string>
-              <string>2c68d1da-5aea-441f-a0a7-3033624de611</string>
-              <string>7a44a0b2-0576-40ab-9939-aa4ac309c539</string>
-              <string>8deaad3e-48c9-4e01-a21f-78e8f04862e7</string>
-              <string>e0c3c9b2-634a-4938-b57e-950614681df7</string>
-              <string>1cc3f7bf-d210-44e6-9c7d-6c45f470fd06</string>
+              <string>d65250c1-09bb-4695-9aa8-5c24bf804a85</string>
+              <string>815f27cc-1c0f-4b3b-8703-cf136c130250</string>
+              <string>9aa0919a-9242-4c06-bfb2-754df948df99</string>
+              <string>5afd2f23-eff5-49a5-9836-21a4935f4650</string>
+              <string>e1393383-6592-4283-9bf4-b2b5b54a5cf9</string>
+              <string>80b57555-58a8-4321-ba41-7e57713c4094</string>
+              <string>7f8e1bb9-d272-49b8-b782-92fb11bcc6a4</string>
             </SensorsIds>
           </Analysis>
         </Analysis>
