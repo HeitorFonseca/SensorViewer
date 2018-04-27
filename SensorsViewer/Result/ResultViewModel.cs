@@ -83,9 +83,14 @@ namespace SensorsViewer.Result
         /// <summary>
         /// Interpolation vertex
         /// </summary>
-        private Vertex[] vertices;
+        private Vertex[][] vertices;
 
         private Interpolation interpolation;
+
+        private int dataCounter;
+
+        private int maxSlider;
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ResultViewModel"/> class
@@ -93,6 +98,9 @@ namespace SensorsViewer.Result
         public ResultViewModel()
         {
             this.ViewMode = false;
+            this.Slider = 0;
+            this.dataCounter = 0;
+            this.maxSlider = 0;
 
             this.ViewPort3d = new HelixViewport3D();
             this.device3D = new ModelVisual3D();
@@ -104,6 +112,8 @@ namespace SensorsViewer.Result
             this.SensorsVisibility = Visibility.Visible;
             this.InterpVisibility = Visibility.Collapsed;
 
+            this.vertices = new Vertex[10][];
+
         }
 
         /// <summary>
@@ -114,6 +124,10 @@ namespace SensorsViewer.Result
         public ResultViewModel(IEnumerable<Sensor> sensors, string path)
         {
             this.ViewMode = false;
+            this.Slider = 0;
+            this.dataCounter = 0;
+            this.maxSlider = 0;
+
             this.Sensors = sensors;
             this.ViewPort3d = new HelixViewport3D();
             this.device3D = new ModelVisual3D();
@@ -130,6 +144,9 @@ namespace SensorsViewer.Result
             this.InterpVisibility = Visibility.Hidden;
 
             this.interpolation = new Interpolation(modelMesh, sensors);
+
+            this.vertices = new Vertex[10][];
+
         }
 
         /// <summary>
@@ -141,6 +158,10 @@ namespace SensorsViewer.Result
         public ResultViewModel(IEnumerable<Sensor> sensors, string path, string analysisName)
         {
             this.ViewMode = false;
+            this.Slider = 0;
+            this.dataCounter = 0;
+            this.maxSlider = 0;
+
             this.Sensors = sensors;
 
             this.ViewPort3d = new HelixViewport3D();
@@ -158,6 +179,8 @@ namespace SensorsViewer.Result
             this.InterpVisibility = Visibility.Hidden;
 
             this.interpolation = new Interpolation(modelMesh, sensors);
+
+            this.vertices = new Vertex[10][];
 
         }
 
@@ -253,6 +276,29 @@ namespace SensorsViewer.Result
         /// Gets or sets a value indicating whether View Mode
         /// </summary>
         public bool ViewMode { get; set; }
+
+        /// <summary>
+        /// Gets or sets a slider value
+        /// </summary>
+        public int Slider { get; set; }
+
+        /// <summary>
+        /// Gets or sets a slider value
+        /// </summary>
+        public int MaxSlider
+        {
+            get
+            {                
+                return this.maxSlider;
+            }
+
+            set
+            {
+                this.maxSlider = value;
+                this.OnPropertyChanged("MaxSlider");
+
+            }
+        }
 
         /// <summary>
         /// Gets or sets Model X dimension
@@ -388,7 +434,9 @@ namespace SensorsViewer.Result
 
             if (this.modelMesh != null)
             {
-                this.vertices = this.interpolation.Interpolate2(modelMesh, sensors);               
+                this.vertices[this.dataCounter++] = this.interpolation.Interpolate2(modelMesh, sensors);
+                this.MaxSlider = dataCounter - 1;
+                this.Slider = this.MaxSlider;
             }
 
             this.GroupModel = this.sensorGroupModel;
@@ -427,7 +475,7 @@ namespace SensorsViewer.Result
         /// <param name="parameter">object parameter</param>
         private void OpenGLControl_OpenGLDraw(object parameter)
         {
-            if (this.vertices == null)
+            if (this.vertices == null || this.vertices[Slider] == null)
             {
                 return;
             }
@@ -450,13 +498,13 @@ namespace SensorsViewer.Result
 
             gl.Begin(OpenGL.GL_TRIANGLES);
 
-            for (int i = 0; i < this.vertices.Count(); i++)
+            for (int i = 0; i < this.vertices[Slider].Count(); i++)
             {
-                Color asd = Interpolation.GetHeatMapColor(this.vertices[i].Z, -1, +1);
+                Color asd = Interpolation.GetHeatMapColor(this.vertices[Slider][i].Z, -1, +1);
 
                 gl.Color(asd.R / (float)255, asd.G / (float)255, asd.B / (float)255);
                 ////gl.Color(0.5f, 0.5f, 0.5f);
-                gl.Vertex(this.vertices[i].X/100, this.vertices[i].Y/100, 0.0f);
+                gl.Vertex(this.vertices[Slider][i].X/100, this.vertices[Slider][i].Y/100, 0.0f);
             }
 
             gl.End();

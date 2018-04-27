@@ -45,7 +45,7 @@ namespace SensorsViewer.Result
             offsetX = Convert.ToInt32(modelMesh.Bounds.X);
             offsetY = Convert.ToInt32(modelMesh.Bounds.Y);
 
-            if (sensorsDataList.Count() > 1)
+            if (sensorsDataList.Count() > 1 )
             {
                 sensorDictionary = FillSensorDataDictionary2(sensorsDataList);
                 BuildDictionary2(modelMesh, sensorDictionary);
@@ -868,15 +868,24 @@ namespace SensorsViewer.Result
 
             // For each sensor in list, get the coordinates to preprocessing
             foreach (Sensor sd in sensorsDataList)
-            {
+            {               
                 int x = Convert.ToInt32(Math.Round(sd.X));
                 int y = Convert.ToInt32(Math.Round(sd.Y));
 
                 Tuple<int, int> key = new Tuple<int, int>(x, y);
                 Tuple<int, int> key2 = new Tuple<int, int>(x / 10, y / 10);
 
-                sensorDictionary.Add(key, sd.Values.Last().Value);
-                modelTrianglePoints[key2] = sd.Values.Last().Value; //Update the coordinate of the sensors with the real value
+                if (sd.Values.Count > 0)
+                {
+                    sensorDictionary.Add(key, sd.Values.Last().Value);
+                    modelTrianglePoints[key2] = sd.Values.Last().Value; //Update the coordinate of the sensors with the real value
+                }
+                else
+                {
+                    sensorDictionary.Add(key, 0);
+                    modelTrianglePoints[key2] = 0; //Update the coordinate of the sensors with the real value
+                }
+                
             }
 
             return sensorDictionary;

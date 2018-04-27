@@ -76,9 +76,10 @@
         </StackPanel>
 
             <Slider AutoToolTipPlacement="BottomRight"
-                    Maximum="3"
+                    Maximum="{Binding MaxSlider}"
                     Minimum="0"
-                    Value="{Binding ElementName=HamburgerMenuControl, Path=SelectedIndex, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                    Value="{Binding Slider, Mode=TwoWay}" 
+                    VerticalAlignment="Bottom"/>
 
     </Grid>
 </UserControl>
