@@ -21,6 +21,8 @@ namespace SensorsViewer.SensorOption
         /// </summary>
         private bool visibility = false;
 
+        private string parameterString = "direction";
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Sensor"/> class
         /// </summary>
@@ -135,12 +137,17 @@ namespace SensorsViewer.SensorOption
         {
             get
             {
-                if (this.Values.Count > 0)
+                IEnumerable<IGrouping<string, SensorValue>> group = this.Values.GroupBy(a => a.Parameter);
+
+                foreach (IGrouping<string, SensorValue> gp in group)
                 {
-                    return this.Values.Min(a => a.Value).ToString();
-                }
+                    if (gp.Key != this.parameterString && gp.Count() > 0)
+                    {
+                        return gp.Min(a => a.Value).ToString();
+                    }
+                }               
                
-                 return "-";                
+                return "-";                
             }
         }
 
@@ -151,14 +158,17 @@ namespace SensorsViewer.SensorOption
         {
             get
             {
-                if (this.Values.Count > 0)
+                IEnumerable<IGrouping<string, SensorValue>> group = this.Values.GroupBy(a => a.Parameter);
+
+                foreach (IGrouping<string, SensorValue> gp in group)
                 {
-                    return this.CalculateIntegral().ToString();
+                    if (gp.Key != this.parameterString && gp.Count() > 0)
+                    {                        
+                        return this.CalculateIntegral(gp).ToString();
+                    }
                 }
-                else
-                {
-                    return "-";
-                }
+
+                return "-";
             }
         }
 
@@ -192,17 +202,18 @@ namespace SensorsViewer.SensorOption
         /// Calculate Integral of values
         /// </summary>
         /// <returns>Returns the integral of value</returns>
-        public double CalculateIntegral()
+        public double CalculateIntegral(IGrouping<string, SensorValue> gp)
         {
+            List<SensorValue> svl = gp.ToList();
             double sum = 0;
-            for (int i = 0; i < this.Values.Count - 1; i++)
+            for (int i = 0; i < svl.Count - 1; i++)
             {
-                DateTime x1 = this.Values[i].Timestamp; ////DateTime.ParseExact(this.Values[i].Timestamp, "dd/MM/yyyy HH:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture);
+                DateTime x1 = svl[i].Timestamp; ////DateTime.ParseExact(this.Values[i].Timestamp, "dd/MM/yyyy HH:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture);
 
-                DateTime x2 = this.Values[i + 1].Timestamp; ////DateTime.ParseExact(this.Values[i + 1].Timestamp, "dd/MM/yyyy HH:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture);
+                DateTime x2 = svl[i + 1].Timestamp; ////DateTime.ParseExact(this.Values[i + 1].Timestamp, "dd/MM/yyyy HH:mm:ss.fff", System.Globalization.CultureInfo.InvariantCulture);
 
                 double dx = (x2 - x1).TotalMilliseconds;
-                double funcValue = this.Values[i].Value;
+                double funcValue = svl[i].Value;
                 double rectangleArea = funcValue * dx;
                 sum += rectangleArea;
             }

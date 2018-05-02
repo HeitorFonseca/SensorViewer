@@ -221,9 +221,6 @@
     </timestamps>
     <violations />
   </sourcecode>
-  <project key="388818532">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="MqttConnection.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2018/02/05 09:39:00.579</styleCop>
@@ -292,35 +289,6 @@
       <StyleCop.CSharp.SpacingRules.FilesHashCode>0</StyleCop.CSharp.SpacingRules.FilesHashCode>
     </timestamps>
     <violations />
-  </sourcecode>
-  <sourcecode name="HomeViewModel.cs" parser="StyleCop.CSharp.CsParser">
-    <timestamps>
-      <styleCop>2018/02/05 09:39:00.579</styleCop>
-      <settingsFile>2018/04/13 10:31:13.864</settingsFile>
-      <sourceFile>2018/04/13 10:03:07.330</sourceFile>
-      <parser>2018/02/05 09:39:00.579</parser>
-      <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
-      <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
-      <StyleCop.CSharp.LayoutRules>2018/02/05 09:39:00.579</StyleCop.CSharp.LayoutRules>
-      <StyleCop.CSharp.LayoutRules.FilesHashCode>0</StyleCop.CSharp.LayoutRules.FilesHashCode>
-      <StyleCop.CSharp.MaintainabilityRules>2018/02/05 09:39:00.579</StyleCop.CSharp.MaintainabilityRules>
-      <StyleCop.CSharp.MaintainabilityRules.FilesHashCode>0</StyleCop.CSharp.MaintainabilityRules.FilesHashCode>
-      <StyleCop.CSharp.NamingRules>2018/02/05 09:39:00.579</StyleCop.CSharp.NamingRules>
-      <StyleCop.CSharp.NamingRules.FilesHashCode>0</StyleCop.CSharp.NamingRules.FilesHashCode>
-      <StyleCop.CSharp.OrderingRules>2018/02/05 09:39:00.579</StyleCop.CSharp.OrderingRules>
-      <StyleCop.CSharp.OrderingRules.FilesHashCode>0</StyleCop.CSharp.OrderingRules.FilesHashCode>
-      <StyleCop.CSharp.ReadabilityRules>2018/02/05 09:39:00.579</StyleCop.CSharp.ReadabilityRules>
-      <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
-      <StyleCop.CSharp.SpacingRules>2018/02/05 09:39:00.579</StyleCop.CSharp.SpacingRules>
-      <StyleCop.CSharp.SpacingRules.FilesHashCode>0</StyleCop.CSharp.SpacingRules.FilesHashCode>
-    </timestamps>
-    <violations>
-      <violation namespace="StyleCop.CSharp.DocumentationRules" rule="ElementsMustBeDocumented" ruleCheckId="SA1600">
-        <context>The field must have a documentation header.</context>
-        <line>113</line>
-        <warning>False</warning>
-      </violation>
-    </violations>
   </sourcecode>
   <sourcecode name="ProjectItem.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
@@ -1589,5 +1557,37 @@
       <StyleCop.CSharp.SpacingRules.FilesHashCode>0</StyleCop.CSharp.SpacingRules.FilesHashCode>
     </timestamps>
     <violations />
+  </sourcecode>
+  <project key="388818532">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
+  <sourcecode name="HomeViewModel.cs" parser="StyleCop.CSharp.CsParser">
+    <timestamps>
+      <styleCop>2018/02/05 09:39:00.579</styleCop>
+      <settingsFile>2018/04/13 14:35:45.903</settingsFile>
+      <sourceFile>2018/05/02 14:56:45.692</sourceFile>
+      <parser>2018/02/05 09:39:00.579</parser>
+      <StyleCop.CSharp.DocumentationRules>2018/02/05 09:39:00.579</StyleCop.CSharp.DocumentationRules>
+      <StyleCop.CSharp.DocumentationRules.FilesHashCode>0</StyleCop.CSharp.DocumentationRules.FilesHashCode>
+      <StyleCop.CSharp.LayoutRules>2018/02/05 09:39:00.579</StyleCop.CSharp.LayoutRules>
+      <StyleCop.CSharp.LayoutRules.FilesHashCode>0</StyleCop.CSharp.LayoutRules.FilesHashCode>
+      <StyleCop.CSharp.MaintainabilityRules>2018/02/05 09:39:00.579</StyleCop.CSharp.MaintainabilityRules>
+      <StyleCop.CSharp.MaintainabilityRules.FilesHashCode>0</StyleCop.CSharp.MaintainabilityRules.FilesHashCode>
+      <StyleCop.CSharp.NamingRules>2018/02/05 09:39:00.579</StyleCop.CSharp.NamingRules>
+      <StyleCop.CSharp.NamingRules.FilesHashCode>0</StyleCop.CSharp.NamingRules.FilesHashCode>
+      <StyleCop.CSharp.OrderingRules>2018/02/05 09:39:00.579</StyleCop.CSharp.OrderingRules>
+      <StyleCop.CSharp.OrderingRules.FilesHashCode>0</StyleCop.CSharp.OrderingRules.FilesHashCode>
+      <StyleCop.CSharp.ReadabilityRules>2018/02/05 09:39:00.579</StyleCop.CSharp.ReadabilityRules>
+      <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
+      <StyleCop.CSharp.SpacingRules>2018/02/05 09:39:00.579</StyleCop.CSharp.SpacingRules>
+      <StyleCop.CSharp.SpacingRules.FilesHashCode>0</StyleCop.CSharp.SpacingRules.FilesHashCode>
+    </timestamps>
+    <violations>
+      <violation namespace="StyleCop.CSharp.CsParser" rule="SyntaxException" ruleCheckId="SA0102">
+        <context>A syntax error has been discovered in file C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\Home\HomeViewModel.cs on line 728.</context>
+        <line>728</line>
+        <warning>False</warning>
+      </violation>
+    </violations>
   </sourcecode>
 </stylecopresultscache>

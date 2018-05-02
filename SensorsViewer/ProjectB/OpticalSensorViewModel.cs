@@ -38,7 +38,10 @@ namespace SensorsViewer.ProjectB
         /// </summary>
         private string sensorsFilePath;
 
+        private string parameterString = "direction";
+
         private double _axisMax;
+
         private double _axisMin;
 
         /// <summary>
@@ -279,8 +282,10 @@ namespace SensorsViewer.ProjectB
                         if (v.AnalysisName == analysisName)
                         {
                             DateModel dm = new DateModel() { DateTime = v.Timestamp, Value = v.Value };
+
                             // Chart
-                            newLs.Values.Add(dm);
+                            if (v.Parameter != parameterString)
+                                newLs.Values.Add(dm);
 
                             // Update Log
                             SensorOption.Sensor s = new SensorOption.Sensor(sensor.SensorName);

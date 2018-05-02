@@ -95,6 +95,8 @@ namespace SensorsViewer.Result
 
         private int slider;
 
+        private int vectorSize = 11;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ResultViewModel"/> class
         /// </summary>
@@ -105,8 +107,8 @@ namespace SensorsViewer.Result
             this.dataCounter = 0;
             this.maxSlider = 0;
 
-            this.vertices = new Vertex[10][];
-            this.sensorModelArray = new List<GeometryModel3D>[10];
+            this.vertices = new Vertex[vectorSize][];
+            this.sensorModelArray = new List<GeometryModel3D>[vectorSize];
 
             this.ViewPort3d = new HelixViewport3D();
             this.device3D = new ModelVisual3D();
@@ -116,8 +118,8 @@ namespace SensorsViewer.Result
             this.OpenGLInitializedCommand = new RelayCommand(this.OpenGLControl_OpenGLInitialized);
             this.OpenGLDraw = new RelayCommand(this.OpenGLControl_OpenGLDraw);
             this.OpenGLResized = new RelayCommand(this.OpenGLControl_Resized);
-            this.SensorsVisibility = Visibility.Visible;
-            this.InterpVisibility = Visibility.Collapsed;            
+            this.SensorsVisibility = Visibility.Hidden;
+            this.InterpVisibility = Visibility.Visible;            
         }
 
         /// <summary>
@@ -132,8 +134,8 @@ namespace SensorsViewer.Result
             this.dataCounter = 0;
             this.maxSlider = 0;
 
-            this.vertices = new Vertex[10][];
-            this.sensorModelArray = new List<GeometryModel3D>[10];
+            this.vertices = new Vertex[vectorSize][];
+            this.sensorModelArray = new List<GeometryModel3D>[vectorSize];
 
             this.Sensors = sensors;
             this.ViewPort3d = new HelixViewport3D();
@@ -146,13 +148,13 @@ namespace SensorsViewer.Result
             this.OpenGLResized = new RelayCommand(this.OpenGLControl_Resized);
 
             this.LoadStlModel(path);
-            this.LoadSensorsInModel(sensors, string.Empty);
-
-            this.SensorsVisibility = Visibility.Visible;
-            this.InterpVisibility = Visibility.Hidden;
 
             this.interpolation = new Interpolation(modelMesh, sensors);
 
+            this.LoadSensorsInModel(sensors, string.Empty);
+
+            this.SensorsVisibility = Visibility.Hidden;
+            this.InterpVisibility = Visibility.Visible;
 
         }
 
@@ -171,8 +173,9 @@ namespace SensorsViewer.Result
 
             this.Sensors = sensors;
 
-            this.sensorModelArray = new List<GeometryModel3D>[10];
-            this.vertices = new Vertex[10][];
+            this.sensorModelArray = new List<GeometryModel3D>[vectorSize];
+            this.vertices = new Vertex[vectorSize][];
+
 
             this.ViewPort3d = new HelixViewport3D();
             this.device3D = new ModelVisual3D();
@@ -184,14 +187,13 @@ namespace SensorsViewer.Result
             this.OpenGLResized = new RelayCommand(this.OpenGLControl_Resized);
 
             this.LoadStlModel(path);
-            this.LoadSensorsInModel(sensors, analysisName);
-
-            this.SensorsVisibility = Visibility.Visible;
-            this.InterpVisibility = Visibility.Hidden;
 
             this.interpolation = new Interpolation(modelMesh, sensors);
 
+            this.LoadSensorsInModel(sensors, analysisName);
 
+            this.SensorsVisibility = Visibility.Hidden;
+            this.InterpVisibility = Visibility.Visible;
         }
 
         #region PropertyDeclaration
@@ -362,8 +364,7 @@ namespace SensorsViewer.Result
 
             this.sensorGroupModel.Children.Add(this.stlModel); // Add in sensor group model
 
-            this.device3D.Content = this.groupModel; 
-            
+            this.device3D.Content = this.groupModel;             
         }
 
         /// <summary>
@@ -375,7 +376,6 @@ namespace SensorsViewer.Result
         {
             this.ViewPort3d.Children.Remove(this.device3D);
 
-            //this.sensorModelList.Clear();
             this.sensorGroupModel.Children.Clear();
             this.sensorGroupModel.Children.Add(this.stlModel);
 
@@ -383,28 +383,42 @@ namespace SensorsViewer.Result
 
             foreach (Sensor sensor in sensors)
             {
-                Color color;
+                MeshBuilder meshBuilder = new MeshBuilder();
+
+                Color color = new Color() { A = 255, R = 255, G = 255, B = 0 };
 
                 if (sensor.Values.Count != 0 && !string.IsNullOrEmpty(analysisName))
                 {
+                    // Get data from analysis 
                     IEnumerable<SensorValue> svc = from values in sensor.Values where values.AnalysisName == analysisName select values;
 
                     if (svc.Count() > 0)
                     {
-                        SensorValue last = svc.Last();
-                        color = Interpolation.GetHeatMapColor(last.Value, -1, +1);
+                        // Group by parameters
+                        IEnumerable<IGrouping<string, SensorValue>> asd = svc.GroupBy(a => a.Parameter);
+                        foreach (IGrouping<string, SensorValue> gp in asd)
+                        {
+                            // If parameter is direction then add arrow with the value
+                            if (gp.Key == parameterString)
+                            {
+                                double cte = gp.Last().Value * Math.PI / 180;
+
+                                Point3D newPoint = new Point3D(sensor.X + 4 * sensor.Size * Math.Cos(cte), sensor.Y + 4 * sensor.Size * Math.Sin(cte), sensor.Z);
+                                meshBuilder.AddArrow(new Point3D(sensor.X, sensor.Y, sensor.Z), newPoint, 3);
+                            }
+                            else
+                            {
+                                // With the respective color
+                                color = Interpolation.GetHeatMapColor(gp.Last().Value, -1, +1);
+                            }
+                        }
                     }
                     else
                     {
                         color = new Color() { A = 255, R = 255, G = 255, B = 0 };
                     }
                 }
-                else
-                {
-                    color = new Color() { A = 255, R = 255, G = 255, B = 0 };
-                }
-
-                MeshBuilder meshBuilder = new MeshBuilder();
+              
                 
                 meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sensor.Size, sensor.Size, this.sizeZ);               
 
@@ -413,6 +427,13 @@ namespace SensorsViewer.Result
                 this.sensorModelArray[dataCounter].Add(sensorModel);
 
                 this.sensorGroupModel.Children.Add(sensorModel);
+            }
+
+            if (this.modelMesh != null)
+            {
+                this.vertices[this.dataCounter++] = this.interpolation.Interpolate2(modelMesh, SensorsNotParameter(sensors));
+                this.MaxSlider = dataCounter - 1;
+                this.Slider = this.MaxSlider;
             }
 
             this.GroupModel = this.sensorGroupModel;
@@ -438,18 +459,22 @@ namespace SensorsViewer.Result
 
                 IEnumerable<IGrouping<string, SensorValue>> asd  = sensor.Values.GroupBy(a => a.Parameter);
 
-                foreach(IGrouping<string, SensorValue> gp in asd)
+                double value = 0;
+
+                foreach (IGrouping<string, SensorValue> gp in asd)
                 {
                     if (gp.Key == parameterString)
                     {
-                        meshBuilder.AddTriangle(new Point3D(sensor.X - 10, sensor.Y, sensor.Z),
-                                                                    new Point3D(sensor.X + 10, sensor.Y, sensor.Z),
-                                                                    new Point3D(sensor.X, sensor.Y + 40, sensor.Z));
+                        double cte = gp.Last().Value * Math.PI / 180;
+
+                        Point3D newPoint = new Point3D(sensor.X + 4 * sensor.Size * Math.Cos(cte), sensor.Y + 4 * sensor.Size * Math.Sin(cte), sensor.Z);
+                        meshBuilder.AddArrow(new Point3D(sensor.X, sensor.Y, sensor.Z), newPoint, 3);                       
                     }
                     else
                     {
+                        value = gp.Last().Value;
                         meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sensor.Size, sensor.Size, this.sizeZ);
-                    }
+                    }                    
                 }
 
                 Color color;
@@ -457,7 +482,7 @@ namespace SensorsViewer.Result
                 // If sensor does not receive any value, receives yellow as collor
                 if (sensor.Values.Count != 0)
                 {
-                    color = Interpolation.GetHeatMapColor(sensor.Values.Last().Value, -1, +1);
+                    color = Interpolation.GetHeatMapColor(value, -1, +1);
                 }
                 else
                 {
@@ -465,7 +490,6 @@ namespace SensorsViewer.Result
                 }
 
                 GeometryModel3D sensorModel = new GeometryModel3D(meshBuilder.ToMesh(), MaterialHelper.CreateMaterial(color));
-
                 this.sensorModelArray[dataCounter].Add(sensorModel);
                 this.sensorGroupModel.Children.Add(sensorModel);
             }
@@ -625,6 +649,8 @@ namespace SensorsViewer.Result
             int newValue = Convert.ToInt32(((RoutedPropertyChangedEventArgs<double>)parameter).NewValue);
 
             this.ViewPort3d.Children.Remove(this.device3D);
+            this.sensorGroupModel.Children.Clear();
+            this.sensorGroupModel.Children.Add(this.stlModel);
 
             foreach (var model3d in this.sensorModelArray[newValue])
             {

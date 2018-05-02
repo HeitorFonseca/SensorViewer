@@ -112,6 +112,8 @@ namespace SensorsViewer.Home
 
         private string currentDirectory;
 
+        private string parameterString = "direction";
+
         /// <summary>
         /// Initializes a new instance of the <see cref="HomeViewModel"/> class
         /// </summary>
@@ -717,6 +719,16 @@ namespace SensorsViewer.Home
         {
             var analysis = parameter as Analysis;
 
+            for (int i = 0; i < this.SelectedTab.Sensors.Count; i++) 
+            {
+                List<SensorValue> sensorValues = this.SelectedTab.Sensors[i].Values.Where(a => a.AnalysisName == analysis.Name).ToList();
+
+                for (int j = 0; j < sensorValues.Count; j++) 
+                {
+                    this.SelectedTab.Sensors[i].Values.Remove(sensorValues[j]);
+                }
+            }
+
             this.SelectedTab.Analysis.Remove(analysis);
 
             // If there is no analysis
@@ -871,7 +883,11 @@ namespace SensorsViewer.Home
                 SensorValue sv = new SensorValue(value, dateTime, parameter, this.SelectedAnalysis.Name);
 
                 sensor.Values.Add(sv);                                                                                        // Add the value in the created sensor                
-                ((OpticalSensorView)this.SelectedProjectChartContent).OpticalSensorViewModel.AddValue(sensorName, value, sv); // Add value in sensor by name               
+                if (sv.Parameter != this.parameterString)
+                {
+                    ((OpticalSensorView)this.SelectedProjectChartContent).OpticalSensorViewModel.AddValue(sensorName, value, sv); // Add value in sensor by name               
+                }
+
                 ((OpticalSensorView)this.SelectedProjectChartContent).OpticalSensorViewModel.AddSensorLogData(sensor);        // Add in the sensor log                
 
                 this.AddValueInSensorListTab(sv, sensorName);                                                                 // Add value in tab sensor list
