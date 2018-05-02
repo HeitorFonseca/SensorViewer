@@ -436,15 +436,20 @@ namespace SensorsViewer.Result
             {
                 MeshBuilder meshBuilder = new MeshBuilder();
 
-                if (sensor.Values.Last().Parameter == parameterString)
+                IEnumerable<IGrouping<string, SensorValue>> asd  = sensor.Values.GroupBy(a => a.Parameter);
+
+                foreach(IGrouping<string, SensorValue> gp in asd)
                 {
-                    meshBuilder.AddTriangle(new Point3D(sensor.X - 1, sensor.Y, sensor.Z),
-                                            new Point3D(sensor.X + 1, sensor.Y, sensor.Z),
-                                            new Point3D(sensor.X, sensor.Y + 20, sensor.Z));
-                }
-                else
-                {
-                    meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sensor.Size, sensor.Size, this.sizeZ);
+                    if (gp.Key == parameterString)
+                    {
+                        meshBuilder.AddTriangle(new Point3D(sensor.X - 10, sensor.Y, sensor.Z),
+                                                                    new Point3D(sensor.X + 10, sensor.Y, sensor.Z),
+                                                                    new Point3D(sensor.X, sensor.Y + 40, sensor.Z));
+                    }
+                    else
+                    {
+                        meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sensor.Size, sensor.Size, this.sizeZ);
+                    }
                 }
 
                 Color color;
