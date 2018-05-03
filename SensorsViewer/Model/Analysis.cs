@@ -54,7 +54,7 @@ namespace SensorsViewer.SensorOption
             this.Time = time;
             this.SensorsIds = new ObservableCollection<string>();
             this.ProjectChartContent = new OpticalSensorView();
-            this.ProjectResutContent = new ResultView(sensors, path);
+            this.ProjectResutContent = new ResultView(sensors, path, name);
         }
 
         #region Properties Declarations

@@ -10,6 +10,7 @@ namespace SensorsViewer.Result
     using System.ComponentModel;
     using System.Linq;
     using System.Text;
+    using System.Text.RegularExpressions;
     using System.Threading.Tasks;
     using System.Windows;
     using System.Windows.Input;
@@ -73,6 +74,11 @@ namespace SensorsViewer.Result
         private string stlFilePath;
 
         /// <summary>
+        /// Stl file path
+        /// </summary>
+        private string analysisFolderPath;
+
+        /// <summary>
         /// sensors from analysis
         /// </summary>
         private IEnumerable<Sensor> Sensors;
@@ -87,6 +93,10 @@ namespace SensorsViewer.Result
         /// </summary>
         private Vertex[][] vertices;
 
+        private bool[] savedVertices;
+
+        private System.Drawing.Bitmap[] textureImages;
+
         private Interpolation interpolation;
 
         private int dataCounter;
@@ -95,7 +105,14 @@ namespace SensorsViewer.Result
 
         private int slider;
 
-        private int vectorSize = 11;
+        private int vectorSize = 10;
+
+        private uint[] textures = new uint[1];
+
+        private bool initialized = false;
+
+        private bool oldAnalysis = false;
+
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ResultViewModel"/> class
@@ -109,6 +126,8 @@ namespace SensorsViewer.Result
 
             this.vertices = new Vertex[vectorSize][];
             this.sensorModelArray = new List<GeometryModel3D>[vectorSize];
+            this.savedVertices = new bool[this.vectorSize];
+            this.textureImages = new System.Drawing.Bitmap[this.vectorSize];
 
             this.ViewPort3d = new HelixViewport3D();
             this.device3D = new ModelVisual3D();
@@ -136,6 +155,8 @@ namespace SensorsViewer.Result
 
             this.vertices = new Vertex[vectorSize][];
             this.sensorModelArray = new List<GeometryModel3D>[vectorSize];
+            this.savedVertices = new bool[this.vectorSize];
+            this.textureImages = new System.Drawing.Bitmap[this.vectorSize];
 
             this.Sensors = sensors;
             this.ViewPort3d = new HelixViewport3D();
@@ -149,13 +170,12 @@ namespace SensorsViewer.Result
 
             this.LoadStlModel(path);
 
-            this.interpolation = new Interpolation(modelMesh, sensors);
+            //this.interpolation = new Interpolation(modelMesh, sensors);
 
             this.LoadSensorsInModel(sensors, string.Empty);
 
             this.SensorsVisibility = Visibility.Hidden;
             this.InterpVisibility = Visibility.Visible;
-
         }
 
         /// <summary>
@@ -175,7 +195,8 @@ namespace SensorsViewer.Result
 
             this.sensorModelArray = new List<GeometryModel3D>[vectorSize];
             this.vertices = new Vertex[vectorSize][];
-
+            this.savedVertices = new bool[this.vectorSize];
+            this.textureImages = new System.Drawing.Bitmap[this.vectorSize];
 
             this.ViewPort3d = new HelixViewport3D();
             this.device3D = new ModelVisual3D();
@@ -194,6 +215,14 @@ namespace SensorsViewer.Result
 
             this.SensorsVisibility = Visibility.Hidden;
             this.InterpVisibility = Visibility.Visible;
+
+            this.analysisFolderPath = System.IO.Directory.GetCurrentDirectory() + @"\..\..\Resources\Analysis\" + analysisName.Replace(':','.');
+
+            if (!this.CreateAnalysisFolder(analysisFolderPath))
+            {
+                oldAnalysis = true;
+                this.LoadScreenshot();
+            }
         }
 
         #region PropertyDeclaration
@@ -418,9 +447,8 @@ namespace SensorsViewer.Result
                         color = new Color() { A = 255, R = 255, G = 255, B = 0 };
                     }
                 }
-              
-                
-                meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sensor.Size, sensor.Size, this.sizeZ);               
+
+                meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sensor.Size, sensor.Size, this.sizeZ);
 
                 GeometryModel3D sensorModel = new GeometryModel3D(meshBuilder.ToMesh(), MaterialHelper.CreateMaterial(color));
 
@@ -429,17 +457,85 @@ namespace SensorsViewer.Result
                 this.sensorGroupModel.Children.Add(sensorModel);
             }
 
-            if (this.modelMesh != null)
+            this.GroupModel = this.sensorGroupModel;
+            this.device3D.Content = this.groupModel;
+            this.ViewPort3d.Children.Add(this.device3D);
+        }
+
+        public void LoadSensorsInModel2(IEnumerable<Sensor> sensors, string analysisName)
+        {
+            this.ViewPort3d.Children.Remove(this.device3D);
+
+            this.sensorGroupModel.Children.Clear();
+            this.sensorGroupModel.Children.Add(this.stlModel);
+
+            this.sensorModelArray[dataCounter] = new List<GeometryModel3D>();
+
+            int pos = 0;
+            foreach (Sensor sensor in sensors)
             {
-                this.vertices[this.dataCounter++] = this.interpolation.Interpolate2(modelMesh, SensorsNotParameter(sensors));
-                this.MaxSlider = dataCounter - 1;
-                this.Slider = this.MaxSlider;
+
+                Color color = new Color() { A = 255, R = 255, G = 255, B = 0 };
+                MeshBuilder meshBuilder;
+
+                if (sensor.Values.Count != 0)
+                {
+                    // Get data from analysis 
+                    IEnumerable<SensorValue> svc = from values in sensor.Values where values.AnalysisName == analysisName select values;
+
+                    if (svc.Count() > 0)
+                    {
+                        // Group by parameters
+                        List<IGrouping<string, SensorValue>> grouped = svc.GroupBy(a => a.Parameter).ToList();
+
+                        int[] indexs = (grouped[0].Key == this.parameterString ? new int[] { 0, 1 } : new int[] { 1, 0 });
+
+                        for (int i = 0; i < grouped[indexs[0]].Count(); i++)
+                        {
+                            if (this.sensorModelArray[i] == null)
+                            {
+                                this.sensorModelArray[i] = new List<GeometryModel3D>();
+                            }
+
+                            meshBuilder = new MeshBuilder();
+
+                            double cte = grouped[indexs[0]].ElementAt(i).Value * Math.PI / 180;
+
+                            Point3D newPoint = new Point3D(sensor.X + 4 * sensor.Size * Math.Cos(cte), sensor.Y + 4 * sensor.Size * Math.Sin(cte), sensor.Z);
+                            meshBuilder.AddArrow(new Point3D(sensor.X, sensor.Y, sensor.Z), newPoint, 3);
+
+                            color = Interpolation.GetHeatMapColor(grouped[indexs[1]].ElementAt(i).Value, -1, +1);
+                            meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sensor.Size, sensor.Size, this.sizeZ);
+
+                            GeometryModel3D sensorModel2 = new GeometryModel3D(meshBuilder.ToMesh(), MaterialHelper.CreateMaterial(color));
+
+                            this.sensorModelArray[i].Add(sensorModel2);
+                        }                       
+                    }
+                    else
+                    {
+                        meshBuilder = new MeshBuilder();
+
+                        color = new Color() { A = 255, R = 255, G = 255, B = 0 };
+                        meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sensor.Size, sensor.Size, this.sizeZ);
+
+                        GeometryModel3D sensorModel2 = new GeometryModel3D(meshBuilder.ToMesh(), MaterialHelper.CreateMaterial(color));
+
+                        this.sensorModelArray[pos].Add(sensorModel2);
+                    }
+                }            
+            }
+
+            foreach (var model3d in this.sensorModelArray[this.sensorModelArray.Length - 1])
+            {
+                this.sensorGroupModel.Children.Add(model3d);
             }
 
             this.GroupModel = this.sensorGroupModel;
             this.device3D.Content = this.groupModel;
             this.ViewPort3d.Children.Add(this.device3D);
         }
+
 
         /// <summary>
         /// Load sensors in model
@@ -496,7 +592,6 @@ namespace SensorsViewer.Result
 
             if (this.modelMesh != null)
             {
-
                 this.vertices[this.dataCounter++] = this.interpolation.Interpolate2(modelMesh, SensorsNotParameter(sensors));
                 this.MaxSlider = dataCounter - 1;
                 this.Slider = this.MaxSlider;
@@ -557,42 +652,75 @@ namespace SensorsViewer.Result
         /// <param name="parameter">object parameter</param>
         private void OpenGLControl_OpenGLDraw(object parameter)
         {
-            if (this.vertices == null || this.vertices[Slider] == null)
+            OpenGL gl = gl = ((OpenGLEventArgs)parameter).OpenGL;
+
+            if (!oldAnalysis && (this.vertices == null || this.vertices[Slider] == null))
             {
                 return;
             }
 
-            OpenGL gl = ((OpenGLEventArgs)parameter).OpenGL;
-
-            // Clear the color and depth buffers.
-            gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
-
-            // Reset the modelview matrix.
-            gl.LoadIdentity();
-
-            // Move the geometry into a fairly central position.
-            gl.Translate(0.0f, 0.0f, -20.0f);
-
-            // Draw a pyramid. First, rotate the modelview matrix.
-            ////gl.Rotate(rotatePyramid, 0.0f, 1.0f, 0.0f);
-
-            gl.PointSize(1.0f);
-
-            gl.Begin(OpenGL.GL_TRIANGLES);
-
-            for (int i = 0; i < this.vertices[Slider].Count(); i++)
+            if (!this.savedVertices[Slider] && !oldAnalysis)
             {
-                Color asd = Interpolation.GetHeatMapColor(this.vertices[Slider][i].Z, -1, +1);
 
-                gl.Color(asd.R / (float)255, asd.G / (float)255, asd.B / (float)255);
-                ////gl.Color(0.5f, 0.5f, 0.5f);
-                gl.Vertex(this.vertices[Slider][i].X/100, this.vertices[Slider][i].Y/100, 0.0f);
+                // Clear the color and depth buffers.
+                gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
+
+                // Reset the modelview matrix.
+                gl.LoadIdentity();
+
+                // Move the geometry into a fairly central position.
+                gl.Translate(0.0f, 0.0f, -20.0f);
+
+                gl.PointSize(1.0f);
+
+                gl.Begin(OpenGL.GL_TRIANGLES);
+
+                for (int i = 0; i < this.vertices[Slider].Count(); i++)
+                {
+                    Color asd = Interpolation.GetHeatMapColor(this.vertices[Slider][i].Z, -1, +1);
+
+                    gl.Color(asd.R / (float)255, asd.G / (float)255, asd.B / (float)255);
+
+                    gl.Vertex(this.vertices[Slider][i].X / 100, this.vertices[Slider][i].Y / 100, 0.0f);
+                }
+
+                gl.End();
+
+                // Flush OpenGL.
+                gl.Flush();
+
+                this.TakeScreenshot(gl, Slider);
+                this.savedVertices[Slider] = true;
+                LoadScreenshot();
             }
 
-            gl.End();
+            else
+            {                
+                if (!this.initialized && this.textureImages[Slider] != null)
+                {
+                    SelectTexture(gl, Slider);
+                    this.initialized = true;
+                }
 
-            // Flush OpenGL.
-            gl.Flush();
+                gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
+                gl.LoadIdentity();
+                gl.Translate(0.0f, 0.0f, -3.2f);
+
+                gl.BindTexture(OpenGL.GL_TEXTURE_2D, textures[0]);
+
+                gl.Begin(OpenGL.GL_QUADS);
+
+                // Front Face
+                gl.TexCoord(0.0f, 0.0f); gl.Vertex(-1.0f, -1.0f, 1.0f); // Bottom Left Of The Texture and Quad
+                gl.TexCoord(1.0f, 0.0f); gl.Vertex(1.0f, -1.0f, 1.0f);  // Bottom Right Of The Texture and Quad
+                gl.TexCoord(1.0f, 1.0f); gl.Vertex(1.0f, 1.0f, 1.0f);   // Top Right Of The Texture and Quad
+                gl.TexCoord(0.0f, 1.0f); gl.Vertex(-1.0f, 1.0f, 1.0f);  // Top Left Of The Texture and Quad
+
+
+                gl.End();
+
+                gl.Flush();
+            }
         }
 
         /// <summary>
@@ -644,15 +772,15 @@ namespace SensorsViewer.Result
         /// </summary>
         /// <param name="parameter">Object parameter</param>
         private void OnUnSliderValueChangedAction(object parameter)
-        {
-           
+        {           
             int newValue = Convert.ToInt32(((RoutedPropertyChangedEventArgs<double>)parameter).NewValue);
 
             this.ViewPort3d.Children.Remove(this.device3D);
             this.sensorGroupModel.Children.Clear();
             this.sensorGroupModel.Children.Add(this.stlModel);
 
-            foreach (var model3d in this.sensorModelArray[newValue])
+            //TODO
+            foreach (var model3d in this.sensorModelArray[0])
             {
                 this.sensorGroupModel.Children.Add(model3d);
             }
@@ -660,6 +788,9 @@ namespace SensorsViewer.Result
             this.GroupModel = this.sensorGroupModel;
             this.device3D.Content = this.groupModel;
             this.ViewPort3d.Children.Add(this.device3D);
+
+            this.initialized = false;
+
         }
 
         /// <summary>
@@ -721,5 +852,103 @@ namespace SensorsViewer.Result
 
             return analysisSensors;
         }
+
+        private void TakeScreenshot(OpenGL gl, int index)
+        {
+            int w = 512;// gl.RenderContextProvider.Width;
+            int h = 512;// gl.RenderContextProvider.Height;
+            System.Drawing.Bitmap bmp = new System.Drawing.Bitmap(w, h);
+            System.Drawing.Imaging.BitmapData data =
+                bmp.LockBits(new System.Drawing.Rectangle(0, 0, 512, 512),
+                System.Drawing.Imaging.ImageLockMode.WriteOnly, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+            
+            gl.ReadPixels(0, 0, w, h, OpenGL.GL_BGR, OpenGL.GL_UNSIGNED_BYTE, data.Scan0);
+
+            bmp.UnlockBits(data);
+
+            bmp.Save(this.analysisFolderPath + "\\Img" + index + ".bmp");
+        }
+
+        private void LoadScreenshot()
+        {
+            System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(this.analysisFolderPath);
+
+            var files = System.IO.Directory.GetFiles(this.analysisFolderPath, "*", System.IO.SearchOption.TopDirectoryOnly);
+
+            int count = 0;
+            foreach (string file in files)
+            {
+                Regex asd = new Regex("Img[0-9]+");
+
+                Match dsa = asd.Match(file);
+
+                string[] ret = dsa.Captures[0].Value.Split(new[] { "Img" }, StringSplitOptions.None);
+
+                int index = Convert.ToInt32(ret[1]);
+
+                textureImages[index] = new System.Drawing.Bitmap(this.analysisFolderPath + "\\Img" + index + ".bmp");
+
+                count++;
+            }
+
+            int fCount = System.IO.Directory.GetFiles(this.analysisFolderPath, "*", System.IO.SearchOption.TopDirectoryOnly).Length;
+
+            this.MaxSlider = count - 1;
+            this.Slider = MaxSlider;
+        }
+
+        private void SelectTexture(OpenGL gl, int index)
+        {          
+            //  A bit of extra initialisation here, we have to enable textures.
+            gl.Enable(OpenGL.GL_TEXTURE_2D);
+
+            //  Get one texture id, and stick it into the textures array.
+            gl.GenTextures(1, textures);
+
+            //  Bind the texture.
+            gl.BindTexture(OpenGL.GL_TEXTURE_2D, textures[0]);
+
+            System.Drawing.Imaging.BitmapData data = textureImages[index].LockBits(new System.Drawing.Rectangle(0, 0, 512, 512),
+                System.Drawing.Imaging.ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+
+            //  Tell OpenGL where the texture data is.
+            gl.TexImage2D(OpenGL.GL_TEXTURE_2D, 0, 3, 512, 512, 0, OpenGL.GL_BGR, OpenGL.GL_UNSIGNED_BYTE,
+                data.Scan0);
+
+            textureImages[index].UnlockBits(data);
+
+            //  Specify linear filtering.
+            gl.TexParameter(OpenGL.GL_TEXTURE_2D, OpenGL.GL_TEXTURE_MIN_FILTER, OpenGL.GL_LINEAR);
+            gl.TexParameter(OpenGL.GL_TEXTURE_2D, OpenGL.GL_TEXTURE_MAG_FILTER, OpenGL.GL_LINEAR);
+            
+        }
+
+        private bool CreateAnalysisFolder(string path)
+        {
+            if (!System.IO.Directory.Exists(path))
+            {
+                System.IO.Directory.CreateDirectory(path);
+
+                return true;
+            }
+
+            return false;
+        }
+
+        //private void SaveVerticesInFile(int index)
+        //{
+        //    using (System.IO.StreamWriter file =
+        //    new System.IO.StreamWriter(@"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\Resources\Analysis\WriteLines2.txt", true))
+        //    {
+        //        file.WriteLine("Vertex " + index + 1);
+
+        //        file.Write("" + this.vertices[index][0].Z);
+
+        //        for (int i = 1; i < this.vertices[index].Count(); i++)
+        //        {
+        //            file.Write(" " + this.vertices[index][i].Z);
+        //        }
+        //    }
+        //}
     }
 }
