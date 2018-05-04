@@ -85,7 +85,7 @@ namespace SensorsViewer.SensorOption
         public ObservableCollection<string> SensorsIds { get; set; }
 
         /// <summary>
-        /// String to indicate the directory which store de interpolation images
+        /// Gets string to indicate the directory which store de interpolation images
         /// </summary>
         public string FolderPath
         {

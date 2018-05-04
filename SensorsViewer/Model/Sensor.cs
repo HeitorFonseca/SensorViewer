@@ -204,6 +204,7 @@ namespace SensorsViewer.SensorOption
         /// <summary>
         /// Calculate Integral of values
         /// </summary>
+        /// <param name="gp">Values to calculate the integral</param>
         /// <returns>Returns the integral of value</returns>
         public double CalculateIntegral(IGrouping<string, SensorValue> gp)
         {

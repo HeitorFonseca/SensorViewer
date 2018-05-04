@@ -40,9 +40,9 @@ namespace SensorsViewer.ProjectB
 
         private string parameterString = "direction";
 
-        private double _axisMax;
+        private double axisMax;
 
-        private double _axisMin;
+        private double axisMin;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OpticalSensorViewModel"/> class
@@ -61,41 +61,49 @@ namespace SensorsViewer.ProjectB
             this.SensorList = new ObservableCollection<SensorOption.Sensor>();
             this.SensorsLog = new ObservableCollection<SensorOption.Sensor>();
 
-            XFormatter = this.EOQ;//val => new DateTime((long)val).ToString("HH: mm:ss.fff");
-            YFormatter = this.YUKE;//val => val.ToString("N");
+            XFormatter = this.EOQ; //val => new DateTime((long)val).ToString("HH: mm:ss.fff");
+            YFormatter = this.YUKE; //val => val.ToString("N");
 
-            //AxisStep forces the distance between each separator in the X axis
-            AxisStep = TimeSpan.FromSeconds(1).Ticks;
+            // AxisStep forces the distance between each separator in the X axis
+            this.AxisStep = TimeSpan.FromSeconds(1).Ticks;
 
-            //AxisUnit forces lets the axis know that we are plotting seconds
-            //this is not always necessary, but it can prevent wrong labeling
-            AxisUnit = TimeSpan.TicksPerSecond;
+            // AxisUnit forces lets the axis know that we are plotting seconds
+            // this is not always necessary, but it can prevent wrong labeling
+            this.AxisUnit = TimeSpan.TicksPerSecond;
         }
 
-        private void SetAxisLimits(DateTime now)
-        {
-            AxisMax = now.Ticks; // + TimeSpan.FromSeconds(1).Ticks; // lets force the axis to be 1 second ahead
-            AxisMin = now.Ticks - TimeSpan.FromSeconds(1).Ticks; // and 8 seconds behind
-        }
-
+        /// <summary>
+        /// Gets or sets axis step
+        /// </summary>
         public double AxisStep { get; set; }
+
+        /// <summary>
+        /// Gets or sets axis unit
+        /// </summary>
         public double AxisUnit { get; set; }
 
+        /// <summary>
+        /// Gets or sets Axis max value
+        /// </summary>
         public double AxisMax
         {
-            get { return _axisMax; }
+            get { return this.axisMax; }
             set
             {
-                _axisMax = value;
+                this.axisMax = value;
                 OnPropertyChanged("AxisMax");
             }
         }
+
+        /// <summary>
+        /// Gets or sets Axis min value
+        /// </summary>
         public double AxisMin
         {
-            get { return _axisMin; }
+            get { return this.axisMin; }
             set
             {
-                _axisMin = value;
+                this.axisMin = value;
                 OnPropertyChanged("AxisMin");
             }
         }
@@ -104,24 +112,15 @@ namespace SensorsViewer.ProjectB
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <summary>
+        /// Gets or sets X formater 
+        /// </summary>
         public Func<double, string> XFormatter { get; set; }
+
+        /// <summary>
+        /// Gets or sets Y formater 
+        /// </summary>
         public Func<double, string> YFormatter { get; set; }
-
-        public string EOQ(double val)
-        {
-            string asd = new DateTime((long)val).ToString("mm:ss.fff");
-
-            return asd;
-        }
-
-        public string YUKE(double val)
-        {
-            string asd = val.ToString("N");
-
-            return asd;
-        }
-
-        public long MinValue { get; set; }
 
         /// <summary>
         /// Gets or sets sensor list
@@ -323,6 +322,17 @@ namespace SensorsViewer.ProjectB
         }
 
         /// <summary>
+        /// Set X axis limit
+        /// </summary>
+        /// <param name="now">Datetime now</param>
+        private void SetAxisLimits(DateTime now)
+        {
+            this.AxisMax = now.Ticks; // + TimeSpan.FromSeconds(1).Ticks; // lets force the axis to be 1 second ahead
+            this.AxisMin = now.Ticks - TimeSpan.FromSeconds(1).Ticks; // and 8 seconds behind
+        }
+
+
+        /// <summary>
         /// Get next color for graph
         /// </summary>
         /// <returns>Returns the next default color</returns>
@@ -337,6 +347,30 @@ namespace SensorsViewer.ProjectB
             this.currentSeriesIndex++;
 
             return this.seriesColors[i % this.seriesColors.Count];
+        }
+
+        /// <summary>
+        /// X formater function
+        /// </summary>
+        /// <param name="val">Value to be formated</param>
+        /// <returns>Formated value</returns>
+        private string EOQ(double val)
+        {
+            string asd = new DateTime((long)val).ToString("mm:ss.fff");
+
+            return asd;
+        }
+
+        /// <summary>
+        /// Y formater function
+        /// </summary>
+        /// <param name="val">Value to be formated</param>
+        /// <returns>Formated value</returns>
+        private string YUKE(double val)
+        {
+            string asd = val.ToString("N");
+
+            return asd;
         }
 
         /// <summary>
