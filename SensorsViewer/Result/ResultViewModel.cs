@@ -103,7 +103,7 @@ namespace SensorsViewer.Result
 
         private int maxSlider;
 
-        private int slider;
+        private int slider = 0;
 
         private int vectorSize = 10;
 
@@ -459,9 +459,14 @@ namespace SensorsViewer.Result
 
             this.GroupModel = this.sensorGroupModel;
             this.device3D.Content = this.groupModel;
-            this.ViewPort3d.Children.Add(this.device3D);
+
+            if (!this.ViewPort3d.Children.Contains(this.device3D))
+            {
+                this.ViewPort3d.Children.Add(this.device3D);
+            }
         }
 
+        /*
         public void LoadSensorsInModel2(IEnumerable<Sensor> sensors, string analysisName)
         {
             this.ViewPort3d.Children.Remove(this.device3D);
@@ -535,7 +540,7 @@ namespace SensorsViewer.Result
             this.device3D.Content = this.groupModel;
             this.ViewPort3d.Children.Add(this.device3D);
         }
-
+        */
 
         /// <summary>
         /// Load sensors in model
@@ -599,7 +604,10 @@ namespace SensorsViewer.Result
 
             this.GroupModel = this.sensorGroupModel;
             this.device3D.Content = this.groupModel;
-            this.ViewPort3d.Children.Add(this.device3D);
+            if (!this.ViewPort3d.Children.Contains(this.device3D))
+            {
+                this.ViewPort3d.Children.Add(this.device3D);
+            }
         }
 
         private List<Sensor> SensorsNotParameter(IEnumerable<Sensor> sensors)
@@ -659,9 +667,8 @@ namespace SensorsViewer.Result
                 return;
             }
 
-            if (!this.savedVertices[Slider] && !oldAnalysis)
+            if (!oldAnalysis)
             {
-
                 // Clear the color and depth buffers.
                 gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
 
@@ -689,9 +696,11 @@ namespace SensorsViewer.Result
                 // Flush OpenGL.
                 gl.Flush();
 
-                this.TakeScreenshot(gl, Slider);
-                this.savedVertices[Slider] = true;
-                LoadScreenshot();
+                if (!this.savedVertices[Slider])
+                {
+                    this.TakeScreenshot(gl, Slider);
+                    this.savedVertices[Slider] = true;
+                }                
             }
 
             else
@@ -787,7 +796,11 @@ namespace SensorsViewer.Result
 
             this.GroupModel = this.sensorGroupModel;
             this.device3D.Content = this.groupModel;
-            this.ViewPort3d.Children.Add(this.device3D);
+
+            if (!this.ViewPort3d.Children.Contains(this.device3D))
+            {
+                this.ViewPort3d.Children.Add(this.device3D);
+            }
 
             this.initialized = false;
 
