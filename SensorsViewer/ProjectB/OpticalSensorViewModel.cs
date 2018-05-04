@@ -38,10 +38,19 @@ namespace SensorsViewer.ProjectB
         /// </summary>
         private string sensorsFilePath;
 
+        /// <summary>
+        /// Parameter to indicate which is not going to be interpolated
+        /// </summary>
         private string parameterString = "direction";
 
+        /// <summary>
+        /// Axis max value
+        /// </summary>
         private double axisMax;
 
+        /// <summary>
+        /// Axis min value
+        /// </summary>
         private double axisMin;
 
         /// <summary>
@@ -53,7 +62,7 @@ namespace SensorsViewer.ProjectB
                 .X(dayModel => (double)dayModel.DateTime.Ticks)
                 .Y(dayModel => dayModel.Value);
 
-            //lets save the mapper globally.
+            // Lets save the mapper globally.
             Charting.For<DateModel>(dayConfig);
 
             this.InitializeSeriesColors();
@@ -61,8 +70,8 @@ namespace SensorsViewer.ProjectB
             this.SensorList = new ObservableCollection<SensorOption.Sensor>();
             this.SensorsLog = new ObservableCollection<SensorOption.Sensor>();
 
-            XFormatter = this.EOQ; //val => new DateTime((long)val).ToString("HH: mm:ss.fff");
-            YFormatter = this.YUKE; //val => val.ToString("N");
+            this.XFormatter = this.EOQ; ////val => new DateTime((long)val).ToString("HH: mm:ss.fff");
+            this.YFormatter = this.YUKE; ////val => val.ToString("N");
 
             // AxisStep forces the distance between each separator in the X axis
             this.AxisStep = TimeSpan.FromSeconds(1).Ticks;
@@ -71,6 +80,11 @@ namespace SensorsViewer.ProjectB
             // this is not always necessary, but it can prevent wrong labeling
             this.AxisUnit = TimeSpan.TicksPerSecond;
         }
+
+        /// <summary>
+        /// Event for when change property
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets or sets axis step
@@ -87,11 +101,15 @@ namespace SensorsViewer.ProjectB
         /// </summary>
         public double AxisMax
         {
-            get { return this.axisMax; }
+            get
+            {
+                return this.axisMax;
+            }
+
             set
             {
                 this.axisMax = value;
-                OnPropertyChanged("AxisMax");
+                this.OnPropertyChanged("AxisMax");
             }
         }
 
@@ -100,17 +118,17 @@ namespace SensorsViewer.ProjectB
         /// </summary>
         public double AxisMin
         {
-            get { return this.axisMin; }
+            get
+            {
+                return this.axisMin;
+            }
+
             set
             {
                 this.axisMin = value;
-                OnPropertyChanged("AxisMin");
+                this.OnPropertyChanged("AxisMin");
             }
         }
-        /// <summary>
-        /// Event for when change property
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// Gets or sets X formater 
@@ -223,7 +241,7 @@ namespace SensorsViewer.ProjectB
                     if (this.SensorList[i].SensorName == sensorName)
                     {
                         this.SensorList[i].Values.Add(sv);
-                        SetAxisLimits(sv.Timestamp);
+                        this.SetAxisLimits(sv.Timestamp);
                     }
                 }
             }
@@ -283,8 +301,10 @@ namespace SensorsViewer.ProjectB
                             DateModel dm = new DateModel() { DateTime = v.Timestamp, Value = v.Value };
 
                             // Chart
-                            if (v.Parameter != parameterString)
+                            if (v.Parameter != this.parameterString)
+                            {
                                 newLs.Values.Add(dm);
+                            }
 
                             // Update Log
                             SensorOption.Sensor s = new SensorOption.Sensor(sensor.SensorName);
@@ -299,8 +319,8 @@ namespace SensorsViewer.ProjectB
 
                 if (newLs.Values.Count > 0)
                 {
-                    AxisMin = ((DateModel)newLs.Values[0]).DateTime.Ticks;
-                    AxisMax = ((DateModel)newLs.Values[newLs.Values.Count - 1]).DateTime.Ticks;
+                    this.AxisMin = ((DateModel)newLs.Values[0]).DateTime.Ticks;
+                    this.AxisMax = ((DateModel)newLs.Values[newLs.Values.Count - 1]).DateTime.Ticks;
                 }
 
                 list = new ObservableCollection<SensorOption.Sensor>(list.OrderBy(a => a.Values[0].Timestamp));
@@ -330,7 +350,6 @@ namespace SensorsViewer.ProjectB
             this.AxisMax = now.Ticks; // + TimeSpan.FromSeconds(1).Ticks; // lets force the axis to be 1 second ahead
             this.AxisMin = now.Ticks - TimeSpan.FromSeconds(1).Ticks; // and 8 seconds behind
         }
-
 
         /// <summary>
         /// Get next color for graph

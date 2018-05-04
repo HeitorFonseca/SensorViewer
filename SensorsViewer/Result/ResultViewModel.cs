@@ -27,6 +27,11 @@ namespace SensorsViewer.Result
     public class ResultViewModel : INotifyPropertyChanged
     {
         /// <summary>
+        /// Array size
+        /// </summary>
+        private const int ARRAYSIZE = 10;
+
+        /// <summary>
         /// Indicate which parameter is not going to be interpolated
         /// </summary>
         private string parameterString = "direction";
@@ -130,11 +135,6 @@ namespace SensorsViewer.Result
         /// Current slider value
         /// </summary>
         private int slider = 0;
-
-        /// <summary>
-        /// Array size
-        /// </summary>
-        private const int ARRAYSIZE = 10;
 
         /// <summary>
         /// Texture id
@@ -849,7 +849,7 @@ namespace SensorsViewer.Result
 
                 device.Traverse(nameAction);             
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 // Handle exception in case can not find the 3D model file
                 throw new Exception("not find 3d model file");

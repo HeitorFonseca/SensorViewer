@@ -487,7 +487,7 @@ namespace SensorsViewer.Home
                     ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true), string.Empty);
                 }
             }
-            catch (Exception e)
+            catch (Exception)
             {
                ////throw new Exception("Error when load xml file");
             }
