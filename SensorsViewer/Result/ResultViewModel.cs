@@ -403,7 +403,7 @@ namespace SensorsViewer.Result
         /// <param name="analysisName">Analysis name</param>
         public void LoadSensorsInModel(IEnumerable<Sensor> sensors, string analysisName)
         {
-            this.ViewPort3d.Children.Remove(this.device3D);
+            //this.ViewPort3d.Children.Remove(this.device3D);
 
             this.sensorGroupModel.Children.Clear();
             this.sensorGroupModel.Children.Add(this.stlModel);
@@ -548,7 +548,7 @@ namespace SensorsViewer.Result
         /// <param name="sensors">List of sensors</param>
         public void LoadSensorsValuesInModel(IEnumerable<Sensor> sensors)
         {
-            this.ViewPort3d.Children.Remove(this.device3D);
+            //this.ViewPort3d.Children.Remove(this.device3D);
             this.sensorGroupModel.Children.Clear();
             this.sensorGroupModel.Children.Add(this.stlModel);
 
@@ -604,6 +604,7 @@ namespace SensorsViewer.Result
 
             this.GroupModel = this.sensorGroupModel;
             this.device3D.Content = this.groupModel;
+
             if (!this.ViewPort3d.Children.Contains(this.device3D))
             {
                 this.ViewPort3d.Children.Add(this.device3D);
@@ -713,7 +714,7 @@ namespace SensorsViewer.Result
 
                 gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
                 gl.LoadIdentity();
-                gl.Translate(0.0f, 0.0f, -3.2f);
+                gl.Translate(0.0f, 0.0f, -4.0f);
 
                 gl.BindTexture(OpenGL.GL_TEXTURE_2D, textures[0]);
 
@@ -784,7 +785,6 @@ namespace SensorsViewer.Result
         {           
             int newValue = Convert.ToInt32(((RoutedPropertyChangedEventArgs<double>)parameter).NewValue);
 
-            this.ViewPort3d.Children.Remove(this.device3D);
             this.sensorGroupModel.Children.Clear();
             this.sensorGroupModel.Children.Add(this.stlModel);
 
@@ -795,12 +795,7 @@ namespace SensorsViewer.Result
             }
 
             this.GroupModel = this.sensorGroupModel;
-            this.device3D.Content = this.groupModel;
-
-            if (!this.ViewPort3d.Children.Contains(this.device3D))
-            {
-                this.ViewPort3d.Children.Add(this.device3D);
-            }
+            this.device3D.Content = this.groupModel;            
 
             this.initialized = false;
 
