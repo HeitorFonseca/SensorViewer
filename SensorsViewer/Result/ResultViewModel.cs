@@ -113,6 +113,10 @@ namespace SensorsViewer.Result
 
         private bool oldAnalysis = false;
 
+        private int arrowHeadSize = 3;
+        private int arrowDiameterSize = 6;
+
+        private int displayInterp = 0;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ResultViewModel"/> class
@@ -211,7 +215,6 @@ namespace SensorsViewer.Result
 
             this.interpolation = new Interpolation(modelMesh, sensors);
 
-            this.LoadSensorsInModel(sensors, analysisName);
 
             this.SensorsVisibility = Visibility.Hidden;
             this.InterpVisibility = Visibility.Visible;
@@ -220,6 +223,8 @@ namespace SensorsViewer.Result
 
             if (!this.CreateAnalysisFolder(analysisFolderPath))
             {
+                this.LoadSensorsInModel2(sensors, analysisName);
+
                 oldAnalysis = true;
                 this.LoadScreenshot();
             }
@@ -404,7 +409,6 @@ namespace SensorsViewer.Result
         public void LoadSensorsInModel(IEnumerable<Sensor> sensors, string analysisName)
         {
             //this.ViewPort3d.Children.Remove(this.device3D);
-
             this.sensorGroupModel.Children.Clear();
             this.sensorGroupModel.Children.Add(this.stlModel);
 
@@ -433,7 +437,7 @@ namespace SensorsViewer.Result
                                 double cte = gp.Last().Value * Math.PI / 180;
 
                                 Point3D newPoint = new Point3D(sensor.X + 4 * sensor.Size * Math.Cos(cte), sensor.Y + 4 * sensor.Size * Math.Sin(cte), sensor.Z);
-                                meshBuilder.AddArrow(new Point3D(sensor.X, sensor.Y, sensor.Z), newPoint, 3);
+                                meshBuilder.AddArrow(new Point3D(sensor.X, sensor.Y, sensor.Z), newPoint, arrowDiameterSize, arrowHeadSize);
                             }
                             else
                             {
@@ -465,11 +469,10 @@ namespace SensorsViewer.Result
                 this.ViewPort3d.Children.Add(this.device3D);
             }
         }
-
-        /*
+      
         public void LoadSensorsInModel2(IEnumerable<Sensor> sensors, string analysisName)
         {
-            this.ViewPort3d.Children.Remove(this.device3D);
+            //this.ViewPort3d.Children.Remove(this.device3D);
 
             this.sensorGroupModel.Children.Clear();
             this.sensorGroupModel.Children.Add(this.stlModel);
@@ -479,7 +482,6 @@ namespace SensorsViewer.Result
             int pos = 0;
             foreach (Sensor sensor in sensors)
             {
-
                 Color color = new Color() { A = 255, R = 255, G = 255, B = 0 };
                 MeshBuilder meshBuilder;
 
@@ -495,7 +497,7 @@ namespace SensorsViewer.Result
 
                         int[] indexs = (grouped[0].Key == this.parameterString ? new int[] { 0, 1 } : new int[] { 1, 0 });
 
-                        for (int i = 0; i < grouped[indexs[0]].Count(); i++)
+                        for (int i = 0; i < grouped[indexs[1]].Count(); i++)
                         {
                             if (this.sensorModelArray[i] == null)
                             {
@@ -504,13 +506,16 @@ namespace SensorsViewer.Result
 
                             meshBuilder = new MeshBuilder();
 
-                            double cte = grouped[indexs[0]].ElementAt(i).Value * Math.PI / 180;
-
-                            Point3D newPoint = new Point3D(sensor.X + 4 * sensor.Size * Math.Cos(cte), sensor.Y + 4 * sensor.Size * Math.Sin(cte), sensor.Z);
-                            meshBuilder.AddArrow(new Point3D(sensor.X, sensor.Y, sensor.Z), newPoint, 3);
-
                             color = Interpolation.GetHeatMapColor(grouped[indexs[1]].ElementAt(i).Value, -1, +1);
                             meshBuilder.AddBox(new Point3D(sensor.X, sensor.Y, sensor.Z), sensor.Size, sensor.Size, this.sizeZ);
+
+                            if (grouped.Count > 1)
+                            {
+                                double cte = grouped[indexs[0]].ElementAt(i).Value * Math.PI / 180;
+
+                                Point3D newPoint = new Point3D(sensor.X + 4 * sensor.Size * Math.Cos(cte), sensor.Y + 4 * sensor.Size * Math.Sin(cte), sensor.Z);
+                                meshBuilder.AddArrow(new Point3D(sensor.X, sensor.Y, sensor.Z), newPoint, arrowDiameterSize, arrowHeadSize);
+                            }
 
                             GeometryModel3D sensorModel2 = new GeometryModel3D(meshBuilder.ToMesh(), MaterialHelper.CreateMaterial(color));
 
@@ -531,16 +536,21 @@ namespace SensorsViewer.Result
                 }            
             }
 
-            foreach (var model3d in this.sensorModelArray[this.sensorModelArray.Length - 1])
+            //foreach (var model3d in this.sensorModelArray[this.sensorModelArray.Length - 1])
+            foreach (var model3d in this.sensorModelArray[0])
             {
                 this.sensorGroupModel.Children.Add(model3d);
             }
 
             this.GroupModel = this.sensorGroupModel;
             this.device3D.Content = this.groupModel;
-            this.ViewPort3d.Children.Add(this.device3D);
+
+            if (!this.ViewPort3d.Children.Contains(this.device3D))
+            {
+                this.ViewPort3d.Children.Add(this.device3D);
+            }
         }
-        */
+        
 
         /// <summary>
         /// Load sensors in model
@@ -569,7 +579,7 @@ namespace SensorsViewer.Result
                         double cte = gp.Last().Value * Math.PI / 180;
 
                         Point3D newPoint = new Point3D(sensor.X + 4 * sensor.Size * Math.Cos(cte), sensor.Y + 4 * sensor.Size * Math.Sin(cte), sensor.Z);
-                        meshBuilder.AddArrow(new Point3D(sensor.X, sensor.Y, sensor.Z), newPoint, 3);                       
+                        meshBuilder.AddArrow(new Point3D(sensor.X, sensor.Y, sensor.Z), newPoint, arrowDiameterSize, arrowHeadSize);                       
                     }
                     else
                     {
@@ -608,6 +618,18 @@ namespace SensorsViewer.Result
             if (!this.ViewPort3d.Children.Contains(this.device3D))
             {
                 this.ViewPort3d.Children.Add(this.device3D);
+            }
+        }
+
+        public void FreeTextureImages()
+        {
+            for (int i = 0; i < this.textureImages.Count(); i++)
+            {
+                if (this.textureImages[i] != null)
+                {
+                    this.textureImages[i].Dispose();
+                    this.textureImages[i] = null;
+                }
             }
         }
 
@@ -683,49 +705,54 @@ namespace SensorsViewer.Result
 
                 gl.Begin(OpenGL.GL_TRIANGLES);
 
-                for (int i = 0; i < this.vertices[Slider].Count(); i++)
+                int id = (displayInterp < this.Slider ? displayInterp : this.Slider);
+
+                for (int i = 0; i < this.vertices[id].Count(); i++)
                 {
-                    Color asd = Interpolation.GetHeatMapColor(this.vertices[Slider][i].Z, -1, +1);
-
+                    Color asd = Interpolation.GetHeatMapColor(this.vertices[id][i].Z, -1, +1);
                     gl.Color(asd.R / (float)255, asd.G / (float)255, asd.B / (float)255);
-
-                    gl.Vertex(this.vertices[Slider][i].X / 100, this.vertices[Slider][i].Y / 100, 0.0f);
+                    gl.Vertex(this.vertices[id][i].X / 100, this.vertices[id][i].Y / 100, 0.0f);
                 }
-
+     
                 gl.End();
 
                 // Flush OpenGL.
                 gl.Flush();
 
-                if (!this.savedVertices[Slider])
+                if (!this.savedVertices[id])
                 {
-                    this.TakeScreenshot(gl, Slider);
-                    this.savedVertices[Slider] = true;
-                }                
+                    this.TakeScreenshot(gl, id);
+                    this.savedVertices[id] = true;
+                }
+
+                this.displayInterp++;
             }
 
             else
             {                
-                if (!this.initialized && this.textureImages[Slider] != null)
+                if (!this.initialized && this.textureImages[this.Slider] != null)
                 {
-                    SelectTexture(gl, Slider);
+                    SelectTexture(gl, this.Slider);
                     this.initialized = true;
                 }
 
                 gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
                 gl.LoadIdentity();
-                gl.Translate(0.0f, 0.0f, -4.0f);
+                gl.Translate(0.0f, 0.0f, -3.5f);
 
                 gl.BindTexture(OpenGL.GL_TEXTURE_2D, textures[0]);
 
                 gl.Begin(OpenGL.GL_QUADS);
 
                 // Front Face
-                gl.TexCoord(0.0f, 0.0f); gl.Vertex(-1.0f, -1.0f, 1.0f); // Bottom Left Of The Texture and Quad
-                gl.TexCoord(1.0f, 0.0f); gl.Vertex(1.0f, -1.0f, 1.0f);  // Bottom Right Of The Texture and Quad
-                gl.TexCoord(1.0f, 1.0f); gl.Vertex(1.0f, 1.0f, 1.0f);   // Top Right Of The Texture and Quad
-                gl.TexCoord(0.0f, 1.0f); gl.Vertex(-1.0f, 1.0f, 1.0f);  // Top Left Of The Texture and Quad
-
+                gl.TexCoord(0.0f, 0.0f);
+                gl.Vertex(-1.0f, -1.0f, 1.0f); // Bottom Left Of The Texture and Quad
+                gl.TexCoord(1.0f, 0.0f);
+                gl.Vertex(1.0f, -1.0f, 1.0f);  // Bottom Right Of The Texture and Quad
+                gl.TexCoord(1.0f, 1.0f);
+                gl.Vertex(1.0f, 1.0f, 1.0f);   // Top Right Of The Texture and Quad
+                gl.TexCoord(0.0f, 1.0f);
+                gl.Vertex(-1.0f, 1.0f, 1.0f);  // Top Left Of The Texture and Quad
 
                 gl.End();
 
@@ -751,55 +778,7 @@ namespace SensorsViewer.Result
 
             // Load the modelview.
             gl.MatrixMode(OpenGL.GL_MODELVIEW);
-        }
-
-        /// <summary>
-        /// Event when checked toggle button
-        /// </summary>
-        /// <param name="parameter">Object parameter</param>
-        private void OnCheckedModeViewButtonAction(object parameter)
-        {
-            this.SensorsVisibility = Visibility.Hidden;
-            this.InterpVisibility = Visibility.Visible;
-
-            this.ViewMode = true;          
-        }
-
-        /// <summary>
-        /// Event when close window
-        /// </summary>
-        /// <param name="parameter">Object parameter</param>
-        private void OnUnCheckedModeViewButtonAction(object parameter)
-        {
-            this.SensorsVisibility = Visibility.Visible;
-            this.InterpVisibility = Visibility.Hidden;
-
-            this.ViewMode = true;        
-        }
-
-        /// <summary>
-        /// Event when close window
-        /// </summary>
-        /// <param name="parameter">Object parameter</param>
-        private void OnUnSliderValueChangedAction(object parameter)
-        {           
-            int newValue = Convert.ToInt32(((RoutedPropertyChangedEventArgs<double>)parameter).NewValue);
-
-            this.sensorGroupModel.Children.Clear();
-            this.sensorGroupModel.Children.Add(this.stlModel);
-
-            //TODO
-            foreach (var model3d in this.sensorModelArray[0])
-            {
-                this.sensorGroupModel.Children.Add(model3d);
-            }
-
-            this.GroupModel = this.sensorGroupModel;
-            this.device3D.Content = this.groupModel;            
-
-            this.initialized = false;
-
-        }
+        }      
 
         /// <summary>
         /// Display 3D Model
@@ -929,6 +908,54 @@ namespace SensorsViewer.Result
             gl.TexParameter(OpenGL.GL_TEXTURE_2D, OpenGL.GL_TEXTURE_MIN_FILTER, OpenGL.GL_LINEAR);
             gl.TexParameter(OpenGL.GL_TEXTURE_2D, OpenGL.GL_TEXTURE_MAG_FILTER, OpenGL.GL_LINEAR);
             
+        }
+
+        /// <summary>
+        /// Event when checked toggle button
+        /// </summary>
+        /// <param name="parameter">Object parameter</param>
+        private void OnCheckedModeViewButtonAction(object parameter)
+        {
+            this.SensorsVisibility = Visibility.Hidden;
+            this.InterpVisibility = Visibility.Visible;
+
+            this.ViewMode = true;
+        }
+
+        /// <summary>
+        /// Event when close window
+        /// </summary>
+        /// <param name="parameter">Object parameter</param>
+        private void OnUnCheckedModeViewButtonAction(object parameter)
+        {
+            this.SensorsVisibility = Visibility.Visible;
+            this.InterpVisibility = Visibility.Hidden;
+
+            this.ViewMode = true;
+        }
+
+        /// <summary>
+        /// Event when close window
+        /// </summary>
+        /// <param name="parameter">Object parameter</param>
+        private void OnUnSliderValueChangedAction(object parameter)
+        {
+            int newValue = Convert.ToInt32(((RoutedPropertyChangedEventArgs<double>)parameter).NewValue);
+
+            this.sensorGroupModel.Children.Clear();
+            this.sensorGroupModel.Children.Add(this.stlModel);
+
+            //TODO
+            foreach (var model3d in this.sensorModelArray[newValue])
+            {
+                this.sensorGroupModel.Children.Add(model3d);
+            }
+
+            this.GroupModel = this.sensorGroupModel;
+            this.device3D.Content = this.groupModel;
+
+            this.initialized = false;
+
         }
 
         private bool CreateAnalysisFolder(string path)

@@ -85,6 +85,17 @@ namespace SensorsViewer.SensorOption
         public ObservableCollection<string> SensorsIds { get; set; }
 
         /// <summary>
+        /// String to indicate the directory which store de interpolation images
+        /// </summary>
+        public string FolderPath
+        {
+            get
+            {
+                return System.IO.Directory.GetCurrentDirectory() + @"\..\..\Resources\Analysis\" + this.Name.Replace(':', '.');
+            }
+        }
+
+        /// <summary>
         /// Gets or sets project B User control content
         /// </summary>
         [XmlIgnore]

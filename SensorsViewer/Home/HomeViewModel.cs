@@ -110,8 +110,14 @@ namespace SensorsViewer.Home
         /// </summary>
         private IDialogCoordinator dialogCoordinator;
 
+        /// <summary>
+        /// String to current directory
+        /// </summary>
         private string currentDirectory;
 
+        /// <summary>
+        /// Parameter to indicate which is not going to be interpolated
+        /// </summary>
         private string parameterString = "direction";
 
         /// <summary>
@@ -651,7 +657,7 @@ namespace SensorsViewer.Home
             var dc = (TabCategory)textBlock.DataContext;
 
             this.SelectedProjectChartContent = dc.Analysis.Count > 0 ? dc.Analysis[0].ProjectChartContent : null;
-            this.SelectedProjectResultContent = dc.Analysis.Count > 0 ? dc.Analysis[0].ProjectResutContent : new ResultView(this.SelectedTab.Sensors.Where(a => a.Visibility == true), this.SelectedProjectItem.ModelPath);
+            this.SelectedProjectResultContent = dc.Analysis.Count > 0 ? dc.Analysis[0].ProjectResutContent : new ResultView(dc.Sensors.Where(a => a.Visibility == true), this.SelectedProjectItem.ModelPath);
 
             if (dc.Name == "Draw-In")
             {
@@ -719,6 +725,7 @@ namespace SensorsViewer.Home
         {
             var analysis = parameter as Analysis;
 
+            // Remove sensor values from this analysis 
             for (int i = 0; i < this.SelectedTab.Sensors.Count; i++) 
             {
                 List<SensorValue> sensorValues = this.SelectedTab.Sensors[i].Values.Where(a => a.AnalysisName == analysis.Name).ToList();
@@ -727,6 +734,15 @@ namespace SensorsViewer.Home
                 {
                     this.SelectedTab.Sensors[i].Values.Remove(sensorValues[j]);
                 }
+            }
+            
+            // Free interpolation images to after delete the folder
+            ((ResultView)analysis.ProjectResutContent).ResultViewModel.FreeTextureImages();
+
+            // Remove the folder with interpolation images
+            if (Directory.Exists(analysis.FolderPath))
+            {
+                Directory.Delete(analysis.FolderPath, true);
             }
 
             this.SelectedTab.Analysis.Remove(analysis);

@@ -75,7 +75,7 @@ namespace SensorsViewer.ProjectB
         private void SetAxisLimits(DateTime now)
         {
             AxisMax = now.Ticks; // + TimeSpan.FromSeconds(1).Ticks; // lets force the axis to be 1 second ahead
-            AxisMin = now.Ticks - TimeSpan.FromSeconds(10).Ticks; // and 8 seconds behind
+            AxisMin = now.Ticks - TimeSpan.FromSeconds(1).Ticks; // and 8 seconds behind
         }
 
         public double AxisStep { get; set; }

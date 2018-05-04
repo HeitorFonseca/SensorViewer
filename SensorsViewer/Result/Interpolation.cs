@@ -31,7 +31,6 @@ namespace SensorsViewer.Result
         private MyPathNode[,] grid;
         private MyPathNode[,] grid2;
         private MyPathNode[,] grid3;
-        private double averageValue;
 
         private int offsetX;
         private int offsetY;
@@ -262,8 +261,6 @@ namespace SensorsViewer.Result
         private Vertex[] StartInterpolation(Dictionary<Tuple<int, int>, double> ppDictionary, Dictionary<Tuple<int, int>, double> sensorDictionary)
         {
             Dictionary<Tuple<int, int>, double> resultDic = new Dictionary<Tuple<int, int>, double>();
-
-            averageValue = 0;
 
             var vertices = new  Vertex[ppDictionary.Count];
 
@@ -757,7 +754,7 @@ namespace SensorsViewer.Result
 
                 foreach (Sensor sensor in sensorsDataList)
                 {
-                    //Get the distance between randomKey and 7 sensors and return the minumum
+                    // Get the distance between randomKey and N sensors and return the minumum
                     Point sensorPnt = new Point(Convert.ToInt32(sensor.X/10) - offsetX/10, Convert.ToInt32(sensor.Y/10) - offsetY/10);
                     int pathLen = 0;
                     try
@@ -766,9 +763,9 @@ namespace SensorsViewer.Result
                         IEnumerable<MyPathNode> path = aStar.Search(rndSensorPnt, sensorPnt, null);
                         pathLen = path.Count();
                     }
-                    catch (Exception e)
+                    catch (Exception)
                     {
-                        var a = 1;
+                        throw new Exception("Unexpected Error");
                     }                    
 
                     if (pathLen < min1)

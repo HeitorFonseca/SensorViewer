@@ -48,7 +48,6 @@ namespace SensorsViewer.Home
             this.Sensors = new ObservableCollection<Sensor>();
         }
 
-
         /// <summary>
         /// Event for when change property
         /// </summary>

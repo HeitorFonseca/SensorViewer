@@ -21,6 +21,9 @@ namespace SensorsViewer.SensorOption
         /// </summary>
         private bool visibility = false;
 
+        /// <summary>
+        /// String to indicate which parameter is not going to be interpolated
+        /// </summary>
         private string parameterString = "direction";
 
         /// <summary>
