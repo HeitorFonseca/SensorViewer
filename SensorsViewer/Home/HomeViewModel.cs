@@ -456,6 +456,8 @@ namespace SensorsViewer.Home
         {
             try
             {
+                App.splashScreen.AddMessage("Loading analysis");
+
                 this.ProjectItems = XmlSerialization.ReadFromXmlFile<ObservableCollection<ProjectItem>>(this.currentDirectory + @"\..\..\Resources\META-INF\persistence.txt");
 
                 foreach (ProjectItem opt in this.ProjectItems)
@@ -465,12 +467,16 @@ namespace SensorsViewer.Home
                         // Each Tab has its chart and values
                         for (int i = 0; i < tab.Analysis.Count; i++)
                         {
-                            ObservableCollection<Sensor> analysisSensors = this.GetSensorsFromAnalysis(tab.Sensors, tab.Analysis[i].SensorsIds);                        
+                            App.splashScreen.AddMessage("Loading Analysis " + tab.Analysis[i].Name + "Sensors");
+                            ObservableCollection<Sensor> analysisSensors = this.GetSensorsFromAnalysis(tab.Sensors, tab.Analysis[i].SensorsIds);
+                            App.splashScreen.AddMessage("Loading Analysis " + tab.Analysis[i].Name + "Chart");
                             tab.Analysis[i].ProjectChartContent.OpticalSensorViewModel.ShowLoadedSensors(analysisSensors, tab.Analysis[i].Name);
+                            App.splashScreen.AddMessage("Loading Analysis " + tab.Analysis[i].Name + "Model");
                             tab.Analysis[i].ProjectResutContent = new ResultView(analysisSensors, opt.ModelPath, tab.Analysis[i].Name);
                         }
                     }
                 }
+
 
                 this.SubTabIndex = 0;
                 this.tabIndex = 0;
@@ -486,6 +492,8 @@ namespace SensorsViewer.Home
                 {
                     ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true), string.Empty);
                 }
+
+                App.splashScreen.LoadComplete();
             }
             catch (Exception)
             {

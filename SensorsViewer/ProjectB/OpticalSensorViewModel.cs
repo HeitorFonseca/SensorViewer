@@ -53,6 +53,8 @@ namespace SensorsViewer.ProjectB
         /// </summary>
         private double axisMin;
 
+        private DateTime start = new DateTime(3000, 1, 1), end = new DateTime(1999, 1, 1);
+
         /// <summary>
         /// Initializes a new instance of the <see cref="OpticalSensorViewModel"/> class
         /// </summary>
@@ -70,15 +72,15 @@ namespace SensorsViewer.ProjectB
             this.SensorList = new ObservableCollection<SensorOption.Sensor>();
             this.SensorsLog = new ObservableCollection<SensorOption.Sensor>();
 
-            this.XFormatter = this.EOQ; ////val => new DateTime((long)val).ToString("HH: mm:ss.fff");
-            this.YFormatter = this.YUKE; ////val => val.ToString("N");
+            this.XFormatter = this.XFormatterFunc; ////val => new DateTime((long)val).ToString("HH: mm:ss.fff");
+            this.YFormatter = this.YFormatterFunc; ////val => val.ToString("N");
 
             // AxisStep forces the distance between each separator in the X axis
-            this.AxisStep = TimeSpan.FromSeconds(1).Ticks;
+            this.AxisStep = TimeSpan.FromMilliseconds(50).Ticks;
 
             // AxisUnit forces lets the axis know that we are plotting seconds
             // this is not always necessary, but it can prevent wrong labeling
-            this.AxisUnit = TimeSpan.TicksPerSecond;
+            this.AxisUnit = TimeSpan.TicksPerMillisecond;
         }
 
         /// <summary>
@@ -230,6 +232,7 @@ namespace SensorsViewer.ProjectB
         /// <param name="sv">Sensor value</param>
         public void AddValue(string sensorName, double value, SensorOption.SensorValue sv)
         {
+
             // If exist a line series with sensor with sensorid
             if (this.SeriesCollection.FirstOrDefault(a => a.Title == sensorName) is LineSeries ls)
             {
@@ -240,11 +243,24 @@ namespace SensorsViewer.ProjectB
                 {
                     if (this.SensorList[i].SensorName == sensorName)
                     {
+                        if (start.Ticks > sv.Timestamp.Ticks)
+                        {
+                            start = sv.Timestamp;
+                        }
+
+                        if (end.Ticks < sv.Timestamp.Ticks)
+                        {
+                            end = sv.Timestamp;
+                        }
+
                         this.SensorList[i].Values.Add(sv);
-                        this.SetAxisLimits(sv.Timestamp);
+                        // this.SetAxisLimits(sv.Timestamp);
                     }
                 }
             }
+
+            this.AxisMax = end.Ticks; // + TimeSpan.FromSeconds(1).Ticks; // lets force the axis to be 1 second ahead
+            this.AxisMin = start.Ticks; // and 8 seconds behind
         }
 
         /// <summary>
@@ -373,7 +389,7 @@ namespace SensorsViewer.ProjectB
         /// </summary>
         /// <param name="val">Value to be formated</param>
         /// <returns>Formated value</returns>
-        private string EOQ(double val)
+        private string XFormatterFunc(double val)
         {
             string asd = new DateTime((long)val).ToString("mm:ss.fff");
 
@@ -385,7 +401,7 @@ namespace SensorsViewer.ProjectB
         /// </summary>
         /// <param name="val">Value to be formated</param>
         /// <returns>Formated value</returns>
-        private string YUKE(double val)
+        private string YFormatterFunc(double val)
         {
             string asd = val.ToString("N");
 

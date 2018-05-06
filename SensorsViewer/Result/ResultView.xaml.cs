@@ -65,8 +65,6 @@ namespace SensorsViewer.Result
             this.ResultViewModel = new ResultViewModel(sensors, path, analysisName);                 
             this.viewPort3d.ZoomExtents();
             this.viewPort3d.ZoomExtentsWhenLoaded = true;
-            this.ViewPort3DX.ZoomExtents();
-            this.ViewPort3DX.ZoomExtentsWhenLoaded = true;
             this.DataContext = this.ResultViewModel;          
         }
 
@@ -85,6 +83,8 @@ namespace SensorsViewer.Result
             // Get the OpenGL instance that's been passed to us.
             OpenGL gl = args.OpenGL;
             gl.ClearColor(255, 255, 255, 255);
+
+            gl.Flush();
         }
     }
 }

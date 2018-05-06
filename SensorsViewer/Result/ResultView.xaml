@@ -5,7 +5,6 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:SensorsViewer.Result"
              xmlns:helix="http://helix-toolkit.org/wpf"
-             xmlns:hx="http://helix-toolkit.org/wpf/SharpDX"
              xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
              xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
              xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
@@ -29,7 +28,7 @@
         </helix:HelixViewport3D>
 
         <sharpGL:OpenGLControl OpenGLInitialized="OpenGLControl_OpenGLInitialized" Visibility="{Binding InterpVisibility}" >
-                            
+
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="OpenGLInitialized">
                     <cmd:EventToCommand Command="{Binding OpenGLInitializedCommand}" PassEventArgsToCommand="True" />
@@ -41,14 +40,8 @@
                     <cmd:EventToCommand Command="{Binding OpenGLResized}" PassEventArgsToCommand="True" />
                 </i:EventTrigger>
             </i:Interaction.Triggers>
-            
+
         </sharpGL:OpenGLControl>
-
-        <hx:Viewport3DX  x:Name="ViewPort3DX" ZoomExtentsWhenLoaded="True" Visibility="Collapsed">
-            <hx:AmbientLight3D Color="{Binding AmbientLightColor}"/>
-
-            <hx:PointGeometryModel3D x:Name="points" Geometry="{Binding Points}" Size="10 10"  Color="{Binding Colorir}"/>
-        </hx:Viewport3DX>
 
         <controls:ToggleSwitch x:Name="enabledSwitch" Margin="201,0,0,275"  OffLabel="Sensors" OnLabel="Ramp"
                                IsChecked="{Binding ViewMode}"

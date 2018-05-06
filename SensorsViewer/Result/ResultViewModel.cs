@@ -716,6 +716,8 @@ namespace SensorsViewer.Result
             OpenGL gl = ((OpenGLEventArgs)parameter).OpenGL;
 
             gl.ClearColor(255, 255, 255, 255);
+
+            gl.Flush();
         }
 
         /// <summary>
@@ -725,6 +727,9 @@ namespace SensorsViewer.Result
         private void OpenGLControl_OpenGLDraw(object parameter)
         {
             OpenGL gl = gl = ((OpenGLEventArgs)parameter).OpenGL;
+            gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
+            gl.LoadIdentity();
+            gl.Flush();
 
             if (!this.oldAnalysis && (this.vertices == null || this.vertices[this.Slider] == null))
             {
@@ -733,11 +738,11 @@ namespace SensorsViewer.Result
 
             if (!this.oldAnalysis)
             {
-                // Clear the color and depth buffers.
-                gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
+                //// Clear the color and depth buffers.
+                //gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
 
-                // Reset the modelview matrix.
-                gl.LoadIdentity();
+                //// Reset the modelview matrix.
+                //gl.LoadIdentity();
 
                 // Move the geometry into a fairly central position.
                 gl.Translate(0.0f, 0.0f, -20.0f);
@@ -758,7 +763,7 @@ namespace SensorsViewer.Result
                 gl.End();
 
                 // Flush OpenGL.
-                gl.Flush();
+                //gl.Flush();
 
                 if (!this.savedVertices[id])
                 {
@@ -776,8 +781,9 @@ namespace SensorsViewer.Result
                     this.changeImage = true;
                 }
 
-                gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
-                gl.LoadIdentity();
+                //gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
+                //gl.LoadIdentity();
+
                 gl.Translate(0.0f, 0.0f, -3.5f);
 
                 gl.BindTexture(OpenGL.GL_TEXTURE_2D, this.textures[0]);
@@ -796,8 +802,10 @@ namespace SensorsViewer.Result
 
                 gl.End();
 
-                gl.Flush();
+                //gl.Flush();
             }
+
+            gl.Flush();
         }
 
         /// <summary>

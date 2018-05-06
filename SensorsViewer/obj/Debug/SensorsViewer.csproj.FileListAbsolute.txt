@@ -216,7 +216,6 @@ C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Sensors
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\AttachedCommandBehavior.dll
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\Cyotek.Drawing.BitmapFont.dll
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\FontAwesome.WPF.dll
-C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\HelixToolkit.Wpf.SharpDX.dll
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\SharpDX.D3DCompiler.dll
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\SharpDX.Direct2D1.dll
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\SharpDX.Direct3D11.dll
@@ -230,8 +229,6 @@ C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\SharpGL.WPF.dll
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\Cyotek.Drawing.BitmapFont.xml
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\FontAwesome.WPF.xml
-C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\HelixToolkit.Wpf.SharpDX.pdb
-C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\HelixToolkit.Wpf.SharpDX.xml
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\SharpDX.xml
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\SharpDX.D3DCompiler.xml
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\SharpDX.Direct2D1.xml
@@ -247,3 +244,5 @@ C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\SharpGL.WPF.pdb
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\bin\Debug\SharpGL.WPF.xml
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\obj\Debug\SensorsViewer_Content.g.cs
+C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\obj\Debug\SplashScreen.g.cs
+C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\obj\Debug\SplashScreen.baml
