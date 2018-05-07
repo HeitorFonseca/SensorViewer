@@ -41,11 +41,6 @@ namespace SensorsViewer.Home
             this.Show();
             this.Activate();
             this.Topmost = false;
-
-            //this.Topmost = true;
-            //this.Activate();
-            //this.Topmost = false;
-
         }
 
         /// <summary>

@@ -53,6 +53,9 @@ namespace SensorsViewer.ProjectB
         /// </summary>
         private double axisMin;
 
+        /// <summary>
+        /// Start datetime and End datetime
+        /// </summary>
         private DateTime start = new DateTime(3000, 1, 1), end = new DateTime(1999, 1, 1);
 
         /// <summary>
@@ -232,7 +235,6 @@ namespace SensorsViewer.ProjectB
         /// <param name="sv">Sensor value</param>
         public void AddValue(string sensorName, double value, SensorOption.SensorValue sv)
         {
-
             // If exist a line series with sensor with sensorid
             if (this.SeriesCollection.FirstOrDefault(a => a.Title == sensorName) is LineSeries ls)
             {
@@ -243,24 +245,23 @@ namespace SensorsViewer.ProjectB
                 {
                     if (this.SensorList[i].SensorName == sensorName)
                     {
-                        if (start.Ticks > sv.Timestamp.Ticks)
+                        if (this.start.Ticks > sv.Timestamp.Ticks)
                         {
-                            start = sv.Timestamp;
+                            this.start = sv.Timestamp;
                         }
 
-                        if (end.Ticks < sv.Timestamp.Ticks)
+                        if (this.end.Ticks < sv.Timestamp.Ticks)
                         {
-                            end = sv.Timestamp;
+                            this.end = sv.Timestamp;
                         }
 
                         this.SensorList[i].Values.Add(sv);
-                        // this.SetAxisLimits(sv.Timestamp);
                     }
                 }
             }
 
-            this.AxisMax = end.Ticks; // + TimeSpan.FromSeconds(1).Ticks; // lets force the axis to be 1 second ahead
-            this.AxisMin = start.Ticks; // and 8 seconds behind
+            this.AxisMax = this.end.Ticks; // + TimeSpan.FromSeconds(1).Ticks; // lets force the axis to be 1 second ahead
+            this.AxisMin = this.start.Ticks; // and 8 seconds behind
         }
 
         /// <summary>
@@ -355,16 +356,6 @@ namespace SensorsViewer.ProjectB
             {
                 this.PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
-        }
-
-        /// <summary>
-        /// Set X axis limit
-        /// </summary>
-        /// <param name="now">Datetime now</param>
-        private void SetAxisLimits(DateTime now)
-        {
-            this.AxisMax = now.Ticks; // + TimeSpan.FromSeconds(1).Ticks; // lets force the axis to be 1 second ahead
-            this.AxisMin = now.Ticks - TimeSpan.FromSeconds(1).Ticks; // and 8 seconds behind
         }
 
         /// <summary>

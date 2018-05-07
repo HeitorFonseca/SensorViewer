@@ -456,7 +456,7 @@ namespace SensorsViewer.Home
         {
             try
             {
-                App.splashScreen.AddMessage("Loading analysis");
+                App.SplashScreen.AddMessage("Loading analysis");
 
                 this.ProjectItems = XmlSerialization.ReadFromXmlFile<ObservableCollection<ProjectItem>>(this.currentDirectory + @"\..\..\Resources\META-INF\persistence.txt");
 
@@ -467,16 +467,15 @@ namespace SensorsViewer.Home
                         // Each Tab has its chart and values
                         for (int i = 0; i < tab.Analysis.Count; i++)
                         {
-                            App.splashScreen.AddMessage("Loading Analysis " + tab.Analysis[i].Name + " Sensors");
+                            App.SplashScreen.AddMessage("Loading " + tab.Analysis[i].Name + " Sensors");
                             ObservableCollection<Sensor> analysisSensors = this.GetSensorsFromAnalysis(tab.Sensors, tab.Analysis[i].SensorsIds);
-                            App.splashScreen.AddMessage("Loading Analysis " + tab.Analysis[i].Name + " Chart");
+                            App.SplashScreen.AddMessage("Loading " + tab.Analysis[i].Name + " Chart");
                             tab.Analysis[i].ProjectChartContent.OpticalSensorViewModel.ShowLoadedSensors(analysisSensors, tab.Analysis[i].Name);
-                            App.splashScreen.AddMessage("Loading Analysis " + tab.Analysis[i].Name + " Model");
+                            App.SplashScreen.AddMessage("Loading " + tab.Analysis[i].Name + " Model");
                             tab.Analysis[i].ProjectResutContent = new ResultView(analysisSensors, opt.ModelPath, tab.Analysis[i].Name);
                         }
                     }
                 }
-
 
                 this.SubTabIndex = 0;
                 this.tabIndex = 0;
@@ -492,7 +491,6 @@ namespace SensorsViewer.Home
                 {
                     ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true), string.Empty);
                 }
-
             }
             catch (Exception)
             {
@@ -500,7 +498,7 @@ namespace SensorsViewer.Home
             }
             finally
             {
-                App.splashScreen.LoadComplete();                
+                App.SplashScreen.LoadComplete();                
             }
         }
 
@@ -577,7 +575,9 @@ namespace SensorsViewer.Home
             this.SelectedTab = this.SelectedTabCategory[this.tabIndex];
 
             // Select the project content as the tab index chart graph
-            this.SelectedAnalysis = this.SelectedTab.Analysis.Count > 0 ? this.SelectedTab.Analysis[option.AnalysisIndex] : null;
+            int id = this.SelectedTab.Analysis.Count >= option.AnalysisIndex ? 0 : option.AnalysisIndex;
+
+            this.SelectedAnalysis = this.SelectedTab.Analysis.Count > 0 ? this.SelectedTab.Analysis[id] : null;
             this.SelectedProjectChartContent = this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectChartContent : null;
             this.SelectedProjectResultContent = this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectResutContent : new ResultView(this.SelectedTab.Sensors.Where(a => a.Visibility == true), option.ModelPath);
         }

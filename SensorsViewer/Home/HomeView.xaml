@@ -22,7 +22,7 @@
         MinWidth="900"
         Name="Window" 
         Background="WhiteSmoke"              
-        Title="HomeView">
+        Title="Home">
 
     <!-- Close window event -->
     <i:Interaction.Triggers>

@@ -8,6 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("general-motors-32.ico")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("x64/d3dcompiler_47.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("x86/d3dcompiler_47.dll")]
 

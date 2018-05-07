@@ -18,40 +18,57 @@ namespace SensorsViewer
     /// </summary>
     public partial class App : Application
     {
-        public static ISplashScreen splashScreen;
+        /// <summary>
+        /// Splash screen interface object
+        /// </summary>
+        public static ISplashScreen SplashScreen;
 
-        private ManualResetEvent ResetSplashCreated;
-        private Thread SplashThread;
+        /// <summary>
+        /// Reset event
+        /// </summary>
+        private ManualResetEvent resetSplashCreated;
 
+        /// <summary>
+        /// Splash screen thread
+        /// </summary>
+        private Thread splashThread;
+
+        /// <summary>
+        /// On application start up
+        /// </summary>
+        /// <param name="e">Start up event</param>
         protected override void OnStartup(StartupEventArgs e)
         {
             // ManualResetEvent acts as a block.  It waits for a signal to be set.
-            ResetSplashCreated = new ManualResetEvent(false);
+            this.resetSplashCreated = new ManualResetEvent(false);
 
             // Create a new thread for the splash screen to run on
-            SplashThread = new Thread(ShowSplash);
-            SplashThread.SetApartmentState(ApartmentState.STA);
-            SplashThread.IsBackground = true;
-            SplashThread.Name = "Splash Screen";
-            SplashThread.Start();
+            this.splashThread = new Thread(this.ShowSplash);
+            this.splashThread.SetApartmentState(ApartmentState.STA);
+            this.splashThread.IsBackground = true;
+            this.splashThread.Name = "Splash Screen";
+            this.splashThread.Start();
 
             // Wait for the blocker to be signaled before continuing. This is essentially the same as: while(ResetSplashCreated.NotSet) {}
-            ResetSplashCreated.WaitOne();
+            this.resetSplashCreated.WaitOne();
 
             base.OnStartup(e);
         }
 
+        /// <summary>
+        /// Display splash screen
+        /// </summary>
         private void ShowSplash()
         {
             // Create the window
-            SplashScreen SplashScreenWindow = new SplashScreen();
-            splashScreen = SplashScreenWindow;
+            SplashScreen splashScreenWindow = new SplashScreen();
+            SplashScreen = splashScreenWindow;
 
             // Show it
-            SplashScreenWindow.Show();
+            splashScreenWindow.Show();
 
             // Now that the window is created, allow the rest of the startup to run
-            ResetSplashCreated.Set();
+            this.resetSplashCreated.Set();
             System.Windows.Threading.Dispatcher.Run();
         }
     }

@@ -739,10 +739,10 @@ namespace SensorsViewer.Result
             if (!this.oldAnalysis)
             {
                 //// Clear the color and depth buffers.
-                //gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
+                ////gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
 
                 //// Reset the modelview matrix.
-                //gl.LoadIdentity();
+                ////gl.LoadIdentity();
 
                 // Move the geometry into a fairly central position.
                 gl.Translate(0.0f, 0.0f, -20.0f);
@@ -763,7 +763,7 @@ namespace SensorsViewer.Result
                 gl.End();
 
                 // Flush OpenGL.
-                //gl.Flush();
+                ////gl.Flush();
 
                 if (!this.savedVertices[id])
                 {
@@ -781,11 +781,11 @@ namespace SensorsViewer.Result
                     this.changeImage = true;
                 }
 
-                //gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
-                //gl.LoadIdentity();
+                ////gl.Clear(OpenGL.GL_COLOR_BUFFER_BIT | OpenGL.GL_DEPTH_BUFFER_BIT);
+                ////gl.LoadIdentity();
 
-                gl.Translate(0.0f, 0.0f, -3.5f);
-
+                gl.Translate(-0.12f, -0.052f, -3.5f);
+                
                 gl.BindTexture(OpenGL.GL_TEXTURE_2D, this.textures[0]);
 
                 gl.Begin(OpenGL.GL_QUADS);
@@ -802,7 +802,7 @@ namespace SensorsViewer.Result
 
                 gl.End();
 
-                //gl.Flush();
+                ////gl.Flush();
             }
 
             gl.Flush();
