@@ -36,6 +36,16 @@ namespace SensorsViewer.Home
             this.homeViewModel = new HomeViewModel(DialogCoordinator.Instance);
 
             this.DataContext = this.homeViewModel;
+
+            this.Topmost = true;
+            this.Show();
+            this.Activate();
+            this.Topmost = false;
+
+            //this.Topmost = true;
+            //this.Activate();
+            //this.Topmost = false;
+
         }
 
         /// <summary>

@@ -17,6 +17,7 @@
         mc:Ignorable="d" Height="650" Width="1100"
         Style="{StaticResource WindowStyle}"
         WindowStartupLocation="CenterScreen"
+        WindowState="Normal"
         ShowIconOnTitleBar="True"
         MinWidth="900"
         Name="Window" 
