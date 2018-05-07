@@ -9,6 +9,8 @@
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Platform"
         xmlns:dialogs="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+        xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+
         xmlns:c="clr-namespace:AttachedCommandBehavior;assembly=AttachedCommandBehavior"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
 
@@ -43,7 +45,9 @@
     <controls:MetroWindow.DataContext>
         <local:HomeViewModel></local:HomeViewModel>
     </controls:MetroWindow.DataContext>
-    
+
+
+
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -60,6 +64,8 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
+                        <RowDefinition Height="40"/>
+
                     </Grid.RowDefinitions>
 
                     <Border Grid.Row="0" Style="{StaticResource MenuItem}" Margin="0,0,0.333,0" Background="#1BB9F0">
@@ -146,6 +152,12 @@
                             </ListBox.ItemTemplate>
                         </ListBox>
                     </Grid>
+
+                    <Button x:Name="btnSettings" Background="Transparent"
+                            Grid.Row="4" BorderThickness="0" Margin="81,6.333,92.333,3.667">
+
+                        <Image Source="../Resources/gearBtn16.png" Stretch="None" />
+                    </Button>
                 </Grid>
             </Border>
 
@@ -398,7 +410,7 @@
                             </Border>
                         </Grid>
                     </TabItem>
-                    
+
                     <!-- Sensors Log -->
                     <TabItem Header="Sensors Log" Style="{StaticResource ContentTabItem}"  Margin="90,8,-90,-8" Padding="0,0,0,0">
                         <Grid>

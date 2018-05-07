@@ -264,6 +264,8 @@
   <ItemGroup>
     <Resource Include="Resources\splashScreen.png" />
     <Resource Include="general-motors-32.ico" />
+    <Resource Include="Resources\settingsBtn.png" />
+    <Resource Include="Resources\gearBtn16.png" />
     <Content Include="x64\d3dcompiler_47.dll" />
     <Content Include="x86\d3dcompiler_47.dll" />
   </ItemGroup>
