@@ -8,11 +8,15 @@ namespace SensorsViewer.ProjectB
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
+    using System.IO;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using System.Windows;
+    using System.Windows.Controls;
     using System.Windows.Input;
     using System.Windows.Media;
+    using System.Windows.Media.Imaging;
     using LiveCharts;
     using LiveCharts.Configurations;
     using LiveCharts.Wpf;
@@ -417,6 +421,6 @@ namespace SensorsViewer.ProjectB
             this.seriesColors.Add(new Color() { A = 255, R = 33, G = 53, B = 23 });   // dark green
             this.seriesColors.Add(new Color() { A = 255, R = 26, G = 31, B = 55 });   // dark blue
             this.seriesColors.Add(new Color() { A = 255, R = 98, G = 98, B = 98 });   // gray
-        }
+        }       
     }
 }

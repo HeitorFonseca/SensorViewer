@@ -41,9 +41,9 @@
                     </Style>
                 </ListBox.ItemContainerStyle>
             </ListBox>
-
-            <lvc:CartesianChart Series="{Binding SeriesCollection}" Height="{Binding ElementName=Canvas, Path=ActualHeight}" Width="{Binding ElementName=Canvas, Path=ActualWidth}"
-                                Hoverable="False">
+                            
+            <lvc:CartesianChart x:Name="ChartElement" Series="{Binding SeriesCollection}" Height="{Binding ElementName=Canvas, Path=ActualHeight}" Width="{Binding ElementName=Canvas, Path=ActualWidth}"
+                                 Hoverable="False">
                 <lvc:CartesianChart.AxisY>
                     <lvc:Axis LabelFormatter="{Binding YFormatter}"></lvc:Axis>
                 </lvc:CartesianChart.AxisY>

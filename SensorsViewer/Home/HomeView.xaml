@@ -154,9 +154,13 @@
                     </Grid>
 
                     <Button x:Name="btnSettings" Background="Transparent"
-                            Grid.Row="4" BorderThickness="0" Margin="81,6.333,92.333,3.667">
+                            Grid.Row="4" BorderThickness="0" Margin="81,6.333,92.333,3.667"
+                             Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.ConnectionSettingsCommand}"
+                                                    CommandParameter="{Binding}">
 
                         <Image Source="../Resources/gearBtn16.png" Stretch="None" />
+
+                       
                     </Button>
                 </Grid>
             </Border>
@@ -332,6 +336,10 @@
                                                     <MenuItem Header="Export to TXT" Command="{Binding PlacementTarget.Tag.ClickInExportToTxtCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" 
                                                               CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}},
                                                               Path=PlacementTarget.SelectedItem}"/>
+                                                    <MenuItem Header="Save Charts" Command="{Binding PlacementTarget.Tag.ClickInSaveChartCommand, RelativeSource={RelativeSource AncestorType=ContextMenu}}" 
+                                                               CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}},
+                                                              Path=PlacementTarget.SelectedItem}"/>
+
                                                 </ContextMenu>
                                             </ListBox.ContextMenu>
 

@@ -229,3 +229,5 @@ C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\
 C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\obj\Debug\SplashScreen.baml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SplashScreen.g.cs
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SplashScreen.baml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Home\ConnectionSettings.g.cs
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Home\ConnectionSettings.baml

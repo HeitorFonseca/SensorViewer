@@ -135,7 +135,7 @@ namespace SensorsViewer.Home
         {
             this.dialogCoordinator = dialogCoordinator;
 
-            this.proc = new MqttConnection("localhost", 5672, "userTest", "userTest", "hello");
+            this.proc = new MqttConnection("localhost", 5672, "userTest", "userTest", "GMTestqueue");
             this.proc.Connect();
             this.proc.ReadDataEvnt(this.WhenMessageReceived);
 
@@ -151,6 +151,8 @@ namespace SensorsViewer.Home
             this.DeleteSensorCommand = new RelayCommand(this.DeleteSensorAction);
             this.DeleteAnalysisCommand = new RelayCommand(this.DeleteAnalysisAction);
 
+            this.ConnectionSettingsCommand = new RelayCommand(this.ConnectionSettingsAction);
+
             this.AddNewSensorCommand = new AddSensorCommand(this);
             this.ClickInTabCategoryCommand = new RelayCommand(this.ClickInTabCategoryAction);
             this.EditSensorDataCommand = new ChangeSensorDataCommand(this);
@@ -158,6 +160,7 @@ namespace SensorsViewer.Home
 
             this.ClickInAnalysisItem = new RelayCommand(this.ClickInAnalysisAction);
             this.ClickInExportToTxtCommand = new RelayCommand(this.ClickInExportToTxtAction);
+            this.ClickInSaveChartCommand = new RelayCommand(this.ClickInSaveChartAction);
 
             this.currentDirectory = System.IO.Directory.GetCurrentDirectory();
 
@@ -174,6 +177,11 @@ namespace SensorsViewer.Home
         ///  Gets or sets Close window command
         /// </summary>
         public ICommand CloseWindowCommand { get; set; }
+
+        /// <summary>
+        ///  Gets or sets Close window command
+        /// </summary>
+        public ICommand ConnectionSettingsCommand { get; set; }
 
         /// <summary>
         ///  Gets or sets Loaded window command
@@ -244,6 +252,11 @@ namespace SensorsViewer.Home
         ///  Gets or sets export to txt command
         /// </summary>
         public ICommand ClickInExportToTxtCommand { get; set; }
+
+        /// <summary>
+        ///  Gets or sets export charts to png command
+        /// </summary>
+        public ICommand ClickInSaveChartCommand { get; set; }
 
         /// <summary>
         /// Gets or sets selected sensor
@@ -560,6 +573,26 @@ namespace SensorsViewer.Home
         }
 
         /// <summary>
+        ///  Event to connection settings
+        /// </summary>
+        /// <param name="parameter">Object parameter</param>
+        private void ConnectionSettingsAction(object parameter)
+        {
+            ConnectionSettings stt = new ConnectionSettings(this.proc);
+            stt.ShowDialog();
+
+            if (stt.DialogResult.HasValue && stt.DialogResult.Value)
+            {
+                if (stt.HostName != this.proc.HostName || stt.PortNumber != this.proc.Port.ToString())
+                {
+                    this.proc.Disconnect();
+
+                    this.proc = new MqttConnection(stt.HostName, Convert.ToInt32(stt.PortNumber), stt.Username, stt.Password, "GMTestqueue");
+                }
+            }
+        }
+
+        /// <summary>
         /// Event for when the user click in project item
         /// </summary>
         /// <param name="parameter">Object parameter</param>
@@ -858,7 +891,18 @@ namespace SensorsViewer.Home
                 }
             }
         }
-        
+
+        /// <summary>
+        /// Click to export to Txt
+        /// </summary>
+        /// <param name="parameter">Object parameter</param>
+        private void ClickInSaveChartAction(object parameter)
+        {
+            var analysis = parameter as Analysis;
+
+            analysis.ProjectChartContent.TakeTheChart();
+        }
+
         #endregion
 
         /// <summary>

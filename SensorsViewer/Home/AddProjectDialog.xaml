@@ -36,11 +36,10 @@
         <TextBox Grid.Row="1" Grid.Column="1" Margin="8 8 0 0" Text="{Binding ModelPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
         <Button Grid.Row="1" Grid.Column="2" Height="5" Margin="0 8 0 0"  VerticalAlignment="Center" HorizontalAlignment="Center" Click="FileDialogBtnClick" Content="..." />
-        
+
         <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"  Orientation="Horizontal" HorizontalAlignment="Right">
             <Button  MinWidth="80" Margin="8 8 0 8" HorizontalAlignment="Right" Click="OkBtnClickAsync" Content="OK" />
             <Button  MinWidth="80" Margin="8 8 0 8" HorizontalAlignment="Right" Click="CancelBtnClick" Content="Cancel" />
         </StackPanel>
-
     </Grid>
 </controls:MetroWindow>

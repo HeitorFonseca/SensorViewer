@@ -2322,7 +2322,7 @@
     <Id>1</Id>
     <Name>Ring</Name>
     <ModelPath>C:\Users\heitor.araujo\Documents\wokspace\GM\Tests\TestsNx\Die ring.stl</ModelPath>
-    <AnalysisIndex>0</AnalysisIndex>
+    <AnalysisIndex>1</AnalysisIndex>
     <Tabs>
       <TabCategory>
         <Name>Draw-In</Name>
@@ -3333,6 +3333,66 @@
                 <Parameter>pressure</Parameter>
                 <AnalysisName>Analysis 10:29:45.719</AnalysisName>
               </SensorValue>
+              <SensorValue>
+                <Value>-0.707708323238282</Value>
+                <Timestamp>2018-05-08T13:52:44.628</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.0185691355814083</Value>
+                <Timestamp>2018-05-08T13:52:44.683</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.971037704484089</Value>
+                <Timestamp>2018-05-08T13:52:44.741</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.923331590333642</Value>
+                <Timestamp>2018-05-08T13:52:44.793</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.0300126583455189</Value>
+                <Timestamp>2018-05-08T13:52:44.843</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.638343086297784</Value>
+                <Timestamp>2018-05-08T13:52:44.894</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.277637244797143</Value>
+                <Timestamp>2018-05-08T13:52:44.945</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.591744759861261</Value>
+                <Timestamp>2018-05-08T13:52:44.996</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.76987772796763</Value>
+                <Timestamp>2018-05-08T13:52:45.047</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.976160642679855</Value>
+                <Timestamp>2018-05-08T13:52:45.099</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
             </Values>
             <Visibility>true</Visibility>
           </Sensor>
@@ -3403,6 +3463,66 @@
                 <Timestamp>2018-05-07T13:29:46.167</Timestamp>
                 <Parameter>pressure</Parameter>
                 <AnalysisName>Analysis 10:29:45.719</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.689033765201007</Value>
+                <Timestamp>2018-05-08T13:52:44.628</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.00844569085559144</Value>
+                <Timestamp>2018-05-08T13:52:44.683</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.770657209572688</Value>
+                <Timestamp>2018-05-08T13:52:44.741</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.279476352631802</Value>
+                <Timestamp>2018-05-08T13:52:44.793</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.902598511382285</Value>
+                <Timestamp>2018-05-08T13:52:44.843</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.562311177869472</Value>
+                <Timestamp>2018-05-08T13:52:44.894</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.35974597528565</Value>
+                <Timestamp>2018-05-08T13:52:44.945</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.0875606616435389</Value>
+                <Timestamp>2018-05-08T13:52:44.996</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.328909791693515</Value>
+                <Timestamp>2018-05-08T13:52:45.047</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.0829879264733698</Value>
+                <Timestamp>2018-05-08T13:52:45.099</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
               </SensorValue>
             </Values>
             <Visibility>true</Visibility>
@@ -3475,6 +3595,66 @@
                 <Parameter>pressure</Parameter>
                 <AnalysisName>Analysis 10:29:45.719</AnalysisName>
               </SensorValue>
+              <SensorValue>
+                <Value>0.219453248763202</Value>
+                <Timestamp>2018-05-08T13:52:44.628</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.413287965307612</Value>
+                <Timestamp>2018-05-08T13:52:44.683</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.983748122110846</Value>
+                <Timestamp>2018-05-08T13:52:44.741</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.434444820245004</Value>
+                <Timestamp>2018-05-08T13:52:44.793</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.94963647236565</Value>
+                <Timestamp>2018-05-08T13:52:44.843</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.25745805690878</Value>
+                <Timestamp>2018-05-08T13:52:44.894</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.082730189469983</Value>
+                <Timestamp>2018-05-08T13:52:44.945</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.381058014641077</Value>
+                <Timestamp>2018-05-08T13:52:44.996</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.910102631854873</Value>
+                <Timestamp>2018-05-08T13:52:45.047</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.0689227492869471</Value>
+                <Timestamp>2018-05-08T13:52:45.099</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
             </Values>
             <Visibility>true</Visibility>
           </Sensor>
@@ -3545,6 +3725,66 @@
                 <Timestamp>2018-05-07T13:29:46.167</Timestamp>
                 <Parameter>pressure</Parameter>
                 <AnalysisName>Analysis 10:29:45.719</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.752875521663984</Value>
+                <Timestamp>2018-05-08T13:52:44.628</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.619805251071139</Value>
+                <Timestamp>2018-05-08T13:52:44.683</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.364882056305596</Value>
+                <Timestamp>2018-05-08T13:52:44.741</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.625831066456545</Value>
+                <Timestamp>2018-05-08T13:52:44.793</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.272713350724761</Value>
+                <Timestamp>2018-05-08T13:52:44.843</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.148360121598635</Value>
+                <Timestamp>2018-05-08T13:52:44.894</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.608364746723494</Value>
+                <Timestamp>2018-05-08T13:52:44.945</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.980517219743001</Value>
+                <Timestamp>2018-05-08T13:52:44.996</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.36085649550001</Value>
+                <Timestamp>2018-05-08T13:52:45.047</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.998025353065704</Value>
+                <Timestamp>2018-05-08T13:52:45.099</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
               </SensorValue>
             </Values>
             <Visibility>true</Visibility>
@@ -3617,6 +3857,66 @@
                 <Parameter>pressure</Parameter>
                 <AnalysisName>Analysis 10:29:45.719</AnalysisName>
               </SensorValue>
+              <SensorValue>
+                <Value>0.925609055871893</Value>
+                <Timestamp>2018-05-08T13:52:44.628</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.686459320451347</Value>
+                <Timestamp>2018-05-08T13:52:44.683</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.903517017096056</Value>
+                <Timestamp>2018-05-08T13:52:44.741</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.394167643689629</Value>
+                <Timestamp>2018-05-08T13:52:44.793</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.115052118485352</Value>
+                <Timestamp>2018-05-08T13:52:44.843</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.423129939205539</Value>
+                <Timestamp>2018-05-08T13:52:44.894</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.0383837088189942</Value>
+                <Timestamp>2018-05-08T13:52:44.945</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.606882719139979</Value>
+                <Timestamp>2018-05-08T13:52:44.996</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.323273204883222</Value>
+                <Timestamp>2018-05-08T13:52:45.047</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.115480036062878</Value>
+                <Timestamp>2018-05-08T13:52:45.099</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
             </Values>
             <Visibility>true</Visibility>
           </Sensor>
@@ -3687,6 +3987,66 @@
                 <Timestamp>2018-05-07T13:29:46.167</Timestamp>
                 <Parameter>pressure</Parameter>
                 <AnalysisName>Analysis 10:29:45.719</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.794805267730171</Value>
+                <Timestamp>2018-05-08T13:52:44.628</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.642717770134433</Value>
+                <Timestamp>2018-05-08T13:52:44.683</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.758851746916236</Value>
+                <Timestamp>2018-05-08T13:52:44.741</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.33175153533544</Value>
+                <Timestamp>2018-05-08T13:52:44.793</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.232702562228172</Value>
+                <Timestamp>2018-05-08T13:52:44.843</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.561094325762752</Value>
+                <Timestamp>2018-05-08T13:52:44.894</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.95322620959637</Value>
+                <Timestamp>2018-05-08T13:52:44.945</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.463692837145037</Value>
+                <Timestamp>2018-05-08T13:52:44.996</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.515537387465843</Value>
+                <Timestamp>2018-05-08T13:52:45.047</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.176561187569313</Value>
+                <Timestamp>2018-05-08T13:52:45.099</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
               </SensorValue>
             </Values>
             <Visibility>true</Visibility>
@@ -3759,6 +4119,66 @@
                 <Parameter>pressure</Parameter>
                 <AnalysisName>Analysis 10:29:45.719</AnalysisName>
               </SensorValue>
+              <SensorValue>
+                <Value>-0.498015288029805</Value>
+                <Timestamp>2018-05-08T13:52:44.628</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.739050715108891</Value>
+                <Timestamp>2018-05-08T13:52:44.683</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.402338780184434</Value>
+                <Timestamp>2018-05-08T13:52:44.741</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.0414960361279063</Value>
+                <Timestamp>2018-05-08T13:52:44.793</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.989050814876822</Value>
+                <Timestamp>2018-05-08T13:52:44.843</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.0252441582387519</Value>
+                <Timestamp>2018-05-08T13:52:44.894</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.423495635121826</Value>
+                <Timestamp>2018-05-08T13:52:44.945</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.0756076858731023</Value>
+                <Timestamp>2018-05-08T13:52:44.996</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>-0.319046307969394</Value>
+                <Timestamp>2018-05-08T13:52:45.047</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
+              <SensorValue>
+                <Value>0.992877496403119</Value>
+                <Timestamp>2018-05-08T13:52:45.099</Timestamp>
+                <Parameter>pressure</Parameter>
+                <AnalysisName>Analysis 10:52:45.007</AnalysisName>
+              </SensorValue>
             </Values>
             <Visibility>true</Visibility>
           </Sensor>
@@ -3768,6 +4188,20 @@
             <Name>Analysis 10:29:45.719</Name>
             <Date>07/05/2018</Date>
             <Time>10:29:45.719</Time>
+            <SensorsIds>
+              <string>9ea9f071-41ea-423c-a8f1-88a4d5d8601e</string>
+              <string>1cfa391e-5702-44df-a317-808ffe3a3a5a</string>
+              <string>5aadea30-0f3c-41e2-a370-907fc208e042</string>
+              <string>9b08a5d3-98ca-46ef-8148-70cc45b96c65</string>
+              <string>d48e7e58-a37c-4e9b-8b45-a7ad2c99edbe</string>
+              <string>7c90462f-97ca-4ab2-98ae-5f18c9084283</string>
+              <string>202aa44b-90f8-4972-bd7e-dac7b50adf1d</string>
+            </SensorsIds>
+          </Analysis>
+          <Analysis>
+            <Name>Analysis 10:52:45.007</Name>
+            <Date>08/05/2018</Date>
+            <Time>10:52:45.007</Time>
             <SensorsIds>
               <string>9ea9f071-41ea-423c-a8f1-88a4d5d8601e</string>
               <string>1cfa391e-5702-44df-a317-808ffe3a3a5a</string>

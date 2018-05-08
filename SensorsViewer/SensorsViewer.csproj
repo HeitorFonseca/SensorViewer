@@ -137,6 +137,10 @@
     </Compile>
     <Compile Include="Home\Commands\AddSensorCommand.cs" />
     <Compile Include="Home\Commands\ChangeSensorDataCommand.cs" />
+    <Compile Include="Home\ConnectionSettings.xaml.cs">
+      <DependentUpon>ConnectionSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Home\PasswordHelper.cs" />
     <Compile Include="ProjectB\DateModel.cs" />
     <Compile Include="ProjectB\FillConverter.cs" />
     <Compile Include="ProjectB\OpacityConverter.cs" />
@@ -156,6 +160,10 @@
     </Compile>
     <Compile Include="XmlSerialization.cs" />
     <Page Include="Home\AddProjectDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Home\ConnectionSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -264,7 +272,6 @@
   <ItemGroup>
     <Resource Include="Resources\splashScreen.png" />
     <Resource Include="general-motors-32.ico" />
-    <Resource Include="Resources\settingsBtn.png" />
     <Resource Include="Resources\gearBtn16.png" />
     <Content Include="x64\d3dcompiler_47.dll" />
     <Content Include="x86\d3dcompiler_47.dll" />
