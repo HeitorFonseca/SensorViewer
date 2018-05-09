@@ -468,7 +468,7 @@ namespace SensorsViewer.Home
                 }
             }
 
-            XmlSerialization.WriteToXmlFile<ObservableCollection<ProjectItem>>(this.currentDirectory + @"\..\..\Resources\META-INF\persistence.txt", this.ProjectItems);
+            XmlSerialization.WriteToXmlFile<ObservableCollection<ProjectItem>>(this.currentDirectory + @"\Resources\META-INF\persistence.txt", this.ProjectItems);
         
             this.proc.Disconnect();
         }
@@ -481,9 +481,12 @@ namespace SensorsViewer.Home
         {
             try
             {
+
+                CreateAnalysisFolder(this.currentDirectory + @"\Resources\Analysis");
+
                 App.SplashScreen.AddMessage("Loading analysis");
 
-                this.ProjectItems = XmlSerialization.ReadFromXmlFile<ObservableCollection<ProjectItem>>(this.currentDirectory + @"\..\..\Resources\META-INF\persistence.txt");
+                this.ProjectItems = XmlSerialization.ReadFromXmlFile<ObservableCollection<ProjectItem>>(this.currentDirectory + @"\Resources\META-INF\persistence.txt");
 
                 foreach (ProjectItem opt in this.ProjectItems)
                 {

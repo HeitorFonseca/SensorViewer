@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SensorsViewer", "SensorsViewer\SensorsViewer.csproj", "{82555EAB-2135-45F7-B809-B0EFC0FCF4A5}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GMAB1", "GMAB1\GMAB1.vdproj", "{9C0FBC85-3FBB-48F9-881F-4B944C2C50C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{82555EAB-2135-45F7-B809-B0EFC0FCF4A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82555EAB-2135-45F7-B809-B0EFC0FCF4A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82555EAB-2135-45F7-B809-B0EFC0FCF4A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C0FBC85-3FBB-48F9-881F-4B944C2C50C3}.Debug|Any CPU.ActiveCfg = Debug
+		{9C0FBC85-3FBB-48F9-881F-4B944C2C50C3}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

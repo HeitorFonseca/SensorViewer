@@ -92,7 +92,7 @@ namespace SensorsViewer.SensorOption
         {
             get
             {
-                return System.IO.Directory.GetCurrentDirectory() + @"\..\..\Resources\Analysis\" + this.Name.Replace(':', '.');
+                return System.IO.Directory.GetCurrentDirectory() + @"\Resources\Analysis\" + this.Name.Replace(':', '.');
             }
         }
 

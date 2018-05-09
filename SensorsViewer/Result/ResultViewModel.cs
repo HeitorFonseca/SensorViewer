@@ -253,7 +253,7 @@ namespace SensorsViewer.Result
             this.SensorsVisibility = Visibility.Hidden;
             this.InterpVisibility = Visibility.Visible;
 
-            this.analysisFolderPath = System.IO.Directory.GetCurrentDirectory() + @"\..\..\Resources\Analysis\" + analysisName.Replace(':', '.');
+            this.analysisFolderPath = System.IO.Directory.GetCurrentDirectory() + @"\Resources\Analysis\" + analysisName.Replace(':', '.');
 
             if (!this.CreateAnalysisFolder(this.analysisFolderPath))
             {
