@@ -55,7 +55,7 @@ namespace SensorsViewer.ProjectB
                 : Visibility.Visible;
         }
 
-        public void TakeTheChart()
+        public void TakeTheChart(string path)
         {
 
             //var newChart = new LiveCharts.Wpf.CartesianChart
@@ -80,29 +80,54 @@ namespace SensorsViewer.ProjectB
 
             //var asd = new LiveCharts.Wpf.CartesianChart();
 
-            LiveCharts.Wpf.ColorsCollection newCol = this.ChartElement.SeriesColors;
+            //LiveCharts.Wpf.ColorsCollection newCol = this.ChartElement.SeriesColors;
 
-            SeriesCollection newSerCol = this.ChartElement.Series;
+            //SeriesCollection newSerCol = this.ChartElement.Series;
 
+            //Canvas canvas = (Canvas)this.ChartElement.Parent;
 
-            Canvas canvas = (Canvas)this.ChartElement.Parent;
+            //canvas.Children.Remove(this.ChartElement);
 
-            canvas.Children.Remove(this.ChartElement);
+            //this.ChartElement.Series = newSerCol;
 
-            this.ChartElement.Series = newSerCol;
+            //var viewbox = new Viewbox();
+            //viewbox.Child = this.ChartElement;
+            //viewbox.Measure(this.ChartElement.RenderSize);
+            //viewbox.Arrange(new Rect(new Point(0, 0), this.ChartElement.RenderSize));
+            //this.ChartElement.Update(true, true); //force chart redraw
+            //viewbox.UpdateLayout();
+
+            var myChart = new LiveCharts.Wpf.CartesianChart
+            {
+                DisableAnimations = true,
+                Width = 570,
+                Height = 535,
+                Series = this.ChartElement.Series,
+                AxisX = this.ChartElement.AxisX,
+            };
+
+            DateModel dm = (DateModel)this.ChartElement.Series[0].Values[0];
+            DateModel dm2 = (DateModel)this.ChartElement.Series[0].Values[this.ChartElement.Series[0].Values.Count-1];
+
+            myChart.AxisX[0].LabelFormatter = XFormatterFunc;
+
+            myChart.AxisX[0].MinValue = dm.DateTime.Ticks;
+            myChart.AxisX[0].MaxValue = dm2.DateTime.Ticks;
 
             var viewbox = new Viewbox();
-            viewbox.Child = this.ChartElement;
-            viewbox.Measure(this.ChartElement.RenderSize);
-            viewbox.Arrange(new Rect(new Point(0, 0), this.ChartElement.RenderSize));
-            this.ChartElement.Update(true, true); //force chart redraw
+            viewbox.Child = myChart;
+            viewbox.Measure(myChart.RenderSize);
+            viewbox.Arrange(new Rect(new Point(0, 0), myChart.RenderSize));
+            myChart.Update(true, true); //force chart redraw
             viewbox.UpdateLayout();
 
-            SaveToPng(this.ChartElement, @"C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\Resources\Chart.png");
+            SaveToPng(myChart, path + "\\Chart.png");
 
-            viewbox.Child = null;
+            //this.ChartElement.Update(true, true);
 
-            canvas.Children.Add(this.ChartElement);
+            //viewbox.Child = null;
+
+            //canvas.Children.Add(this.ChartElement);
 
             //png file was created at the root directory.
         }
@@ -121,5 +146,18 @@ namespace SensorsViewer.ProjectB
             encoder.Frames.Add(frame);
             using (var stream = File.Create(fileName)) encoder.Save(stream);
         }
+
+        /// <summary>
+        /// X formater function
+        /// </summary>
+        /// <param name="val">Value to be formated</param>
+        /// <returns>Formated value</returns>
+        private string XFormatterFunc(double val)
+        {
+            string asd = new DateTime((long)val).ToString("mm:ss.fff");
+
+            return asd;
+        }
+
     }
 }

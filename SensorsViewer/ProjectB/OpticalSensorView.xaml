@@ -54,7 +54,7 @@
                               Unit="{Binding AxisUnit}">
 
                         <lvc:Axis.Separator>
-                            <lvc:Separator Step="{Binding AxisStep}" />
+                            <lvc:Separator x:Name="ChartSeparator" Step="{Binding AxisStep}" />
                         </lvc:Axis.Separator>
                     </lvc:Axis>
                 </lvc:CartesianChart.AxisX>

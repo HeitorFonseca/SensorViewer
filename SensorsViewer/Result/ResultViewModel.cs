@@ -923,6 +923,12 @@ namespace SensorsViewer.Result
 
                 Match dsa = asd.Match(file);
 
+                if (dsa.Captures.Count == 0)
+                {
+                    continue;
+                }
+
+
                 string[] ret = dsa.Captures[0].Value.Split(new[] { "Img" }, StringSplitOptions.None);
 
                 int index = Convert.ToInt32(ret[1]);

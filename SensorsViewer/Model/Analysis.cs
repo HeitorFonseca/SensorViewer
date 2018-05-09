@@ -55,6 +55,7 @@ namespace SensorsViewer.SensorOption
             this.SensorsIds = new ObservableCollection<string>();
             this.ProjectChartContent = new OpticalSensorView();
             this.ProjectResutContent = new ResultView(sensors, path, name);
+            this.NewAnalysis = true;
         }
 
         #region Properties Declarations
@@ -94,6 +95,11 @@ namespace SensorsViewer.SensorOption
                 return System.IO.Directory.GetCurrentDirectory() + @"\..\..\Resources\Analysis\" + this.Name.Replace(':', '.');
             }
         }
+
+        /// <summary>
+        /// Flag to indicate if is a new analysis
+        /// </summary>
+        public bool NewAnalysis { get; set; }
 
         /// <summary>
         /// Gets or sets project B User control content

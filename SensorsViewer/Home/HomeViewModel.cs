@@ -160,7 +160,6 @@ namespace SensorsViewer.Home
 
             this.ClickInAnalysisItem = new RelayCommand(this.ClickInAnalysisAction);
             this.ClickInExportToTxtCommand = new RelayCommand(this.ClickInExportToTxtAction);
-            this.ClickInSaveChartCommand = new RelayCommand(this.ClickInSaveChartAction);
 
             this.currentDirectory = System.IO.Directory.GetCurrentDirectory();
 
@@ -252,11 +251,6 @@ namespace SensorsViewer.Home
         ///  Gets or sets export to txt command
         /// </summary>
         public ICommand ClickInExportToTxtCommand { get; set; }
-
-        /// <summary>
-        ///  Gets or sets export charts to png command
-        /// </summary>
-        public ICommand ClickInSaveChartCommand { get; set; }
 
         /// <summary>
         /// Gets or sets selected sensor
@@ -456,6 +450,24 @@ namespace SensorsViewer.Home
         /// <param name="parameter">Object parameter</param>
         private void WindowClosingAction(object parameter)
         {
+            foreach (ProjectItem opt in this.ProjectItems)
+            {
+                foreach (TabCategory tab in opt.Tabs)
+                {
+                    // Each Tab has its chart and values
+                    for (int i = 0; i < tab.Analysis.Count; i++)
+                    {
+
+                        if (tab.Analysis[i].NewAnalysis)
+                        {
+                            tab.Analysis[i].ProjectChartContent.TakeTheChart(tab.Analysis[i].FolderPath);
+                        }
+
+                        tab.Analysis[i].NewAnalysis = false;
+                    }
+                }
+            }
+
             XmlSerialization.WriteToXmlFile<ObservableCollection<ProjectItem>>(this.currentDirectory + @"\..\..\Resources\META-INF\persistence.txt", this.ProjectItems);
         
             this.proc.Disconnect();
@@ -505,7 +517,7 @@ namespace SensorsViewer.Home
                     ((ResultView)this.SelectedProjectResultContent).ResultViewModel.LoadSensorsInModel(this.SelectedTab.Sensors.Where(a => a.Visibility == true), string.Empty);
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                ////throw new Exception("Error when load xml file");
             }
@@ -608,7 +620,7 @@ namespace SensorsViewer.Home
             this.SelectedTab = this.SelectedTabCategory[this.tabIndex];
 
             // Select the project content as the tab index chart graph
-            int id = this.SelectedTab.Analysis.Count >= option.AnalysisIndex ? 0 : option.AnalysisIndex;
+            int id = this.SelectedTab.Analysis.Count >= option.AnalysisIndex ? 0 : this.SelectedTab.Analysis.Count-1;
 
             this.SelectedAnalysis = this.SelectedTab.Analysis.Count > 0 ? this.SelectedTab.Analysis[id] : null;
             this.SelectedProjectChartContent = this.SelectedAnalysis != null ? this.SelectedAnalysis.ProjectChartContent : null;
@@ -892,17 +904,6 @@ namespace SensorsViewer.Home
             }
         }
 
-        /// <summary>
-        /// Click to export to Txt
-        /// </summary>
-        /// <param name="parameter">Object parameter</param>
-        private void ClickInSaveChartAction(object parameter)
-        {
-            var analysis = parameter as Analysis;
-
-            analysis.ProjectChartContent.TakeTheChart();
-        }
-
         #endregion
 
         /// <summary>
@@ -1029,6 +1030,23 @@ namespace SensorsViewer.Home
                     this.SelectedTab.Sensors[i].Values.Add(sv);
                 }
             }
+        }
+
+        /// <summary>
+        /// Create analysis directory
+        /// </summary>
+        /// <param name="path">Directory path</param>
+        /// <returns>If the folder already exists</returns>
+        private bool CreateAnalysisFolder(string path)
+        {
+            if (!System.IO.Directory.Exists(path))
+            {
+                System.IO.Directory.CreateDirectory(path);
+
+                return true;
+            }
+
+            return false;
         }
     }
 }
