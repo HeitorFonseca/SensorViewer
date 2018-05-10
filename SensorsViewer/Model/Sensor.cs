@@ -124,12 +124,17 @@ namespace SensorsViewer.SensorOption
         {
             get
             {
-                if (this.Values.Count > 0)
+                IEnumerable<IGrouping<string, SensorValue>> group = this.Values.GroupBy(a => a.Parameter);
+
+                foreach (IGrouping<string, SensorValue> gp in group)
                 {
-                    return this.Values.Max(a => a.Value).ToString();
+                    if (gp.Key != this.parameterString && gp.Count() > 0)
+                    {
+                        return gp.Max(a => a.Value).ToString();
+                    }
                 }
-                
-                 return "-";                
+
+                return "-";
             }
         }
 

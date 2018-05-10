@@ -4,7 +4,7 @@
     <Id>0</Id>
     <Name>Model</Name>
     <ModelPath>C:\Users\heitor.araujo\Documents\wokspace\GM\Tests\TestsNx\Die ring.stl</ModelPath>
-    <AnalysisIndex>2</AnalysisIndex>
+    <AnalysisIndex>0</AnalysisIndex>
     <Tabs>
       <TabCategory>
         <Name>Draw-In</Name>
@@ -18,424 +18,124 @@
             <Size>10</Size>
             <Values>
               <SensorValue>
-                <Value>-0.502948732815193</Value>
-                <Timestamp>2018-05-09T14:21:03.769</Timestamp>
+                <Value>0.487613518483757</Value>
+                <Timestamp>2018-05-10T14:55:05.458</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>236.02288758197</Value>
-                <Timestamp>2018-05-09T14:21:03.769</Timestamp>
+                <Value>203.698384595894</Value>
+                <Timestamp>2018-05-10T14:55:05.458</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.489646403812639</Value>
-                <Timestamp>2018-05-09T14:21:03.823</Timestamp>
+                <Value>0.57710194661147</Value>
+                <Timestamp>2018-05-10T14:55:05.575</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>171.653257986369</Value>
-                <Timestamp>2018-05-09T14:21:03.823</Timestamp>
+                <Value>315.250062493258</Value>
+                <Timestamp>2018-05-10T14:55:05.575</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.503734179541345</Value>
-                <Timestamp>2018-05-09T14:21:03.874</Timestamp>
+                <Value>0.623270335431802</Value>
+                <Timestamp>2018-05-10T14:55:05.696</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>273.074792005622</Value>
-                <Timestamp>2018-05-09T14:21:03.874</Timestamp>
+                <Value>134.27677542636</Value>
+                <Timestamp>2018-05-10T14:55:05.696</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.795379144044304</Value>
-                <Timestamp>2018-05-09T14:21:03.925</Timestamp>
+                <Value>0.104542205624535</Value>
+                <Timestamp>2018-05-10T14:55:05.811</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>238.235773555113</Value>
-                <Timestamp>2018-05-09T14:21:03.925</Timestamp>
+                <Value>282.730756366034</Value>
+                <Timestamp>2018-05-10T14:55:05.811</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.175814236130479</Value>
-                <Timestamp>2018-05-09T14:21:03.976</Timestamp>
+                <Value>0.0745144361045744</Value>
+                <Timestamp>2018-05-10T14:55:05.913</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>140.684821037894</Value>
-                <Timestamp>2018-05-09T14:21:03.976</Timestamp>
+                <Value>272.837577607873</Value>
+                <Timestamp>2018-05-10T14:55:05.913</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.663747135393204</Value>
-                <Timestamp>2018-05-09T14:21:04.028</Timestamp>
+                <Value>0.320074996594375</Value>
+                <Timestamp>2018-05-10T14:55:06.017</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>19.534480487711</Value>
-                <Timestamp>2018-05-09T14:21:04.028</Timestamp>
+                <Value>130.445664306379</Value>
+                <Timestamp>2018-05-10T14:55:06.017</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.288733540702953</Value>
-                <Timestamp>2018-05-09T14:21:04.079</Timestamp>
+                <Value>-0.51518904581442</Value>
+                <Timestamp>2018-05-10T14:55:06.129</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>65.8697882601385</Value>
-                <Timestamp>2018-05-09T14:21:04.079</Timestamp>
+                <Value>219.40635713721</Value>
+                <Timestamp>2018-05-10T14:55:06.129</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.571112939888198</Value>
-                <Timestamp>2018-05-09T14:21:04.129</Timestamp>
+                <Value>-0.935866146318552</Value>
+                <Timestamp>2018-05-10T14:55:06.233</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>4.27569212591075</Value>
-                <Timestamp>2018-05-09T14:21:04.129</Timestamp>
+                <Value>167.185787748166</Value>
+                <Timestamp>2018-05-10T14:55:06.233</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.489628739417358</Value>
-                <Timestamp>2018-05-09T14:21:04.179</Timestamp>
+                <Value>-0.629342105067029</Value>
+                <Timestamp>2018-05-10T14:55:06.334</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>87.0478974315561</Value>
-                <Timestamp>2018-05-09T14:21:04.179</Timestamp>
+                <Value>30.8447624700352</Value>
+                <Timestamp>2018-05-10T14:55:06.334</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.48592335893117</Value>
-                <Timestamp>2018-05-09T14:21:04.23</Timestamp>
+                <Value>0.0792122730422822</Value>
+                <Timestamp>2018-05-10T14:55:06.435</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>87.4439696816001</Value>
-                <Timestamp>2018-05-09T14:21:04.23</Timestamp>
+                <Value>47.5485634466394</Value>
+                <Timestamp>2018-05-10T14:55:06.435</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.556533847728993</Value>
-                <Timestamp>2018-05-09T14:32:09.111</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>321.120657623336</Value>
-                <Timestamp>2018-05-09T14:32:09.111</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.741119256122559</Value>
-                <Timestamp>2018-05-09T14:32:09.186</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>329.454410453073</Value>
-                <Timestamp>2018-05-09T14:32:09.186</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.802796006110867</Value>
-                <Timestamp>2018-05-09T14:32:09.238</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>19.0150222643348</Value>
-                <Timestamp>2018-05-09T14:32:09.238</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.414458148840097</Value>
-                <Timestamp>2018-05-09T14:32:09.289</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>21.1787230620062</Value>
-                <Timestamp>2018-05-09T14:32:09.289</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.647082722581496</Value>
-                <Timestamp>2018-05-09T14:32:09.349</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>101.248995559872</Value>
-                <Timestamp>2018-05-09T14:32:09.349</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.695731998279566</Value>
-                <Timestamp>2018-05-09T14:32:09.4</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>197.429143971498</Value>
-                <Timestamp>2018-05-09T14:32:09.4</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.270953081208725</Value>
-                <Timestamp>2018-05-09T14:32:09.452</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>206.394282936302</Value>
-                <Timestamp>2018-05-09T14:32:09.452</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.299848569231037</Value>
-                <Timestamp>2018-05-09T14:32:09.503</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>25.8434421130658</Value>
-                <Timestamp>2018-05-09T14:32:09.503</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.325839354342706</Value>
-                <Timestamp>2018-05-09T14:32:09.554</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>292.109475867874</Value>
-                <Timestamp>2018-05-09T14:32:09.554</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.535629905544049</Value>
-                <Timestamp>2018-05-09T14:32:09.605</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>38.6903096729379</Value>
-                <Timestamp>2018-05-09T14:32:09.605</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.0070224129627563</Value>
-                <Timestamp>2018-05-09T16:44:59.009</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>20.6717372781931</Value>
-                <Timestamp>2018-05-09T16:44:59.009</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.0833715298601294</Value>
-                <Timestamp>2018-05-09T16:44:59.084</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>219.175416426349</Value>
-                <Timestamp>2018-05-09T16:44:59.084</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.858731130072256</Value>
-                <Timestamp>2018-05-09T16:44:59.156</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>353.243577011509</Value>
-                <Timestamp>2018-05-09T16:44:59.156</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.821158544077146</Value>
-                <Timestamp>2018-05-09T16:44:59.209</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>186.120911699776</Value>
-                <Timestamp>2018-05-09T16:44:59.209</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.186148017265903</Value>
-                <Timestamp>2018-05-09T16:44:59.298</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>36.9510563821304</Value>
-                <Timestamp>2018-05-09T16:44:59.298</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.741198522849567</Value>
-                <Timestamp>2018-05-09T16:44:59.352</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>107.667761457929</Value>
-                <Timestamp>2018-05-09T16:44:59.352</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.764162246959359</Value>
-                <Timestamp>2018-05-09T16:44:59.405</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>154.045165997951</Value>
-                <Timestamp>2018-05-09T16:44:59.405</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.981778765088776</Value>
-                <Timestamp>2018-05-09T16:44:59.464</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>293.889968289942</Value>
-                <Timestamp>2018-05-09T16:44:59.464</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.908256795214609</Value>
-                <Timestamp>2018-05-09T16:44:59.56</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>101.558409827556</Value>
-                <Timestamp>2018-05-09T16:44:59.56</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.0471716220710294</Value>
-                <Timestamp>2018-05-09T16:44:59.646</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>300.467668818528</Value>
-                <Timestamp>2018-05-09T16:44:59.646</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.0653917924805506</Value>
-                <Timestamp>2018-05-09T20:16:22.314</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>51.1457210644827</Value>
-                <Timestamp>2018-05-09T20:16:22.314</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.104488914415468</Value>
-                <Timestamp>2018-05-09T20:16:22.523</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>12.5191748759333</Value>
-                <Timestamp>2018-05-09T20:16:22.523</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.0523105324489579</Value>
-                <Timestamp>2018-05-09T20:16:22.724</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>108.49134982959</Value>
-                <Timestamp>2018-05-09T20:16:22.724</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.621203002343514</Value>
-                <Timestamp>2018-05-09T20:16:22.925</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>151.245669010675</Value>
-                <Timestamp>2018-05-09T20:16:22.925</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.95877610238212</Value>
-                <Timestamp>2018-05-09T20:16:23.126</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>146.313656934683</Value>
-                <Timestamp>2018-05-09T20:16:23.126</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
             </Values>
             <Visibility>true</Visibility>
@@ -449,424 +149,124 @@
             <Size>10</Size>
             <Values>
               <SensorValue>
-                <Value>-0.570971245677663</Value>
-                <Timestamp>2018-05-09T14:21:03.769</Timestamp>
+                <Value>0.344192621924073</Value>
+                <Timestamp>2018-05-10T14:55:05.458</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>213.414759344149</Value>
-                <Timestamp>2018-05-09T14:21:03.769</Timestamp>
+                <Value>216.329042136822</Value>
+                <Timestamp>2018-05-10T14:55:05.458</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.111905465420292</Value>
-                <Timestamp>2018-05-09T14:21:03.823</Timestamp>
+                <Value>-0.483454369699328</Value>
+                <Timestamp>2018-05-10T14:55:05.575</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>343.313472784736</Value>
-                <Timestamp>2018-05-09T14:21:03.823</Timestamp>
+                <Value>32.5154429080502</Value>
+                <Timestamp>2018-05-10T14:55:05.575</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.709482016837915</Value>
-                <Timestamp>2018-05-09T14:21:03.874</Timestamp>
+                <Value>-0.418076387335582</Value>
+                <Timestamp>2018-05-10T14:55:05.696</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>38.5762418613658</Value>
-                <Timestamp>2018-05-09T14:21:03.874</Timestamp>
+                <Value>352.173771742812</Value>
+                <Timestamp>2018-05-10T14:55:05.696</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.339217808721223</Value>
-                <Timestamp>2018-05-09T14:21:03.925</Timestamp>
+                <Value>-0.035695310233019</Value>
+                <Timestamp>2018-05-10T14:55:05.811</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>228.185378288937</Value>
-                <Timestamp>2018-05-09T14:21:03.925</Timestamp>
+                <Value>201.043827143053</Value>
+                <Timestamp>2018-05-10T14:55:05.811</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.954770007149675</Value>
-                <Timestamp>2018-05-09T14:21:03.976</Timestamp>
+                <Value>0.190800503450819</Value>
+                <Timestamp>2018-05-10T14:55:05.913</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>212.014976987622</Value>
-                <Timestamp>2018-05-09T14:21:03.976</Timestamp>
+                <Value>169.176832404536</Value>
+                <Timestamp>2018-05-10T14:55:05.913</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.524212788568909</Value>
-                <Timestamp>2018-05-09T14:21:04.028</Timestamp>
+                <Value>0.758003618455494</Value>
+                <Timestamp>2018-05-10T14:55:06.017</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>50.1735822345007</Value>
-                <Timestamp>2018-05-09T14:21:04.028</Timestamp>
+                <Value>284.915804362351</Value>
+                <Timestamp>2018-05-10T14:55:06.017</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.383894036237101</Value>
-                <Timestamp>2018-05-09T14:21:04.079</Timestamp>
+                <Value>0.432076411057299</Value>
+                <Timestamp>2018-05-10T14:55:06.129</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>346.863032256655</Value>
-                <Timestamp>2018-05-09T14:21:04.079</Timestamp>
+                <Value>297.242996775193</Value>
+                <Timestamp>2018-05-10T14:55:06.129</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.818712122653943</Value>
-                <Timestamp>2018-05-09T14:21:04.129</Timestamp>
+                <Value>-0.0839138855617092</Value>
+                <Timestamp>2018-05-10T14:55:06.233</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>123.331104555787</Value>
-                <Timestamp>2018-05-09T14:21:04.129</Timestamp>
+                <Value>233.00291452231</Value>
+                <Timestamp>2018-05-10T14:55:06.233</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.0153591414053734</Value>
-                <Timestamp>2018-05-09T14:21:04.179</Timestamp>
+                <Value>-0.145587311659747</Value>
+                <Timestamp>2018-05-10T14:55:06.334</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>84.93111081651</Value>
-                <Timestamp>2018-05-09T14:21:04.179</Timestamp>
+                <Value>248.525834422803</Value>
+                <Timestamp>2018-05-10T14:55:06.334</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.533973253115068</Value>
-                <Timestamp>2018-05-09T14:21:04.23</Timestamp>
+                <Value>0.459844225766065</Value>
+                <Timestamp>2018-05-10T14:55:06.435</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>99.9959627259504</Value>
-                <Timestamp>2018-05-09T14:21:04.23</Timestamp>
+                <Value>167.895963605445</Value>
+                <Timestamp>2018-05-10T14:55:06.435</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.0851057605282897</Value>
-                <Timestamp>2018-05-09T14:32:09.111</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>95.2676612396108</Value>
-                <Timestamp>2018-05-09T14:32:09.111</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.711296360805303</Value>
-                <Timestamp>2018-05-09T14:32:09.186</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>220.773422746348</Value>
-                <Timestamp>2018-05-09T14:32:09.186</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.430293477806399</Value>
-                <Timestamp>2018-05-09T14:32:09.238</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>217.765089635628</Value>
-                <Timestamp>2018-05-09T14:32:09.238</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.836314622236562</Value>
-                <Timestamp>2018-05-09T14:32:09.289</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>245.355764611324</Value>
-                <Timestamp>2018-05-09T14:32:09.289</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.150475350744312</Value>
-                <Timestamp>2018-05-09T14:32:09.349</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>217.659586452721</Value>
-                <Timestamp>2018-05-09T14:32:09.349</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.168642006427349</Value>
-                <Timestamp>2018-05-09T14:32:09.4</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>185.429489177386</Value>
-                <Timestamp>2018-05-09T14:32:09.4</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.734457881997553</Value>
-                <Timestamp>2018-05-09T14:32:09.452</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>146.739644867712</Value>
-                <Timestamp>2018-05-09T14:32:09.452</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.486359182506036</Value>
-                <Timestamp>2018-05-09T14:32:09.503</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>57.1867231359643</Value>
-                <Timestamp>2018-05-09T14:32:09.503</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.192287650514528</Value>
-                <Timestamp>2018-05-09T14:32:09.554</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>173.364404911811</Value>
-                <Timestamp>2018-05-09T14:32:09.554</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.0875418973562968</Value>
-                <Timestamp>2018-05-09T14:32:09.605</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>314.799531341903</Value>
-                <Timestamp>2018-05-09T14:32:09.605</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.360959888138324</Value>
-                <Timestamp>2018-05-09T16:44:59.009</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>33.3691075599609</Value>
-                <Timestamp>2018-05-09T16:44:59.009</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.97598578686639</Value>
-                <Timestamp>2018-05-09T16:44:59.084</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>187.763125518227</Value>
-                <Timestamp>2018-05-09T16:44:59.084</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.952073374740814</Value>
-                <Timestamp>2018-05-09T16:44:59.156</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>218.611494385922</Value>
-                <Timestamp>2018-05-09T16:44:59.156</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.199287998117175</Value>
-                <Timestamp>2018-05-09T16:44:59.209</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>82.0287264706701</Value>
-                <Timestamp>2018-05-09T16:44:59.209</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.0447376673318156</Value>
-                <Timestamp>2018-05-09T16:44:59.298</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>150.427518817795</Value>
-                <Timestamp>2018-05-09T16:44:59.298</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.356662623284693</Value>
-                <Timestamp>2018-05-09T16:44:59.352</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>21.2866735930027</Value>
-                <Timestamp>2018-05-09T16:44:59.352</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.113482102338915</Value>
-                <Timestamp>2018-05-09T16:44:59.405</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>19.2694336451913</Value>
-                <Timestamp>2018-05-09T16:44:59.405</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.819152558138199</Value>
-                <Timestamp>2018-05-09T16:44:59.464</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>40.3910509685013</Value>
-                <Timestamp>2018-05-09T16:44:59.464</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.251468236209577</Value>
-                <Timestamp>2018-05-09T16:44:59.56</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>196.462010478816</Value>
-                <Timestamp>2018-05-09T16:44:59.56</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.753543924425516</Value>
-                <Timestamp>2018-05-09T16:44:59.646</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>290.122686536108</Value>
-                <Timestamp>2018-05-09T16:44:59.646</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.747233476372079</Value>
-                <Timestamp>2018-05-09T20:16:22.314</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>7.58774215708847</Value>
-                <Timestamp>2018-05-09T20:16:22.314</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.148330371430297</Value>
-                <Timestamp>2018-05-09T20:16:22.523</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>306.424851355341</Value>
-                <Timestamp>2018-05-09T20:16:22.523</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.741059244489791</Value>
-                <Timestamp>2018-05-09T20:16:22.724</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>203.893031666005</Value>
-                <Timestamp>2018-05-09T20:16:22.724</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.0864125132031797</Value>
-                <Timestamp>2018-05-09T20:16:22.925</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>174.018562666149</Value>
-                <Timestamp>2018-05-09T20:16:22.925</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.7163250295987</Value>
-                <Timestamp>2018-05-09T20:16:23.126</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>6.87784759648044</Value>
-                <Timestamp>2018-05-09T20:16:23.126</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
             </Values>
             <Visibility>true</Visibility>
@@ -880,424 +280,124 @@
             <Size>10</Size>
             <Values>
               <SensorValue>
-                <Value>0.910213175187918</Value>
-                <Timestamp>2018-05-09T14:21:03.769</Timestamp>
+                <Value>0.272332735952145</Value>
+                <Timestamp>2018-05-10T14:55:05.458</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>80.6831145103477</Value>
-                <Timestamp>2018-05-09T14:21:03.769</Timestamp>
+                <Value>325.588689449052</Value>
+                <Timestamp>2018-05-10T14:55:05.458</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.903876469425799</Value>
-                <Timestamp>2018-05-09T14:21:03.823</Timestamp>
+                <Value>0.682596810014265</Value>
+                <Timestamp>2018-05-10T14:55:05.575</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>15.8356609455476</Value>
-                <Timestamp>2018-05-09T14:21:03.823</Timestamp>
+                <Value>74.6629630935672</Value>
+                <Timestamp>2018-05-10T14:55:05.575</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.272350217808201</Value>
-                <Timestamp>2018-05-09T14:21:03.874</Timestamp>
+                <Value>0.950276351510676</Value>
+                <Timestamp>2018-05-10T14:55:05.696</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>358.659969381364</Value>
-                <Timestamp>2018-05-09T14:21:03.874</Timestamp>
+                <Value>94.9598958599194</Value>
+                <Timestamp>2018-05-10T14:55:05.696</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.539832899132666</Value>
-                <Timestamp>2018-05-09T14:21:03.925</Timestamp>
+                <Value>0.314916971751916</Value>
+                <Timestamp>2018-05-10T14:55:05.811</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>207.922724489087</Value>
-                <Timestamp>2018-05-09T14:21:03.925</Timestamp>
+                <Value>90.0775118591625</Value>
+                <Timestamp>2018-05-10T14:55:05.811</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.325351892656345</Value>
-                <Timestamp>2018-05-09T14:21:03.976</Timestamp>
+                <Value>0.252621142776972</Value>
+                <Timestamp>2018-05-10T14:55:05.913</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>237.497503402409</Value>
-                <Timestamp>2018-05-09T14:21:03.976</Timestamp>
+                <Value>324.213612249221</Value>
+                <Timestamp>2018-05-10T14:55:05.913</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.805841280988344</Value>
-                <Timestamp>2018-05-09T14:21:04.028</Timestamp>
+                <Value>0.619756822297236</Value>
+                <Timestamp>2018-05-10T14:55:06.017</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>209.728349209637</Value>
-                <Timestamp>2018-05-09T14:21:04.028</Timestamp>
+                <Value>278.28768366868</Value>
+                <Timestamp>2018-05-10T14:55:06.017</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.404930907024504</Value>
-                <Timestamp>2018-05-09T14:21:04.079</Timestamp>
+                <Value>-0.0929441466429011</Value>
+                <Timestamp>2018-05-10T14:55:06.129</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>323.570199591839</Value>
-                <Timestamp>2018-05-09T14:21:04.079</Timestamp>
+                <Value>218.567551587973</Value>
+                <Timestamp>2018-05-10T14:55:06.129</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.907410379456082</Value>
-                <Timestamp>2018-05-09T14:21:04.129</Timestamp>
+                <Value>0.571729937368878</Value>
+                <Timestamp>2018-05-10T14:55:06.233</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>292.763560867293</Value>
-                <Timestamp>2018-05-09T14:21:04.129</Timestamp>
+                <Value>166.325334257598</Value>
+                <Timestamp>2018-05-10T14:55:06.233</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.044299451189255</Value>
-                <Timestamp>2018-05-09T14:21:04.179</Timestamp>
+                <Value>0.331734114015351</Value>
+                <Timestamp>2018-05-10T14:55:06.334</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>143.068860444738</Value>
-                <Timestamp>2018-05-09T14:21:04.179</Timestamp>
+                <Value>63.3975348544296</Value>
+                <Timestamp>2018-05-10T14:55:06.334</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.875629090646109</Value>
-                <Timestamp>2018-05-09T14:21:04.23</Timestamp>
+                <Value>-0.905620106451968</Value>
+                <Timestamp>2018-05-10T14:55:06.435</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>165.803734625598</Value>
-                <Timestamp>2018-05-09T14:21:04.23</Timestamp>
+                <Value>282.636491974181</Value>
+                <Timestamp>2018-05-10T14:55:06.435</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.234791999326456</Value>
-                <Timestamp>2018-05-09T14:32:09.111</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>238.11168987216</Value>
-                <Timestamp>2018-05-09T14:32:09.111</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.156903282346625</Value>
-                <Timestamp>2018-05-09T14:32:09.186</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>77.5828646112154</Value>
-                <Timestamp>2018-05-09T14:32:09.186</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.470699813901773</Value>
-                <Timestamp>2018-05-09T14:32:09.238</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>79.1271082307804</Value>
-                <Timestamp>2018-05-09T14:32:09.238</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.234016332418665</Value>
-                <Timestamp>2018-05-09T14:32:09.289</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>205.330826959261</Value>
-                <Timestamp>2018-05-09T14:32:09.289</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.830133464108283</Value>
-                <Timestamp>2018-05-09T14:32:09.349</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>141.519498835094</Value>
-                <Timestamp>2018-05-09T14:32:09.349</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.490327261150967</Value>
-                <Timestamp>2018-05-09T14:32:09.4</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>346.620212042062</Value>
-                <Timestamp>2018-05-09T14:32:09.4</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.377933291428691</Value>
-                <Timestamp>2018-05-09T14:32:09.452</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>193.152930994124</Value>
-                <Timestamp>2018-05-09T14:32:09.452</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.191489296588809</Value>
-                <Timestamp>2018-05-09T14:32:09.503</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>129.46209390157</Value>
-                <Timestamp>2018-05-09T14:32:09.503</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.703793329980128</Value>
-                <Timestamp>2018-05-09T14:32:09.554</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>294.721813171507</Value>
-                <Timestamp>2018-05-09T14:32:09.554</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.911358020227104</Value>
-                <Timestamp>2018-05-09T14:32:09.605</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>84.9922321573795</Value>
-                <Timestamp>2018-05-09T14:32:09.605</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.581926394990611</Value>
-                <Timestamp>2018-05-09T16:44:59.009</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>128.63981612429</Value>
-                <Timestamp>2018-05-09T16:44:59.009</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.386764185217565</Value>
-                <Timestamp>2018-05-09T16:44:59.084</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>145.118828874602</Value>
-                <Timestamp>2018-05-09T16:44:59.084</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.558649394455668</Value>
-                <Timestamp>2018-05-09T16:44:59.156</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>224.653018482334</Value>
-                <Timestamp>2018-05-09T16:44:59.156</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.297521493070536</Value>
-                <Timestamp>2018-05-09T16:44:59.209</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>59.301193495887</Value>
-                <Timestamp>2018-05-09T16:44:59.209</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.539406344080067</Value>
-                <Timestamp>2018-05-09T16:44:59.298</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>193.193611052443</Value>
-                <Timestamp>2018-05-09T16:44:59.298</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.277212592436565</Value>
-                <Timestamp>2018-05-09T16:44:59.353</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>164.174833281047</Value>
-                <Timestamp>2018-05-09T16:44:59.353</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.845096023681153</Value>
-                <Timestamp>2018-05-09T16:44:59.405</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>353.932539277679</Value>
-                <Timestamp>2018-05-09T16:44:59.405</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.101714040665754</Value>
-                <Timestamp>2018-05-09T16:44:59.464</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>328.026581577969</Value>
-                <Timestamp>2018-05-09T16:44:59.464</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.957608999664713</Value>
-                <Timestamp>2018-05-09T16:44:59.56</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>187.568102938853</Value>
-                <Timestamp>2018-05-09T16:44:59.56</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.147702778292681</Value>
-                <Timestamp>2018-05-09T16:44:59.646</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>43.9001639019233</Value>
-                <Timestamp>2018-05-09T16:44:59.646</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.0954818861072333</Value>
-                <Timestamp>2018-05-09T20:16:22.314</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>208.819469105834</Value>
-                <Timestamp>2018-05-09T20:16:22.314</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.370551990983333</Value>
-                <Timestamp>2018-05-09T20:16:22.523</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>4.90358485137279</Value>
-                <Timestamp>2018-05-09T20:16:22.523</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.0708214515218611</Value>
-                <Timestamp>2018-05-09T20:16:22.724</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>119.408885668688</Value>
-                <Timestamp>2018-05-09T20:16:22.724</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.740743894009266</Value>
-                <Timestamp>2018-05-09T20:16:22.925</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>161.776618064277</Value>
-                <Timestamp>2018-05-09T20:16:22.925</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.177384294186432</Value>
-                <Timestamp>2018-05-09T20:16:23.126</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>123.737345060211</Value>
-                <Timestamp>2018-05-09T20:16:23.126</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
             </Values>
             <Visibility>true</Visibility>
@@ -1311,424 +411,124 @@
             <Size>10</Size>
             <Values>
               <SensorValue>
-                <Value>-0.722838713658433</Value>
-                <Timestamp>2018-05-09T14:21:03.769</Timestamp>
+                <Value>0.322115660329403</Value>
+                <Timestamp>2018-05-10T14:55:05.458</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>102.407627376918</Value>
-                <Timestamp>2018-05-09T14:21:03.769</Timestamp>
+                <Value>251.351647400927</Value>
+                <Timestamp>2018-05-10T14:55:05.458</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.701335483091574</Value>
-                <Timestamp>2018-05-09T14:21:03.823</Timestamp>
+                <Value>-0.738253594254262</Value>
+                <Timestamp>2018-05-10T14:55:05.575</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>323.578606305448</Value>
-                <Timestamp>2018-05-09T14:21:03.823</Timestamp>
+                <Value>163.685882503021</Value>
+                <Timestamp>2018-05-10T14:55:05.575</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.432056966904577</Value>
-                <Timestamp>2018-05-09T14:21:03.874</Timestamp>
+                <Value>-0.704575440708816</Value>
+                <Timestamp>2018-05-10T14:55:05.696</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>63.506752226272</Value>
-                <Timestamp>2018-05-09T14:21:03.874</Timestamp>
+                <Value>189.003613157665</Value>
+                <Timestamp>2018-05-10T14:55:05.696</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.147525607211294</Value>
-                <Timestamp>2018-05-09T14:21:03.925</Timestamp>
+                <Value>-0.26531147363843</Value>
+                <Timestamp>2018-05-10T14:55:05.811</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>176.803404901551</Value>
-                <Timestamp>2018-05-09T14:21:03.925</Timestamp>
+                <Value>200.694382582183</Value>
+                <Timestamp>2018-05-10T14:55:05.811</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.867721263257657</Value>
-                <Timestamp>2018-05-09T14:21:03.976</Timestamp>
+                <Value>0.653508066969695</Value>
+                <Timestamp>2018-05-10T14:55:05.913</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>158.449548333161</Value>
-                <Timestamp>2018-05-09T14:21:03.976</Timestamp>
+                <Value>329.76400023781</Value>
+                <Timestamp>2018-05-10T14:55:05.913</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.150457301712808</Value>
-                <Timestamp>2018-05-09T14:21:04.028</Timestamp>
+                <Value>0.390283997818029</Value>
+                <Timestamp>2018-05-10T14:55:06.017</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>143.695785060383</Value>
-                <Timestamp>2018-05-09T14:21:04.028</Timestamp>
+                <Value>276.533404475326</Value>
+                <Timestamp>2018-05-10T14:55:06.017</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.490446323291606</Value>
-                <Timestamp>2018-05-09T14:21:04.079</Timestamp>
+                <Value>0.19296861774892</Value>
+                <Timestamp>2018-05-10T14:55:06.129</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>323.432522641231</Value>
-                <Timestamp>2018-05-09T14:21:04.079</Timestamp>
+                <Value>100.488278838102</Value>
+                <Timestamp>2018-05-10T14:55:06.129</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.797978299575848</Value>
-                <Timestamp>2018-05-09T14:21:04.129</Timestamp>
+                <Value>0.454289490102925</Value>
+                <Timestamp>2018-05-10T14:55:06.233</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>238.502789474327</Value>
-                <Timestamp>2018-05-09T14:21:04.129</Timestamp>
+                <Value>269.106234269732</Value>
+                <Timestamp>2018-05-10T14:55:06.233</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.854537552154873</Value>
-                <Timestamp>2018-05-09T14:21:04.179</Timestamp>
+                <Value>0.835018943918412</Value>
+                <Timestamp>2018-05-10T14:55:06.334</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>45.6623671789013</Value>
-                <Timestamp>2018-05-09T14:21:04.179</Timestamp>
+                <Value>180.309185357908</Value>
+                <Timestamp>2018-05-10T14:55:06.334</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.218271327772304</Value>
-                <Timestamp>2018-05-09T14:21:04.23</Timestamp>
+                <Value>0.592714787271207</Value>
+                <Timestamp>2018-05-10T14:55:06.435</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>16.4685578348434</Value>
-                <Timestamp>2018-05-09T14:21:04.23</Timestamp>
+                <Value>141.939181900555</Value>
+                <Timestamp>2018-05-10T14:55:06.435</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.947961852861551</Value>
-                <Timestamp>2018-05-09T14:32:09.111</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>2.2808568376493</Value>
-                <Timestamp>2018-05-09T14:32:09.111</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.331866567643297</Value>
-                <Timestamp>2018-05-09T14:32:09.186</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>33.8978222542898</Value>
-                <Timestamp>2018-05-09T14:32:09.186</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.214488150186133</Value>
-                <Timestamp>2018-05-09T14:32:09.238</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>138.797591616771</Value>
-                <Timestamp>2018-05-09T14:32:09.238</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.709129324978743</Value>
-                <Timestamp>2018-05-09T14:32:09.289</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>225.395672035122</Value>
-                <Timestamp>2018-05-09T14:32:09.289</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.240403256025353</Value>
-                <Timestamp>2018-05-09T14:32:09.349</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>248.782863807298</Value>
-                <Timestamp>2018-05-09T14:32:09.349</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.230534673310134</Value>
-                <Timestamp>2018-05-09T14:32:09.4</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>91.1084904759696</Value>
-                <Timestamp>2018-05-09T14:32:09.4</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.641479156744424</Value>
-                <Timestamp>2018-05-09T14:32:09.452</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>305.899240647396</Value>
-                <Timestamp>2018-05-09T14:32:09.452</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.736980315175364</Value>
-                <Timestamp>2018-05-09T14:32:09.503</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>104.144756190546</Value>
-                <Timestamp>2018-05-09T14:32:09.503</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.414865130286135</Value>
-                <Timestamp>2018-05-09T14:32:09.554</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>124.14462140023</Value>
-                <Timestamp>2018-05-09T14:32:09.554</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.0641439282634034</Value>
-                <Timestamp>2018-05-09T14:32:09.605</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>282.724936978298</Value>
-                <Timestamp>2018-05-09T14:32:09.605</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.748353732632638</Value>
-                <Timestamp>2018-05-09T16:44:59.009</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>239.974165186274</Value>
-                <Timestamp>2018-05-09T16:44:59.009</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.832252036702005</Value>
-                <Timestamp>2018-05-09T16:44:59.084</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>3.64205444401226</Value>
-                <Timestamp>2018-05-09T16:44:59.084</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.632159295320585</Value>
-                <Timestamp>2018-05-09T16:44:59.156</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>134.732099517589</Value>
-                <Timestamp>2018-05-09T16:44:59.156</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.0610901243337849</Value>
-                <Timestamp>2018-05-09T16:44:59.209</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>119.951219446934</Value>
-                <Timestamp>2018-05-09T16:44:59.209</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.769123723622935</Value>
-                <Timestamp>2018-05-09T16:44:59.298</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>34.7970123751075</Value>
-                <Timestamp>2018-05-09T16:44:59.298</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.420019865697259</Value>
-                <Timestamp>2018-05-09T16:44:59.353</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>283.986136300483</Value>
-                <Timestamp>2018-05-09T16:44:59.353</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.301986872824834</Value>
-                <Timestamp>2018-05-09T16:44:59.405</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>80.4206268305055</Value>
-                <Timestamp>2018-05-09T16:44:59.405</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.831016684803654</Value>
-                <Timestamp>2018-05-09T16:44:59.464</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>281.694061291262</Value>
-                <Timestamp>2018-05-09T16:44:59.464</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.138097453461074</Value>
-                <Timestamp>2018-05-09T16:44:59.56</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>84.9186249659018</Value>
-                <Timestamp>2018-05-09T16:44:59.56</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.916686734145827</Value>
-                <Timestamp>2018-05-09T16:44:59.646</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>106.17960986969</Value>
-                <Timestamp>2018-05-09T16:44:59.646</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.577165132191575</Value>
-                <Timestamp>2018-05-09T20:16:22.314</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>90.1330285566547</Value>
-                <Timestamp>2018-05-09T20:16:22.314</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.192748554606339</Value>
-                <Timestamp>2018-05-09T20:16:22.523</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>43.4931891427809</Value>
-                <Timestamp>2018-05-09T20:16:22.523</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.516060657573892</Value>
-                <Timestamp>2018-05-09T20:16:22.724</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>358.129297680282</Value>
-                <Timestamp>2018-05-09T20:16:22.724</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.432119649570491</Value>
-                <Timestamp>2018-05-09T20:16:22.925</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>157.434954995958</Value>
-                <Timestamp>2018-05-09T20:16:22.925</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.306282335569282</Value>
-                <Timestamp>2018-05-09T20:16:23.126</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>293.700150704803</Value>
-                <Timestamp>2018-05-09T20:16:23.126</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
             </Values>
             <Visibility>true</Visibility>
@@ -1742,424 +542,124 @@
             <Size>10</Size>
             <Values>
               <SensorValue>
-                <Value>0.174993617075958</Value>
-                <Timestamp>2018-05-09T14:21:03.769</Timestamp>
+                <Value>0.297551500283904</Value>
+                <Timestamp>2018-05-10T14:55:05.458</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>223.938914697589</Value>
-                <Timestamp>2018-05-09T14:21:03.769</Timestamp>
+                <Value>22.708899668748</Value>
+                <Timestamp>2018-05-10T14:55:05.458</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.392173438049934</Value>
-                <Timestamp>2018-05-09T14:21:03.823</Timestamp>
+                <Value>-0.103607754736956</Value>
+                <Timestamp>2018-05-10T14:55:05.575</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>147.687631578971</Value>
-                <Timestamp>2018-05-09T14:21:03.823</Timestamp>
+                <Value>71.7240534311738</Value>
+                <Timestamp>2018-05-10T14:55:05.575</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.546438669574651</Value>
-                <Timestamp>2018-05-09T14:21:03.874</Timestamp>
+                <Value>-0.300224269414425</Value>
+                <Timestamp>2018-05-10T14:55:05.696</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>20.7704576574128</Value>
-                <Timestamp>2018-05-09T14:21:03.874</Timestamp>
+                <Value>154.367386304944</Value>
+                <Timestamp>2018-05-10T14:55:05.696</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.104877829134873</Value>
-                <Timestamp>2018-05-09T14:21:03.925</Timestamp>
+                <Value>-0.408778726779287</Value>
+                <Timestamp>2018-05-10T14:55:05.811</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>88.3352560029995</Value>
-                <Timestamp>2018-05-09T14:21:03.925</Timestamp>
+                <Value>131.974331164721</Value>
+                <Timestamp>2018-05-10T14:55:05.811</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.0360850733872899</Value>
-                <Timestamp>2018-05-09T14:21:03.976</Timestamp>
+                <Value>-0.122673783974104</Value>
+                <Timestamp>2018-05-10T14:55:05.913</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>150.882800328956</Value>
-                <Timestamp>2018-05-09T14:21:03.976</Timestamp>
+                <Value>160.882676188314</Value>
+                <Timestamp>2018-05-10T14:55:05.913</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.601143649593528</Value>
-                <Timestamp>2018-05-09T14:21:04.028</Timestamp>
+                <Value>0.0320490622110894</Value>
+                <Timestamp>2018-05-10T14:55:06.017</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>184.739536002623</Value>
-                <Timestamp>2018-05-09T14:21:04.028</Timestamp>
+                <Value>2.30244426163959</Value>
+                <Timestamp>2018-05-10T14:55:06.017</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.240705929342986</Value>
-                <Timestamp>2018-05-09T14:21:04.079</Timestamp>
+                <Value>-0.772784010401361</Value>
+                <Timestamp>2018-05-10T14:55:06.129</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>87.3529732261565</Value>
-                <Timestamp>2018-05-09T14:21:04.079</Timestamp>
+                <Value>121.848080177721</Value>
+                <Timestamp>2018-05-10T14:55:06.129</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.223042114275993</Value>
-                <Timestamp>2018-05-09T14:21:04.129</Timestamp>
+                <Value>-0.957534626106515</Value>
+                <Timestamp>2018-05-10T14:55:06.233</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>315.945285035272</Value>
-                <Timestamp>2018-05-09T14:21:04.129</Timestamp>
+                <Value>270.535133346233</Value>
+                <Timestamp>2018-05-10T14:55:06.233</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.0955469352638101</Value>
-                <Timestamp>2018-05-09T14:21:04.179</Timestamp>
+                <Value>0.0928590069957351</Value>
+                <Timestamp>2018-05-10T14:55:06.334</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>292.181507261554</Value>
-                <Timestamp>2018-05-09T14:21:04.179</Timestamp>
+                <Value>8.59758412865809</Value>
+                <Timestamp>2018-05-10T14:55:06.334</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.93430857357304</Value>
-                <Timestamp>2018-05-09T14:21:04.23</Timestamp>
+                <Value>-0.557654419707905</Value>
+                <Timestamp>2018-05-10T14:55:06.435</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>109.924503224867</Value>
-                <Timestamp>2018-05-09T14:21:04.23</Timestamp>
+                <Value>308.871223790977</Value>
+                <Timestamp>2018-05-10T14:55:06.435</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.410393403568488</Value>
-                <Timestamp>2018-05-09T14:32:09.111</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>253.108827235694</Value>
-                <Timestamp>2018-05-09T14:32:09.111</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.580974021731398</Value>
-                <Timestamp>2018-05-09T14:32:09.186</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>201.202790942603</Value>
-                <Timestamp>2018-05-09T14:32:09.186</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.606748590062721</Value>
-                <Timestamp>2018-05-09T14:32:09.238</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>353.150610138267</Value>
-                <Timestamp>2018-05-09T14:32:09.238</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.975559825997595</Value>
-                <Timestamp>2018-05-09T14:32:09.289</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>119.917866680733</Value>
-                <Timestamp>2018-05-09T14:32:09.289</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.34786784618528</Value>
-                <Timestamp>2018-05-09T14:32:09.349</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>336.303800314806</Value>
-                <Timestamp>2018-05-09T14:32:09.349</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.778355832108462</Value>
-                <Timestamp>2018-05-09T14:32:09.4</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>259.097155583602</Value>
-                <Timestamp>2018-05-09T14:32:09.4</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.933409697345183</Value>
-                <Timestamp>2018-05-09T14:32:09.452</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>44.8749227471999</Value>
-                <Timestamp>2018-05-09T14:32:09.452</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.868726890473034</Value>
-                <Timestamp>2018-05-09T14:32:09.503</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>202.15183997627</Value>
-                <Timestamp>2018-05-09T14:32:09.503</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.762322300934383</Value>
-                <Timestamp>2018-05-09T14:32:09.554</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>152.554221224298</Value>
-                <Timestamp>2018-05-09T14:32:09.554</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.139679971681759</Value>
-                <Timestamp>2018-05-09T14:32:09.605</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>4.24244296003247</Value>
-                <Timestamp>2018-05-09T14:32:09.605</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.498843622160537</Value>
-                <Timestamp>2018-05-09T16:44:59.009</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>171.658929349696</Value>
-                <Timestamp>2018-05-09T16:44:59.009</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.949783259979348</Value>
-                <Timestamp>2018-05-09T16:44:59.084</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>19.5110465304512</Value>
-                <Timestamp>2018-05-09T16:44:59.084</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.426025555201818</Value>
-                <Timestamp>2018-05-09T16:44:59.156</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>59.9288211855706</Value>
-                <Timestamp>2018-05-09T16:44:59.156</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.057239152983408</Value>
-                <Timestamp>2018-05-09T16:44:59.209</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>1.16069074774193</Value>
-                <Timestamp>2018-05-09T16:44:59.209</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.657345974658311</Value>
-                <Timestamp>2018-05-09T16:44:59.298</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>159.246595240779</Value>
-                <Timestamp>2018-05-09T16:44:59.298</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.198508022911152</Value>
-                <Timestamp>2018-05-09T16:44:59.353</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>352.082886263767</Value>
-                <Timestamp>2018-05-09T16:44:59.353</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.836187430581165</Value>
-                <Timestamp>2018-05-09T16:44:59.405</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>26.8743164589975</Value>
-                <Timestamp>2018-05-09T16:44:59.405</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.987639994354751</Value>
-                <Timestamp>2018-05-09T16:44:59.464</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>44.8681701183637</Value>
-                <Timestamp>2018-05-09T16:44:59.464</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.577385953430732</Value>
-                <Timestamp>2018-05-09T16:44:59.56</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>80.7934449989318</Value>
-                <Timestamp>2018-05-09T16:44:59.56</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.776522252604609</Value>
-                <Timestamp>2018-05-09T16:44:59.646</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>109.176995879587</Value>
-                <Timestamp>2018-05-09T16:44:59.646</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.231458275221036</Value>
-                <Timestamp>2018-05-09T20:16:22.314</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>90.2396166931091</Value>
-                <Timestamp>2018-05-09T20:16:22.314</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.740503913602095</Value>
-                <Timestamp>2018-05-09T20:16:22.523</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>233.616536889978</Value>
-                <Timestamp>2018-05-09T20:16:22.523</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.586442632408087</Value>
-                <Timestamp>2018-05-09T20:16:22.724</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>95.4236900319456</Value>
-                <Timestamp>2018-05-09T20:16:22.724</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.265937228345283</Value>
-                <Timestamp>2018-05-09T20:16:22.925</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>219.425806840614</Value>
-                <Timestamp>2018-05-09T20:16:22.925</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.120987515487237</Value>
-                <Timestamp>2018-05-09T20:16:23.126</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>331.029956457685</Value>
-                <Timestamp>2018-05-09T20:16:23.126</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
             </Values>
             <Visibility>true</Visibility>
@@ -2173,424 +673,124 @@
             <Size>10</Size>
             <Values>
               <SensorValue>
-                <Value>0.243102141303523</Value>
-                <Timestamp>2018-05-09T14:21:03.769</Timestamp>
+                <Value>-0.084775139151502</Value>
+                <Timestamp>2018-05-10T14:55:05.458</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>188.75388675777</Value>
-                <Timestamp>2018-05-09T14:21:03.769</Timestamp>
+                <Value>174.518282178099</Value>
+                <Timestamp>2018-05-10T14:55:05.458</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.31198595990985</Value>
-                <Timestamp>2018-05-09T14:21:03.823</Timestamp>
+                <Value>-0.671258288282556</Value>
+                <Timestamp>2018-05-10T14:55:05.575</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>181.066255616521</Value>
-                <Timestamp>2018-05-09T14:21:03.823</Timestamp>
+                <Value>337.40356434947</Value>
+                <Timestamp>2018-05-10T14:55:05.575</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.679716257229315</Value>
-                <Timestamp>2018-05-09T14:21:03.874</Timestamp>
+                <Value>-0.953526691511984</Value>
+                <Timestamp>2018-05-10T14:55:05.696</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>6.35665884537467</Value>
-                <Timestamp>2018-05-09T14:21:03.874</Timestamp>
+                <Value>340.483997753115</Value>
+                <Timestamp>2018-05-10T14:55:05.696</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.117042794412488</Value>
-                <Timestamp>2018-05-09T14:21:03.925</Timestamp>
+                <Value>0.0154509102066285</Value>
+                <Timestamp>2018-05-10T14:55:05.811</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>32.3485037276281</Value>
-                <Timestamp>2018-05-09T14:21:03.925</Timestamp>
+                <Value>238.925477787352</Value>
+                <Timestamp>2018-05-10T14:55:05.811</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.208378277350393</Value>
-                <Timestamp>2018-05-09T14:21:03.976</Timestamp>
+                <Value>-0.529927678187344</Value>
+                <Timestamp>2018-05-10T14:55:05.913</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>336.956813939361</Value>
-                <Timestamp>2018-05-09T14:21:03.976</Timestamp>
+                <Value>52.0314451549349</Value>
+                <Timestamp>2018-05-10T14:55:05.913</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.407560777574573</Value>
-                <Timestamp>2018-05-09T14:21:04.028</Timestamp>
+                <Value>0.56647270245779</Value>
+                <Timestamp>2018-05-10T14:55:06.017</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>6.2277381337377</Value>
-                <Timestamp>2018-05-09T14:21:04.028</Timestamp>
+                <Value>113.24829395546</Value>
+                <Timestamp>2018-05-10T14:55:06.017</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.452403913928384</Value>
-                <Timestamp>2018-05-09T14:21:04.079</Timestamp>
+                <Value>-0.505767632045675</Value>
+                <Timestamp>2018-05-10T14:55:06.129</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>251.228564349575</Value>
-                <Timestamp>2018-05-09T14:21:04.079</Timestamp>
+                <Value>149.012381988118</Value>
+                <Timestamp>2018-05-10T14:55:06.129</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.452790770424898</Value>
-                <Timestamp>2018-05-09T14:21:04.129</Timestamp>
+                <Value>0.624327800993029</Value>
+                <Timestamp>2018-05-10T14:55:06.233</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>205.787238853885</Value>
-                <Timestamp>2018-05-09T14:21:04.129</Timestamp>
+                <Value>55.9285384490753</Value>
+                <Timestamp>2018-05-10T14:55:06.233</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.0233832975027074</Value>
-                <Timestamp>2018-05-09T14:21:04.179</Timestamp>
+                <Value>0.263771250501168</Value>
+                <Timestamp>2018-05-10T14:55:06.334</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>158.945017884925</Value>
-                <Timestamp>2018-05-09T14:21:04.179</Timestamp>
+                <Value>135.903422374233</Value>
+                <Timestamp>2018-05-10T14:55:06.334</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.931103265812203</Value>
-                <Timestamp>2018-05-09T14:21:04.23</Timestamp>
+                <Value>0.80774861006427</Value>
+                <Timestamp>2018-05-10T14:55:06.435</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>141.07579340277</Value>
-                <Timestamp>2018-05-09T14:21:04.23</Timestamp>
+                <Value>241.314458326117</Value>
+                <Timestamp>2018-05-10T14:55:06.435</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.571742730947091</Value>
-                <Timestamp>2018-05-09T14:32:09.111</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>271.99433937296</Value>
-                <Timestamp>2018-05-09T14:32:09.111</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.225814483699302</Value>
-                <Timestamp>2018-05-09T14:32:09.186</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>97.6643662050666</Value>
-                <Timestamp>2018-05-09T14:32:09.186</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.0663946611184603</Value>
-                <Timestamp>2018-05-09T14:32:09.238</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>41.6449382536323</Value>
-                <Timestamp>2018-05-09T14:32:09.238</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.859291276828987</Value>
-                <Timestamp>2018-05-09T14:32:09.289</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>357.603295034544</Value>
-                <Timestamp>2018-05-09T14:32:09.289</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.355098300313157</Value>
-                <Timestamp>2018-05-09T14:32:09.349</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>179.128484492716</Value>
-                <Timestamp>2018-05-09T14:32:09.349</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.289584754635386</Value>
-                <Timestamp>2018-05-09T14:32:09.4</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>220.161794601084</Value>
-                <Timestamp>2018-05-09T14:32:09.4</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.191412922549719</Value>
-                <Timestamp>2018-05-09T14:32:09.452</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>66.2272801186085</Value>
-                <Timestamp>2018-05-09T14:32:09.452</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.860890596108926</Value>
-                <Timestamp>2018-05-09T14:32:09.503</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>357.497791851637</Value>
-                <Timestamp>2018-05-09T14:32:09.503</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.639945071022932</Value>
-                <Timestamp>2018-05-09T14:32:09.554</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>119.202209058778</Value>
-                <Timestamp>2018-05-09T14:32:09.554</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.873567285888627</Value>
-                <Timestamp>2018-05-09T14:32:09.605</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>149.241853016076</Value>
-                <Timestamp>2018-05-09T14:32:09.605</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.135666790947163</Value>
-                <Timestamp>2018-05-09T16:44:59.009</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>311.786377295752</Value>
-                <Timestamp>2018-05-09T16:44:59.009</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.678629835917908</Value>
-                <Timestamp>2018-05-09T16:44:59.084</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>355.130545587805</Value>
-                <Timestamp>2018-05-09T16:44:59.084</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.241533482094078</Value>
-                <Timestamp>2018-05-09T16:44:59.156</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>179.773194501071</Value>
-                <Timestamp>2018-05-09T16:44:59.156</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.0395897240562317</Value>
-                <Timestamp>2018-05-09T16:44:59.209</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>38.2385619721555</Value>
-                <Timestamp>2018-05-09T16:44:59.209</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.265547695227688</Value>
-                <Timestamp>2018-05-09T16:44:59.298</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>7.98993101715573</Value>
-                <Timestamp>2018-05-09T16:44:59.298</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.00833690120295483</Value>
-                <Timestamp>2018-05-09T16:44:59.353</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>180.372932413767</Value>
-                <Timestamp>2018-05-09T16:44:59.353</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.933740302889487</Value>
-                <Timestamp>2018-05-09T16:44:59.405</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>74.0387954535143</Value>
-                <Timestamp>2018-05-09T16:44:59.405</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.963599233871139</Value>
-                <Timestamp>2018-05-09T16:44:59.464</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>330.054586404029</Value>
-                <Timestamp>2018-05-09T16:44:59.464</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.29040292617418</Value>
-                <Timestamp>2018-05-09T16:44:59.56</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>307.247878139488</Value>
-                <Timestamp>2018-05-09T16:44:59.56</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.077081336210054</Value>
-                <Timestamp>2018-05-09T16:44:59.646</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>49.2148472411627</Value>
-                <Timestamp>2018-05-09T16:44:59.646</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.697106135868051</Value>
-                <Timestamp>2018-05-09T20:16:22.314</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>318.246145955402</Value>
-                <Timestamp>2018-05-09T20:16:22.314</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.758045515864177</Value>
-                <Timestamp>2018-05-09T20:16:22.523</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.691525955075177</Value>
-                <Timestamp>2018-05-09T20:16:22.523</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.25681866112017</Value>
-                <Timestamp>2018-05-09T20:16:22.724</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>247.228674389063</Value>
-                <Timestamp>2018-05-09T20:16:22.724</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.0131427017101751</Value>
-                <Timestamp>2018-05-09T20:16:22.925</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>3.18863572701283</Value>
-                <Timestamp>2018-05-09T20:16:22.925</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.632245348595197</Value>
-                <Timestamp>2018-05-09T20:16:23.126</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>153.103349708534</Value>
-                <Timestamp>2018-05-09T20:16:23.126</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
             </Values>
             <Visibility>true</Visibility>
@@ -2604,424 +804,124 @@
             <Size>10</Size>
             <Values>
               <SensorValue>
-                <Value>-0.220099937738897</Value>
-                <Timestamp>2018-05-09T14:21:03.769</Timestamp>
+                <Value>-0.975665193971091</Value>
+                <Timestamp>2018-05-10T14:55:05.458</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>122.318714820928</Value>
-                <Timestamp>2018-05-09T14:21:03.769</Timestamp>
+                <Value>125.601258876548</Value>
+                <Timestamp>2018-05-10T14:55:05.458</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.233090558663518</Value>
-                <Timestamp>2018-05-09T14:21:03.823</Timestamp>
+                <Value>-0.117957703358474</Value>
+                <Timestamp>2018-05-10T14:55:05.575</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>97.3572697012486</Value>
-                <Timestamp>2018-05-09T14:21:03.823</Timestamp>
+                <Value>76.4310963994037</Value>
+                <Timestamp>2018-05-10T14:55:05.575</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.780551055344078</Value>
-                <Timestamp>2018-05-09T14:21:03.874</Timestamp>
+                <Value>-0.348734516347169</Value>
+                <Timestamp>2018-05-10T14:55:05.696</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>339.674525176955</Value>
-                <Timestamp>2018-05-09T14:21:03.874</Timestamp>
+                <Value>280.678570252228</Value>
+                <Timestamp>2018-05-10T14:55:05.696</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.3228773834756</Value>
-                <Timestamp>2018-05-09T14:21:03.925</Timestamp>
+                <Value>-0.609709560689381</Value>
+                <Timestamp>2018-05-10T14:55:05.811</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>343.325844809099</Value>
-                <Timestamp>2018-05-09T14:21:03.925</Timestamp>
+                <Value>249.157593049648</Value>
+                <Timestamp>2018-05-10T14:55:05.811</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.876674585918279</Value>
-                <Timestamp>2018-05-09T14:21:03.976</Timestamp>
+                <Value>0.0313313263614343</Value>
+                <Timestamp>2018-05-10T14:55:05.913</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>36.1611357685929</Value>
-                <Timestamp>2018-05-09T14:21:03.976</Timestamp>
+                <Value>153.984392841339</Value>
+                <Timestamp>2018-05-10T14:55:05.913</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.949472834332601</Value>
-                <Timestamp>2018-05-09T14:21:04.028</Timestamp>
+                <Value>0.559985912200057</Value>
+                <Timestamp>2018-05-10T14:55:06.017</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>15.334124572265</Value>
-                <Timestamp>2018-05-09T14:21:04.028</Timestamp>
+                <Value>205.802302810271</Value>
+                <Timestamp>2018-05-10T14:55:06.017</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.416507485050944</Value>
-                <Timestamp>2018-05-09T14:21:04.079</Timestamp>
+                <Value>-0.716414354609519</Value>
+                <Timestamp>2018-05-10T14:55:06.129</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>171.761588720494</Value>
-                <Timestamp>2018-05-09T14:21:04.079</Timestamp>
+                <Value>296.093119017823</Value>
+                <Timestamp>2018-05-10T14:55:06.129</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.375879058323744</Value>
-                <Timestamp>2018-05-09T14:21:04.129</Timestamp>
+                <Value>0.692635230576915</Value>
+                <Timestamp>2018-05-10T14:55:06.233</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>222.163378830144</Value>
-                <Timestamp>2018-05-09T14:21:04.129</Timestamp>
+                <Value>118.411309438949</Value>
+                <Timestamp>2018-05-10T14:55:06.233</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>-0.610666204062601</Value>
-                <Timestamp>2018-05-09T14:21:04.179</Timestamp>
+                <Value>0.336171176906755</Value>
+                <Timestamp>2018-05-10T14:55:06.334</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>37.9667604891429</Value>
-                <Timestamp>2018-05-09T14:21:04.179</Timestamp>
+                <Value>342.194564650857</Value>
+                <Timestamp>2018-05-10T14:55:06.334</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>0.97094815129924</Value>
-                <Timestamp>2018-05-09T14:21:04.23</Timestamp>
+                <Value>0.214420622780184</Value>
+                <Timestamp>2018-05-10T14:55:06.435</Timestamp>
                 <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
               <SensorValue>
-                <Value>101.406820761695</Value>
-                <Timestamp>2018-05-09T14:21:04.23</Timestamp>
+                <Value>100.156242149023</Value>
+                <Timestamp>2018-05-10T14:55:06.435</Timestamp>
                 <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:21:04.007</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.440519412718955</Value>
-                <Timestamp>2018-05-09T14:32:09.111</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>260.978171164625</Value>
-                <Timestamp>2018-05-09T14:32:09.111</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.846775247644063</Value>
-                <Timestamp>2018-05-09T14:32:09.186</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>309.370707100896</Value>
-                <Timestamp>2018-05-09T14:32:09.186</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.758356458394954</Value>
-                <Timestamp>2018-05-09T14:32:09.238</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>67.7033354470988</Value>
-                <Timestamp>2018-05-09T14:32:09.238</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.0815672469705191</Value>
-                <Timestamp>2018-05-09T14:32:09.289</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>288.740982771265</Value>
-                <Timestamp>2018-05-09T14:32:09.289</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.0847402592584212</Value>
-                <Timestamp>2018-05-09T14:32:09.349</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>9.87952916411661</Value>
-                <Timestamp>2018-05-09T14:32:09.349</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.610867433068746</Value>
-                <Timestamp>2018-05-09T14:32:09.4</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>150.386125459516</Value>
-                <Timestamp>2018-05-09T14:32:09.4</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.850723926839756</Value>
-                <Timestamp>2018-05-09T14:32:09.452</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>195.451297795145</Value>
-                <Timestamp>2018-05-09T14:32:09.452</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.780733968960463</Value>
-                <Timestamp>2018-05-09T14:32:09.503</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>351.133373375578</Value>
-                <Timestamp>2018-05-09T14:32:09.503</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.341051187990723</Value>
-                <Timestamp>2018-05-09T14:32:09.554</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>151.168914246917</Value>
-                <Timestamp>2018-05-09T14:32:09.554</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.158667260389154</Value>
-                <Timestamp>2018-05-09T14:32:09.605</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>202.019557618545</Value>
-                <Timestamp>2018-05-09T14:32:09.605</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 11:32:09.465</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.313370700605852</Value>
-                <Timestamp>2018-05-09T16:44:59.009</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>238.935039694856</Value>
-                <Timestamp>2018-05-09T16:44:59.009</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.0581716005961278</Value>
-                <Timestamp>2018-05-09T16:44:59.084</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>78.7757279531917</Value>
-                <Timestamp>2018-05-09T16:44:59.084</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.755903579181015</Value>
-                <Timestamp>2018-05-09T16:44:59.156</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>171.055847560547</Value>
-                <Timestamp>2018-05-09T16:44:59.156</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.359902004413261</Value>
-                <Timestamp>2018-05-09T16:44:59.209</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>49.8640881710984</Value>
-                <Timestamp>2018-05-09T16:44:59.209</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.14266776439858</Value>
-                <Timestamp>2018-05-09T16:44:59.298</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>334.062981314055</Value>
-                <Timestamp>2018-05-09T16:44:59.298</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.0814486011310707</Value>
-                <Timestamp>2018-05-09T16:44:59.353</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>174.788930311235</Value>
-                <Timestamp>2018-05-09T16:44:59.353</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.845146271328044</Value>
-                <Timestamp>2018-05-09T16:44:59.405</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>85.2382121818318</Value>
-                <Timestamp>2018-05-09T16:44:59.405</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.542042257051003</Value>
-                <Timestamp>2018-05-09T16:44:59.464</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>18.404680741208</Value>
-                <Timestamp>2018-05-09T16:44:59.464</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>0.12235886376461</Value>
-                <Timestamp>2018-05-09T16:44:59.56</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>78.9366210992153</Value>
-                <Timestamp>2018-05-09T16:44:59.56</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.696946233369851</Value>
-                <Timestamp>2018-05-09T16:44:59.646</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>335.527858536471</Value>
-                <Timestamp>2018-05-09T16:44:59.646</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 13:44:59.631</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.92212954439322</Value>
-                <Timestamp>2018-05-09T20:16:22.314</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>9.39210875397181</Value>
-                <Timestamp>2018-05-09T20:16:22.314</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.92912431616761</Value>
-                <Timestamp>2018-05-09T20:16:22.523</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>238.767563737355</Value>
-                <Timestamp>2018-05-09T20:16:22.523</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.0925240130594578</Value>
-                <Timestamp>2018-05-09T20:16:22.724</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>75.6037611493858</Value>
-                <Timestamp>2018-05-09T20:16:22.724</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.455907949924426</Value>
-                <Timestamp>2018-05-09T20:16:22.925</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>275.504018420123</Value>
-                <Timestamp>2018-05-09T20:16:22.925</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>-0.155977318601672</Value>
-                <Timestamp>2018-05-09T20:16:23.126</Timestamp>
-                <Parameter>speed</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
-              </SensorValue>
-              <SensorValue>
-                <Value>136.940009154817</Value>
-                <Timestamp>2018-05-09T20:16:23.126</Timestamp>
-                <Parameter>direction</Parameter>
-                <AnalysisName>Analysis 17:16:22.525</AnalysisName>
+                <AnalysisName>Analysis 11:55:06.096</AnalysisName>
               </SensorValue>
             </Values>
             <Visibility>true</Visibility>
@@ -3029,54 +929,9 @@
         </Sensors>
         <Analysis>
           <Analysis>
-            <Name>Analysis 11:21:04.007</Name>
-            <Date>09/05/2018</Date>
-            <Time>11:21:04.007</Time>
-            <SensorsIds>
-              <string>2b60eb9c-6e84-4f35-87c1-e0a65e1ac598</string>
-              <string>01111426-0e7b-4cc1-a3a0-c4a3be272698</string>
-              <string>dbd04d60-3086-4a03-9104-77421995e219</string>
-              <string>41e9fe85-18f9-4faf-ba26-7b9c89f07582</string>
-              <string>5d5b5ccc-5a22-4fce-a387-c45dcee361b9</string>
-              <string>104e7ef7-cf78-477c-8246-2185bbfea91b</string>
-              <string>86825618-ac64-4bf0-a7c1-76d465bd547a</string>
-            </SensorsIds>
-            <NewAnalysis>false</NewAnalysis>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis 11:32:09.465</Name>
-            <Date>09/05/2018</Date>
-            <Time>11:32:09.465</Time>
-            <SensorsIds>
-              <string>2b60eb9c-6e84-4f35-87c1-e0a65e1ac598</string>
-              <string>01111426-0e7b-4cc1-a3a0-c4a3be272698</string>
-              <string>dbd04d60-3086-4a03-9104-77421995e219</string>
-              <string>41e9fe85-18f9-4faf-ba26-7b9c89f07582</string>
-              <string>5d5b5ccc-5a22-4fce-a387-c45dcee361b9</string>
-              <string>104e7ef7-cf78-477c-8246-2185bbfea91b</string>
-              <string>86825618-ac64-4bf0-a7c1-76d465bd547a</string>
-            </SensorsIds>
-            <NewAnalysis>false</NewAnalysis>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis 13:44:59.631</Name>
-            <Date>09/05/2018</Date>
-            <Time>13:44:59.631</Time>
-            <SensorsIds>
-              <string>2b60eb9c-6e84-4f35-87c1-e0a65e1ac598</string>
-              <string>01111426-0e7b-4cc1-a3a0-c4a3be272698</string>
-              <string>dbd04d60-3086-4a03-9104-77421995e219</string>
-              <string>41e9fe85-18f9-4faf-ba26-7b9c89f07582</string>
-              <string>5d5b5ccc-5a22-4fce-a387-c45dcee361b9</string>
-              <string>104e7ef7-cf78-477c-8246-2185bbfea91b</string>
-              <string>86825618-ac64-4bf0-a7c1-76d465bd547a</string>
-            </SensorsIds>
-            <NewAnalysis>false</NewAnalysis>
-          </Analysis>
-          <Analysis>
-            <Name>Analysis 17:16:22.525</Name>
-            <Date>09/05/2018</Date>
-            <Time>17:16:22.525</Time>
+            <Name>Analysis 11:55:06.096</Name>
+            <Date>10/05/2018</Date>
+            <Time>11:55:06.096</Time>
             <SensorsIds>
               <string>2b60eb9c-6e84-4f35-87c1-e0a65e1ac598</string>
               <string>01111426-0e7b-4cc1-a3a0-c4a3be272698</string>

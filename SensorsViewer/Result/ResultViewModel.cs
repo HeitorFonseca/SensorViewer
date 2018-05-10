@@ -29,7 +29,7 @@ namespace SensorsViewer.Result
         /// <summary>
         /// Array size
         /// </summary>
-        private const int ARRAYSIZE = 10;
+        private const int ARRAYSIZE = 20;
 
         /// <summary>
         /// Indicate which parameter is not going to be interpolated

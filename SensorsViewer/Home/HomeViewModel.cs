@@ -481,7 +481,6 @@ namespace SensorsViewer.Home
         {
             try
             {
-
                 CreateAnalysisFolder(this.currentDirectory + @"\Resources\Analysis");
 
                 App.SplashScreen.AddMessage("Loading analysis");
