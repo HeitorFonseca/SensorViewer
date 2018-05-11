@@ -83,7 +83,7 @@ namespace SensorsViewer.ProjectB
             this.YFormatter = this.YFormatterFunc; ////val => val.ToString("N");
 
             // AxisStep forces the distance between each separator in the X axis
-            this.AxisStep = TimeSpan.FromMilliseconds(50).Ticks;
+            this.AxisStep = TimeSpan.FromMilliseconds(100).Ticks;
 
             // AxisUnit forces lets the axis know that we are plotting seconds
             // this is not always necessary, but it can prevent wrong labeling

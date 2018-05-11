@@ -146,7 +146,7 @@ namespace SensorsViewer.Home
             }            
             else if (!File.Exists(this.modelPath))  
             {
-                MessageDialogResult result = await this.ShowMessageAsync("Error!", "Model path does not exist", MessageDialogStyle.Affirmative, mySettings);
+                MessageDialogResult result = await this.ShowMessageAsync("Error!", "Model path does not exist", MessageDialogStyle.Affirmative, mySettings);                
             }
             else
             {

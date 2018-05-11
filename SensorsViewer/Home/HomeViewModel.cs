@@ -30,6 +30,12 @@ namespace SensorsViewer.Home
     /// </summary>
     public class HomeViewModel : INotifyPropertyChanged
     {
+        #region Private Variables
+        /// <summary>
+        /// Home view object
+        /// </summary>
+        private HomeView homeView;
+
         /// <summary>
         /// Project B User control content
         /// </summary>
@@ -120,6 +126,8 @@ namespace SensorsViewer.Home
         /// </summary>
         private string parameterString = "direction";
 
+        #endregion
+
         /// <summary>
         /// Initializes a new instance of the <see cref="HomeViewModel"/> class
         /// </summary>
@@ -135,14 +143,10 @@ namespace SensorsViewer.Home
         {
             this.dialogCoordinator = dialogCoordinator;
 
-            this.proc = new MqttConnection("localhost", 5672, "userTest", "userTest", "GMTestqueue");
-            this.proc.Connect();
-            this.proc.ReadDataEvnt(this.WhenMessageReceived);
-
             this.ProjectItems = new ObservableCollection<ProjectItem>();
 
             this.CloseWindowCommand = new RelayCommand(this.WindowClosingAction);
-            this.LoadedWindowCommand = new RelayCommand(this.WindowLoadedAction);
+            this.LoadedWindowCommand = new RelayCommand(this.WindowLoadedActionAsync);
             this.ClickInRenameContextMenu = new RelayCommand(this.ClickInRenameActionAsync);
             this.ClickInDeleteContextMenu = new RelayCommand(this.ClickInDeleteAction);
 
@@ -151,7 +155,7 @@ namespace SensorsViewer.Home
             this.DeleteSensorCommand = new RelayCommand(this.DeleteSensorAction);
             this.DeleteAnalysisCommand = new RelayCommand(this.DeleteAnalysisAction);
 
-            this.ConnectionSettingsCommand = new RelayCommand(this.ConnectionSettingsAction);
+            this.ConnectionSettingsCommand = new RelayCommand(this.ConnectionSettingsActionAsync);
 
             this.AddNewSensorCommand = new AddSensorCommand(this);
             this.ClickInTabCategoryCommand = new RelayCommand(this.ClickInTabCategoryAction);
@@ -469,23 +473,50 @@ namespace SensorsViewer.Home
             }
 
             XmlSerialization.WriteToXmlFile<ObservableCollection<ProjectItem>>(this.currentDirectory + @"\Resources\META-INF\persistence.txt", this.ProjectItems);
-        
-            this.proc.Disconnect();
+
+            // Disconect connection
+            if (this.proc != null)
+            {
+                this.proc.Disconnect();
+            }
         }
 
         /// <summary>
         ///  Event when load window
         /// </summary>
         /// <param name="parameter">Object parameter</param>
-        private void WindowLoadedAction(object parameter)
+        private async void WindowLoadedActionAsync(object parameter)
         {
             try
             {
+                //Check if rabbitmq server is installed 
+                if (GetInstalledApps("RabbitMq"))
+                {
+                    this.homeView = (HomeView)((RoutedEventArgs)parameter).Source;
+
+                    var mySettings = new MetroDialogSettings()
+                    {
+                        //ColorScheme = MetroDialogOptions.ColorScheme,
+                        DialogTitleFontSize = 13,
+                        DialogMessageFontSize = 17,
+                    };
+
+                    MessageDialogResult result = await this.homeView.ShowMessageAsync("Error!", "RabbitMQ Server is missing", MessageDialogStyle.Affirmative, mySettings);
+
+                }
+                else
+                {
+                    // Create connection
+                    this.proc = new MqttConnection("localhost", 5672, "userTest", "userTest", "GMTestqueue");
+                    this.proc.Connect();
+                    this.proc.ReadDataEvnt(this.WhenMessageReceived);
+                }
+
                 CreateAnalysisFolder(this.currentDirectory + @"\Resources\Analysis");
 
-                App.SplashScreen.AddMessage("Loading analysis");
-
                 this.ProjectItems = XmlSerialization.ReadFromXmlFile<ObservableCollection<ProjectItem>>(this.currentDirectory + @"\Resources\META-INF\persistence.txt");
+
+                App.SplashScreen.AddMessage("Loading application");
 
                 foreach (ProjectItem opt in this.ProjectItems)
                 {
@@ -590,18 +621,39 @@ namespace SensorsViewer.Home
         ///  Event to connection settings
         /// </summary>
         /// <param name="parameter">Object parameter</param>
-        private void ConnectionSettingsAction(object parameter)
+        private async void ConnectionSettingsActionAsync(object parameter)
         {
-            ConnectionSettings stt = new ConnectionSettings(this.proc);
-            stt.ShowDialog();
-
-            if (stt.DialogResult.HasValue && stt.DialogResult.Value)
+            if (this.proc == null)
             {
-                if (stt.HostName != this.proc.HostName || stt.PortNumber != this.proc.Port.ToString())
+                //Check if rabbitmq server is installed 
+                if (GetInstalledApps("RabbitMq"))
                 {
-                    this.proc.Disconnect();
 
-                    this.proc = new MqttConnection(stt.HostName, Convert.ToInt32(stt.PortNumber), stt.Username, stt.Password, "GMTestqueue");
+                    var mySettings = new MetroDialogSettings()
+                    {
+                        //ColorScheme = MetroDialogOptions.ColorScheme,
+                        DialogTitleFontSize = 13,
+                        DialogMessageFontSize = 17,
+                    };
+
+                    MessageDialogResult result = await this.homeView.ShowMessageAsync("RabbitMQ Server is missing!", "Can not configure connection", MessageDialogStyle.Affirmative, mySettings);
+                }
+            }
+            else
+            {
+                ConnectionSettings stt = new ConnectionSettings(this.proc);
+                stt.ShowDialog();
+
+                if (stt.DialogResult.HasValue && stt.DialogResult.Value)
+                {
+                    if (stt.HostName != this.proc.HostName || stt.PortNumber != this.proc.Port.ToString())
+                    {
+                        this.proc.Disconnect();
+
+                        this.proc = new MqttConnection(stt.HostName, Convert.ToInt32(stt.PortNumber), stt.Username, stt.Password, "GMTestqueue");
+                        this.proc.Connect();
+                        this.proc.ReadDataEvnt(this.WhenMessageReceived);
+                    }
                 }
             }
         }
@@ -908,6 +960,7 @@ namespace SensorsViewer.Home
 
         #endregion
 
+        #region Private Methods
         /// <summary>
         /// Event for when receive a mqtt message
         /// </summary>
@@ -1050,5 +1103,33 @@ namespace SensorsViewer.Home
 
             return false;
         }
+
+        private bool GetInstalledApps(string app)
+        {
+            string uninstallKey = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
+            using (RegistryKey rk = Registry.LocalMachine.OpenSubKey(uninstallKey))
+            {
+                foreach (string skName in rk.GetSubKeyNames())
+                {
+                    using (RegistryKey sk = rk.OpenSubKey(skName))
+                    {
+                        try
+                        {
+                            object ret = sk.GetValue("DisplayName");
+
+                            if (ret.ToString().ToLower().Contains(app.ToLower()))
+                            {
+                                return true;
+                            }
+                        }
+                        catch (Exception ex)
+                        { }
+                    }
+                }
+            }
+
+            return false;
+        }
+        #endregion
     }
 }

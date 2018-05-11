@@ -230,4 +230,3 @@ C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\SharpGL.WPF.pdb
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\SharpGL.WPF.xml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\System.Data.SQLite.xml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\System.Data.SQLite.dll.config
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer.csprojResolveAssemblyReference.cache

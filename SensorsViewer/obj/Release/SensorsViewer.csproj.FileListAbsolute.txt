@@ -83,4 +83,3 @@ C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Release\Senso
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Release\SensorsViewer.csproj.CoreCompileInputs.cache
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Release\SensorsViewer.exe
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Release\SensorsViewer.pdb
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Release\SensorsViewer.csprojResolveAssemblyReference.cache

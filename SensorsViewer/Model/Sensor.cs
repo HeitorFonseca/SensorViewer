@@ -289,7 +289,7 @@ namespace SensorsViewer.SensorOption
         public double Value { get; set; }
 
         /// <summary>
-        /// Gets or sets Double value of the sensor
+        /// Gets or sets sensor timestamp
         /// </summary>
         public DateTime Timestamp { get; set; }
 
@@ -302,6 +302,18 @@ namespace SensorsViewer.SensorOption
         /// Gets or sets which analysis the value belongs to
         /// </summary>
         public string AnalysisName { get; set; }
+
+        /// <summary>
+        /// Gets sensor timestamp in string format
+        /// </summary>
+        public string TimestampStr
+        {
+            get
+            {
+                return this.Timestamp.ToString("HH:mm:ss.fff");
+            }
+        }
+
 
         #endregion
     }
