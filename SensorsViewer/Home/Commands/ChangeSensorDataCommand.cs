@@ -51,6 +51,23 @@ namespace SensorsViewer.Home.Commands
         /// <returns>if can execute command</returns>
         public bool CanExecute(object parameter)
         {
+            if (parameter is KeyEventArgs)
+            {
+                if (((KeyEventArgs)parameter).Key == Key.Enter)
+                {
+                    FocusNavigationDirection focusDirection = FocusNavigationDirection.Next;
+                    // MoveFocus takes a TraveralReqest as its argument.
+                    TraversalRequest request = new TraversalRequest(focusDirection);
+
+                    ((TextBox)((KeyEventArgs)parameter).Source).MoveFocus(request);
+                    return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
             return true;
         }
 
@@ -59,8 +76,18 @@ namespace SensorsViewer.Home.Commands
         /// </summary>
         /// <param name="parameter">object parameter</param>
         public void Execute(object parameter)
-        {            
-            var source = ((System.Windows.RoutedEventArgs)parameter).Source;
+        {
+            var source = parameter;
+
+            if (parameter is System.Windows.RoutedEventArgs)
+            {
+                source = ((System.Windows.RoutedEventArgs)parameter).Source;
+            }
+            else if (parameter is KeyEventArgs)
+            {
+                source = ((KeyEventArgs)parameter).Source;
+            }
+
 
             Sensor sensor = ((TextBox)source).DataContext as Sensor;
 

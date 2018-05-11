@@ -271,6 +271,9 @@
                                                                             <i:EventTrigger EventName="LostFocus">
                                                                                 <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.EditSensorDataCommand}" PassEventArgsToCommand="True" />
                                                                             </i:EventTrigger>
+                                                                            <i:EventTrigger EventName="PreviewKeyDown">
+                                                                                <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.EditSensorDataCommand}" PassEventArgsToCommand="True" />
+                                                                            </i:EventTrigger>
                                                                         </i:Interaction.Triggers>
                                                                     </TextBox>
                                                                     <Label x:Name="lbY" Content="Y:" Margin="0,0,0,-0.2" FontSize="12"></Label>
@@ -278,6 +281,9 @@
                                                                              Text="{Binding Y, Mode=TwoWay}" Style="{StaticResource sensorDataText}" Margin="-5,1,0,0">
                                                                         <i:Interaction.Triggers>
                                                                             <i:EventTrigger EventName="LostFocus">
+                                                                                <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.EditSensorDataCommand}" PassEventArgsToCommand="True" />
+                                                                            </i:EventTrigger>
+                                                                            <i:EventTrigger EventName="PreviewKeyDown">
                                                                                 <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.EditSensorDataCommand}" PassEventArgsToCommand="True" />
                                                                             </i:EventTrigger>
                                                                         </i:Interaction.Triggers>
@@ -289,6 +295,9 @@
                                                                             <i:EventTrigger EventName="LostFocus">
                                                                                 <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.EditSensorDataCommand}" PassEventArgsToCommand="True" />
                                                                             </i:EventTrigger>
+                                                                            <i:EventTrigger EventName="PreviewKeyDown">
+                                                                                <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.EditSensorDataCommand}" PassEventArgsToCommand="True" />
+                                                                            </i:EventTrigger>
                                                                         </i:Interaction.Triggers>
                                                                     </TextBox>
                                                                     <Label x:Name="lbSensorSize" Content="Size:" Margin="0,0,0,-0.2" FontSize="12"></Label>
@@ -296,6 +305,9 @@
                                                                              Text="{Binding Size, Mode=TwoWay}" Style="{StaticResource sensorDataText}" Margin="-5,1,0,0">
                                                                         <i:Interaction.Triggers>
                                                                             <i:EventTrigger EventName="LostFocus">
+                                                                                <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.EditSensorDataCommand}" PassEventArgsToCommand="True" />
+                                                                            </i:EventTrigger>
+                                                                            <i:EventTrigger EventName="PreviewKeyDown">
                                                                                 <cmd:EventToCommand Command="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.EditSensorDataCommand}" PassEventArgsToCommand="True" />
                                                                             </i:EventTrigger>
                                                                         </i:Interaction.Triggers>

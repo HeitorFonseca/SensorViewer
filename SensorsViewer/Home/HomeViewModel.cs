@@ -461,7 +461,6 @@ namespace SensorsViewer.Home
                     // Each Tab has its chart and values
                     for (int i = 0; i < tab.Analysis.Count; i++)
                     {
-
                         if (tab.Analysis[i].NewAnalysis)
                         {
                             tab.Analysis[i].ProjectChartContent.TakeTheChart(tab.Analysis[i].FolderPath);
@@ -488,30 +487,7 @@ namespace SensorsViewer.Home
         private async void WindowLoadedActionAsync(object parameter)
         {
             try
-            {
-                //Check if rabbitmq server is installed 
-                if (GetInstalledApps("RabbitMq"))
-                {
-                    this.homeView = (HomeView)((RoutedEventArgs)parameter).Source;
-
-                    var mySettings = new MetroDialogSettings()
-                    {
-                        //ColorScheme = MetroDialogOptions.ColorScheme,
-                        DialogTitleFontSize = 13,
-                        DialogMessageFontSize = 17,
-                    };
-
-                    MessageDialogResult result = await this.homeView.ShowMessageAsync("Error!", "RabbitMQ Server is missing", MessageDialogStyle.Affirmative, mySettings);
-
-                }
-                else
-                {
-                    // Create connection
-                    this.proc = new MqttConnection("localhost", 5672, "userTest", "userTest", "GMTestqueue");
-                    this.proc.Connect();
-                    this.proc.ReadDataEvnt(this.WhenMessageReceived);
-                }
-
+            {             
                 CreateAnalysisFolder(this.currentDirectory + @"\Resources\Analysis");
 
                 this.ProjectItems = XmlSerialization.ReadFromXmlFile<ObservableCollection<ProjectItem>>(this.currentDirectory + @"\Resources\META-INF\persistence.txt");
@@ -557,6 +533,28 @@ namespace SensorsViewer.Home
             finally
             {
                 App.SplashScreen.LoadComplete();                
+            }
+
+            //Check if rabbitmq server is installed 
+            if (!GetInstalledApps("RabbitMq"))
+            {
+                this.homeView = (HomeView)((RoutedEventArgs)parameter).Source;
+
+                var mySettings = new MetroDialogSettings()
+                {
+                    //ColorScheme = MetroDialogOptions.ColorScheme,
+                    DialogTitleFontSize = 13,
+                    DialogMessageFontSize = 17,
+                };
+
+                MessageDialogResult result = await this.homeView.ShowMessageAsync("Error!", "RabbitMQ Server is missing", MessageDialogStyle.Affirmative, mySettings);
+            }
+            else
+            {
+                // Create connection
+                this.proc = new MqttConnection("localhost", 5672, "userTest", "userTest", "GMTestqueue");
+                this.proc.Connect();
+                this.proc.ReadDataEvnt(this.WhenMessageReceived);
             }
         }
 
