@@ -200,7 +200,7 @@
                                             <TextBox x:Name="tbUploadSensorFile"
                                                      controls:TextBoxHelper.Watermark="Upload sensor file" 
                                                      Style="{DynamicResource ButtonCommandMetroTextBox}" IsReadOnly="True"
-                                                     Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.SelectedProjectChartContent.OpticalSensorViewModel.SensorsFilePath}"
+                                                     Text="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.SelectedProjectChartContent.ChartViewModel.SensorsFilePath}"
                                                      controls:TextBoxHelper.ButtonCommand="{Binding RelativeSource={RelativeSource  FindAncestor, AncestorType={x:Type Window}},Path=DataContext.BrowseFileCommand}"
                                                      IsEnabled="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.SelectedTab.EnableSensors, Mode=OneWay}"
                                                      >
@@ -435,7 +435,7 @@
                     <TabItem Header="Sensors Log" Style="{StaticResource ContentTabItem}"  Margin="90,8,-90,-8" Padding="0,0,0,0">
                         <Grid>
                             <Border Grid.Row="2" Margin="25" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
-                                <ListView Margin="1" BorderThickness="1" ItemsSource="{Binding SelectedProjectChartContent.OpticalSensorViewModel.SensorsLog}" 
+                                <ListView Margin="1" BorderThickness="1" ItemsSource="{Binding SelectedProjectChartContent.ChartViewModel.SensorsLog}" 
                                           SelectedIndex="0" Style="{StaticResource VirtualisedMetroListView}">
                                     <ListView.View>
                                         <GridView>
@@ -454,7 +454,7 @@
                     <TabItem Header="Sensors Analysis" Style="{StaticResource ContentTabItem}"  Margin="120,8,-120,-8" Padding="0,0,0,0">
                         <Grid>
                             <Border Grid.Row="2" Margin="25" Background="White" CornerRadius="3"  Effect="{StaticResource CardShadow}" Padding="8" BorderThickness="1" BorderBrush="#EBEBEB">
-                                <ListView Margin="1" BorderThickness="1" ItemsSource="{Binding SelectedProjectChartContent.OpticalSensorViewModel.SensorList}" 
+                                <ListView Margin="1" BorderThickness="1" ItemsSource="{Binding SelectedProjectChartContent.ChartViewModel.SensorList}" 
                                           SelectedIndex="0" Style="{StaticResource VirtualisedMetroListView}">
                                     <ListView.View>
                                         <GridView>

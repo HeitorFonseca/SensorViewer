@@ -69,7 +69,7 @@ namespace SensorsViewer.Result
         }
 
         /// <summary>
-        /// Gets or sets optical sensor view model
+        /// Gets or sets result sensor view model
         /// </summary>
         public ResultViewModel ResultViewModel { get; set; }
 

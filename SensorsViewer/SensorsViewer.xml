@@ -887,161 +887,161 @@
             Gets or sets list of values list
             </summary>
         </member>
-        <member name="T:SensorsViewer.Chart.OpticalSensorView">
+        <member name="T:SensorsViewer.Chart.ChartView">
             <summary>
-            Interaction logic for OpticalSensorView.xaml
+            Interaction logic for ChartView.xaml
             </summary>
             <summary>
-            OpticalSensorView
-            </summary>
-        </member>
-        <member name="M:SensorsViewer.Chart.OpticalSensorView.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:SensorsViewer.Chart.OpticalSensorView"/> class
+            ChartView
             </summary>
         </member>
-        <member name="P:SensorsViewer.Chart.OpticalSensorView.OpticalSensorViewModel">
+        <member name="M:SensorsViewer.Chart.ChartView.#ctor">
             <summary>
-            Gets or sets optical sensor view model
+            Initializes a new instance of the <see cref="T:SensorsViewer.Chart.ChartView"/> class
             </summary>
         </member>
-        <member name="M:SensorsViewer.Chart.OpticalSensorView.ListBox_OnPreviewMouseDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+        <member name="P:SensorsViewer.Chart.ChartView.ChartViewModel">
+            <summary>
+            Gets or sets chart sensor view model
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Chart.ChartView.ListBox_OnPreviewMouseDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
             <summary>
             Set the visibility of the sensor in chart
             </summary>
             <param name="sender">object sender</param>
             <param name="e">event e</param>
         </member>
-        <member name="M:SensorsViewer.Chart.OpticalSensorView.XFormatterFunc(System.Double)">
+        <member name="M:SensorsViewer.Chart.ChartView.XFormatterFunc(System.Double)">
             <summary>
             X formater function
             </summary>
             <param name="val">Value to be formated</param>
             <returns>Formated value</returns>
         </member>
-        <member name="M:SensorsViewer.Chart.OpticalSensorView.InitializeComponent">
+        <member name="M:SensorsViewer.Chart.ChartView.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>
         </member>
-        <member name="T:SensorsViewer.Chart.OpticalSensorViewModel">
+        <member name="T:SensorsViewer.Chart.ChartSensorViewModel">
             <summary>
-            Optical Sensor View Model
+            Chart Sensor View Model
             </summary>
         </member>
-        <member name="F:SensorsViewer.Chart.OpticalSensorViewModel.currentSeriesIndex">
+        <member name="F:SensorsViewer.Chart.ChartSensorViewModel.currentSeriesIndex">
             <summary>
             Current Series index
             </summary>
         </member>
-        <member name="F:SensorsViewer.Chart.OpticalSensorViewModel.seriesColors">
+        <member name="F:SensorsViewer.Chart.ChartSensorViewModel.seriesColors">
             <summary>
             Collection of colors to be used in graph
             </summary>
         </member>
-        <member name="F:SensorsViewer.Chart.OpticalSensorViewModel.sensorsFilePath">
+        <member name="F:SensorsViewer.Chart.ChartSensorViewModel.sensorsFilePath">
             <summary>
             File path of the sensor
             </summary>
         </member>
-        <member name="F:SensorsViewer.Chart.OpticalSensorViewModel.parameterString">
+        <member name="F:SensorsViewer.Chart.ChartSensorViewModel.parameterString">
             <summary>
             Parameter to indicate which is not going to be interpolated
             </summary>
         </member>
-        <member name="F:SensorsViewer.Chart.OpticalSensorViewModel.axisMax">
+        <member name="F:SensorsViewer.Chart.ChartSensorViewModel.axisMax">
             <summary>
             Axis max value
             </summary>
         </member>
-        <member name="F:SensorsViewer.Chart.OpticalSensorViewModel.axisMin">
+        <member name="F:SensorsViewer.Chart.ChartSensorViewModel.axisMin">
             <summary>
             Axis min value
             </summary>
         </member>
-        <member name="F:SensorsViewer.Chart.OpticalSensorViewModel.start">
+        <member name="F:SensorsViewer.Chart.ChartSensorViewModel.start">
             <summary>
             Start datetime and End datetime
             </summary>
         </member>
-        <member name="F:SensorsViewer.Chart.OpticalSensorViewModel.end">
+        <member name="F:SensorsViewer.Chart.ChartSensorViewModel.end">
             <summary>
             Start datetime and End datetime
             </summary>
         </member>
-        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.#ctor">
+        <member name="M:SensorsViewer.Chart.ChartSensorViewModel.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:SensorsViewer.Chart.OpticalSensorViewModel"/> class
+            Initializes a new instance of the <see cref="T:SensorsViewer.Chart.ChartSensorViewModel"/> class
             </summary>
         </member>
-        <member name="E:SensorsViewer.Chart.OpticalSensorViewModel.PropertyChanged">
+        <member name="E:SensorsViewer.Chart.ChartSensorViewModel.PropertyChanged">
             <summary>
             Event for when change property
             </summary>
         </member>
-        <member name="P:SensorsViewer.Chart.OpticalSensorViewModel.AxisStep">
+        <member name="P:SensorsViewer.Chart.ChartSensorViewModel.AxisStep">
             <summary>
             Gets or sets axis step
             </summary>
         </member>
-        <member name="P:SensorsViewer.Chart.OpticalSensorViewModel.AxisUnit">
+        <member name="P:SensorsViewer.Chart.ChartSensorViewModel.AxisUnit">
             <summary>
             Gets or sets axis unit
             </summary>
         </member>
-        <member name="P:SensorsViewer.Chart.OpticalSensorViewModel.AxisMax">
+        <member name="P:SensorsViewer.Chart.ChartSensorViewModel.AxisMax">
             <summary>
             Gets or sets Axis max value
             </summary>
         </member>
-        <member name="P:SensorsViewer.Chart.OpticalSensorViewModel.AxisMin">
+        <member name="P:SensorsViewer.Chart.ChartSensorViewModel.AxisMin">
             <summary>
             Gets or sets Axis min value
             </summary>
         </member>
-        <member name="P:SensorsViewer.Chart.OpticalSensorViewModel.XFormatter">
+        <member name="P:SensorsViewer.Chart.ChartSensorViewModel.XFormatter">
             <summary>
             Gets or sets X formater 
             </summary>
         </member>
-        <member name="P:SensorsViewer.Chart.OpticalSensorViewModel.YFormatter">
+        <member name="P:SensorsViewer.Chart.ChartSensorViewModel.YFormatter">
             <summary>
             Gets or sets Y formater 
             </summary>
         </member>
-        <member name="P:SensorsViewer.Chart.OpticalSensorViewModel.SensorList">
+        <member name="P:SensorsViewer.Chart.ChartSensorViewModel.SensorList">
             <summary>
             Gets or sets sensor list
             </summary>
         </member>
-        <member name="P:SensorsViewer.Chart.OpticalSensorViewModel.SeriesCollection">
+        <member name="P:SensorsViewer.Chart.ChartSensorViewModel.SeriesCollection">
             <summary>
             Gets or sets series collection
             </summary>
         </member>
-        <member name="P:SensorsViewer.Chart.OpticalSensorViewModel.SensorsLog">
+        <member name="P:SensorsViewer.Chart.ChartSensorViewModel.SensorsLog">
             <summary>
             Gets or sets series sensor log list
             </summary>
         </member>
-        <member name="P:SensorsViewer.Chart.OpticalSensorViewModel.SensorsFilePath">
+        <member name="P:SensorsViewer.Chart.ChartSensorViewModel.SensorsFilePath">
             <summary>
             Gets or sets sensors file path
             </summary>
         </member>
-        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.AddSensorToGraph(SensorsViewer.SensorOption.Sensor)">
+        <member name="M:SensorsViewer.Chart.ChartSensorViewModel.AddSensorToGraph(SensorsViewer.SensorOption.Sensor)">
             <summary>
             Add sensor in linesgraph
             </summary>
             <param name="sensor">sensor to add</param>
         </member>
-        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.RemoveSensorFromGraph(SensorsViewer.SensorOption.Sensor)">
+        <member name="M:SensorsViewer.Chart.ChartSensorViewModel.RemoveSensorFromGraph(SensorsViewer.SensorOption.Sensor)">
             <summary>
             Remove sensor from chart graph
             </summary>
             <param name="sensor">Which sensor is going to be removed</param>
         </member>
-        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.AddValue(System.String,System.Double,SensorsViewer.SensorOption.SensorValue)">
+        <member name="M:SensorsViewer.Chart.ChartSensorViewModel.AddValue(System.String,System.Double,SensorsViewer.SensorOption.SensorValue)">
             <summary>
             Add value for sensor
             </summary>
@@ -1049,46 +1049,46 @@
             <param name="value">Value to add</param>
             <param name="sv">Sensor value</param>
         </member>
-        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.AddSensorLogData(SensorsViewer.SensorOption.Sensor)">
+        <member name="M:SensorsViewer.Chart.ChartSensorViewModel.AddSensorLogData(SensorsViewer.SensorOption.Sensor)">
             <summary>
             Adds in drawInSensorData list 
             </summary>
             <param name="sensor">sensor to be added in sensor log</param>
         </member>
-        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.ShowLoadedSensors(System.Collections.ObjectModel.ObservableCollection{SensorsViewer.SensorOption.Sensor},System.String)">
+        <member name="M:SensorsViewer.Chart.ChartSensorViewModel.ShowLoadedSensors(System.Collections.ObjectModel.ObservableCollection{SensorsViewer.SensorOption.Sensor},System.String)">
             <summary>
             Show loaded sensors when load windows
             </summary>
             <param name="sensorList">Sensor list</param>
             <param name="analysisName">Analysis name</param>
         </member>
-        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.OnPropertyChanged(System.String)">
+        <member name="M:SensorsViewer.Chart.ChartSensorViewModel.OnPropertyChanged(System.String)">
             <summary>
             When changes property
             </summary>
             <param name="propertyName">Property name</param>
         </member>
-        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.GetNextDefaultColor">
+        <member name="M:SensorsViewer.Chart.ChartSensorViewModel.GetNextDefaultColor">
             <summary>
             Get next color for graph
             </summary>
             <returns>Returns the next default color</returns>
         </member>
-        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.XFormatterFunc(System.Double)">
+        <member name="M:SensorsViewer.Chart.ChartSensorViewModel.XFormatterFunc(System.Double)">
             <summary>
             X formater function
             </summary>
             <param name="val">Value to be formated</param>
             <returns>Formated value</returns>
         </member>
-        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.YFormatterFunc(System.Double)">
+        <member name="M:SensorsViewer.Chart.ChartSensorViewModel.YFormatterFunc(System.Double)">
             <summary>
             Y formater function
             </summary>
             <param name="val">Value to be formated</param>
             <returns>Formated value</returns>
         </member>
-        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.InitializeSeriesColors">
+        <member name="M:SensorsViewer.Chart.ChartSensorViewModel.InitializeSeriesColors">
             <summary>
             Initialize defaults color
             </summary>
@@ -1273,7 +1273,7 @@
         </member>
         <member name="P:SensorsViewer.Result.ResultView.ResultViewModel">
             <summary>
-            Gets or sets optical sensor view model
+            Gets or sets result sensor view model
             </summary>
         </member>
         <member name="M:SensorsViewer.Result.ResultView.OpenGLControl_OpenGLInitialized(System.Object,SharpGL.SceneGraph.OpenGLEventArgs)">
@@ -2190,6 +2190,36 @@
             <summary>
             Returns null, if no path is found. Start- and End-Node are included in returned path. The user context
             is passed to IsWalkable().
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
             </summary>
         </member>
     </members>

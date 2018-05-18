@@ -191,7 +191,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Chart\OpticalSensorView.xaml">
+    <Page Include="Chart\ChartSensorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -210,10 +210,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Chart\JsonData.cs" />
-    <Compile Include="Chart\OpticalSensorView.xaml.cs">
-      <DependentUpon>OpticalSensorView.xaml</DependentUpon>
+    <Compile Include="Chart\ChartSensorView.xaml.cs">
+      <DependentUpon>ChartSensorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Chart\OpticalSensorViewModel.cs" />
+    <Compile Include="Chart\ChartSensorViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

@@ -23,7 +23,7 @@ namespace SensorsViewer.SensorOption
         /// <summary>
         /// Project content
         /// </summary>
-        private OpticalSensorView projectChartContent;
+        private ChartView projectChartContent;
 
         /// <summary>
         /// Project content
@@ -35,7 +35,7 @@ namespace SensorsViewer.SensorOption
         /// </summary>
         public Analysis()
         {
-            this.ProjectChartContent = new OpticalSensorView();
+            this.ProjectChartContent = new ChartView();
             this.SensorsIds = new ObservableCollection<string>();
         }
 
@@ -53,7 +53,7 @@ namespace SensorsViewer.SensorOption
             this.Date = date;
             this.Time = time;
             this.SensorsIds = new ObservableCollection<string>();
-            this.ProjectChartContent = new OpticalSensorView();
+            this.ProjectChartContent = new ChartView();
             this.ProjectResutContent = new ResultView(sensors, path, name);
             this.NewAnalysis = true;
         }
@@ -105,7 +105,7 @@ namespace SensorsViewer.SensorOption
         /// Gets or sets project B User control content
         /// </summary>
         [XmlIgnore]
-        public OpticalSensorView ProjectChartContent
+        public ChartView ProjectChartContent
         {
             get
             {

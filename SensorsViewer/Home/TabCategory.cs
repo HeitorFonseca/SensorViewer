@@ -4,14 +4,8 @@
 
 namespace SensorsViewer.Home
 {
-    using System;
-    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
-    using System.Windows.Controls;
-    using System.Xml.Serialization;
-    using SensorsViewer.Chart;
-    using SensorsViewer.Result;
     using SensorsViewer.SensorOption;
 
     /// <summary>

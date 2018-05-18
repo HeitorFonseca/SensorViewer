@@ -221,5 +221,5 @@ C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\SharpGL.WPF.pdb
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\SharpGL.WPF.xml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer.csprojResolveAssemblyReference.cache
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\SensorsViewer.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Chart\OpticalSensorView.g.cs
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Chart\OpticalSensorView.baml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Chart\ChartSensorView.g.cs
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Chart\ChartSensorView.baml

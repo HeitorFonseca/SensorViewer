@@ -504,7 +504,7 @@ namespace SensorsViewer.Home
                             App.SplashScreen.AddMessage("Loading " + tab.Analysis[i].Name + " Sensors");
                             ObservableCollection<Sensor> analysisSensors = this.GetSensorsFromAnalysis(tab.Sensors, tab.Analysis[i].SensorsIds);
                             App.SplashScreen.AddMessage("Loading " + tab.Analysis[i].Name + " Chart");
-                            tab.Analysis[i].ProjectChartContent.OpticalSensorViewModel.ShowLoadedSensors(analysisSensors, tab.Analysis[i].Name);
+                            tab.Analysis[i].ProjectChartContent.ChartViewModel.ShowLoadedSensors(analysisSensors, tab.Analysis[i].Name);
                             App.SplashScreen.AddMessage("Loading " + tab.Analysis[i].Name + " Model");
                             tab.Analysis[i].ProjectResutContent = new ResultView(analysisSensors, opt.ModelPath, tab.Analysis[i].Name);
                         }
@@ -921,13 +921,13 @@ namespace SensorsViewer.Home
                 string resultAnalysisLog = analysis.Name + "\n";
 
                 sensorLog += "Sensor name  X  Y  Z  Value  Timestamp  Parameter\n";
-                foreach (Sensor sensor in analysis.ProjectChartContent.OpticalSensorViewModel.SensorsLog)
+                foreach (Sensor sensor in analysis.ProjectChartContent.ChartViewModel.SensorsLog)
                 {
                     sensorLog += sensor.SensorName + " " + sensor.X + " " + sensor.Y + " " + sensor.Z + " " + sensor.Values[0].Value + " " + sensor.Values[0].TimestampStr + " " + sensor.Values[0].Parameter + "\n";
                 }
 
                 resultAnalysisLog += "Sensor name  Min  Max  Integral\n";
-                foreach (Sensor sensor in analysis.ProjectChartContent.OpticalSensorViewModel.SensorList)
+                foreach (Sensor sensor in analysis.ProjectChartContent.ChartViewModel.SensorList)
                 {
                     resultAnalysisLog += sensor.SensorName + " " + sensor.Min + " " + sensor.Max + " " + sensor.Integral + "\n";
                 }
@@ -1012,10 +1012,10 @@ namespace SensorsViewer.Home
                 sensor.Values.Add(sv);                                                                                        // Add the value in the created sensor                
                 if (sv.Parameter != this.parameterString)
                 {
-                    ((OpticalSensorView)this.SelectedProjectChartContent).OpticalSensorViewModel.AddValue(sensorName, value, sv); // Add value in sensor by name               
+                    ((ChartView)this.SelectedProjectChartContent).ChartViewModel.AddValue(sensorName, value, sv); // Add value in sensor by name               
                 }
 
-                ((OpticalSensorView)this.SelectedProjectChartContent).OpticalSensorViewModel.AddSensorLogData(sensor);        // Add in the sensor log                
+                ((ChartView)this.SelectedProjectChartContent).ChartViewModel.AddSensorLogData(sensor);        // Add in the sensor log                
 
                 this.AddValueInSensorListTab(sv, sensorName);                                                                 // Add value in tab sensor list
             }
@@ -1046,7 +1046,7 @@ namespace SensorsViewer.Home
                     Sensor newSensor = new Sensor(s.SensorName, s.X, s.Y, s.Z);
                     newSensor.Id = s.Id;
 
-                    newAnalysis.ProjectChartContent.OpticalSensorViewModel.AddSensorToGraph(newSensor);
+                    newAnalysis.ProjectChartContent.ChartViewModel.AddSensorToGraph(newSensor);
                     newAnalysis.SensorsIds.Add(newSensor.Id);
                 }
             }

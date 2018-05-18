@@ -1,4 +1,4 @@
-﻿// <copyright file="OpticalSensorView.xaml.cs" company="GM">
+﻿// <copyright file="ChartView.xaml.cs" company="GM">
 //     gm.com. All rights reserved.
 // </copyright>
 
@@ -14,26 +14,26 @@ namespace SensorsViewer.Chart
     using LiveCharts;
 
     /// <summary>
-    /// Interaction logic for OpticalSensorView.xaml
+    /// Interaction logic for ChartView.xaml
     /// </summary>
-    public partial class OpticalSensorView : UserControl
+    public partial class ChartView : UserControl
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="OpticalSensorView"/> class
+        /// Initializes a new instance of the <see cref="ChartView"/> class
         /// </summary>
-        public OpticalSensorView()
+        public ChartView()
         {
             this.InitializeComponent();
 
-            this.OpticalSensorViewModel = new OpticalSensorViewModel();
+            this.ChartViewModel = new ChartSensorViewModel();
 
-            this.DataContext = this.OpticalSensorViewModel;            
+            this.DataContext = this.ChartViewModel;            
         }
 
         /// <summary>
-        /// Gets or sets optical sensor view model
+        /// Gets or sets chart sensor view model
         /// </summary>
-        public OpticalSensorViewModel OpticalSensorViewModel { get; set; }
+        public ChartSensorViewModel ChartViewModel { get; set; }
 
         /// <summary>
         /// Set the visibility of the sensor in chart

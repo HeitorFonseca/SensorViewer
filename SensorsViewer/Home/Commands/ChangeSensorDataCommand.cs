@@ -97,7 +97,7 @@ namespace SensorsViewer.Home.Commands
 
             if (this.viewModel.SelectedAnalysis != null && this.viewModel.SelectedAnalysis.ProjectChartContent != null)
             {
-                var seriesCollection = this.viewModel.SelectedAnalysis.ProjectChartContent.OpticalSensorViewModel.SeriesCollection;
+                var seriesCollection = this.viewModel.SelectedAnalysis.ProjectChartContent.ChartViewModel.SeriesCollection;
 
                 // Search in graph sensor and change its name/localization
                 foreach (LiveCharts.Wpf.LineSeries ls in seriesCollection)

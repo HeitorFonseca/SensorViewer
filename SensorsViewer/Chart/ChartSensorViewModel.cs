@@ -1,4 +1,4 @@
-﻿// <copyright file="OpticalSensorViewModel.cs" company="GM">
+﻿// <copyright file="ChartViewModel.cs" company="GM">
 //     gm.com. All rights reserved.
 // </copyright>
 
@@ -23,9 +23,9 @@ namespace SensorsViewer.Chart
     using SensorsViewer.SensorOption;
 
     /// <summary>
-    /// Optical Sensor View Model
+    /// Chart Sensor View Model
     /// </summary>
-    public class OpticalSensorViewModel : INotifyPropertyChanged
+    public class ChartSensorViewModel : INotifyPropertyChanged
     {
         /// <summary>
         /// Current Series index
@@ -63,9 +63,9 @@ namespace SensorsViewer.Chart
         private DateTime start = new DateTime(3000, 1, 1), end = new DateTime(1999, 1, 1);
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OpticalSensorViewModel"/> class
+        /// Initializes a new instance of the <see cref="ChartSensorViewModel"/> class
         /// </summary>
-        public OpticalSensorViewModel()
+        public ChartSensorViewModel()
         {
             var dayConfig = Mappers.Xy<DateModel>()
                 .X(dayModel => (double)dayModel.DateTime.Ticks)
