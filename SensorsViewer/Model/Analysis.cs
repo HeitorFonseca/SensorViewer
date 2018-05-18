@@ -12,7 +12,7 @@ namespace SensorsViewer.SensorOption
     using System.Text;
     using System.Threading.Tasks;
     using System.Xml.Serialization;
-    using SensorsViewer.ProjectB;
+    using SensorsViewer.Chart;
     using SensorsViewer.Result;
 
     /// <summary>

@@ -1,0 +1,2196 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SensorsViewer</name>
+    </assembly>
+    <members>
+        <member name="T:SensorsViewer.Home.AddProjectDialog">
+            <summary>
+            Interaction logic for AddProjectDialog.xaml
+            </summary>
+            <summary>
+            AddProjectDialog
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.AddProjectDialog.projectName">
+            <summary>
+            Project Name
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.AddProjectDialog.modelPath">
+            <summary>
+            Model Path
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.AddProjectDialog.projectItems">
+            <summary>
+            Projects items
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Home.AddProjectDialog.#ctor(System.Collections.ObjectModel.ObservableCollection{SensorsViewer.Home.ProjectItem})">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.Home.AddProjectDialog"/> class
+            </summary>
+            <param name="projectItems">Projects List</param>
+        </member>
+        <member name="E:SensorsViewer.Home.AddProjectDialog.PropertyChanged">
+            <summary>
+            Event for when change property
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.AddProjectDialog.EnterKeyDownCommand">
+            <summary>
+             Gets or sets Close window command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.AddProjectDialog.ProjectName">
+            <summary>
+            Gets or sets Project name
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.AddProjectDialog.ModelPath">
+            <summary>
+            Gets or sets model path
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Home.AddProjectDialog.OnPropertyChanged(System.String)">
+            <summary>
+            When changes property
+            </summary>
+            <param name="propertyName">Property name</param>
+        </member>
+        <member name="M:SensorsViewer.Home.AddProjectDialog.OkBtnClickAsync(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event for when click to create the project
+            </summary>
+            <param name="sender">Object Sender</param>
+            <param name="e">Event e</param>
+        </member>
+        <member name="M:SensorsViewer.Home.AddProjectDialog.CancelBtnClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event for when the user click in cancel button
+            </summary>
+            <param name="sender">Object Sender</param>
+            <param name="e">Event e</param>
+        </member>
+        <member name="M:SensorsViewer.Home.AddProjectDialog.FileDialogBtnClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            File for when the user click to select a model path
+            </summary>
+            <param name="sender">Object Sender</param>
+            <param name="e">Event e</param>
+        </member>
+        <member name="M:SensorsViewer.Home.AddProjectDialog.CheckIfProjectNameExists(System.String)">
+            <summary>
+            Check if project name already exist
+            </summary>
+            <param name="newName">Project Name</param>
+            <returns>True if project name exist</returns>
+        </member>
+        <member name="M:SensorsViewer.Home.AddProjectDialog.EnterKeyDownAction(System.Object)">
+            <summary>
+            Event when close window
+            </summary>
+            <param name="parameter">object parameter</param>
+        </member>
+        <member name="M:SensorsViewer.Home.AddProjectDialog.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SensorsViewer.Home.Commands.AddSensorCommand">
+            <summary>
+            Class for add sensor command
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.Commands.AddSensorCommand.viewModel">
+            <summary>
+            View Model Variable
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Home.Commands.AddSensorCommand.#ctor(SensorsViewer.Home.HomeViewModel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.Home.Commands.AddSensorCommand"/> class
+            </summary>
+            <param name="viewModel">view model</param>
+        </member>
+        <member name="E:SensorsViewer.Home.Commands.AddSensorCommand.CanExecuteChanged">
+            <summary>
+            Fires when the CanExecute status of this command changes.
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Home.Commands.AddSensorCommand.CanExecute(System.Object)">
+            <summary>
+            Whether this command can be executed.
+            </summary>
+            <param name="parameter">object parameter</param>
+            <returns>return if can execute</returns>
+        </member>
+        <member name="M:SensorsViewer.Home.Commands.AddSensorCommand.Execute(System.Object)">
+            <summary>
+            Invokes this command to perform its intended task.
+            </summary>
+            <param name="parameter">object parameter</param>
+        </member>
+        <member name="T:SensorsViewer.Home.Commands.ChangeSensorDataCommand">
+            <summary>
+            Class for when change sensor data command
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.Commands.ChangeSensorDataCommand.viewModel">
+            <summary>
+            view model variable
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Home.Commands.ChangeSensorDataCommand.#ctor(SensorsViewer.Home.HomeViewModel)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.Home.Commands.ChangeSensorDataCommand"/> class
+            </summary>
+            <param name="viewModel">view model parameter</param>
+        </member>
+        <member name="E:SensorsViewer.Home.Commands.ChangeSensorDataCommand.CanExecuteChanged">
+            <summary>
+            Fires when the CanExecute status of this command changes.
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Home.Commands.ChangeSensorDataCommand.CanExecute(System.Object)">
+            <summary>
+            Whether this command can be executed.
+            </summary>
+            <param name="parameter">object parameter</param>
+            <returns>if can execute command</returns>
+        </member>
+        <member name="M:SensorsViewer.Home.Commands.ChangeSensorDataCommand.Execute(System.Object)">
+            <summary>
+            Invokes this command to perform its intended task.        
+            </summary>
+            <param name="parameter">object parameter</param>
+        </member>
+        <member name="T:SensorsViewer.Home.ConnectionSettings">
+            <summary>
+            Interaction logic for ConnectionSettings.xaml
+            </summary>
+            <summary>
+            ConnectionSettings
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.ConnectionSettings.hostName">
+            <summary>
+            Hostname string
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.ConnectionSettings.portNumber">
+            <summary>
+            Port number
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.ConnectionSettings.username">
+            <summary>
+            Username string
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.ConnectionSettings.password">
+            <summary>
+            Password 
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Home.ConnectionSettings.#ctor(SensorsViewer.Connection.MqttConnection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.Home.ConnectionSettings"/> class
+            </summary>
+        </member>
+        <member name="E:SensorsViewer.Home.ConnectionSettings.PropertyChanged">
+            <summary>
+            Event for when change property
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.ConnectionSettings.EnterKeyDownCommand">
+            <summary>
+             Gets or sets Close window command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.ConnectionSettings.HostName">
+            <summary>
+            Gets or sets hostname
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.ConnectionSettings.PortNumber">
+            <summary>
+            Gets or sets port number
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.ConnectionSettings.Username">
+            <summary>
+            Gets or sets username
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.ConnectionSettings.Password">
+            <summary>
+            Gets or sets password
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Home.ConnectionSettings.OnPropertyChanged(System.String)">
+            <summary>
+            When changes property
+            </summary>
+            <param name="propertyName">Property name</param>
+        </member>
+        <member name="M:SensorsViewer.Home.ConnectionSettings.OkBtnClickAsync(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event for when click to create the project
+            </summary>
+            <param name="sender">Object Sender</param>
+            <param name="e">Event e</param>
+        </member>
+        <member name="M:SensorsViewer.Home.ConnectionSettings.CancelBtnClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            Event for when the user click in cancel button
+            </summary>
+            <param name="sender">Object Sender</param>
+            <param name="e">Event e</param>
+        </member>
+        <member name="M:SensorsViewer.Home.ConnectionSettings.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SensorsViewer.Home.HomeView">
+            <summary>
+            Interaction logic for HomeView.xaml
+            </summary>
+            <summary>
+            HomeView
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.HomeView.homeViewModel">
+            <summary>
+            Private home view model
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.Home.HomeView"/> class
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeView.RequestNavigate(System.Object,System.Windows.Navigation.RequestNavigateEventArgs)">
+            <summary>
+            Request navigate
+            </summary>
+            <param name="sender">object sender</param>
+            <param name="e">function event</param>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeView.UIElement_OnMouseDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Event for when click in button
+            </summary>
+            <param name="sender">object event</param>
+            <param name="e">OnMouseDown event</param>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeView.FindVisualChild``1(System.Windows.DependencyObject)">
+            <summary>
+            Find visual child
+            </summary>
+            <typeparam name="childItem">Child item</typeparam>
+            <param name="obj">Object parameter</param>
+            <returns>return the child of the visual</returns>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SensorsViewer.Home.HomeViewModel">
+            <summary>
+            Home view model class
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.HomeViewModel.homeView">
+            <summary>
+            Home view object
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.HomeViewModel.selectedProjectChartContent">
+            <summary>
+            Project B User control content
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.HomeViewModel.selectedProjectResultContent">
+            <summary>
+            Project B User control content
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.HomeViewModel.selectedTabCategory">
+            <summary>
+            Selected Tab
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.HomeViewModel.selectedTab">
+            <summary>
+            Selected tab
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.HomeViewModel.selectedAnalysis">
+            <summary>
+            Selected Analysis
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.HomeViewModel.resultContent">
+            <summary>
+            Result content
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.HomeViewModel.projectItems">
+            <summary>
+            Private project A menu left bar
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.HomeViewModel.selectedProjectItem">
+            <summary>
+            Private project A menu left bar
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.HomeViewModel.tabCategory">
+            <summary>
+            Private project A menu left bar
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.HomeViewModel.proc">
+            <summary>
+            Private mqtt connection
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.HomeViewModel.selectedSensorList">
+            <summary>
+            Private selected sensor list
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.HomeViewModel.fileSensorsPath">
+            <summary>
+            Path of sensors file
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.HomeViewModel.tabIndex">
+            <summary>
+            Tab index
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.HomeViewModel.difTimeToCreateAnalysisInMs">
+            <summary>
+            Time difference to create analysis
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.HomeViewModel.lastMessageReceivedTime">
+            <summary>
+            Time for last message received
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.HomeViewModel.dialogCoordinator">
+            <summary>
+            Dialog coordinator for show dialog
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.HomeViewModel.currentDirectory">
+            <summary>
+            String to current directory
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.HomeViewModel.parameterString">
+            <summary>
+            Parameter to indicate which is not going to be interpolated
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.Home.HomeViewModel"/> class
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.#ctor(MahApps.Metro.Controls.Dialogs.IDialogCoordinator)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.Home.HomeViewModel"/> class
+            </summary>
+            <param name="dialogCoordinator">Dialog coordinator to show dialog</param>
+        </member>
+        <member name="E:SensorsViewer.Home.HomeViewModel.PropertyChanged">
+            <summary>
+            Event for when change property
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.CloseWindowCommand">
+            <summary>
+             Gets or sets Close window command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.ConnectionSettingsCommand">
+            <summary>
+             Gets or sets Close window command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.LoadedWindowCommand">
+            <summary>
+             Gets or sets Loaded window command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.ClickInRenameContextMenu">
+            <summary>
+             Gets or sets Loaded window command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.ClickInDeleteContextMenu">
+            <summary>
+             Gets or sets Loaded window command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.CreateProjectCommand">
+            <summary>
+             Gets or sets Create new project command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.SelectProjectCommand">
+            <summary>
+             Gets or sets Select project command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.AddNewSensorCommand">
+            <summary>
+             Gets or sets Create new project command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.DeleteSensorCommand">
+            <summary>
+             Gets or sets delete sensor command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.DeleteAnalysisCommand">
+            <summary>
+             Gets or sets delete sensor command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.ClickInTabCategoryCommand">
+            <summary>
+             Gets or sets delete sensor command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.EditSensorDataCommand">
+            <summary>
+             Gets or sets delete sensor command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.BrowseFileCommand">
+            <summary>
+             Gets or sets browse sensor file command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.ClickInSubTabCommand">
+            <summary>
+             Gets or sets sub tab item command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.ClickInAnalysisItem">
+            <summary>
+             Gets or sets sub tab item command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.ClickInExportToTxtCommand">
+            <summary>
+             Gets or sets export to txt command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.SelectedSensorList">
+            <summary>
+            Gets or sets selected sensor
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.TabCategory">
+            <summary>
+             Gets or sets Tab category
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.ProjectItems">
+            <summary>
+            Gets or sets Project Items
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.SelectedProjectItem">
+            <summary>
+            Gets or sets selected project item
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.SelectedProjectChartContent">
+            <summary>
+            Gets or sets user control content SelectedProjectContent
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.SelectedProjectResultContent">
+            <summary>
+            Gets or sets user control content SelectedProjectContent
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.SelectedTabCategory">
+            <summary>
+            Gets or sets user control content
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.SelectedTab">
+            <summary>
+            Gets or sets user control content
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.SelectedAnalysis">
+            <summary>
+            Gets or sets user control content
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.ResultContent">
+            <summary>
+            Gets or sets user control content
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.HomeViewModel.SubTabIndex">
+            <summary>
+            Gets or sets subtab index
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.OnPropertyChanged(System.String)">
+            <summary>
+            When changes property
+            </summary>
+            <param name="propertyName">Property name</param>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.WindowClosingAction(System.Object)">
+            <summary>
+             Event when close window
+            </summary>
+            <param name="parameter">Object parameter</param>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.WindowLoadedActionAsync(System.Object)">
+            <summary>
+             Event when load window
+            </summary>
+            <param name="parameter">Object parameter</param>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.GetSensorsFromAnalysis(System.Collections.ObjectModel.ObservableCollection{SensorsViewer.SensorOption.Sensor},System.Collections.ObjectModel.ObservableCollection{System.String})">
+            <summary>
+            Get sensors from analysis name
+            </summary>
+            <param name="tabSensor">Sensors from tab</param>
+            <param name="sensorsId">Sensors Ids</param>
+            <returns>Sensors from analysis</returns>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.CreateProjectAction(System.Object)">
+            <summary>
+             Event to create project
+            </summary>
+            <param name="parameter">Object parameter</param>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.ConnectionSettingsActionAsync(System.Object)">
+            <summary>
+             Event to connection settings
+            </summary>
+            <param name="parameter">Object parameter</param>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.SelectProjectAction(System.Object)">
+            <summary>
+            Event for when the user click in project item
+            </summary>
+            <param name="parameter">Object parameter</param>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.ClickInRenameActionAsync(System.Object)">
+            <summary>
+            Event for when click rename in context menu
+            </summary>
+            <param name="parameter">Object parameter</param>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.ClickInDeleteAction(System.Object)">
+            <summary>
+            Event for when click delete in context menu
+            </summary>
+            <param name="parameter">Object parameter</param>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.ClickInTabCategoryAction(System.Object)">
+            <summary>
+            Event for when click in one of the Tabs 
+            </summary>
+            <param name="parameter">Object parameter</param>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.BrowseFileAction(System.Object)">
+            <summary>
+            Event to open file browser for upload sensor file
+            </summary>
+            <param name="parameter">Object parameter</param>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.DeleteSensorAction(System.Object)">
+            <summary>
+            Delete sensor 
+            </summary>
+            <param name="parameter">Object Parameter</param>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.DeleteAnalysisAction(System.Object)">
+            <summary>
+            Delete Analysis
+            </summary>
+            <param name="parameter">Object parameter</param>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.ClickInAnalysisAction(System.Object)">
+            <summary>
+            Click in analysis list item
+            </summary>
+            <param name="parameter">Object parameter</param>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.ClickInExportToTxtAction(System.Object)">
+            <summary>
+            Click to export to Txt
+            </summary>
+            <param name="parameter">Object parameter</param>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.WhenMessageReceived(System.Object,RabbitMQ.Client.Events.BasicDeliverEventArgs)">
+            <summary>
+            Event for when receive a mqtt message
+            </summary>
+            <param name="sender">Object sender</param>
+            <param name="ea">Event arguments</param>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.UpdateSensorChart(SensorsViewer.Chart.JsonData)">
+            <summary>
+            Update sensor chart graph
+            </summary>
+            <param name="jsonData">Json data received</param>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.CreateAnalysis(System.Int32)">
+            <summary>
+            Index of tab (if is drawin or adjustment)
+            </summary>
+            <param name="index">Index of tab</param>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.UnixTimeStampToDateTime(System.Int64)">
+            <summary>
+            Convert timestamp to Datetime
+            </summary>
+            <param name="unixTimeStamp">timestamp value</param>
+            <returns>Date time</returns>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.AddValueInSensorListTab(SensorsViewer.SensorOption.SensorValue,System.String)">
+            <summary>
+            Add value in tab sensor list
+            </summary>
+            <param name="sv">Sensor value</param>
+            <param name="sensorName">Sensor name</param>
+        </member>
+        <member name="M:SensorsViewer.Home.HomeViewModel.CreateAnalysisFolder(System.String)">
+            <summary>
+            Create analysis directory
+            </summary>
+            <param name="path">Directory path</param>
+            <returns>If the folder already exists</returns>
+        </member>
+        <member name="T:SensorsViewer.Home.TabCategory">
+            <summary>
+            Project group left bar
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.TabCategory.analysis">
+            <summary>
+            Collection of analysis
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.TabCategory.sensors">
+            <summary>
+            Collection of sensors
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Home.TabCategory.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.Home.TabCategory"/> class
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Home.TabCategory.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.Home.TabCategory"/> class
+            </summary>
+            <param name="path">Model path</param>
+        </member>
+        <member name="E:SensorsViewer.Home.TabCategory.PropertyChanged">
+            <summary>
+            Event for when change property
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.TabCategory.Name">
+            <summary>
+            Gets or sets name
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.TabCategory.Sensors">
+            <summary>
+            Gets or sets Sensors
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.TabCategory.Analysis">
+            <summary>
+            Gets or sets Sensors
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.TabCategory.EnableSensors">
+            <summary>
+            Gets a value indicating whether to enable Sensors
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Home.TabCategory.OnPropertyChanged(System.String)">
+            <summary>
+            When changes property
+            </summary>
+            <param name="propertyName">Property name</param>
+        </member>
+        <member name="T:SensorsViewer.Home.ProjectItem">
+            <summary>
+            Option for left menu bar class
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.ProjectItem.idCount">
+            <summary>
+            Gets os sets idCount
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.ProjectItem.name">
+            <summary>
+            Gets os sets name
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Home.ProjectItem.tabs">
+            <summary>
+            Gets os sets projects
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Home.ProjectItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.Home.ProjectItem"/> class
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Home.ProjectItem.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.Home.ProjectItem"/> class
+            </summary>
+            <param name="name">Option name</param>
+            <param name="modelPath">Path of the model</param>
+        </member>
+        <member name="E:SensorsViewer.Home.ProjectItem.PropertyChanged">
+            <summary>
+            Event for when change property
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.ProjectItem.Id">
+            <summary>
+            Gets or sets Id
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.ProjectItem.Name">
+            <summary>
+            Gets or sets Name
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.ProjectItem.ModelPath">
+            <summary>
+            Gets or sets ModelPath
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.ProjectItem.AnalysisIndex">
+            <summary>
+            Gets or sets Selected analysis index
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Home.ProjectItem.Tabs">
+            <summary>
+            Gets or sets projects collection
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Home.ProjectItem.OnPropertyChanged(System.String)">
+            <summary>
+            When changes property
+            </summary>
+            <param name="propertyName">Property name</param>
+        </member>
+        <member name="T:SensorsViewer.Chart.DateModel">
+            <summary>
+            Class of date model chart
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Chart.DateModel.DateTime">
+            <summary>
+            Gets or sets datetime
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Chart.DateModel.Value">
+            <summary>
+            Gets or sets sensor value
+            </summary>
+        </member>
+        <member name="T:SensorsViewer.Chart.FillConverter">
+            <summary>
+            Class to fill converter
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Chart.FillConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Convert value
+            </summary>
+            <param name="value">Parameter value</param>
+            <param name="targetType">Target type</param>
+            <param name="parameter">Object Parameter</param>
+            <param name="culture">Culture Info</param>
+            <returns>Converted value</returns>
+        </member>
+        <member name="M:SensorsViewer.Chart.FillConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Convert back
+            </summary>
+            <param name="value">Parameter value</param>
+            <param name="targetType">Target type</param>
+            <param name="parameter">Object Parameter</param>
+            <param name="culture">Culture Info</param>
+            <returns>Converted back value</returns>
+        </member>
+        <member name="T:SensorsViewer.Chart.OpacityConverter">
+            <summary>
+            Opacity converter
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Chart.OpacityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Convert value
+            </summary>
+            <param name="value">Parameter value</param>
+            <param name="targetType">Target type</param>
+            <param name="parameter">Object Parameter</param>
+            <param name="culture">Culture Info</param>
+            <returns>Converted value</returns>
+        </member>
+        <member name="M:SensorsViewer.Chart.OpacityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            Convert back
+            </summary>
+            <param name="value">Parameter value</param>
+            <param name="targetType">Target type</param>
+            <param name="parameter">Object Parameter</param>
+            <param name="culture">Culture Info</param>
+            <returns>Converted back value</returns>
+        </member>
+        <member name="T:SensorsViewer.Chart.JsonData">
+            <summary>
+            Class for read JsonData
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Chart.JsonData.viewer">
+            <summary>
+            Gets or sets viewer
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Chart.JsonData.values">
+            <summary>
+            Gets or sets list of values list
+            </summary>
+        </member>
+        <member name="T:SensorsViewer.Chart.OpticalSensorView">
+            <summary>
+            Interaction logic for OpticalSensorView.xaml
+            </summary>
+            <summary>
+            OpticalSensorView
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Chart.OpticalSensorView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.Chart.OpticalSensorView"/> class
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Chart.OpticalSensorView.OpticalSensorViewModel">
+            <summary>
+            Gets or sets optical sensor view model
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Chart.OpticalSensorView.ListBox_OnPreviewMouseDown(System.Object,System.Windows.Input.MouseButtonEventArgs)">
+            <summary>
+            Set the visibility of the sensor in chart
+            </summary>
+            <param name="sender">object sender</param>
+            <param name="e">event e</param>
+        </member>
+        <member name="M:SensorsViewer.Chart.OpticalSensorView.XFormatterFunc(System.Double)">
+            <summary>
+            X formater function
+            </summary>
+            <param name="val">Value to be formated</param>
+            <returns>Formated value</returns>
+        </member>
+        <member name="M:SensorsViewer.Chart.OpticalSensorView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SensorsViewer.Chart.OpticalSensorViewModel">
+            <summary>
+            Optical Sensor View Model
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Chart.OpticalSensorViewModel.currentSeriesIndex">
+            <summary>
+            Current Series index
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Chart.OpticalSensorViewModel.seriesColors">
+            <summary>
+            Collection of colors to be used in graph
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Chart.OpticalSensorViewModel.sensorsFilePath">
+            <summary>
+            File path of the sensor
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Chart.OpticalSensorViewModel.parameterString">
+            <summary>
+            Parameter to indicate which is not going to be interpolated
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Chart.OpticalSensorViewModel.axisMax">
+            <summary>
+            Axis max value
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Chart.OpticalSensorViewModel.axisMin">
+            <summary>
+            Axis min value
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Chart.OpticalSensorViewModel.start">
+            <summary>
+            Start datetime and End datetime
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Chart.OpticalSensorViewModel.end">
+            <summary>
+            Start datetime and End datetime
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.Chart.OpticalSensorViewModel"/> class
+            </summary>
+        </member>
+        <member name="E:SensorsViewer.Chart.OpticalSensorViewModel.PropertyChanged">
+            <summary>
+            Event for when change property
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Chart.OpticalSensorViewModel.AxisStep">
+            <summary>
+            Gets or sets axis step
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Chart.OpticalSensorViewModel.AxisUnit">
+            <summary>
+            Gets or sets axis unit
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Chart.OpticalSensorViewModel.AxisMax">
+            <summary>
+            Gets or sets Axis max value
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Chart.OpticalSensorViewModel.AxisMin">
+            <summary>
+            Gets or sets Axis min value
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Chart.OpticalSensorViewModel.XFormatter">
+            <summary>
+            Gets or sets X formater 
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Chart.OpticalSensorViewModel.YFormatter">
+            <summary>
+            Gets or sets Y formater 
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Chart.OpticalSensorViewModel.SensorList">
+            <summary>
+            Gets or sets sensor list
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Chart.OpticalSensorViewModel.SeriesCollection">
+            <summary>
+            Gets or sets series collection
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Chart.OpticalSensorViewModel.SensorsLog">
+            <summary>
+            Gets or sets series sensor log list
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Chart.OpticalSensorViewModel.SensorsFilePath">
+            <summary>
+            Gets or sets sensors file path
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.AddSensorToGraph(SensorsViewer.SensorOption.Sensor)">
+            <summary>
+            Add sensor in linesgraph
+            </summary>
+            <param name="sensor">sensor to add</param>
+        </member>
+        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.RemoveSensorFromGraph(SensorsViewer.SensorOption.Sensor)">
+            <summary>
+            Remove sensor from chart graph
+            </summary>
+            <param name="sensor">Which sensor is going to be removed</param>
+        </member>
+        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.AddValue(System.String,System.Double,SensorsViewer.SensorOption.SensorValue)">
+            <summary>
+            Add value for sensor
+            </summary>
+            <param name="sensorName">Sensor id</param>
+            <param name="value">Value to add</param>
+            <param name="sv">Sensor value</param>
+        </member>
+        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.AddSensorLogData(SensorsViewer.SensorOption.Sensor)">
+            <summary>
+            Adds in drawInSensorData list 
+            </summary>
+            <param name="sensor">sensor to be added in sensor log</param>
+        </member>
+        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.ShowLoadedSensors(System.Collections.ObjectModel.ObservableCollection{SensorsViewer.SensorOption.Sensor},System.String)">
+            <summary>
+            Show loaded sensors when load windows
+            </summary>
+            <param name="sensorList">Sensor list</param>
+            <param name="analysisName">Analysis name</param>
+        </member>
+        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.OnPropertyChanged(System.String)">
+            <summary>
+            When changes property
+            </summary>
+            <param name="propertyName">Property name</param>
+        </member>
+        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.GetNextDefaultColor">
+            <summary>
+            Get next color for graph
+            </summary>
+            <returns>Returns the next default color</returns>
+        </member>
+        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.XFormatterFunc(System.Double)">
+            <summary>
+            X formater function
+            </summary>
+            <param name="val">Value to be formated</param>
+            <returns>Formated value</returns>
+        </member>
+        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.YFormatterFunc(System.Double)">
+            <summary>
+            Y formater function
+            </summary>
+            <param name="val">Value to be formated</param>
+            <returns>Formated value</returns>
+        </member>
+        <member name="M:SensorsViewer.Chart.OpticalSensorViewModel.InitializeSeriesColors">
+            <summary>
+            Initialize defaults color
+            </summary>
+        </member>
+        <member name="T:SensorsViewer.Result.Interpolation">
+            <summary>
+            Interpolation class
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.Interpolation.fakeSensors">
+            <summary>
+            Fake sensors list
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.Interpolation.sensorDictionary">
+            <summary>
+            Sensor dictionary
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.Interpolation.modelTrianglePoints">
+            <summary>
+            Triangle points dictionary
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.Interpolation.listPoint3d">
+            <summary>
+            List of triangle points
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.Interpolation.grid3">
+            <summary>
+            Grid to seach path finding
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.Interpolation.offsetX">
+            <summary>
+            Offset X
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.Interpolation.offsetY">
+            <summary>
+            Offset Y
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Result.Interpolation.#ctor(System.Windows.Media.Media3D.MeshGeometry3D,System.Collections.Generic.IEnumerable{SensorsViewer.SensorOption.Sensor})">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.Result.Interpolation"/> class
+            </summary>
+            <param name="modelMesh">Model mesh</param>
+            <param name="sensorsDataList">Sensor data list</param>
+        </member>
+        <member name="M:SensorsViewer.Result.Interpolation.GetHeatMapColor(System.Double,System.Double,System.Double)">
+            <summary>
+            Get heat map color
+            </summary>
+            <param name="value">Value to calculate respective color</param>
+            <param name="min_value">Minimum value</param>
+            <param name="max_value">Maximum value</param>
+            <returns>Respective color</returns>
+        </member>
+        <member name="M:SensorsViewer.Result.Interpolation.Interpolate2(System.Windows.Media.Media3D.MeshGeometry3D,System.Collections.Generic.IEnumerable{SensorsViewer.SensorOption.Sensor})">
+            <summary>
+            Perform Interpolation
+            </summary>
+            <param name="modelMesh">Model mesh</param>
+            <param name="sensorsDataList">Sensor data list</param>
+            <returns>Resultant vertices</returns>
+        </member>
+        <member name="M:SensorsViewer.Result.Interpolation.FillSensorDataDictionary2(System.Collections.Generic.IEnumerable{SensorsViewer.SensorOption.Sensor})">
+            <summary>
+            Create sensor data dictionary
+            </summary>
+            <param name="sensorsDataList">Sensors data list</param>
+            <returns>returns a dictionary with sensors data</returns>
+        </member>
+        <member name="M:SensorsViewer.Result.Interpolation.DoubleToFloat(System.Double)">
+            <summary>
+            Convert double to float
+            </summary>
+            <param name="doubleValue">Value to be converted</param>
+            <returns>Value converted</returns>
+        </member>
+        <member name="M:SensorsViewer.Result.Interpolation.GetNeighboringPoints(System.Int32,System.Int32,System.Collections.Generic.Dictionary{System.Tuple{System.Int32,System.Int32},System.Double},System.Double@,System.Double@)">
+            <summary>
+            Get the two neighboors points
+            </summary>
+            <param name="x">X coordinate</param>
+            <param name="y">Y coordinate</param>
+            <param name="sensorDictionary">Sensor dictionary</param>
+            <param name="distCoord1">Out distance to the closest sensor</param>
+            <param name="distCoord2">Out distance to the second closest sensor</param>
+            <returns>Two neighboors points</returns>
+        </member>
+        <member name="M:SensorsViewer.Result.Interpolation.GetNeighboringPoints2(System.Int32,System.Int32,System.Collections.Generic.Dictionary{System.Tuple{System.Int32,System.Int32},System.Double})">
+            <summary>
+            Returns the closes point
+            </summary>
+            <param name="x">X coordinate</param>
+            <param name="y">Y coordinate</param>
+            <param name="newDictionary">Sensor dictionary</param>
+            <returns>Closest point</returns>
+        </member>
+        <member name="M:SensorsViewer.Result.Interpolation.CrossProduct(System.Windows.Media.Media3D.Point3D,System.Windows.Media.Media3D.Point3D)">
+            <summary>
+            Calculate cross product
+            </summary>
+            <param name="p1">Point one</param>
+            <param name="p2">Point two</param>
+            <returns>Cross product of point one and point two</returns>
+        </member>
+        <member name="M:SensorsViewer.Result.Interpolation.BuildDictionary2(System.Windows.Media.Media3D.MeshGeometry3D,System.Collections.Generic.Dictionary{System.Tuple{System.Int32,System.Int32},System.Double})">
+            <summary>
+            Build triangle points dictionary
+            </summary>
+            <param name="mesh">Model mesh</param>
+            <param name="sensorDictionary">Sensor dictionary</param>
+        </member>
+        <member name="M:SensorsViewer.Result.Interpolation.PointsOfTriangle2(System.Windows.Media.Media3D.Point3D,System.Windows.Media.Media3D.Point3D,System.Windows.Media.Media3D.Point3D,System.Collections.Generic.Dictionary{System.Tuple{System.Int32,System.Int32},System.Double})">
+            <summary>
+            Finds points inside triangle
+            </summary>
+            <param name="p0">Point a</param>
+            <param name="p1">Point b</param>
+            <param name="p2">Point c</param>
+            <param name="sensorDictionary">Sensor dictionary</param>
+        </member>
+        <member name="M:SensorsViewer.Result.Interpolation.BuildGrid2(System.Int32,System.Int32)">
+            <summary>
+            Build grid map
+            </summary>
+            <param name="width">Grid width</param>
+            <param name="height">Grid height</param>
+        </member>
+        <member name="M:SensorsViewer.Result.Interpolation.PreProcessing2(System.Collections.Generic.Dictionary{System.Tuple{System.Int32,System.Int32},System.Double})">
+            <summary>
+            Preprocesse data
+            </summary>
+            <param name="sensorDictionary">Sensor dictionary</param>
+            <returns>Preprocessed points</returns>
+        </member>
+        <member name="M:SensorsViewer.Result.Interpolation.CreateRandomSensors4(System.Collections.Generic.IEnumerable{SensorsViewer.SensorOption.Sensor})">
+            <summary>
+            Create random fake sensors
+            </summary>
+            <param name="sensorsDataList">Sensor list</param>
+            <returns>Fake sensors</returns>
+        </member>
+        <member name="M:SensorsViewer.Result.Interpolation.ReCalculateFakeSensors(System.Collections.Generic.List{System.Tuple{SensorsViewer.SensorOption.Sensor,SensorsViewer.SensorOption.Sensor,SensorsViewer.SensorOption.Sensor}},System.Collections.Generic.Dictionary{System.Tuple{System.Int32,System.Int32},System.Double})">
+            <summary>
+            Recalculate fake sensors value based in new values
+            </summary>
+            <param name="fakeSensors">Fake sensors</param>
+            <param name="sensorDictionary">Sensor dictionary</param>
+        </member>
+        <member name="T:SensorsViewer.Result.ResultView">
+            <summary>
+            Interaction logic for ResultView.xaml
+            </summary>
+            <summary>
+            ResultView
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultView.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.Result.ResultView"/> class
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultView.#ctor(System.Collections.Generic.IEnumerable{SensorsViewer.SensorOption.Sensor},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.Result.ResultView"/> class
+            </summary>
+            <param name="sensors">Model sensors</param>
+            <param name="path">Model path</param>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultView.#ctor(System.Collections.Generic.IEnumerable{SensorsViewer.SensorOption.Sensor},System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.Result.ResultView"/> class
+            </summary>
+            <param name="sensors">Model sensors</param>
+            <param name="path">Model path</param>
+            <param name="analysisName">Analysis name</param>
+        </member>
+        <member name="P:SensorsViewer.Result.ResultView.ResultViewModel">
+            <summary>
+            Gets or sets optical sensor view model
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultView.OpenGLControl_OpenGLInitialized(System.Object,SharpGL.SceneGraph.OpenGLEventArgs)">
+            <summary>
+            Event when initialize sharpgl
+            </summary>
+            <param name="sender">Object sender</param>
+            <param name="args">Event args</param>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SensorsViewer.Result.ResultViewModel">
+            <summary>
+            Class for result view model
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.ARRAYSIZE">
+            <summary>
+            Array size
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.parameterString">
+            <summary>
+            Indicate which parameter is not going to be interpolated
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.sizeZ">
+            <summary>
+            Sensor size in z dimension
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.arrowHeadSize">
+            <summary>
+            Arrow head size
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.arrowDiameterSize">
+            <summary>
+            Arrow Diameter size
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.device3D">
+            <summary>
+            3D device
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.groupModel">
+            <summary>
+            Group Model
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.sensorGroupModel">
+            <summary>
+            Group Model
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.modelMesh">
+            <summary>
+            Stl model mesh
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.stlModel">
+            <summary>
+            STL model 3D
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.sensorsVibility">
+            <summary>
+            Bool to display sensors
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.interpVibility">
+            <summary>
+            Bool to display interpolation
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.stlFilePath">
+            <summary>
+            Stl file path
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.analysisFolderPath">
+            <summary>
+            Stl file path
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.sensorModelArray">
+            <summary>
+            Sensor geometry model
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.vertices">
+            <summary>
+            Interpolation vertex
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.savedVertices">
+            <summary>
+            Bool array to indicate if texture was saved
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.textureImages">
+            <summary>
+            Bitmap array of texture images
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.interpolation">
+            <summary>
+            Interpolation object
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.dataCounter">
+            <summary>
+            Number of interpolation already calculated
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.maxSlider">
+            <summary>
+            Max slider value
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.slider">
+            <summary>
+            Current slider value
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.textures">
+            <summary>
+            Texture id
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.changeImage">
+            <summary>
+            Bool to render texture
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.oldAnalysis">
+            <summary>
+            Bool to indicate if is a old or new analysis
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Result.ResultViewModel.displayInterp">
+            <summary>
+            Variable to control images to be displayed and saved
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.Result.ResultViewModel"/> class
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.#ctor(System.Collections.Generic.IEnumerable{SensorsViewer.SensorOption.Sensor},System.String)">
+            <summary>
+             Initializes a new instance of the <see cref="T:SensorsViewer.Result.ResultViewModel"/> class
+            </summary>
+            <param name="sensors">Model sensors</param>
+            <param name="path">Model path</param>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.#ctor(System.Collections.Generic.IEnumerable{SensorsViewer.SensorOption.Sensor},System.String,System.String)">
+            <summary>
+             Initializes a new instance of the <see cref="T:SensorsViewer.Result.ResultViewModel"/> class
+            </summary>
+            <param name="sensors">Model sensors</param>
+            <param name="path">Model path</param>
+            <param name="analysisName">Analysis name</param>
+        </member>
+        <member name="E:SensorsViewer.Result.ResultViewModel.PropertyChanged">
+            <summary>
+            Event for when change property
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Result.ResultViewModel.OnCheckedModeViewButtonCommand">
+            <summary>
+             Gets or sets click mode view command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Result.ResultViewModel.OnUnCheckedModeViewButtonCommand">
+            <summary>
+             Gets or sets click mode view command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Result.ResultViewModel.OnSliderValueChanged">
+            <summary>
+             Gets or sets click mode view command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Result.ResultViewModel.OpenGLInitializedCommand">
+            <summary>
+             Gets or sets Loaded window command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Result.ResultViewModel.OpenGLDraw">
+            <summary>
+             Gets or sets Loaded window command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Result.ResultViewModel.OpenGLResized">
+            <summary>
+             Gets or sets Loaded window command
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Result.ResultViewModel.ViewPort3d">
+            <summary>
+            Gets or sets Hellix view port 3d
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Result.ResultViewModel.SensorsVisibility">
+            <summary>
+            Gets or sets group model
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Result.ResultViewModel.InterpVisibility">
+            <summary>
+            Gets or sets group model
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Result.ResultViewModel.GroupModel">
+            <summary>
+            Gets or sets group model
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Result.ResultViewModel.ViewMode">
+            <summary>
+            Gets or sets a value indicating whether View Mode
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Result.ResultViewModel.Slider">
+            <summary>
+            Gets or sets a slider value
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Result.ResultViewModel.MaxSlider">
+            <summary>
+            Gets or sets a slider value
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Result.ResultViewModel.ModelXSize">
+            <summary>
+            Gets or sets Model X dimension
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Result.ResultViewModel.ModelYSize">
+            <summary>
+            Gets or setsModel Y dimension
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Result.ResultViewModel.ModelZSize">
+            <summary>
+            Gets or sets Model Z dimension
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.LoadStlModel(System.String)">
+            <summary>
+            Load stl model
+            </summary>
+            <param name="stlFile">Stl model path</param>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.LoadSensorsInModel(System.Collections.Generic.IEnumerable{SensorsViewer.SensorOption.Sensor},System.String)">
+            <summary>
+            Load sensors in model
+            </summary>
+            <param name="sensors">List of sensors</param>
+            <param name="analysisName">Analysis name</param>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.LoadSensorsInModel2(System.Collections.Generic.IEnumerable{SensorsViewer.SensorOption.Sensor},System.String)">
+            <summary>
+            Load sensors in model
+            </summary>
+            <param name="sensors">List of sensors</param>
+            <param name="analysisName">Analysis name</param>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.LoadSensorsValuesInModel(System.Collections.Generic.IEnumerable{SensorsViewer.SensorOption.Sensor})">
+            <summary>
+            Load sensors in model
+            </summary>
+            <param name="sensors">List of sensors</param>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.FreeTextureImages">
+            <summary>
+            Dispose all images from analysis to delete directory
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.OnPropertyChanged(System.String)">
+            <summary>
+            When changes property
+            </summary>
+            <param name="propertyName">Property name</param>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.SensorsNotParameter(System.Collections.Generic.IEnumerable{SensorsViewer.SensorOption.Sensor})">
+            <summary>
+            Function to returns sensor with only interpolation parameters
+            </summary>
+            <param name="sensors">Sensor list</param>
+            <returns>Returns sensors with only interpolation parameters </returns>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.OpenGLControl_OpenGLInitialized(System.Object)">
+            <summary>
+            Event when sharpgl initialize
+            </summary>
+            <param name="parameter">object parameter</param>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.OpenGLControl_OpenGLDraw(System.Object)">
+            <summary>
+            Event to sharpgl draw
+            </summary>
+            <param name="parameter">object parameter</param>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.OpenGLControl_Resized(System.Object)">
+            <summary>
+            When window resize
+            </summary>
+            <param name="parameter">Object parameter</param>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.Display3d(System.String)">
+            <summary>
+            Display 3D Model
+            </summary>
+            <param name="model">Path to the Model file</param>
+            <returns>3D Model Content</returns>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.GetSensorsFromAnalysis(System.Collections.Generic.IEnumerable{SensorsViewer.SensorOption.Sensor},System.Collections.ObjectModel.ObservableCollection{System.String})">
+            <summary>
+            Get sensors from analysis name
+            </summary>
+            <param name="tabSensor">Sensors from tab</param>
+            <param name="sensorsId">Sensors Ids</param>
+            <returns>Sensors from analysis</returns>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.TakeScreenshot(SharpGL.OpenGL,System.Int32)">
+            <summary>
+            Save screenshot
+            </summary>
+            <param name="gl">Opengl object</param>
+            <param name="index">Index of the image</param>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.LoadScreenshot">
+            <summary>
+            Load analysis screenshot
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.SelectTexture(SharpGL.OpenGL,System.Int32)">
+            <summary>
+            Select the textude to be render
+            </summary>
+            <param name="gl">Opengl object</param>
+            <param name="index">Index of the texture</param>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.OnCheckedModeViewButtonAction(System.Object)">
+            <summary>
+            Event when checked toggle button
+            </summary>
+            <param name="parameter">Object parameter</param>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.OnUnCheckedModeViewButtonAction(System.Object)">
+            <summary>
+            Event when close window
+            </summary>
+            <param name="parameter">Object parameter</param>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.OnUnSliderValueChangedAction(System.Object)">
+            <summary>
+            Event when close window
+            </summary>
+            <param name="parameter">Object parameter</param>
+        </member>
+        <member name="M:SensorsViewer.Result.ResultViewModel.CreateAnalysisFolder(System.String)">
+            <summary>
+            Create analysis directory
+            </summary>
+            <param name="path">Directory path</param>
+            <returns>If the folder already exists</returns>
+        </member>
+        <member name="T:SensorsViewer.SensorOption.Analysis">
+            <summary>
+            Class of Analysis
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.SensorOption.Analysis.projectChartContent">
+            <summary>
+            Project content
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.SensorOption.Analysis.projectResultContent">
+            <summary>
+            Project content
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.SensorOption.Analysis.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.SensorOption.Analysis"/> class
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.SensorOption.Analysis.#ctor(System.String,System.String,System.String,System.String,System.Collections.Generic.IEnumerable{SensorsViewer.SensorOption.Sensor})">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.SensorOption.Analysis"/> class
+            </summary>
+            <param name="name">Analysis name</param>
+            <param name="date">Analysis date</param>
+            <param name="time">Analysis time</param>
+            <param name="path">Analysis Model path</param>
+            <param name="sensors">Analysis sensors</param>
+        </member>
+        <member name="E:SensorsViewer.SensorOption.Analysis.PropertyChanged">
+            <summary>
+            Event for when change property
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.Analysis.Name">
+            <summary>
+            Gets or sets analysis name
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.Analysis.Date">
+            <summary>
+            Gets or sets Y position
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.Analysis.Time">
+            <summary>
+            Gets or sets Z position
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.Analysis.SensorsIds">
+            <summary>
+            Gets or sets sensors ids
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.Analysis.FolderPath">
+            <summary>
+            Gets string to indicate the directory which store de interpolation images
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.Analysis.NewAnalysis">
+            <summary>
+            Flag to indicate if is a new analysis
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.Analysis.ProjectChartContent">
+            <summary>
+            Gets or sets project B User control content
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.Analysis.ProjectResutContent">
+            <summary>
+            Gets or sets project B User control content
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.SensorOption.Analysis.OnPropertyChanged(System.String)">
+            <summary>
+            When changes property
+            </summary>
+            <param name="propertyName">Property name</param>
+        </member>
+        <member name="T:SensorsViewer.SensorOption.Sensor">
+            <summary>
+            Class of sensors
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.SensorOption.Sensor.visibility">
+            <summary>
+            Sensor visibility
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.SensorOption.Sensor.parameterString">
+            <summary>
+            String to indicate which parameter is not going to be interpolated
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.SensorOption.Sensor.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.SensorOption.Sensor"/> class
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.SensorOption.Sensor.#ctor(System.String,System.Double,System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.SensorOption.Sensor"/> class
+            </summary>
+            <param name="sensorName"> sensor name </param>
+            <param name="x">x parameter</param>
+            <param name="y">y parameter</param>
+            <param name="z">z parameter</param>
+        </member>
+        <member name="M:SensorsViewer.SensorOption.Sensor.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.SensorOption.Sensor"/> class
+            </summary>
+            <param name="sensorName">Sensor Name</param>
+        </member>
+        <member name="E:SensorsViewer.SensorOption.Sensor.PropertyChanged">
+            <summary>
+            Event for when change property
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.Sensor.Id">
+            <summary>
+            Gets or sets Id
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.Sensor.X">
+            <summary>
+            Gets or sets X position
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.Sensor.Y">
+            <summary>
+            Gets or sets Y position
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.Sensor.Z">
+            <summary>
+            Gets or sets Z position
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.Sensor.Status">
+            <summary>
+            Gets or sets status
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.Sensor.SensorName">
+            <summary>
+            Gets or sets Sensor Name
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.Sensor.Size">
+            <summary>
+            Gets or sets Sensor Size
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.Sensor.Values">
+            <summary>
+            Gets or sets Values
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.Sensor.Max">
+            <summary>
+            Gets maximum value
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.Sensor.Min">
+            <summary>
+            Gets minimum value
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.Sensor.Integral">
+            <summary>
+            Gets Integral of values
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.Sensor.Visibility">
+            <summary>
+            Gets or sets a value indicating whether sensor was removed
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.SensorOption.Sensor.GenerateID">
+            <summary>
+            Generate unique Id
+            </summary>
+            <returns>generated id</returns>
+        </member>
+        <member name="M:SensorsViewer.SensorOption.Sensor.CalculateIntegral(System.Linq.IGrouping{System.String,SensorsViewer.SensorOption.SensorValue})">
+            <summary>
+            Calculate Integral of values
+            </summary>
+            <param name="gp">Values to calculate the integral</param>
+            <returns>Returns the integral of value</returns>
+        </member>
+        <member name="M:SensorsViewer.SensorOption.Sensor.OnPropertyChanged(System.String)">
+            <summary>
+            When changes property
+            </summary>
+            <param name="propertyName">Property name</param>
+        </member>
+        <member name="T:SensorsViewer.SensorOption.SensorValue">
+            <summary>
+            Class of sensor value
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.SensorOption.SensorValue.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.SensorOption.SensorValue"/> class
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.SensorOption.SensorValue.#ctor(System.Double)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.SensorOption.SensorValue"/> class
+            </summary>
+            <param name="value">Sensor value</param>
+        </member>
+        <member name="M:SensorsViewer.SensorOption.SensorValue.#ctor(System.Double,System.DateTime,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.SensorOption.SensorValue"/> class
+            </summary>
+            <param name="value">Sensor value</param>
+            <param name="timestamp">Value timestamp</param>
+            <param name="parameter">Value parameter</param>
+            <param name="analysis">Value Analysis</param>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.SensorValue.Value">
+            <summary>
+            Gets or sets double value of the sensor
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.SensorValue.Timestamp">
+            <summary>
+            Gets or sets sensor timestamp
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.SensorValue.Parameter">
+            <summary>
+            Gets or sets Parameter
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.SensorValue.AnalysisName">
+            <summary>
+            Gets or sets which analysis the value belongs to
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.SensorOption.SensorValue.TimestampStr">
+            <summary>
+            Gets sensor timestamp in string format
+            </summary>
+        </member>
+        <member name="T:SensorsViewer.RelayCommand">
+            <summary>
+            Class for relay command
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.RelayCommand.action">
+            <summary>
+            Action to be executed
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.RelayCommand.#ctor(System.Action{System.Object})">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.RelayCommand"/> class
+            </summary>
+            <param name="action">Action to be executed</param>
+        </member>
+        <member name="E:SensorsViewer.RelayCommand.CanExecuteChanged">
+            <summary>
+            Event for can execute command
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.RelayCommand.CanExecute(System.Object)">
+            <summary>
+            If can execute command
+            </summary>
+            <param name="parameter">object parameter</param>
+            <returns>returns If can execute command</returns>
+        </member>
+        <member name="M:SensorsViewer.RelayCommand.Execute(System.Object)">
+            <summary>
+            Execute command
+            </summary>
+            <param name="parameter">object parameter</param>
+        </member>
+        <member name="T:SensorsViewer.ISplashScreen">
+            <summary>
+            Splash Screen interface
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.ISplashScreen.AddMessage(System.String)">
+            <summary>
+            Add mensage do splash screen
+            </summary>
+            <param name="message">Splash Screen message</param>
+        </member>
+        <member name="M:SensorsViewer.ISplashScreen.LoadComplete">
+            <summary>
+            Finish splash screen
+            </summary>
+        </member>
+        <member name="T:SensorsViewer.SplashScreen">
+            <summary>
+            Interaction logic for SplashScreen.xaml
+            </summary>
+            <summary>
+            SplashScreen
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.SplashScreen.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.SplashScreen"/> class
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.SplashScreen.AddMessage(System.String)">
+            <summary>
+            Add message to splash screen
+            </summary>
+            <param name="message">Splash screen message</param>
+        </member>
+        <member name="M:SensorsViewer.SplashScreen.LoadComplete">
+            <summary>
+            Finish splash screen
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.SplashScreen.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SensorsViewer.XmlSerialization">
+            <summary>
+            Xml serialization class
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.XmlSerialization.WriteToXmlFile``1(System.String,``0,System.Boolean)">
+            <summary>
+            Writes the given object instance to an XML file.
+            <para>Only Public properties and variables will be written to the file. These can be any type though, even other classes.</para>
+            <para>If there are public properties/variables that you do not want written to the file, decorate them with the [XmlIgnore] attribute.</para>
+            <para>Object type must have a parameterless constructor.</para>
+            </summary>
+            <typeparam name="T">The type of object being written to the file.</typeparam>
+            <param name="filePath">The file path to write the object instance to.</param>
+            <param name="objectToWrite">The object instance to write to the file.</param>
+            <param name="append">If false the file will be overwritten if it already exists. If true the contents will be appended to the file.</param>
+        </member>
+        <member name="M:SensorsViewer.XmlSerialization.ReadFromXmlFile``1(System.String)">
+            <summary>
+            Reads an object instance from an XML file.
+            <para>Object type must have a parameterless constructor.</para>
+            </summary>
+            <typeparam name="T">The type of object to read from the file.</typeparam>
+            <param name="filePath">The file path to read the object instance from.</param>
+            <returns>Returns a new instance of the object read from the XML file.</returns>
+        </member>
+        <member name="T:SensorsViewer.App">
+            <summary>
+            Interaction logic for App.xaml
+            </summary>
+            <summary>
+            App
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.App.SplashScreen">
+            <summary>
+            Splash screen interface object
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.App.resetSplashCreated">
+            <summary>
+            Reset event
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.App.splashThread">
+            <summary>
+            Splash screen thread
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.App.OnStartup(System.Windows.StartupEventArgs)">
+            <summary>
+            On application start up
+            </summary>
+            <param name="e">Start up event</param>
+        </member>
+        <member name="M:SensorsViewer.App.ShowSplash">
+            <summary>
+            Display splash screen
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.App.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.App.Main">
+            <summary>
+            Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:SensorsViewer.Connection.MqttConnection">
+            <summary>
+            Mqtt conection class
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Connection.MqttConnection.channel">
+            <summary>
+            Mqtt channel
+            </summary>
+        </member>
+        <member name="F:SensorsViewer.Connection.MqttConnection.connection">
+            <summary>
+            Mqtt Connection
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Connection.MqttConnection.#ctor(System.String,System.Int32,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.Connection.MqttConnection"/> class
+            </summary>
+            <param name="hostName">Hostname of connection</param>
+            <param name="port">Port of connection</param>
+            <param name="username">Username for authentication</param>
+            <param name="password">Password for authentication</param>
+            <param name="queueName">Queue name</param>
+        </member>
+        <member name="P:SensorsViewer.Connection.MqttConnection.HostName">
+            <summary>
+            Gets or sets hostname
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Connection.MqttConnection.Port">
+            <summary>
+            Gets or sets Port
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Connection.MqttConnection.Username">
+            <summary>
+            Gets or sets Username
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Connection.MqttConnection.Password">
+            <summary>
+            Gets or sets Password
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Connection.MqttConnection.QueueName">
+            <summary>
+            Gets or sets QueueName
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.Connection.MqttConnection.Connect">
+            <summary>
+            Create a mqtt connection
+            </summary>
+            <returns> Connection Model </returns>
+        </member>
+        <member name="M:SensorsViewer.Connection.MqttConnection.ReadDataEvnt(System.EventHandler{RabbitMQ.Client.Events.BasicDeliverEventArgs})">
+            <summary>
+            Read data event
+            </summary>
+            <param name="messageReceivedCallback"> Callback function for read data</param>
+        </member>
+        <member name="M:SensorsViewer.Connection.MqttConnection.Disconnect">
+            <summary>
+            Closes a mqtt connection
+            </summary>
+        </member>
+        <member name="T:SensorsViewer.MainWindow">
+            <summary>
+            Interaction logic for MainWindow.xaml
+            </summary>
+            <summary>
+            MainWindow
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.MainWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:SensorsViewer.MainWindow"/> class
+            </summary>
+        </member>
+        <member name="M:SensorsViewer.MainWindow.OnClick(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            On button click event
+            </summary>
+            <param name="sender">object sender</param>
+            <param name="e">button event</param>
+        </member>
+        <member name="M:SensorsViewer.MainWindow.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:SensorsViewer.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:SensorsViewer.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="M:SettlersEngine.PriorityQueue`1.Push(`0)">
+            <summary>
+            Push an object onto the PQ
+            </summary>
+            <param name="O">The new object</param>
+            <returns>The index in the list where the object is _now_. This will change when objects are taken from or put onto the PQ.</returns>
+        </member>
+        <member name="M:SettlersEngine.PriorityQueue`1.Pop">
+            <summary>
+            Get the smallest object and remove it.
+            </summary>
+            <returns>The smallest object</returns>
+        </member>
+        <member name="M:SettlersEngine.PriorityQueue`1.Update(`0)">
+            <summary>
+            Notify the PQ that the object at position i has changed
+            and the PQ needs to restore order.
+            </summary>
+        </member>
+        <member name="M:SettlersEngine.PriorityQueue`1.Peek">
+            <summary>
+            Get the smallest object without removing it.
+            </summary>
+            <returns>The smallest object</returns>
+        </member>
+        <member name="T:SettlersEngine.SpatialAStar`2">
+            <summary>
+            Uses about 50 MB for a 1024x1024 grid.
+            </summary>
+        </member>
+        <member name="M:SettlersEngine.SpatialAStar`2.Search(System.Windows.Point,System.Windows.Point,`1)">
+            <summary>
+            Returns null, if no path is found. Start- and End-Node are included in returned path. The user context
+            is passed to IsWalkable().
+            </summary>
+        </member>
+    </members>
+</doc>

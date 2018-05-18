@@ -115,7 +115,6 @@ C:\Users\Heitor Araujo\Documents\workspace\senai\GM\SensorsViewer\SensorsViewer\
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Home\AddProjectDialog.g.cs
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Home\HomeView.g.cs
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\MainWindow.g.cs
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\ProjectB\OpticalSensorView.g.cs
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Result\ResultView.g.cs
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\App.g.cs
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer_Content.g.cs
@@ -126,7 +125,6 @@ C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\App.bam
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Home\AddProjectDialog.baml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Home\HomeView.baml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\MainWindow.baml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\ProjectB\OpticalSensorView.baml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Resources\AppDictionary.baml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Result\ResultView.baml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer.g.resources
@@ -177,8 +175,6 @@ C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\SensorsViewer.exe
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\SensorsViewer.pdb
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\AttachedCommandBehavior.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\Cyotek.Drawing.BitmapFont.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\EntityFramework.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\EntityFramework.SqlServer.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\FontAwesome.WPF.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\GalaSoft.MvvmLight.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\GalaSoft.MvvmLight.Extras.dll
@@ -194,13 +190,8 @@ C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\RabbitMQ.Client.d
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\SharpGL.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\SharpGL.SceneGraph.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\SharpGL.WPF.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\System.Data.SQLite.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\System.Data.SQLite.EF6.dll
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\System.Data.SQLite.Linq.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\System.Windows.Interactivity.dll
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\Cyotek.Drawing.BitmapFont.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\EntityFramework.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\EntityFramework.SqlServer.xml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\FontAwesome.WPF.xml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\GalaSoft.MvvmLight.pdb
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\GalaSoft.MvvmLight.xml
@@ -228,5 +219,7 @@ C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\SharpGL.SceneGrap
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\SharpGL.SceneGraph.xml
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\SharpGL.WPF.pdb
 C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\SharpGL.WPF.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\System.Data.SQLite.xml
-C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\System.Data.SQLite.dll.config
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\SensorsViewer.csprojResolveAssemblyReference.cache
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\SensorsViewer.xml
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Chart\OpticalSensorView.g.cs
+C:\Users\heitor.araujo\source\repos\SensorViewer\SensorsViewer\obj\Debug\Chart\OpticalSensorView.baml

@@ -20,7 +20,7 @@ namespace SensorsViewer.Home
     using RabbitMQ.Client.Events;
     using SensorsViewer.Connection;
     using SensorsViewer.Home.Commands;
-    using SensorsViewer.ProjectB;
+    using SensorsViewer.Chart;
     using SensorsViewer.Result;
     using SensorsViewer.SensorOption;
     using Winforms = System.Windows.Forms;
@@ -920,11 +920,13 @@ namespace SensorsViewer.Home
                 string sensorLog = analysis.Name + "\n";           
                 string resultAnalysisLog = analysis.Name + "\n";
 
+                sensorLog += "Sensor name  X  Y  Z  Value  Timestamp  Parameter\n";
                 foreach (Sensor sensor in analysis.ProjectChartContent.OpticalSensorViewModel.SensorsLog)
                 {
-                    sensorLog += sensor.SensorName + " " + sensor.X + " " + sensor.Y + " " + sensor.Z + " " + sensor.Values[0].Value + " " + sensor.Values[0].Timestamp + "\n";
+                    sensorLog += sensor.SensorName + " " + sensor.X + " " + sensor.Y + " " + sensor.Z + " " + sensor.Values[0].Value + " " + sensor.Values[0].TimestampStr + " " + sensor.Values[0].Parameter + "\n";
                 }
 
+                resultAnalysisLog += "Sensor name  Min  Max  Integral\n";
                 foreach (Sensor sensor in analysis.ProjectChartContent.OpticalSensorViewModel.SensorList)
                 {
                     resultAnalysisLog += sensor.SensorName + " " + sensor.Min + " " + sensor.Max + " " + sensor.Integral + "\n";

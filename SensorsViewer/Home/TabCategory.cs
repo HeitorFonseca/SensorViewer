@@ -10,7 +10,7 @@ namespace SensorsViewer.Home
     using System.ComponentModel;
     using System.Windows.Controls;
     using System.Xml.Serialization;
-    using SensorsViewer.ProjectB;
+    using SensorsViewer.Chart;
     using SensorsViewer.Result;
     using SensorsViewer.SensorOption;
 

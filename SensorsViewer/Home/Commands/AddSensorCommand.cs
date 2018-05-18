@@ -10,7 +10,7 @@ namespace SensorsViewer.Home.Commands
     using System.Text;
     using System.Threading.Tasks;
     using System.Windows.Input;
-    using SensorsViewer.ProjectB;
+    using SensorsViewer.Chart;
     using SensorsViewer.Result;
     using SensorsViewer.SensorOption;
 
